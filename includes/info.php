@@ -119,22 +119,22 @@ $Sfmlm_tabs = array(
   [
     'title' => $Letters_title_01,
     'text' => $Letters_text_01,
-    'image' => ''
+    'image' => 'estrategia'
   ],
   [
     'title' => $Letters_title_02,
     'text' => $Letters_text_02,
-    'image' => ''
+    'image' => 'crecimiento'
   ],
   [
     'title' => $Letters_title_03,
     'text' => $Letters_text_03,
-    'image' => ''
+    'image' => 'comunidad'
   ],
   [
     'title' => $Letters_title_04,
     'text' => $Letters_text_04,
-    'image' => ''
+    'image' => 'resultados'
   ]
 );
 
@@ -213,6 +213,32 @@ $Sfmlm_spirit = array(
     'text' => $Spirit_text_03,
     'icon' => ''
   ],
+);
+
+$Logos = array(
+  [
+    'name' => 'EVO Global',
+    'link' => 'https://myevoglobal.com',
+    'image' => 'logo_evo.svg'
+  ],
+  [
+    'name' => 'Limitless+',
+    'image' => 'logo_limitless.svg'
+  ],
+  [
+    'name' => 'Stellum Global',
+    'link' => 'https://stellumglobal.com',
+    'image' => 'logo_stellum.svg'
+  ],
+  [
+    'name' => 'iKon',
+    'image' => 'logo_ikon.svg'
+  ],
+  [
+    'name' => 'Darevita',
+    'link' => 'https://darevita.com',
+    'image' => 'logo_darevita.svg'
+  ]
 );
 
 ?>

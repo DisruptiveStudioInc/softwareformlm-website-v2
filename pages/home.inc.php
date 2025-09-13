@@ -4,7 +4,7 @@
 
 <section class="hero-pin <?= ($Lang === 'es') ? 'med-h-auto' : 'overlay o-30'; ?>">
   <div class="anchor" id="home"></div>
-  <img src="./images/body/letters/4.webp" alt="Placeholder" class="background" />
+  <img src="./images/hero/hero.webp" alt="Software for MLM" class="background" />
 
 	<div class="section-arrows">
     <button class="arrow down"></button>
@@ -91,8 +91,8 @@
       <ul class="rel tabs-content-wrapper h-dvh t-c">
         <?php foreach($Sfmlm_tabs as $k => $item): ?>
           <li class="abs tabs-content-slide <?= ($k == 0) ? 'active' : '' ?>">
-            <div class="rel d-flex fd-col ai-center jc-center overlay o-40 h-100">
-              <img class="background" src="./images/body/letters/<?= $k+1; ?>.webp" alt="<?= $item['title']; ?>">
+            <div class="rel d-flex fd-col ai-center jc-center overlay o-50 h-100">
+              <img class="background" src="./images/body/letters/<?= $item['image']; ?>.webp" alt="<?= $item['title']; ?>">
               <h2 class="tab-content-title z-index-2 tc-acc m-0"><?= $item['title']; ?></h2>
               <p class="tab-content-text h1 fw-700 z-index-2 tc-0 m-0 t-pretty"><?= $item['text']; ?></p>
             </div>
@@ -225,35 +225,20 @@ foreach ($Modal as $item){
 			<h3 class="h3 t-c"><?php echo $Envolvers_title; ?></h3>
 		</div>
 
-	<?php
-	$Logos = array(
-		array('1','Gricelda Sánchez',$Testimonial_01),
-	    array('2','Isaac Motola',$Testimonial_02),
-	    array('3','Laura Cioccia',$Testimonial_03),
-	    array('4','Tania Moya',$Testimonial_04),
-	    array('5','Carlos Santoyo',$Testimonial_05),
-	    array('6','Ulises Guzmán',$Testimonial_06),
-	    array('7','Eduardo Rodríguez',$Testimonial_07),
-	    array('8','Lytzi Rodríguez',$Testimonial_08),
-	    array('9','Kevin Zambrano',$Testimonial_09),
-	    array('10','Ashgan Mohamed',$Testimonial_10)
-	);
-	?>
-
 	<ul class="people">
-		<?php
-		foreach ($Logos as $item){
-			echo "
-			<li class='item item{$item[0]}'>
-				<img src='./images/body/evolvers/{$item[0]}.webp' alt='{$item[1]}'>
-
-					<h5>{$item[1]}</h5>
-					<p>{$item[2]}</p>
-
-			</li>
-			";
-		}
-		?>
+		<?php foreach ($Logos as $k => $item): ?>
+    <li class="item item<?= $k +1; ?>">
+      <?php if(isset($item['link'])): ?>
+        <a class="wrap-logo d-block" href="<?= $item['link']; ?>" target="_blank" rel="noopener noreferrer">
+          <img class="m-0" src="./images/body/evolvers/<?= $item['image']; ?>" alt="<?= $item['name']; ?>">
+        </a>
+      <?php else: ?>
+        <span class="wrap-logo d-block">
+          <img class="m-0" src="./images/body/evolvers/<?= $item['image']; ?>" alt="<?= $item['name']; ?>">
+        </span>
+      <?php endif; ?>
+    </li>
+    <?php endforeach; ?>
 	</ul>
 
 	<?php
@@ -271,6 +256,7 @@ foreach ($Modal as $item){
 	);
 	?>
 
+  <?php if(false): ?>
 	<ul class="people alreves">
 		<?php
 		foreach ($Logos_izquierda as $item){
@@ -286,6 +272,7 @@ foreach ($Modal as $item){
 		}
 		?>
 	</ul>
+  <?php endif; ?>
 	</div>
 </section>
 

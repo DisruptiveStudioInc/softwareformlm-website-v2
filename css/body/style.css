@@ -1634,9 +1634,9 @@ a {
 }
 
 :root {
-  --cantidad: 10;
-  --altura: 300px;
-  --ancho: 200px;
+  --cantidad: 5;
+  --altura: 220px;
+  --ancho: 410px;
 }
 
 .people {
@@ -1644,27 +1644,34 @@ a {
   gap: 30px;
 }
 
-.people li img {
+@media only screen and (max-width: 767px) {
+  .people {
+    --ancho: 205px;
+    --altura: 110px;
+  }
+}
+
+.people-d li img {
   object-fit: cover;
   max-width: 100px;
   border-radius: 50%;
   margin-bottom: 20px;
 }
 
-.people li {
+.people-d li {
   perspective: 1000px; /* Necesario para el efecto 3D */
 }
 
-.item img {
+.item-d img {
   transition: transform 0.6s ease;
   transform-style: preserve-3d;
 }
 
-.item:hover img {
+.item-d:hover img {
   transform: rotateY(180deg);
 }
 
-.item :is(h5, p) {
+.item-d :is(h5, p) {
   margin: 0;
 }
 
@@ -1672,13 +1679,13 @@ a {
   animation-play-state: paused;
 }*/
 
-.item p {
+.item-d p {
   color: var(--color-gray-50);
   transition: color 350ms ease;
   font-size: 0.8rem;
 }
 
-.item:hover p {
+.item-d:hover p {
   color: var(--color-gray-200);
   cursor: default;
 }
