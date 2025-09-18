@@ -45,14 +45,14 @@
 	</div>
 
 	<div class="anchor" id="sfmlm"></div>
-	<div class="mw-1440 jc-center ai-center h-100 med-h-0 small-pt-40 small-pb-40">
+	<div class="mw-1440 jc-center ai-center min-h-dvh med-h-0 small-pt-40 small-pb-40">
 		<div class="t-c">
 			<h2 class="h1-special first mb-50 small-mb-30"><?= $Journey_title; ?></h2>
 			<ul class="journey-container col-2 g-40 med-g-20 m-center">
         <?php foreach($Sfmlm_about as $item): ?>
           <li class="journey-item c-surf-400 br-16 p-40 med-p-20 pt-0 med-pt-0 t-c">
             <div class="icon-journey c-acc br-50 d-flex ai-center jc-center">
-              t
+              <svg class="w-70" style="height:auto;aspect-ratio:1"><use href="#<?= $item['icon']; ?>" /></svg>
             </div>
             <h3 class="h4"><?= $item['title']; ?></h3>
             <p class="t-pretty"><?= $item['text']; ?></p>
@@ -166,7 +166,6 @@ foreach ($Modal as $item){
 	<h2 class='h2 tc-pri t-c med-t-l'>{$item['title']}</h2>
 	<p class='h5'>{$item['sub']}</p>
 	<p>{$item['text']}</p>
-  <p class='fw-700 h3'>{$item['price']}</p>
 	</div>
 	</div>
 	";
@@ -228,15 +227,9 @@ foreach ($Modal as $item){
 	<ul class="people">
 		<?php foreach ($Logos as $k => $item): ?>
     <li class="item item<?= $k +1; ?>">
-      <?php if(isset($item['link'])): ?>
-        <a class="wrap-logo d-block" href="<?= $item['link']; ?>" target="_blank" rel="noopener noreferrer">
-          <img class="m-0" src="./images/body/evolvers/<?= $item['image']; ?>" alt="<?= $item['name']; ?>">
-        </a>
-      <?php else: ?>
-        <span class="wrap-logo d-block">
-          <img class="m-0" src="./images/body/evolvers/<?= $item['image']; ?>" alt="<?= $item['name']; ?>">
-        </span>
-      <?php endif; ?>
+      <span class="wrap-logo d-block">
+        <img class="m-0" src="./images/body/evolvers/<?= $item['image']; ?>" alt="<?= $item['name']; ?>">
+      </span>
     </li>
     <?php endforeach; ?>
 	</ul>
@@ -288,9 +281,9 @@ foreach ($Modal as $item){
 	</div>
 
   <ul>
-    <?php foreach($Big_texts as $k => $item): ?>
+    <?php foreach($Big_texts as $item): ?>
       <li class="truth-item rel t-c of-h">
-        <img class="truth-image" src="./images/body/truth/<?= $k+1; ?>.webp" alt="<?= $item['title']; ?>">
+        <img class="truth-image" src="./images/body/truth/<?= $item['image']; ?>.webp" alt="<?= $item['title']; ?>">
         <div class="truth-content small-p-20 small-pt-40 small-pb-40">
           <h2 class="truth-title m-0"><?= $item['title']; ?></h2>
           <p class="truth-text h4 m-0 t-pretty"><?= $item['text']; ?></p>
@@ -324,7 +317,9 @@ foreach ($Modal as $item){
       <ul class="d-flex fd-col g-40">
         <?php foreach($Sfmlm_spirit as $item): ?>
           <li class="spirit-container br-16 c-surf-400 rel">
-            <div class="spirit-icon abs c-acc tc-0 p-10 br-50 d-flex ai-center jc-center">t</div>
+            <div class="spirit-icon abs c-acc tc-0 p-10 br-50 d-flex ai-center jc-center">
+              <svg class="w-90" style="height:auto;aspect-ratio:1"><use href="#<?= $item['icon']; ?>" /></svg>
+            </div>
             <h3 class="h4 mt-0"><?= $item['title']; ?></h3>
             <p class="mb-0 t-pretty"><?= $item['text']; ?></p>
           </li>

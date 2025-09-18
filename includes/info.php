@@ -96,22 +96,22 @@ $Sfmlm_about = array(
   [
     'title' => $Journey_title_1,
     'text' => $Journey_text_1,
-    'icon' => $a
+    'icon' => 'backoffice'
   ],
   [
     'title' => $Journey_title_2,
     'text' => $Journey_text_2,
-    'icon' => $a
+    'icon' => 'ecommerce'
   ],
   [
     'title' => $Journey_title_3,
     'text' => $Journey_text_3,
-    'icon' => $a
+    'icon' => 'elearning'
   ],
   [
     'title' => $Journey_title_4,
     'text' => $Journey_text_4,
-    'icon' => $a
+    'icon' => 'cryptopay'
   ]
 );
 
@@ -178,22 +178,22 @@ $Big_texts = array(
   [
     'title' => $Truth_title_01,
     'text' => $Truth_text_01,
-    'image' => ''
+    'image' => 'leadership'
   ],
   [
     'title' => $Truth_title_02,
     'text' => $Truth_text_02,
-    'image' => ''
+    'image' => 'unlimited'
   ],
   [
     'title' => $Truth_title_03,
     'text' => $Truth_text_03,
-    'image' => ''
+    'image' => 'innovation'
   ],
   [
     'title' => $Truth_title_04,
     'text' => $Truth_text_04,
-    'image' => ''
+    'image' => 'results'
   ],
 );
 
@@ -201,24 +201,23 @@ $Sfmlm_spirit = array(
   [
     'title' => $Spirit_title_01,
     'text' => $Spirit_text_01,
-    'icon' => ''
+    'icon' => 'strategist'
   ],
   [
     'title' => $Spirit_title_02,
     'text' => $Spirit_text_02,
-    'icon' => ''
+    'icon' => 'build'
   ],
   [
     'title' => $Spirit_title_03,
     'text' => $Spirit_text_03,
-    'icon' => ''
+    'icon' => 'leader'
   ],
 );
 
 $Logos = array(
   [
     'name' => 'EVO Global',
-    'link' => 'https://myevoglobal.com',
     'image' => 'logo_evo.svg'
   ],
   [
@@ -226,9 +225,8 @@ $Logos = array(
     'image' => 'logo_limitless.svg'
   ],
   [
-    'name' => 'Stellum Global',
-    'link' => 'https://stellumglobal.com',
-    'image' => 'logo_stellum.svg'
+    'name' => 'Corpsyte',
+    'image' => 'logo_corpsyte.svg'
   ],
   [
     'name' => 'iKon',
@@ -236,7 +234,6 @@ $Logos = array(
   ],
   [
     'name' => 'Darevita',
-    'link' => 'https://darevita.com',
     'image' => 'logo_darevita.svg'
   ]
 );
