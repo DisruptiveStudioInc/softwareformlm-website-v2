@@ -10,3 +10,4 @@ services:
     networks:
     - sfmlm-network
 networks:
+  sfmlm-network:
