@@ -1,0 +1,12 @@
+services:
+  sfmlm-website:
+    image: trafex/php-nginx
+    container_name: sfmlm-website
+    restart: unless-stopped
+    volumes:
+    - $PWD:/var/www/html
+    ports:
+    - "9020:8080"
+    networks:
+    - sfmlm-network
+networks:
