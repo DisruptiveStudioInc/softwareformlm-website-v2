@@ -1,7 +1,7 @@
 <section class="c-surf-300">
   <div class="mw-1080 fd-col g-40 mt-50">
 
-    <h1 class="h1 fw-700 tc-gray-200 t-c"><?= $Footer_link_03; ?></h1>
+    <h1 class="h1 fw-700 tc-gray-200 t-c"><?= $Footer_link_02; ?></h1>
 
     <section class="mb-8 lg:mb-16 last:mb-0">
       <p class="mb-10"><?= $Privacy1; ?></p>
