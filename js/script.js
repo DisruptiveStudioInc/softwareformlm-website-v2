@@ -15,6 +15,7 @@ window.addEventListener("load", () => {
   const preloader = document.getElementById("preloader");
   const heroVideo = document.getElementById("video");
   const heroBtnSound = document.getElementById("video-sound");
+  console.table({ heroVideo, heroBtnSound });
 
   let index = 0;
   let interval = setInterval(() => {

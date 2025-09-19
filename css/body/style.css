@@ -7,14 +7,14 @@
   font-style: normal;
   font-weight: 400;
   src: local("Axiforma-regular"),
-    url("./../fonts/Axiforma-regular.woff2") format("woff2");
+    url("../../fonts/Axiforma-regular.woff2") format("woff2");
 }
 @font-face {
   font-family: "Axiforma";
   font-style: normal;
   font-weight: 700;
   src: local("Axiforma-bold"),
-    url("./../fonts/Axiforma-bold.woff2") format("woff2");
+    url("../../fonts/Axiforma-bold.woff2") format("woff2");
 }
 
 :root {
@@ -996,7 +996,7 @@ a {
 }
 .tab-content-text {
   max-width: 30ch;
-  margin-top: -2ch;
+  margin-top: -1.8ch;
   @media only screen and (max-width: 767px) {
     margin-top: 0;
   }
