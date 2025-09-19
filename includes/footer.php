@@ -51,7 +51,7 @@
 <!-- ============================================== -->
 
 <script src="./js/lozad.min.js"></script>
-<script src="./js/script.js"></script>
+<script src="./js/script-v2.js"></script>
 <script src="./js/slider_tabs.js"></script>
 
 </body>
