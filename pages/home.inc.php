@@ -18,17 +18,17 @@
   <?php endif; ?>
 
   <?php if($Lang === 'es'): ?>
-    <div class="dh med-h-auto of-h rel">
+    <div class="dh of-h rel">
 
       <div class="video-iframe-wrapper">
-        <video class="d-block" id="video" muted loop disablepictureinpicture controlslist="nofullscreen nodownload" >
-          <source src="./video/sfmlm_V6_es.webm" type="video/webm" />
-        </video>
-      </div>
+        <iframe
+			    src="https://player.vimeo.com/video/<?php echo $Video_vimeo; ?>?background=1&autoplay=1&muted=1&loop=1"
+			    frameborder="0"
+			    allow="autoplay; fullscreen; picture-in-picture"
+			    title="Disruptive Studio">
+		    </iframe>
+	    </div>
 
-      <button id="video-sound" class="btn-sound abs br-50 d-flex ai-center jc-center p-5">
-        <?php include('./includes/iconSound.php') ?>
-      </button>
     </div>
   <?php endif; ?>
 </section>
@@ -348,6 +348,7 @@ foreach ($Modal as $item){
 	</div>
 </section>
 
+<script src="https://player.vimeo.com/api/player.js"></script>
 <script>
 
 /* ==============================================
@@ -389,26 +390,16 @@ window.onclick = function(event) {
     });
 };
 
+/* ============================================== */
+/* VIDEO HERO */
+/* ============================================== */
+
 document.addEventListener("DOMContentLoaded", function () {
+  const iframe = document.querySelector('.video-iframe-wrapper iframe');
+  const player = new Vimeo.Player(iframe);
+});
 
-    /* ============================================== */
-    /* VIDEO HERO */
-    /* ============================================== */
-
-    const video = document.getElementById('video')
-    const btnSound = document.getElementById('video-sound')
-
-    if(video && btnSound){
-      btnSound.addEventListener('click', () => {
-        if(video.muted){
-          video.muted = false;
-          btnSound.classList.add('active');
-        } else {
-          video.muted = true;
-          btnSound.classList.remove('active');
-        }
-      })
-    }
+document.addEventListener("DOMContentLoaded", function () {
 
     /* ==============================================
        SCROLL-MAGIC SOLO DESKTOP

@@ -13,9 +13,6 @@ window.addEventListener("load", () => {
   const progress = document.getElementById("progress");
   const data = document.getElementById("data");
   const preloader = document.getElementById("preloader");
-  const heroVideo = document.getElementById("video");
-  const heroBtnSound = document.getElementById("video-sound");
-  console.table({ heroVideo, heroBtnSound });
 
   let index = 0;
   let interval = setInterval(() => {
@@ -23,13 +20,6 @@ window.addEventListener("load", () => {
       clearInterval(interval);
       setTimeout(() => {
         preloader.classList.add("hidden"); // Activa el fade out con CSS
-        if (heroVideo && heroBtnSound) {
-          console.log("here in after laod");
-          heroVideo.autoplay = true;
-          heroVideo.play().catch((e) => console.error("Autoplay failed"));
-          heroVideo.muted = false;
-          heroBtnSound.classList.add("active");
-        }
         setTimeout(() => {
           preloader.style.display = "none"; // Oculta completamente después del fade
         }, 200);
