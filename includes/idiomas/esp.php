@@ -1,7 +1,7 @@
 <?php
 
-$Description = "EVO Global es un ecosistema diseñado para transformar la manera en que las personas aprenden, crecen y se conectan. A través de educación avanzada, trading en tiempo real y una comunidad exclusiva, brindamos acceso a herramientas, conocimientos y experiencias que antes estaban reservadas para unos pocos. Nuestro modelo integra formación práctica, oportunidades de negocio y vivencias premium como viajes, eventos globales y beneficios de alto nivel, creando un entorno donde cada paso impulsa tu evolución personal, profesional y financiera. Con EVO, el conocimiento se convierte en acción y la acción en resultados medibles, en una red global que abre puertas, conecta ideas y convierte la visión en realidad.";
-$Keywords = "evolución, educación, crecimiento, comunidad, exclusividad, liderazgo, trading, negocios, conocimiento, transformación, bienestar, membresía, éxito, innovación, aprendizaje, oportunidades, libertad, visión, experiencias, conexión";
+$Description = "Servicios tecnológicos especializados para compañías MLM.";
+$Keywords = "negocias, mlm, software, software mlm, redes multinivel, crecimiento de redes, plataforma para multinivel, e-commerce, e-learning, pagos crypto, escalabilidad, asesoría mlm";
 $Lang = "es";
 
     //-------------------------//
