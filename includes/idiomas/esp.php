@@ -55,8 +55,8 @@ $Journey_text_2 = "Vende productos digitales y físicos con integración logíst
 $Journey_title_3 = "E-learning";
 $Journey_text_3 = "Capacita a tu red con cursos personalizados y accesibles siempre.";
 
-$Journey_title_4 = "Pagos Crypto";
-$Journey_text_4 = "Acepta pagos híbridos: tradicionales y criptomonedas con seguridad avanzada.";
+$Journey_title_4 = "Procesamiento de pagos";
+$Journey_text_4 = "Pagos con tarjeta, transferencia, efectivo y crypto.";
 
     //-------------------------//
     // Letters

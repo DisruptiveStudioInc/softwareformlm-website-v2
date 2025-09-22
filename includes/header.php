@@ -128,7 +128,7 @@
 
             <div class="d-none med-d-block mt-20">
               <div class="mb-10">
-                <a href="<?php echo $Demo; ?>" target="_blank" class="btn c-surf br-8 w-100"><?php echo $Menu_demo; ?></a>
+                <a href="<?php echo $Demo; ?>" target="_blank" class="btn c-surf br-8 w-100 d-none"><?php echo $Menu_demo; ?></a>
               </div>
               <div>
                 <a href="<?php echo $Wame ?>" target="_blank" class="btn c-acc br-8 w-100" style="gap:8px;">
@@ -142,7 +142,7 @@
 
         <div class="jc-center ai-center">
           <div class="btns m-0 g-10 med-d-none">
-            <a href='<?php echo $Demo; ?>' target="_blank" class="btn c-surf br-8"><?php echo $Menu_demo; ?></a>
+            <a href='<?php echo $Demo; ?>' target="_blank" class="btn c-surf br-8 d-none"><?php echo $Menu_demo; ?></a>
             <a href='<?php echo $Wame; ?>' target="_blank" class="btn c-acc br-8" style="gap:8px;">
               <?php echo $Menu_contact; ?>
               <?php include 'iconWhatsapp.php'; ?>

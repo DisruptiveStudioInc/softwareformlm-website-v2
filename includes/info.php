@@ -34,7 +34,8 @@ $Footer_Rights  = $Company_Name."© ".date("Y").". All rights reserved";
 //-------------------------//
 
 $Wame    = "https://wa.me/14088584504";
-$Demo    = "https://demo.softwareformlm.com/";
+// $Demo    = "https://demo.softwareformlm.com/";
+$Demo    = "https://wa.me/14088584504";
 
 // ---------------------------
 // Armar bloque HTML dinámico

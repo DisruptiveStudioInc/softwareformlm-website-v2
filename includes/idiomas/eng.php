@@ -55,8 +55,8 @@ $Journey_text_2 = "Sell digital and physical products with secure global logisti
 $Journey_title_3 = "E-learning";
 $Journey_text_3 = "Train your network with personalized courses, always accessible.";
 
-$Journey_title_4 = "Crypto Payments";
-$Journey_text_4 = "Accept hybrid payments: traditional and cryptocurrencies with advanced security.";
+$Journey_title_4 = "Payment processing";
+$Journey_text_4 = "Payments with card, transfer, cash, and crypto.";
 
     //-------------------------//
     // Letters

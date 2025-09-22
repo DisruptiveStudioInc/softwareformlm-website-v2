@@ -8,7 +8,7 @@
 		$_SESSION['user_replica'] = $user_replica;
 	}
 
-  $Maintenance = false;
+  $Maintenance = true;
   $pages_dir = 'pages';
 
   if($Maintenance){
