@@ -12,12 +12,11 @@ pool:
 steps:
 - task: SSH@0
   inputs:
-    sshEndpoint: 'creative-ovh'
+    sshEndpoint: 'creative-staging'
     runOptions: 'inline'
     inline: |
       cd /var/www/$(Build.Repository.Name)
       sudo git reset --hard
       sudo git pull
-      docker restart sfmlm-website
     readyTimeout: '20000'
   continueOnError: true
