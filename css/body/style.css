@@ -1616,40 +1616,33 @@ a {
   width: 50px; /* Tamaño del botón */
   height: 50px;
   border-radius: 50%;
-  background: var(--color-pri);
+  background: white;
+  color: var(--color-acc-alt);
   border: none;
   cursor: pointer;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.3s;
+  transition: background 0.3s, color 0.3s;
   padding: 0; /* Eliminamos padding extra */
+  &::before {
+    display: none;
+  }
 }
 
 /* Imagen centrada dentro del botón */
-.section-arrows .arrow::before {
-  content: "";
-  width: 50px;
-  height: 50px;
+.section-arrows .arrow svg {
+  width: 40px;
+  height: 40px;
   display: block;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-/* Asignación de imágenes */
-.section-arrows .arrow.down::before {
-  background-image: url("./../../images/icons/body/down.svg");
-}
-
-.section-arrows .arrow.up::before {
-  background-image: url("./../../images/icons/body/up.svg");
+  transition: fill 0.3s;
 }
 
 /* Hover */
 .section-arrows .arrow:hover {
   background: var(--color-acc);
+  color: white;
 }
 
 /* Responsive */

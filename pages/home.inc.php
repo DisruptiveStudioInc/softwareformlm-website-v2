@@ -2,20 +2,22 @@
 <!-- HERO -->
 <!-- ============================================== -->
 
-<section class="hero-pin overlay o-30 <?= ($Lang === 'es') ? 'med-h-auto' : ''; ?>">
+<section class="hero-pin overlay o-30 <?= (false) ? 'med-h-auto' : ''; ?>">
   <div class="anchor" id="home"></div>
   <img src="./images/hero/hero.webp" alt="Software for MLM" class="background" />
 
 	<div class="section-arrows">
-    <button class="arrow down"></button>
+    <button class="arrow down">
+      <svg><use href="#arrow-down"/></svg>
+    </button>
 	</div>
 
-  <div class="text-hero t-c hero-text tc-0 <?= ($Lang === 'en') ? '' : 'd-none med-d-block' ?>">
+  <div class="text-hero t-c hero-text tc-0 <?= (true) ? '' : 'd-none med-d-block' ?>">
     <h1 class="h1-special first"><?= $Hero_01; ?></h1>
     <p class="h2 m-center"><?= $Hero_02; ?></p>
   </div>
 
-  <?php if($Lang === 'es'): ?>
+  <?php if(false): ?>
     <div class="dh of-h rel">
       <div class="video-iframe-wrapper med-d-none">
         <iframe
@@ -37,10 +39,7 @@
 
 <section>
 
-	<div class="section-arrows">
-    <button class="arrow up"></button>
-    <button class="arrow down"></button>
-	</div>
+	<?php include('./includes/sections/arrows_lat.php'); ?>
 
 	<div class="anchor" id="sfmlm"></div>
 	<div class="mw-1440 jc-center ai-center min-h-dvh med-h-0 small-pt-40 small-pb-40">
@@ -108,10 +107,7 @@
 
 <section>
 
-	<div class="section-arrows">
-	    <button class="arrow up"></button>
-	    <button class="arrow down"></button>
-	</div>
+	<?php include('./includes/sections/arrows_lat.php'); ?>
 
 	<div class="mw-1440 t-c h-100 med-h-0 d-flex fd-col jc-center g-40 small-g-20 small-pt-40 small-pb-40">
 		<h2 class="h1-special"><?= $Vision_text; ?></h2>
@@ -135,10 +131,7 @@
 <!-- ============================================== -->
 
 <section class="c-grad-2-4">
-	<div class="section-arrows">
-	    <button class="arrow up"></button>
-	    <button class="arrow down"></button>
-	</div>
+	<?php include('./includes/sections/arrows_lat.php'); ?>
 
 	<div class="mw-1280 t-c h-100 med-h-0 jc-center fd-col small-pt-40 small-pb-40">
 		<h2 class="h1"><?= $Slogan_title; ?></h2>
@@ -217,10 +210,7 @@
 
 <section class="">
 
-	<div class="section-arrows">
-	    <button class="arrow up"></button>
-	    <button class="arrow down"></button>
-	</div>
+	<?php include('./includes/sections/arrows_lat.php'); ?>
 
   <h2 class="h1 tc-acc t-c mb-40"><?= $Truth_title ?></h2>
 
@@ -246,10 +236,7 @@
 
 <section>
 
-	<div class="section-arrows">
-	    <button class="arrow up"></button>
-	    <button class="arrow down"></button>
-	</div>
+	<?php include('./includes/sections/arrows_lat.php'); ?>
 
 	<div class="spirit-wrap d-flex med-fd-col min-h-dvh">
 		<div class="spirit-banner rel w-50 med-w-100">
@@ -283,7 +270,9 @@
 <section class="c-grad-1-4">
 
 	<div class="section-arrows">
-	    <button class="arrow up"></button>
+    <button class="arrow up">
+      <svg><use href="#arrow-up"/></svg>
+    </button>
 	</div>
 
 	<div class="mw-1280 t-c big">

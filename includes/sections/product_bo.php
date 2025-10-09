@@ -5,10 +5,7 @@
     <div class="anchor" id="plans"></div>
     <div class="product-timeline-wrap min-h-dvh med-fd-col content-scroll jc-center ai-center rel">
 
-      <div class="section-arrows">
-        <button class="arrow up"></button>
-        <button class="arrow down"></button>
-      </div>
+      <?php include('./includes/sections/arrows_lat.php'); ?>
 
       <img class="background" src="./images/body/subpage/bg_basic.webp" alt="<?= $link_01; ?> background">
 
