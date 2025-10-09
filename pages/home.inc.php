@@ -4,7 +4,7 @@
 
 <section class="hero-pin overlay o-30 <?= (false) ? 'med-h-auto' : ''; ?>">
   <div class="anchor" id="home"></div>
-  <img src="./images/hero/hero.webp" alt="Software for MLM" class="background" />
+  <img src="./images/hero/hero2.webp" alt="Software for MLM" class="background" />
 
 	<div class="section-arrows">
     <button class="arrow down">
