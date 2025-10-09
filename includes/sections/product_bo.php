@@ -2,7 +2,6 @@
 
 	<div class="of-h">
 
-    <div class="anchor" id="plans"></div>
     <div class="product-timeline-wrap min-h-dvh med-fd-col content-scroll jc-center ai-center rel">
 
       <?php include('./includes/sections/arrows_lat.php'); ?>

@@ -45,6 +45,7 @@ $Hero_02 = "The software your network needs to grow";
     //-------------------------//
 
 $Journey_title = "Your network, <span class='tc-acc'>your growth</span>";
+$Journey_text = "Turn your idea into a global network: the fastest solution to create and grow your referral or network marketing system.";
 
 $Journey_title_1 = "Backoffice";
 $Journey_text_1 = "Full control of your network, sales, and commissions in real time.";
@@ -53,41 +54,46 @@ $Journey_title_2 = "E-commerce";
 $Journey_text_2 = "Sell digital and physical products with secure global logistics integration.";
 
 $Journey_title_3 = "E-learning";
-$Journey_text_3 = "Train your network with personalized courses, always accessible.";
+$Journey_text_3 = "Train your network with personalized courses that are always accessible.";
 
 $Journey_title_4 = "Payment processing";
-$Journey_text_4 = "Payments with card, transfer, cash, and crypto.";
+$Journey_text_4 = "Payments via card, transfer, cash, and crypto.";
 
     //-------------------------//
     // Letters
     //-------------------------//
 
-$Letters_title_01 = "Strategy";
-$Letters_text_01 = "Plan, organize, and lead your network.";
+$Letters_title_01 = "Design and scale";
+$Letters_text_01 = "Create smart compensation plans that motivate your network and allow unlimited growth.";
 
-$Letters_title_02 = "Growth";
-$Letters_text_02 = "Scale operations with advanced flexible technology.";
+$Letters_title_02 = "Connect and strengthen";
+$Letters_text_02 = "Provide each representative with their virtual office featuring internal messaging and smooth communication.";
 
-$Letters_title_03 = "Community";
-$Letters_text_03 = "Connect leaders, share vision and results.";
+$Letters_title_03 = "Launch and manage";
+$Letters_text_03 = "Set up products, bonuses, and ranks in minutes, without depending on developers.";
 
-$Letters_title_04 = "Results";
-$Letters_text_04 = "Monitor sales, commissions, and global expansion.";
+$Letters_title_04 = "Collect and decide";
+$Letters_text_04 = "Ensure immediate and reliable payments while managing everything with real-time reports and statistics.";
+
+$Letters_big_text = "Boost your company's growth with S4MLM";
 
     //-------------------------//
     // Vision
     //-------------------------//
 
-$Vision_text = "Absolute power for your growth";
+$Vision_text = "Turn your project into a profitable network";
 
-$Vision_title_01 = "Management";
-$Vision_text_01 = "Manage your network with full control.";
+$Vision_title_01 = "Unilevel";
+$Vision_text_01 = "Configure your unilevel for as many levels and percentages as you wish. You can also adjust the percentage for each user plan when referring new clients, as well as the number of levels each user can have according to their plan.";
 
-$Vision_title_02 = "Scalability";
-$Vision_text_02 = "Unlimited growth with customizable modules.";
+$Vision_title_02 = "Binary";
+$Vision_text_02 = "Adjust the percentage and limits of the binary. The administrator can set the percentage for each plan, as well as daily, weekly, or monthly limits for each compensation.";
 
-$Vision_title_03 = "Innovation";
-$Vision_text_03 = "Flexible technology for payments and expansion.";
+$Vision_title_03 = "Forced matrix";
+$Vision_text_03 = "Each time someone joins the binary, the administrator can choose the percentage that each user can earn with each new enrollment. It also determines how many deep levels each compensation plan can earn.";
+
+$Vision_title_04 = "Daily payment / shared earnings";
+$Vision_text_04 = "Set up each user's payment according to their plan or membership. The payment is distributed among all qualified users, and the administrator receives a general report.";
 
     //-------------------------//
     // Slogan
@@ -100,22 +106,8 @@ $Slogan_text = "+100 networks professionalized. +50,000 transactions managed in 
     // Products
     //-------------------------//
 
-$Product_section_title = "Enterprise Product";
-
-$Products_title_01 = "Basic";
-$Products_01 = "License and Unilevel +4 Modules";
-$Products_text_01 = "The ideal start for your multilevel operation. Basic gives you the license and 4 essential modules to manage affiliates, sales, and payments with control and structure. Designed for those who want to start professionally and lay solid foundations to grow with confidence.";
-$Products_price_01 = "$4,500";
-
-$Products_title_02 = "Advanced";
-$Products_02 = "License and Unilevel +11 Modules";
-$Products_text_02 = "The perfect option for expanding networks. Advanced includes a license and 11 modules that make it easier to manage affiliates, sales, and commissions with greater control and efficiency. Ideal for those who need more tools and want to take their operation to the next level.";
-$Products_price_02 = "$7,000";
-
-$Products_title_03 = "Premium";
-$Products_03 = "License and Unilevel +18 Modules";
-$Products_text_03 = "The highest level of control and scalability. Premium provides a license and 18 complete modules that optimize every process of your multilevel network. Designed for those who want to professionalize their operation with all the features needed to grow without limits.";
-$Products_price_03 = "$9,500";
+$Product_title = "Full customization for your project";
+$Product_text = "Our plans adapt to your vision and scale with you, with secure support from certified servers.";
 
     //-------------------------//
     // Envolvers
@@ -149,34 +141,34 @@ $Testimonial_20 = 'Thanks to EVO today I make $15,000 monthly and every obstacle
     // Truth
     //-------------------------//
 
-$Truth_title = "Donde la visión se convierte en acción y la acción, en evolución.";
+$Truth_title = "Enterprise Product";
 
-$Truth_title_01 = "Leadership";
-$Truth_text_01 = "Guide, control, and transform your network.";
+$Truth_title_01 = "Basic";
+$Truth_text_01 = "License + Unilevel + 4 modules";
+$Truth_text2_01 = "The ideal foundation to start your multilevel operation with control and structure.";
 
-$Truth_title_02 = "Scalability";
-$Truth_text_02 = "Unlimited growth with integrated modules.";
+$Truth_title_02 = "Advanced";
+$Truth_text_02 = "License + Unilevel + 11 modules";
+$Truth_text2_02 = "More tools and efficiency for expanding networks.";
 
-$Truth_title_03 = "Innovation";
-$Truth_text_03 = "Digital transformation with real impact.";
-
-$Truth_title_04 = "Results";
-$Truth_text_04 = "Sales, commissions, and expansion guaranteed.";
+$Truth_title_03 = "Premium";
+$Truth_text_03 = "License + Unilevel + 18 modules";
+$Truth_text2_03 = "Total control and unlimited scalability for professional management.";
 
     //-------------------------//
     // Spirit
     //-------------------------//
 
-$Spirit_title = "Software4MLM Impulse";
+$Spirit_title = "Your program, under absolute control";
 
-$Spirit_title_01 = "Strategists";
-$Spirit_text_01 = "We turn your vision into clear plans that take your network to the next level.";
+$Spirit_title_01 = "High performance";
+$Spirit_text_01 = "Our exclusive system supports over <span class='fw-700'>60 million users and millions of monthly transactions</span>, guaranteeing scalable and unlimited performance for your network.";
 
-$Spirit_title_02 = "Builders";
-$Spirit_text_02 = "We create comprehensive platforms that support the global growth of your business.";
+$Spirit_title_02 = "Immediate deployment";
+$Spirit_text_02 = "Launch your business in record time with a <span class='fw-700'>team of experts</span>, preconfigured business rules, and ready-to-use reports and dashboards.";
 
-$Spirit_title_03 = "Leaders";
-$Spirit_text_03 = "We provide you with vision, technology, and support to grow without limits.";
+$Spirit_title_03 = "Leading security";
+$Spirit_text_03 = "Enterprise-level protection with <span class='fw-700'>advanced data encryption, application security, and physical safeguarding</span>, ensuring complete confidence in every operation.";
 
     //-------------------------//
     // Traits

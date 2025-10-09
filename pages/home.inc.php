@@ -135,7 +135,7 @@
 
 	<div class="mw-1280 t-c h-100 med-h-0 jc-center fd-col small-pt-40 small-pb-40">
 		<h2 class="h1"><?= $Slogan_title; ?></h2>
-		<p class="slogan-text h4 m-center">“<?= $Slogan_text; ?>”</p>
+		<p class="slogan-text h4 m-center"><?= $Slogan_text; ?></p>
 		<a href="<?= $Demo; ?>" target="_blank" class="btn big c-acc br-8 mt-60 small-mt-30" style="gap:8px">
       <?= $Btn_live; ?>
        <?php include './includes/iconArrow.php'; ?>
@@ -210,6 +210,7 @@
 
 <section class="">
 
+  <div class="anchor" id="plans"></div>
 	<?php include('./includes/sections/arrows_lat.php'); ?>
 
   <h2 class="h1 tc-acc t-c mb-40"><?= $Truth_title ?></h2>
