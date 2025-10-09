@@ -169,6 +169,10 @@
   color: var(--color-gray-200);
 }
 
+.max-w-1080 {
+  max-width: 1080px;
+}
+
 body {
   background-color: var(--color-surf-200);
   color: var(--color-gray-100);
@@ -294,6 +298,12 @@ a {
 }
 .btn.link::before {
   background: var(--color-60);
+}
+
+@media only screen and (max-width: 1080px) {
+  .med-w-100 {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -580,25 +590,39 @@ a {
   min-height: 220px;
   transition-property: background-color, color;
   transition: 200ms ease;
-  @media only screen and (max-width: 767px) {
+  .h4 {
+    transition-property: opacity;
+    transition: inherit;
+  }
+  @media only screen and (max-width: 1080px) {
     min-height: 0;
-    &:nth-child(2) {
+    &:nth-child(even) {
       background-color: #fcfcfc;
     }
   }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1081px) {
   .vision-text-wrap {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    padding-inline: 20px;
+    transform: translateY(-50%);
     grid-template-rows: 0fr;
     transition: grid-template-rows 300ms ease-out;
   }
   .vision-item:hover {
     background-color: var(--color-acc);
-    color: white;
 
     .vision-text-wrap {
+      color: white;
       grid-template-rows: 1fr;
+    }
+
+    .h4 {
+      opacity: 0.1;
     }
   }
 }
@@ -822,6 +846,31 @@ a {
 }
 
 /* ============================================== */
+/* PRODUCT BO */
+/* ============================================== */
+
+.product-content-wrap {
+  padding-left: 4rem;
+  @media only screen and (max-width: 1080px) {
+    padding-left: 0;
+    text-align: center;
+  }
+}
+
+.btn-plus-bo {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1.5);
+  opacity: 0;
+  transition-property: opacity, transform;
+  transition: 250ms linear;
+}
+.product-bo-screen:hover + .btn-plus-bo {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* ============================================== */
 /* SPIRIT */
 /* ============================================== */
 
@@ -864,10 +913,6 @@ a {
   overflow: hidden;
   margin: 0;
   padding: 0;
-  @media only screen and (max-width: 1080px) {
-    height: auto;
-    aspect-ratio: 16/9;
-  }
 }
 @media only screen and (max-width: 1080px) {
   .med-h-auto {
@@ -946,16 +991,22 @@ a {
     color: white;
   }
   .h6 {
-    font-size: 1.1rem;
+    font-size: 1rem;
+    line-height: 1.1;
   }
   @media only screen and (max-width: 1080px) {
     width: 100%;
     flex-shrink: 0;
+    min-height: 66px;
+    .h6 {
+      font-size: 1.2rem;
+    }
   }
   @media only screen and (max-width: 767px) {
-    padding-inline: 4px;
+    min-height: 60px;
+    padding: 8px;
     .h6 {
-      font-size: 0.85rem;
+      font-size: 0.9em;
     }
   }
 }
@@ -971,15 +1022,15 @@ a {
   }
 }
 .tab-content-title {
-  font-size: 10vw;
+  font-size: 4.5vw;
   line-height: 1;
   opacity: 0.7;
   mix-blend-mode: hard-light;
   filter: drop-shadow(0 0 16px var(--color-acc));
 }
 .tab-content-text {
-  max-width: 30ch;
-  margin-top: -1.8ch;
+  max-width: 40ch;
+  margin-top: -1.2ch;
   @media only screen and (max-width: 767px) {
     margin-top: 0;
   }

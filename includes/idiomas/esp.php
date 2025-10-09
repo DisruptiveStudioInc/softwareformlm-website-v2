@@ -37,14 +37,15 @@ $Soon_Text = 'Muy pronto';
     // Hero
     //-------------------------//
 
-$Hero_01 = "";
-$Hero_02 = "";
+$Hero_01 = "Software For MLM";
+$Hero_02 = "El software que tu red necesita para crecer";
 
     //-------------------------//
     // Journey
     //-------------------------//
 
 $Journey_title = "Tu red, <span class='tc-acc'>tu crecimiento</span>";
+$Journey_text = "Convierte tu idea en una red global: la solución más ágil para crear y hacer crecer tu sistema de referidos o mercadeo en red.";
 
 $Journey_title_1 = "Backoffice";
 $Journey_text_1 = "Control total de tu red, ventas y comisiones en tiempo real.";
@@ -62,32 +63,37 @@ $Journey_text_4 = "Pagos con tarjeta, transferencia, efectivo y crypto.";
     // Letters
     //-------------------------//
 
-$Letters_title_01 = "Estrategia";
-$Letters_text_01 = "Planifica, organiza y dirige tu red.";
+$Letters_title_01 = "Diseña y escala";
+$Letters_text_01 = "Crea planes de compensación inteligentes que motivan a tu red y permiten crecer sin límites.";
 
-$Letters_title_02 = "Crecimiento";
-$Letters_text_02 = "Escala operaciones con tecnología flexible avanzada.";
+$Letters_title_02 = "Conecta y fortalece";
+$Letters_text_02 = "Entrega a cada representante su oficina virtual con mensajería interna y comunicación fluida.";
 
-$Letters_title_03 = "Comunidad";
-$Letters_text_03 = "Conecta líderes, comparte visión y resultados.";
+$Letters_title_03 = "Lanza y gestiona";
+$Letters_text_03 = "Configura productos, bonos y rangos en minutos, sin depender de programadores.";
 
-$Letters_title_04 = "Resultados";
-$Letters_text_04 = "Monitorea ventas, comisiones y expansión global.";
+$Letters_title_04 = "Cobra y decide";
+$Letters_text_04 = "Asegura pagos inmediatos y confiables, mientras gestionas todo con reportes y estadísticas en tiempo real.";
+
+$Letters_big_text = "Impulsa el crecimiento de tu empresa con S4MLM";
 
     //-------------------------//
     // Vision
     //-------------------------//
 
-$Vision_text = "Poder absoluto para tu crecimiento";
+$Vision_text = "Convierte tu proyecto en una red rentable";
 
-$Vision_title_01 = "Gestión";
-$Vision_text_01 = "Administra tu red con control total.";
+$Vision_title_01 = "Uninivel";
+$Vision_text_01 = "Configura tu uninivel para tantos niveles y porcentajes como desees. Además, puedes ajustar el porcentaje para cada plan de usuario al recomendar nuevos clientes y el número de niveles que puede tener cada usuario de acuerdo con su plan.";
 
-$Vision_title_02 = "Escalabilidad";
-$Vision_text_02 = "Crecimiento ilimitado con módulos personalizables.";
+$Vision_title_02 = "Binario";
+$Vision_text_02 = "Ajusta el porcentaje y los límites del binario. El administrador puede configurar el porcentaje para cada uno de los planes, así como los límites diarios, semanales o mensuales para cada compensación.";
 
-$Vision_title_03 = "Innovación";
-$Vision_text_03 = "Tecnología flexible para pagos y expansión.";
+$Vision_title_03 = "Matriz forzada";
+$Vision_text_03 = "Cada vez que alguien se une al binario, el administrador puede elegir el porcentaje que cada usuario puede obtener con cada nueva inscripción. También determina cuántos niveles profundos puede ganar cada plan de compensación.";
+
+$Vision_title_04 = "Pago diario / ganancias compartidas";
+$Vision_text_04 = "Configura el pago de cada usuario de acuerdo con su plan o membresía. El pago se distribuye entre todos los usuarios calificados y el administrador recibe un informe general.";
 
     //-------------------------//
     // Slogan
@@ -100,22 +106,8 @@ $Slogan_text = "+100 redes profesionalizadas. +50,000 transacciones gestionadas 
     // Products
     //-------------------------//
 
-$Product_section_title = "Enterprise Product";
-
-$Products_title_01 = "Basic";
-$Products_sub_01 = "Licencia y Unilevel +4 Módulos";
-$Products_text_01 = "El inicio ideal para tu operación multinivel. Basic te brinda la licencia y 4 módulos esenciales para gestionar afiliados, ventas y pagos con control y estructura. Diseñado para quienes buscan comenzar de manera profesional y sentar bases sólidas para crecer con seguridad.";
-$Products_price_01 = "$4,500";
-
-$Products_title_02 = "Advanced";
-$Products_sub_02 = "Licencia y Unilevel +11 Módulos";
-$Products_text_02 = "La opción perfecta para redes en expansión. Advanced integra licencia y 11 módulos que facilitan el manejo de afiliados, ventas y comisiones con mayor control y eficiencia. Ideal para quienes requieren más herramientas y desean llevar su operación a un siguiente nivel.";
-$Products_price_02 = "$7,000";
-
-$Products_title_03 = "Premium";
-$Products_sub_03 = "Licencia y Unilevel +18 Módulos";
-$Products_text_03 = "El máximo nivel de control y escalabilidad. Premium ofrece licencia y 18 módulos completos que optimizan cada proceso de tu red multinivel. Pensado para quienes buscan profesionalizar su operación con todas las funciones necesarias para crecer sin límites.";
-$Products_price_03 = "$9,500";
+$Product_title = "Personalización total para tu proyecto";
+$Product_text = "Nuestros planes se ajustan a tu visión y escalan contigo, con soporte seguro desde servidores certificados.";
 
     //-------------------------//
     // Envolvers
@@ -148,34 +140,34 @@ $Testimonial_20 = 'Gracias a EVO Hoy genero $15,000 mensuales y cada obstáculo 
     // Truth
     //-------------------------//
 
-$Truth_title = "Donde la visión se convierte en acción y la acción, en evolución.";
+$Truth_title = "Enterprise Product";
 
-$Truth_title_01 = "Liderazgo";
-$Truth_text_01 = "Guía, controla y transforma tu red.";
+$Truth_title_01 = "Basic";
+$Truth_text_01 = "Licencia + Unilevel + 4 módulos";
+$Truth_text2_01 = "La base ideal para iniciar tu operación multinivel con control y estructura.";
 
-$Truth_title_02 = "Escalabilidad";
-$Truth_text_02 = "Crecimiento ilimitado con módulos integrados.";
+$Truth_title_02 = "Advanced";
+$Truth_text_02 = "Licencia + Unilevel + 11 módulos";
+$Truth_text2_02 = "Más herramientas y eficiencia para redes en expansión.";
 
-$Truth_title_03 = "Innovación";
-$Truth_text_03 = "Transformación digital con impacto real.";
-
-$Truth_title_04 = "Resultados";
-$Truth_text_04 = "Ventas, comisiones y expansión garantizadas.";
+$Truth_title_03 = "Premium";
+$Truth_text_03 = "Licencia + Unilevel + 18 módulos";
+$Truth_text2_03 = "Control total y escalabilidad sin límites para una gestión profesional.";
 
     //-------------------------//
     // Spirit
     //-------------------------//
 
-$Spirit_title = "El impulso de Software4MLM";
+$Spirit_title = "Tu programa, bajo control absoluto";
 
-$Spirit_title_01 = "Estrategas";
-$Spirit_text_01 = "Convertimos tu visión en planes claros que llevan tu red al siguiente nivel.";
+$Spirit_title_01 = "Alto rendimiento";
+$Spirit_text_01 = "Nuestro sistema exclusivo respalda más de <span class='fw-700'>60 millones de usuarios y millones de transacciones mensuales</span>, garantizando un rendimiento escalable e ilimitado para tu red.";
 
-$Spirit_title_02 = "Constructores";
-$Spirit_text_02 = "Creamos plataformas integrales que sostienen el crecimiento global de tu negocio.";
+$Spirit_title_02 = "Despliegue inmediato";
+$Spirit_text_02 = "Implementa tu negocio en tiempo récord con un <span class='fw-700'>equipo experto</span>, reglas comerciales preconfiguradas, reportes y paneles listos para usar.";
 
-$Spirit_title_03 = "Líderes";
-$Spirit_text_03 = "Te ofrecemos visión, tecnología y respaldo para crecer sin límites.";
+$Spirit_title_03 = "Seguridad líder";
+$Spirit_text_03 = "Protección de nivel empresarial con <span class='fw-700'>cifrado avanzado de datos, seguridad de aplicaciones y resguardo físico</span>, asegurando confianza total en cada operación.";
 
     //-------------------------//
     // Traits

@@ -151,6 +151,10 @@ $Sfmlm_vision = array(
   [
     'title' => $Vision_title_03,
     'text' => $Vision_text_03
+  ],
+  [
+    'title' => $Vision_title_04,
+    'text' => $Vision_text_04
   ]
 );
 
@@ -178,24 +182,22 @@ $Modal = array(
 $Big_texts = array(
   [
     'title' => $Truth_title_01,
-    'text' => $Truth_text_01,
+    'module' => $Truth_text_01,
+    'text' => $Truth_text2_01,
     'image' => 'leadership'
   ],
   [
     'title' => $Truth_title_02,
-    'text' => $Truth_text_02,
+    'module' => $Truth_text_02,
+    'text' => $Truth_text2_02,
     'image' => 'unlimited'
   ],
   [
     'title' => $Truth_title_03,
-    'text' => $Truth_text_03,
+    'module' => $Truth_text_03,
+    'text' => $Truth_text2_03,
     'image' => 'innovation'
-  ],
-  [
-    'title' => $Truth_title_04,
-    'text' => $Truth_text_04,
-    'image' => 'results'
-  ],
+  ]
 );
 
 $Sfmlm_spirit = array(

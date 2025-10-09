@@ -2,7 +2,7 @@
 <!-- HERO -->
 <!-- ============================================== -->
 
-<section class="hero-pin <?= ($Lang === 'es') ? 'med-h-auto' : 'overlay o-30'; ?>">
+<section class="hero-pin overlay o-30 <?= ($Lang === 'es') ? 'med-h-auto' : ''; ?>">
   <div class="anchor" id="home"></div>
   <img src="./images/hero/hero.webp" alt="Software for MLM" class="background" />
 
@@ -10,22 +10,20 @@
     <button class="arrow down"></button>
 	</div>
 
-  <?php if($Lang === 'en'): ?>
-    <div class="text-hero t-c hero-text tc-0">
-      <h1 class="h1-special first"><?= $Hero_01; ?></h1>
-      <p class="h2 m-center"><?= $Hero_02; ?></p>
-    </div>
-  <?php endif; ?>
+  <div class="text-hero t-c hero-text tc-0 <?= ($Lang === 'en') ? '' : 'd-none med-d-block' ?>">
+    <h1 class="h1-special first"><?= $Hero_01; ?></h1>
+    <p class="h2 m-center"><?= $Hero_02; ?></p>
+  </div>
 
   <?php if($Lang === 'es'): ?>
     <div class="dh of-h rel">
-
-      <div class="video-iframe-wrapper">
+      <div class="video-iframe-wrapper med-d-none">
         <iframe
 			    src="https://player.vimeo.com/video/<?php echo $Video_vimeo; ?>?background=1&autoplay=1&muted=1&loop=1"
 			    frameborder="0"
 			    allow="autoplay; fullscreen; picture-in-picture"
-			    title="Disruptive Studio">
+			    title="Disruptive Studio"
+          style="z-index:2">
 		    </iframe>
 	    </div>
 
@@ -47,7 +45,8 @@
 	<div class="anchor" id="sfmlm"></div>
 	<div class="mw-1440 jc-center ai-center min-h-dvh med-h-0 small-pt-40 small-pb-40">
 		<div class="t-c">
-			<h2 class="h1-special first mb-50 small-mb-30"><?= $Journey_title; ?></h2>
+			<h2 class="h1-special first"><?= $Journey_title; ?></h2>
+      <p class="h3 mb-50 small-mb-30"><?= $Journey_text; ?></p>
 			<ul class="journey-container col-2 g-40 med-g-20 m-center">
         <?php foreach($Sfmlm_about as $item): ?>
           <li class="journey-item c-surf-400 br-16 p-40 med-p-20 pt-0 med-pt-0 t-c">
@@ -77,7 +76,7 @@
       <div class="of-h f-grow">
         <ul id="sliderTabs" class="slider-tabs t-c w-100 d-flex">
           <?php foreach($Sfmlm_tabs as $k => $item): ?>
-            <li class="tab br-8 p-20 w-100 <?= ($k == 0) ? 'active' : '' ?>">
+            <li class="tab d-flex jc-center ai-center br-8 p-20 w-100 <?= ($k == 0) ? 'active' : '' ?>">
               <h3 class="h6 m-0"><?= "0".($k+1) ?> <?= $item['title'] ?></h3>
             </li>
           <?php endforeach; ?>
@@ -93,8 +92,8 @@
           <li class="abs tabs-content-slide <?= ($k == 0) ? 'active' : '' ?>">
             <div class="rel d-flex fd-col ai-center jc-center overlay o-50 h-100">
               <img class="background" src="./images/body/letters/<?= $item['image']; ?>.webp" alt="<?= $item['title']; ?>">
-              <h2 class="tab-content-title z-index-2 tc-acc m-0"><?= $item['title']; ?></h2>
-              <p class="tab-content-text h1 fw-700 z-index-2 tc-0 m-0 t-pretty"><?= $item['text']; ?></p>
+              <h2 class="tab-content-title z-index-2 tc-acc m-0"><?= $Letters_big_text; ?></h2>
+              <p class="tab-content-text h2 fw-700 z-index-2 tc-0 m-0 t-pretty"><?= $item['text']; ?></p>
             </div>
           </li>
         <?php endforeach; ?>
@@ -116,9 +115,9 @@
 
 	<div class="mw-1440 t-c h-100 med-h-0 d-flex fd-col jc-center g-40 small-g-20 small-pt-40 small-pb-40">
 		<h2 class="h1-special"><?= $Vision_text; ?></h2>
-		<ul class="br-16 c-surf-400 d-flex of-h small-fd-col">
+		<ul class="br-16 c-surf-400 d-flex of-h med-fd-col">
       <?php foreach($Sfmlm_vision as $item): ?>
-        <li class="vision-item d-flex fd-col jc-center g-0 w-100 p-40 med-p-20 small-pt-40 small-pb-40">
+        <li class="vision-item rel d-flex fd-col jc-center g-0 w-100 p-40 pt-100 pb-100 med-p-20 med-pt-40 med-pb-40">
           <h3 class="h4 m-0"><?= $item['title']; ?></h3>
           <div class="vision-text-wrap d-grid col-1">
             <div class="of-h">
@@ -155,76 +154,19 @@
 <!-- FIVE -->
 <!-- ============================================== -->
 
-<?php
-$counter = 1;
-
-foreach ($Modal as $item){
-	echo "
-	<div id='Modal{$counter}' class='modal'>
-	<div class='modal-content rel t-c'>
-	<span class='v-white c-pri icon icon-close' onclick=\"closeModal('Modal{$counter}')\"></span>
-	<h2 class='h2 tc-pri t-c med-t-l'>{$item['title']}</h2>
-	<p class='h5'>{$item['sub']}</p>
-	<p>{$item['text']}</p>
-	</div>
-	</div>
-	";
-	$counter++;
-}
-?>
-
-<section class="products">
-
-	<div class="of-h">
-
-    <div class="anchor" id="plans"></div>
-    <div class="h-100 med-h-0 med-fd-col content-scroll jc-center ai-center rel wrap_products">
-
-      <div class="section-arrows">
-          <button class="arrow up"></button>
-          <button class="arrow down"></button>
-      </div>
-
-      <div class="box_product img-three">
-        <span>
-          <button type="button" class="v-white c-acc icon br-50 icon-more" onclick="openModal('Modal1')"></button>
-        </span>
-        <img src="./images/body/products/basic.webp" class="product" alt="basic"/>
-      </div>
-
-      <div class="box_product img-two">
-        <span>
-          <button type="button" class="v-white c-acc icon br-50 icon-more" onclick="openModal('Modal2')"></button>
-        </span>
-        <img src="./images/body/products/advanced.webp" class="product" alt="advanced"/>
-      </div>
-
-      <div class="box_product img-one">
-        <span>
-          <button type="button" class="v-white c-acc icon br-50 icon-more" onclick="openModal('Modal3')"></button>
-        </span>
-        <img src="./images/body/products/premium.webp" class="product" alt="premium"/>
-      </div>
-
-      <img class="background med-d-none imgs-product img_product_basic" src="./images/body/subpage/bg_basic.webp" alt="<?php echo $link_01; ?> background">
-      <img class="background med-d-none imgs-product img_product_advanced" src="./images/body/subpage/bg_advanced.webp" alt="<?php echo $link_02; ?> background">
-      <img class="background med-d-none imgs-product img_product_premium" src="./images/body/subpage/bg_premium.webp" alt="<?php echo $link_03; ?> background">
-
-    </div>
-  </div>
-</section>
+<?php include_once('./includes/sections/product_bo.php'); ?>
 
 <!-- ============================================== -->
 <!-- SIX -->
 <!-- ============================================== -->
 
 <section>
-	<div class="wrap-people">
+	<div class="wrap-people h-100 med-h-auto d-flex fd-col jc-center ai-center">
 		<div class="mw-1440 p-30 mb-40">
 			<h3 class="h3 t-c"><?php echo $Envolvers_title; ?></h3>
 		</div>
 
-	<ul class="people">
+	<ul class="people w-100">
 		<?php foreach ($Logos as $k => $item): ?>
     <li class="item item<?= $k +1; ?>">
       <span class="wrap-logo d-block">
@@ -280,13 +222,18 @@ foreach ($Modal as $item){
 	    <button class="arrow down"></button>
 	</div>
 
+  <h2 class="h1 tc-acc t-c mb-40"><?= $Truth_title ?></h2>
+
   <ul>
     <?php foreach($Big_texts as $item): ?>
       <li class="truth-item rel t-c of-h">
         <img class="truth-image" src="./images/body/truth/<?= $item['image']; ?>.webp" alt="<?= $item['title']; ?>">
         <div class="truth-content small-p-20 small-pt-40 small-pb-40">
-          <h2 class="truth-title m-0"><?= $item['title']; ?></h2>
-          <p class="truth-text h4 m-0 t-pretty"><?= $item['text']; ?></p>
+          <h3 class="truth-title m-0"><?= $item['title']; ?></h3>
+          <div class="truth-text">
+            <p class="h3 m-0 t-pretty fw-700"><?= $item['module']; ?></p>
+            <p class="h5 mb-0 t-pretty"><?= $item['text']; ?></p>
+          </div>
         </div>
       </li>
     <?php endforeach; ?>
@@ -349,7 +296,7 @@ foreach ($Modal as $item){
 </section>
 
 <script src="https://player.vimeo.com/api/player.js"></script>
-<script>
+<script type="module">
 
 /* ==============================================
     MODAL
@@ -451,21 +398,19 @@ document.addEventListener("DOMContentLoaded", function () {
             .addTo(controller);
 
             // ========== CONTENT SCROLL (jQuery solo si existe)
-            if(window.jQuery) {
-                $('.products').each(function(){
-                    var productsElement = this.querySelector('.wrap_products');
-                    if(productsElement){
-                        new ScrollMagic.Scene({
-                            triggerElement: this,
-                            triggerHook: 0.2,
-                            duration: "80%"
-                        })
-                        .setClassToggle(productsElement, 'fade-in')
-                        //.addIndicators()
-                        .addTo(controller);
-                    }
-                });
-            }
+            const screenBoTimeline = new TimelineMax();
+            screenBoTimeline
+              .fromTo('.product-bo',animationSpeed,{x: '50%',scale: 1.75},{x: '0%',scale: 1})
+              .from('.product-bo-title',animationSpeed,{y: 40,opacity: 0})
+              .from('.product-bo-text',animationSpeed,{y: 40,opacity: 0});
+            new ScrollMagic.Scene({
+              triggerElement: '.products',
+              duration: "200%",
+              triggerHook: 0
+            })
+            .setPin('.products')
+            .setTween(screenBoTimeline)
+            .addTo(controller);
 
 
         }).catch(err => console.error("Error cargando scripts ScrollMagic/GSAP:", err));
