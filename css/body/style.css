@@ -614,14 +614,14 @@ a {
     transition: grid-template-rows 300ms ease-out;
   }
   .vision-item:hover {
-    background-color: var(--color-acc-h);
+    background-color: var(--color-acc);
 
     .vision-text-wrap {
-      color: white;
       grid-template-rows: 1fr;
     }
 
     .h4 {
+      color: white;
       opacity: 0.1;
     }
   }
