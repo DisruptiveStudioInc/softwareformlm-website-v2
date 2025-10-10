@@ -614,7 +614,7 @@ a {
     transition: grid-template-rows 300ms ease-out;
   }
   .vision-item:hover {
-    background-color: var(--color-acc);
+    background-color: var(--color-acc-h);
 
     .vision-text-wrap {
       color: white;
@@ -1030,10 +1030,6 @@ a {
 }
 .tab-content-text {
   max-width: 40ch;
-  margin-top: -1.2ch;
-  @media only screen and (max-width: 767px) {
-    margin-top: 0;
-  }
 }
 
 /* ============================================== */
