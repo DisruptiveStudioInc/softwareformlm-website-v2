@@ -81,8 +81,8 @@
 .t-pretty {
   text-wrap: pretty;
 }
-.t-balanced {
-  text-wrap: balanced;
+.t-balance {
+  text-wrap: balance;
 }
 .min-h-dvh {
   min-height: 100dvh;
@@ -98,6 +98,9 @@
 }
 .pointer-e-none {
   pointer-events: none;
+}
+.pointer-e-auto {
+  pointer-events: auto;
 }
 .cursor-pointer {
   cursor: pointer;
@@ -119,6 +122,9 @@
 }
 .col-1 {
   grid-template-columns: 1fr;
+}
+.rows-2-auto {
+  grid-template-rows: auto auto;
 }
 @media only screen and (max-width: 1080px) {
   .med-min-h-auto {
@@ -454,6 +460,12 @@ a {
   font-size: 5.5vw;
   line-height: 1;
   text-transform: uppercase;
+  &.first {
+    font-size: 4.6vw;
+  }
+  &.operate {
+    font-size: 4.2vw;
+  }
 }
 
 .h1.big-last {

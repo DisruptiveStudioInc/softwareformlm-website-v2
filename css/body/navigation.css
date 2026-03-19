@@ -139,10 +139,9 @@
 
 .wrap-get {
   position: fixed;
-  left: 50%;
-  bottom: 5%;
+  left: 0;
+  bottom: 3%;
   z-index: 99;
-  transform: translateX(-50%);
 }
 
 .wrap-get.subpage {
@@ -155,17 +154,18 @@
 
 .btn-get {
   --get-i-size: 30px;
-  padding: 10px 20px !important;
+  padding: 10px 26px 28px !important;
   background: var(--color-acc);
   color: var(--color-gray-100);
   cursor: pointer;
   font-weight: 600;
   font-size: 1.5rem;
   animation: cta-blink 1.2s infinite;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 8px;
   border-radius: 8px;
+  overflow: hidden;
 }
 .btn-get::after {
   content: url("../../images/icons/whatsapp.svg");
@@ -173,6 +173,19 @@
   height: var(--get-i-size);
   display: block;
   animation: arrow-bounce 1s linear infinite;
+}
+
+.float-note {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  margin: 0;
+  width: 100%;
+  padding: 2px 4px 0 4px;
+  background-color: rgba(0, 0, 15, 0.4);
+  color: var(--color-0);
+  backdrop-filter: blur(8px);
+  font-size: 52%;
 }
 @keyframes cta-blink {
   0%,
@@ -194,13 +207,10 @@
 }
 
 @media screen and (max-width: 1080px) {
-  .wrap-get {
-    bottom: 3%;
-  }
   .btn-get {
-    --get-i-size: 20px;
-    padding: 12px 24px !important;
-    font-size: 1rem;
+    --get-i-size: 26px;
+    font-size: 1.4rem;
+    padding-bottom: 24px !important;
   }
 }
 

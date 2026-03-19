@@ -18,33 +18,37 @@ $sfmlm_about = array(
   [
     'title' => $Journey_title_3,
     'text' => $Journey_text_3,
-    'icon' => 'elearning'
+    'icon' => 'cryptopay'
   ],
   [
     'title' => $Journey_title_4,
     'text' => $Journey_text_4,
-    'icon' => 'cryptopay'
+    'icon' => 'elearning'
   ]
 );
 
 $sfmlm_tabs = array(
   [
     'title' => $Letters_title_01,
+    'big' => $Letters_big_01,
     'text' => $Letters_text_01,
     'image' => 'estrategia'
   ],
   [
     'title' => $Letters_title_02,
+    'big' => $Letters_big_02,
     'text' => $Letters_text_02,
     'image' => 'crecimiento'
   ],
   [
     'title' => $Letters_title_03,
+    'big' => $Letters_big_03,
     'text' => $Letters_text_03,
     'image' => 'comunidad'
   ],
   [
     'title' => $Letters_title_04,
+    'big' => $Letters_big_04,
     'text' => $Letters_text_04,
     'image' => 'resultados'
   ]

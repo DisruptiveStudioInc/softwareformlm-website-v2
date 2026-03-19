@@ -44,16 +44,20 @@
 	<div class="anchor" id="sfmlm"></div>
 	<div class="mw-1440 jc-center ai-center min-h-dvh med-h-0 small-pt-40 small-pb-40">
 		<div class="t-c">
-			<h2 class="h1-special first"><?= $Journey_title; ?></h2>
+			<h2 class="h1-special operate"><?= $Journey_title; ?></h2>
       <p class="h3 mb-50 small-mb-30"><?= $Journey_text; ?></p>
-			<ul class="journey-container col-2 g-40 med-g-20 m-center">
+			<ul class="journey-container col-2 rows-2-auto g-40 med-g-20 m-center">
         <?php foreach($sfmlm_about as $item): ?>
-          <li class="journey-item c-surf-400 br-16 p-40 med-p-20 pt-0 med-pt-0 t-c">
+          <li class="journey-item d-flex fd-col g-0 ai-center c-surf-400 br-16 p-40 med-p-20 pt-0 med-pt-0 t-c">
             <div class="icon-journey c-acc br-50 d-flex ai-center jc-center">
               <svg class="w-70" style="height:auto;aspect-ratio:1"><use href="#<?= $item['icon']; ?>" /></svg>
             </div>
-            <h3 class="h4"><?= $item['title']; ?></h3>
-            <p class="t-pretty"><?= $item['text']; ?></p>
+            <div class="d-flex ai-center flex-grow">
+              <div>
+                <h3 class="h4"><?= $item['title']; ?></h3>
+                <p class="t-pretty"><?= $item['text']; ?></p>
+              </div>
+            </div>
           </li>
         <?php endforeach; ?>
       </ul>
@@ -73,7 +77,7 @@
         <?php include __DIR__ . '/../includes/iconArrow.php'; ?>
       </button>
       <div class="of-h flex-grow">
-        <ul id="sliderTabs" class="slider-tabs t-c w-100 d-flex">
+        <ul id="sliderTabs" class="slider-tabs t-c w-100 d-flex jc-center">
           <?php foreach($sfmlm_tabs as $k => $item): ?>
             <li class="tab d-flex jc-center ai-center br-8 p-20 w-100 <?= ($k == 0) ? 'active' : '' ?>">
               <h3 class="h6 m-0"><?= "0".($k+1) ?> <?= $item['title'] ?></h3>
@@ -91,7 +95,7 @@
           <li class="abs tabs-content-slide <?= ($k == 0) ? 'active' : '' ?>">
             <div class="rel d-flex fd-col ai-center jc-center overlay o-50 h-100">
               <img class="background" src="/images/body/letters/<?= $item['image']; ?>.webp" alt="<?= $item['title']; ?>">
-              <h2 class="tab-content-title z-index-2 tc-acc m-0"><?= $Letters_big_text; ?></h2>
+              <h2 class="tab-content-title t-balance z-index-2 tc-acc m-0"><?= $item['big']; ?></h2>
               <p class="tab-content-text h2 fw-700 z-index-2 tc-0 m-0 t-pretty"><?= $item['text']; ?></p>
             </div>
           </li>

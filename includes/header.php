@@ -90,8 +90,11 @@
 </head>
 <body id="page-content">
 
-  <div class="wrap-get">
-    <a href="<?= $constants['wame']; ?>" target="_blank" class="btn-get"><?= $Btn_started; ?></a>
+  <div class="wrap-get d-flex fd-col ai-center w-100 t-c pointer-e-none">
+    <a href="<?= $constants['wame']; ?>" target="_blank" class="btn-get pointer-e-auto rel">
+      <?= $Btn_started; ?>
+      <p class="float-note t-c tc-0"><?= $Btn_float_note; ?></p>
+    </a>
   </div>
 
   <!-- ============================================== -->

@@ -28,7 +28,8 @@ $Btn_start = "Comienza ahora";
 $Btn_store = "Visita nuestra tienda";
 $Btn_live = "Descubre SW4MLM";
 $Btn_part = "Impulsa tu RED";
-$Btn_started = "Escala HOY";
+$Btn_started = "Iniciar Demo";
+$Btn_float_note = "Accede al sistema en vivo ahora";
 $Btn_read = "Leer más";
 
 //-------------------------//
@@ -52,45 +53,47 @@ $relatedTitle = "Qué leer a continuación";
 // Hero
 //-------------------------//
 
-$Hero_01 = "Software For MLM";
-$Hero_02 = "El software que tu red necesita para crecer";
+$Hero_01 = "Lanza tu propio negocio MLM en menos de 24 horas";
+$Hero_02 = "Accede ahora a una demo en vivo y conoce cómo funciona el sistema desde dentro.";
 
 //-------------------------//
 // Journey
 //-------------------------//
 
-$Journey_title = "Tu red, <span class='tc-acc'>tu crecimiento</span>";
-$Journey_text = "Convierte tu idea en una red global: la solución más ágil para crear y hacer crecer tu sistema de referidos o mercadeo en red.";
+$Journey_title = "Tu propio sistema MLM, <span class='tc-acc'>listo para operar</span>";
+$Journey_text = "Lanza, controla y escala tu negocio multinivel con una infraestructura completa, sin desarrollar tecnología desde cero.";
 
 $Journey_title_1 = "Backoffice";
-$Journey_text_1 = "Control total de tu red, ventas y comisiones en tiempo real.";
+$Journey_text_1 = "Controla tu red, comisiones y operación desde un solo lugar con datos en tiempo real.";
 
-$Journey_title_2 = "E-commerce";
-$Journey_text_2 = "Vende productos digitales y físicos con integración logística global segura.";
+$Journey_title_2 = "Planes de compensación";
+$Journey_text_2 = "Activa y automatiza tu modelo de negocio con cálculos de bonos y comisiones listos para escalar desde el día uno.";
 
-$Journey_title_3 = "E-learning";
-$Journey_text_3 = "Capacita a tu red con cursos personalizados y accesibles siempre.";
+$Journey_title_3 = "Wallet y pagos";
+$Journey_text_3 = "Gestiona ingresos, pagos y retiros dentro del sistema con total control, transparencia y trazabilidad.";
 
-$Journey_title_4 = "Procesamiento de pagos";
-$Journey_text_4 = "Pagos con tarjeta, transferencia, efectivo y crypto.";
+$Journey_title_4 = "Gestión de usuarios";
+$Journey_text_4 = "Administra tu red, estructura y crecimiento sin depender de terceros ni procesos manuales.";
 
 //-------------------------//
 // Letters
 //-------------------------//
 
 $Letters_title_01 = "Diseña y escala";
-$Letters_text_01 = "Crea planes de compensación inteligentes que motivan a tu red y permiten crecer sin límites.";
+$Letters_big_01 = "Diseña tu modelo de negocio desde cero";
+$Letters_text_01 = "Crea planes de compensación inteligentes, configura bonos y estructura tu red sin límites técnicos. Todo en un solo lugar, listo para escalar.";
 
 $Letters_title_02 = "Conecta y fortalece";
-$Letters_text_02 = "Entrega a cada representante su oficina virtual con mensajería interna y comunicación fluida.";
+$Letters_big_02 = "Construye una red sólida y activa";
+$Letters_text_02 = "Centraliza la comunicación con tu equipo, automatiza procesos y mantén a cada miembro conectado, informado y en movimiento.";
 
 $Letters_title_03 = "Lanza y gestiona";
-$Letters_text_03 = "Configura productos, bonos y rangos en minutos, sin depender de programadores.";
+$Letters_big_03 = "Opera tu empresa sin depender de terceros";
+$Letters_text_03 = "Gestiona usuarios, productos, rangos y operaciones en tiempo real desde un back office diseñado para crecer contigo.";
 
 $Letters_title_04 = "Cobra y decide";
-$Letters_text_04 = "Asegura pagos inmediatos y confiables, mientras gestionas todo con reportes y estadísticas en tiempo real.";
-
-$Letters_big_text = "Impulsa el crecimiento de tu empresa con S4MLM";
+$Letters_big_04 = "Controla tu dinero y toma decisiones inteligentes";
+$Letters_text_04 = "Recibe pagos, monitorea métricas clave y accede a reportes en tiempo real para optimizar tu negocio constantemente.";
 
 //-------------------------//
 // Vision

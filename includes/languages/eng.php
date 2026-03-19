@@ -28,7 +28,7 @@ $Btn_start = "Start now";
 $Btn_store = "Visit our store";
 $Btn_live = "Discover SW4MLM";
 $Btn_part = "Grow your NETWORK";
-$Btn_started = "Scale TODAY";
+$Btn_started = "Start Demo";
 $Btn_read = "Read more";
 
 //-------------------------//
@@ -52,45 +52,47 @@ $relatedTitle = "What to Read Next";
 // Hero
 //-------------------------//
 
-$Hero_01 = "Software For MLM";
-$Hero_02 = "The software your network needs to grow";
+$Hero_01 = "Launch your own MLM business in less than 24 hours";
+$Hero_02 = "Access a live demo now and see how the system works from the inside.";
 
 //-------------------------//
 // Journey
 //-------------------------//
 
-$Journey_title = "Your network, <span class='tc-acc'>your growth</span>";
-$Journey_text = "Turn your idea into a global network: the fastest solution to create and grow your referral or network marketing system.";
+$Journey_title = "Your own MLM system, <span class='tc-acc'>ready to operate</span>";
+$Journey_text = "Launch, control and scale your multilevel business with a complete infrastructure, without developing technology from scratch.";
 
 $Journey_title_1 = "Backoffice";
-$Journey_text_1 = "Full control of your network, sales, and commissions in real time.";
+$Journey_text_1 = "Control your network, commissions and operations from a single place with real-time data.";
 
-$Journey_title_2 = "E-commerce";
-$Journey_text_2 = "Sell digital and physical products with secure global logistics integration.";
+$Journey_title_2 = "Compensation plans";
+$Journey_text_2 = "Activate and automate your business model with bonus and commission calculations ready to scale from day one.";
 
-$Journey_title_3 = "E-learning";
-$Journey_text_3 = "Train your network with personalized courses that are always accessible.";
+$Journey_title_3 = "Wallet and payments";
+$Journey_text_3 = "Manage income, payments and withdrawals within the system with total control, transparency and traceability.";
 
-$Journey_title_4 = "Payment processing";
-$Journey_text_4 = "Payments via card, transfer, cash, and crypto.";
+$Journey_title_4 = "User management";
+$Journey_text_4 = "Manage your network, structure and growth without depending on third parties or manual processes.";
 
 //-------------------------//
 // Letters
 //-------------------------//
 
 $Letters_title_01 = "Design and scale";
-$Letters_text_01 = "Create smart compensation plans that motivate your network and allow unlimited growth.";
+$Letters_big_01 = "Design your business model from scratch";
+$Letters_text_01 = "Create smart compensation plans, configure bonuses, and structure your network without technical limits. All in one place, ready to scale.";
 
 $Letters_title_02 = "Connect and strengthen";
-$Letters_text_02 = "Provide each representative with their virtual office featuring internal messaging and smooth communication.";
+$Letters_big_02 = "Build a strong and active network";
+$Letters_text_02 = "Centralize communication with your team, automate processes, and keep every member connected, informed, and in motion.";
 
 $Letters_title_03 = "Launch and manage";
-$Letters_text_03 = "Set up products, bonuses, and ranks in minutes, without depending on developers.";
+$Letters_big_03 = "Operate your business without relying on third parties";
+$Letters_text_03 = "Manage users, products, ranks, and operations in real-time from a back office designed to grow with you.";
 
 $Letters_title_04 = "Collect and decide";
-$Letters_text_04 = "Ensure immediate and reliable payments while managing everything with real-time reports and statistics.";
-
-$Letters_big_text = "Boost your company's growth with S4MLM";
+$Letters_big_04 = "Control your money and make smart decisions";
+$Letters_text_04 = "Receive payments, monitor key metrics, and access real-time reports to constantly optimize your business.";
 
 //-------------------------//
 // Vision
