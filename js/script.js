@@ -130,7 +130,7 @@ $(document).ready(function () {
       location.hostname === this.hostname
     ) {
       const target = $(
-        this.hash.length ? this.hash : `[name=${this.hash.slice(1)}]`
+        this.hash.length ? this.hash : `[name=${this.hash.slice(1)}]`,
       );
       if (target.length) {
         navHeight = nav.outerHeight(); // Recalcular por si cambió en responsive
@@ -142,7 +142,7 @@ $(document).ready(function () {
               scrollTop: target.offset().top - navHeight,
             },
             500,
-            "swing"
+            "swing",
           );
 
         // Cierra submenús si están abiertos

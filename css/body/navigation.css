@@ -28,7 +28,9 @@
   background: rgba(222, 225, 226, 0.8);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  transition: padding 0.3s ease, background 0.3s ease;
+  transition:
+    padding 0.3s ease,
+    background 0.3s ease;
 }
 .navigation.effect {
   padding: 5px 10px;
@@ -46,7 +48,9 @@
   margin: 0;
   color: var(--color-gray-100);
   border-radius: 10px;
-  transition: color 0.3s ease, opacity 0.3s ease;
+  transition:
+    color 0.3s ease,
+    opacity 0.3s ease;
 }
 .navigation ul li a.active,
 .navigation ul li a.btn-sub.open,
@@ -72,7 +76,10 @@
     visibility: hidden;
     z-index: 9;
     transform: translateX(100%);
-    transition: transform 0.35s ease, opacity 0.3s ease, visibility 0.3s ease;
+    transition:
+      transform 0.35s ease,
+      opacity 0.3s ease,
+      visibility 0.3s ease;
     max-height: 90vh;
     overflow-y: auto;
   }
@@ -414,7 +421,9 @@ ul.sub li a span {
   opacity: 0;
   pointer-events: none;
   transform: translateY(10px);
-  transition: opacity 0.25s ease, transform 0.25s ease;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
 }
 .sub li.open > .sub-sub {
   opacity: 1;

@@ -1,19 +1,15 @@
 <?php
 
-//-------------------------------------------//
-// OBTENER PÁGINA ACTUAL Y PARÁMETROS
-//-------------------------------------------//
+use Includes\Localization;
 
-$Actual_Page = !empty($_GET['p']) ? $_GET['p'] : '';
-$Actual_Page_Lan = $Actual_Page ? '&p=' . $Actual_Page : '';
-$Client_Page_Id = (empty($_GET['id'])) ? '' : '&id=' . $_GET['id'];
-$Hide = ($Actual_Page === 'home' || $Actual_Page === '') ? '' : 'none';
+// Access the global user_replica variable
+$user_replica = $GLOBALS['user_replica'] ?? null;
 
-//-------------------------//
-// CLIENT
-//-------------------------//
+$Current_lang = Localization::getLang();
+$Actual_Page = Localization::getCurrentRoute();
 
-$Company_Name  = "Software for MLM";
+// Import language variables from globals
+extract($GLOBALS, EXTR_SKIP);
 
 //-------------------------//
 // META
@@ -26,219 +22,67 @@ $Keywords_Site     = $Keywords;
 // GENERAL
 //-------------------------//
 
-$Host_Site      = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://" . $_SERVER["HTTP_HOST"];
-$Footer_Rights  = $Company_Name."© ".date("Y").". All rights reserved";
+$isHttps = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ||
+  ($_SERVER['HTTP_X_FORWARDED_PROTO'] ?? '') === 'https';
+$protocol = $isHttps ? "https" : "http";
+$Host_Site = $protocol . "://" . $_SERVER["HTTP_HOST"];
+$Footer_Rights  = $company_fullname." © ".date("Y").". All rights reserved.";
 
 //-------------------------//
 // LINKS
 //-------------------------//
 
-$Wame    = "https://wa.me/14088584504";
-// $Demo    = "https://demo.softwareformlm.com/";
-$Demo    = "https://wa.me/14088584504";
+// $Register = "https://my.domain.com/register/$user_replica";
+// $Login    = "https://my.domain.com/login";
+$Register = "#";
+$Login    = "#";
 
-// ---------------------------
-// Armar bloque HTML dinámico
-// ---------------------------
 $ref = isset($user_replica) ? "?ref=$user_replica" : '';
-
-//-------------------------//
-// VIDEO VIMEO
-//-------------------------//
-
-$Video_vimeo = "1120307694";
 
 //-------------------------//
 // MENU
 //-------------------------//
 
 $Menu = array(
-  array('#home','active',$Menu_01),
-  array('#sfmlm','',$Menu_02),
-  array('#plans','',$Menu_03)
-);
-
-//-------------------------//
-// SOCIALS
-//-------------------------//
-
-$Socials = array(
-  'twitter' => 'https://x.com/softwareformlm',
-  'facebook' => 'https://www.facebook.com/profile.php?id=61550970312320',
-  'instagram' => 'https://www.instagram.com/software.formlm/',
-  'linkedin' => 'https://www.linkedin.com/company/90639843/admin/feed/posts/',
-  'telegram' => 'https://t.me/+vTvws-qeLfYwNTYx'
-);
-
-//-------------------------//
-// CONDITIONS
-//-------------------------//
-
-$idiomas = [
-  'eng' => 'Eng',
-  'esp' => 'Esp'
-];
-
-$Condicion_lan = isset($idiomas[$idioma]) ? $idiomas[$idioma] : 'Desconocido';
-
-//-------------------------//
-// CONTACT
-//-------------------------//
-
-$Email = "info@softwareformlm.com";
-$Phone = "(1) 408 858 4504";
-$Address = "15218 Summit AveSuite 300-527 Fontana CA 92336";
-
-//-------------------------//
-// ARRAYS
-//-------------------------//
-
-$Sfmlm_about = array(
   [
-    'title' => $Journey_title_1,
-    'text' => $Journey_text_1,
-    'icon' => 'backoffice'
+    'link' => ($Actual_Page === 'home') ? '#home' : Localization::url('home'),
+    'status' => ($Actual_Page === 'home') ? 'active' : '',
+    'title' => $Menu_01,
+    'show' => true,
+    'hasSubmenu' => false
   ],
   [
-    'title' => $Journey_title_2,
-    'text' => $Journey_text_2,
-    'icon' => 'ecommerce'
+    'link' => '#sfmlm',
+    'status' => '',
+    'title' => $Menu_02,
+    'show' => ($Actual_Page === 'home') ? true : false,
+    'hasSubmenu' => false
   ],
   [
-    'title' => $Journey_title_3,
-    'text' => $Journey_text_3,
-    'icon' => 'elearning'
+    'link' => '#plans',
+    'status' => ($Actual_Page === 'experience') ? 'active' : '',
+    'title' => $Menu_03,
+    'show' => ($Actual_Page === 'home') ? true : false,
+    'hasSubmenu' => false
   ],
   [
-    'title' => $Journey_title_4,
-    'text' => $Journey_text_4,
-    'icon' => 'cryptopay'
+    'link' => Localization::url('blog'),
+    'status' => ($Actual_Page === 'blog') ? 'active' : '',
+    'title' => $Menu_04,
+    'show' => true,
+    'hasSubmenu' => false
   ]
 );
 
-$Sfmlm_tabs = array(
-  [
-    'title' => $Letters_title_01,
-    'text' => $Letters_text_01,
-    'image' => 'estrategia'
-  ],
-  [
-    'title' => $Letters_title_02,
-    'text' => $Letters_text_02,
-    'image' => 'crecimiento'
-  ],
-  [
-    'title' => $Letters_title_03,
-    'text' => $Letters_text_03,
-    'image' => 'comunidad'
-  ],
-  [
-    'title' => $Letters_title_04,
-    'text' => $Letters_text_04,
-    'image' => 'resultados'
-  ]
+$Footer_menu = array(
+  'legal' => array(
+    [
+      'link' => Localization::url('terms'),
+      'title' => $Footer_link_01
+    ],
+    [
+      'link' => Localization::url('privacy'),
+      'title' => $Footer_link_02
+    ]
+  )
 );
-
-$Sfmlm_vision = array(
-  [
-    'title' => $Vision_title_01,
-    'text' => $Vision_text_01
-  ],
-  [
-    'title' => $Vision_title_02,
-    'text' => $Vision_text_02
-  ],
-  [
-    'title' => $Vision_title_03,
-    'text' => $Vision_text_03
-  ],
-  [
-    'title' => $Vision_title_04,
-    'text' => $Vision_text_04
-  ]
-);
-
-$Modal = array(
-  [
-    'title' => $Products_title_01,
-    'sub' => $Products_sub_01,
-    'text' => $Products_text_01,
-    'price' => $Products_price_01
-  ],
-  [
-    'title' => $Products_title_02,
-    'sub' => $Products_sub_02,
-    'text' => $Products_text_02,
-    'price' => $Products_price_02
-  ],
-  [
-    'title' => $Products_title_03,
-    'sub' => $Products_sub_03,
-    'text' => $Products_text_03,
-    'price' => $Products_price_03
-  ]
-);
-
-$Big_texts = array(
-  [
-    'title' => $Truth_title_01,
-    'module' => $Truth_text_01,
-    'text' => $Truth_text2_01,
-    'image' => 'leadership'
-  ],
-  [
-    'title' => $Truth_title_02,
-    'module' => $Truth_text_02,
-    'text' => $Truth_text2_02,
-    'image' => 'unlimited'
-  ],
-  [
-    'title' => $Truth_title_03,
-    'module' => $Truth_text_03,
-    'text' => $Truth_text2_03,
-    'image' => 'innovation'
-  ]
-);
-
-$Sfmlm_spirit = array(
-  [
-    'title' => $Spirit_title_01,
-    'text' => $Spirit_text_01,
-    'icon' => 'strategist'
-  ],
-  [
-    'title' => $Spirit_title_02,
-    'text' => $Spirit_text_02,
-    'icon' => 'build'
-  ],
-  [
-    'title' => $Spirit_title_03,
-    'text' => $Spirit_text_03,
-    'icon' => 'leader'
-  ],
-);
-
-$Logos = array(
-  [
-    'name' => 'EVO Global',
-    'image' => 'logo_evo.svg'
-  ],
-  [
-    'name' => 'Limitless+',
-    'image' => 'logo_limitless.svg'
-  ],
-  [
-    'name' => 'Corpsyte',
-    'image' => 'logo_corpsyte.svg'
-  ],
-  [
-    'name' => 'iKon',
-    'image' => 'logo_ikon.svg'
-  ],
-  [
-    'name' => 'Darevita',
-    'image' => 'logo_darevita.svg'
-  ]
-);
-
-?>

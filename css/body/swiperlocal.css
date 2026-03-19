@@ -1,0 +1,38 @@
+.swiper-pagination-bullet {
+  cursor: pointer;
+}
+/* Navigation chevron arrows */
+.swiper-button::after {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-right: 2.5px solid currentColor;
+  border-top: 2.5px solid currentColor;
+  transform: rotate(45deg);
+  margin-left: -2px;
+}
+
+.swiper-button-prev::after {
+  transform: rotate(-135deg);
+  margin-left: 2px;
+}
+
+/* Letter slide animations */
+.horz-swiper .letter-anim {
+  opacity: 0;
+  transform: scale(1);
+  transition:
+    opacity 400ms ease,
+    transform 400ms ease;
+}
+
+.horz-swiper .letter-anim.letter-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.horz-swiper .letter-anim.letter-exit {
+  opacity: 0;
+  transform: scale(3);
+}
