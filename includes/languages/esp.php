@@ -99,19 +99,23 @@ $Letters_text_04 = "Recibe pagos, monitorea métricas clave y accede a reportes 
 // Vision
 //-------------------------//
 
-$Vision_text = "Convierte tu proyecto en una red rentable";
+$Vision_text = "Convierte tu proyecto en una red rentable, automatizada y escalable";
 
-$Vision_title_01 = "Uninivel";
-$Vision_text_01 = "Configura tu uninivel para tantos niveles y porcentajes como desees. Además, puedes ajustar el porcentaje para cada plan de usuario al recomendar nuevos clientes y el número de niveles que puede tener cada usuario de acuerdo con su plan.";
+$Vision_title_01 = "Modelos de compensación flexibles";
+$Vision_text_01 = "Implementa estructuras como uninivel, binario, matriz o híbridos personalizados según tu estrategia.";
+$Vision_text_01_2 = "Adapta tu negocio a cualquier mercado y evoluciona tu red sin limitaciones técnicas.";
 
-$Vision_title_02 = "Binario";
-$Vision_text_02 = "Ajusta el porcentaje y los límites del binario. El administrador puede configurar el porcentaje para cada uno de los planes, así como los límites diarios, semanales o mensuales para cada compensación.";
+$Vision_title_02 = "Automatización total de tu operación";
+$Vision_text_02 = "Bonos, comisiones, pagos, rangos y procesos ejecutándose de forma automática.";
+$Vision_text_02_2 = "Reduce errores, elimina carga operativa y enfócate en hacer crecer tu red.";
 
-$Vision_title_03 = "Matriz forzada";
-$Vision_text_03 = "Cada vez que alguien se une al binario, el administrador puede elegir el porcentaje que cada usuario puede obtener con cada nueva inscripción. También determina cuántos niveles profundos puede ganar cada plan de compensación.";
+$Vision_title_03 = "Control y visibilidad en tiempo real";
+$Vision_text_03 = "Accede a métricas, reportes y comportamiento de tu red desde un solo lugar.";
+$Vision_text_03_2 = "Toma decisiones estratégicas con información clara, actualizada y accionable.";
 
-$Vision_title_04 = "Pago diario / ganancias compartidas";
-$Vision_text_04 = "Configura el pago de cada usuario de acuerdo con su plan o membresía. El pago se distribuye entre todos los usuarios calificados y el administrador recibe un informe general.";
+$Vision_title_04 = "Infraestructura lista para escalar";
+$Vision_text_04 = "Sistema preparado para soportar crecimiento masivo desde el día uno.";
+$Vision_text_04_2 = "Miles de usuarios, múltiples mercados y operación continua sin fricciones.";
 
 
 //-------------------------//

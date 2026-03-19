@@ -57,19 +57,23 @@ $sfmlm_tabs = array(
 $sfmlm_vision = array(
   [
     'title' => $Vision_title_01,
-    'text' => $Vision_text_01
+    'text' => $Vision_text_01,
+    'text2' => $Vision_text_01_2
   ],
   [
     'title' => $Vision_title_02,
-    'text' => $Vision_text_02
+    'text' => $Vision_text_02,
+    'text2' => $Vision_text_02_2
   ],
   [
     'title' => $Vision_title_03,
-    'text' => $Vision_text_03
+    'text' => $Vision_text_03,
+    'text2' => $Vision_text_03_2
   ],
   [
     'title' => $Vision_title_04,
-    'text' => $Vision_text_04
+    'text' => $Vision_text_04,
+    'text2' => $Vision_text_04_2
   ]
 );
 

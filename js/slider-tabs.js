@@ -77,13 +77,13 @@ class ResponsiveSlider {
 
   updateTabsPosition() {
     if (this.isResponsive) {
-      // In responsive mode, show only current tab
-      const tabWidth = parseFloat(
-        this.tabs[0].getBoundingClientRect().width.toFixed(2),
-      );
-      const translateX = parseFloat(
-        (-this.currentTabIndex * tabWidth).toFixed(2),
-      );
+      // In responsive mode, center the current tab.
+      // Since the tabs container has justify-content: center, the tab group is centered.
+      const tabWidth = this.tabs[0].offsetWidth;
+      // Distance between adjacent tabs (handles potential gaps)
+      const step = this.totalSlides > 1 ? (this.tabs[1].offsetLeft - this.tabs[0].offsetLeft) : tabWidth;
+      
+      const translateX = ((this.totalSlides - 1) / 2 - this.currentTabIndex) * step;
       this.tabsContainer.style.transform = `translateX(${translateX}px)`;
     } else {
       // In desktop mode, reset transform

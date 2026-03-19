@@ -154,7 +154,7 @@
 
 .btn-get {
   --get-i-size: 30px;
-  padding: 10px 26px 28px !important;
+  padding: 10px 26px !important;
   background: var(--color-acc);
   color: var(--color-gray-100);
   cursor: pointer;
@@ -168,25 +168,13 @@
   overflow: hidden;
 }
 .btn-get::after {
-  content: url("../../images/icons/whatsapp.svg");
+  content: url("../../images/icons/arrow.svg");
   width: var(--get-i-size);
   height: var(--get-i-size);
   display: block;
   animation: arrow-bounce 1s linear infinite;
 }
 
-.float-note {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  margin: 0;
-  width: 100%;
-  padding: 2px 4px 0 4px;
-  background-color: rgba(0, 0, 15, 0.4);
-  color: var(--color-0);
-  backdrop-filter: blur(8px);
-  font-size: 52%;
-}
 @keyframes cta-blink {
   0%,
   100% {
@@ -210,7 +198,6 @@
   .btn-get {
     --get-i-size: 26px;
     font-size: 1.4rem;
-    padding-bottom: 24px !important;
   }
 }
 

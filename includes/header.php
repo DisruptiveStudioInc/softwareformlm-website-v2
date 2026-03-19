@@ -85,17 +85,16 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
 
-  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
-
 </head>
 <body id="page-content">
 
+  <?php if(false): ?>
   <div class="wrap-get d-flex fd-col ai-center w-100 t-c pointer-e-none">
     <a href="<?= $constants['wame']; ?>" target="_blank" class="btn-get pointer-e-auto rel">
       <?= $Btn_started; ?>
-      <p class="float-note t-c tc-0"><?= $Btn_float_note; ?></p>
     </a>
   </div>
+  <?php endif; ?>
 
   <!-- ============================================== -->
   <!-- PRELOADER -->

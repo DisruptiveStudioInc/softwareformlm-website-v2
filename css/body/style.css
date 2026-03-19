@@ -473,7 +473,7 @@ a {
 }
 @media screen and (max-width: 768px) {
   .h1-special.first {
-    font-size: 8vw;
+    font-size: 6vw;
   }
 }
 
@@ -647,7 +647,7 @@ a {
   min-height: 220px;
   transition-property: background-color, color;
   transition: 200ms ease;
-  .h4 {
+  .h5 {
     transition-property: opacity;
     transition: inherit;
   }
@@ -677,7 +677,7 @@ a {
       grid-template-rows: 1fr;
     }
 
-    .h4 {
+    .h5 {
       color: white;
       opacity: 0.1;
     }

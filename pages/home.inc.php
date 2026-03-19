@@ -15,6 +15,9 @@
   <div class="text-hero t-c hero-text tc-0 <?= (true) ? '' : 'd-none med-d-block' ?>">
     <h1 class="h1-special first"><?= $Hero_01; ?></h1>
     <p class="h2 m-center"><?= $Hero_02; ?></p>
+    <a href="<?= $constants['demo']; ?>" target="_blank" class="btn-get mt-60">
+      <?= $Btn_started; ?>
+    </a>
   </div>
 
   <?php if(false): ?>
@@ -61,6 +64,10 @@
           </li>
         <?php endforeach; ?>
       </ul>
+      <a href='<?= $constants['demo']; ?>' target="_blank" class="h6 btn c-acc br-8 mt-60">
+        <?= $Btn_started; ?>
+      </a>
+      <p class="t-c"><?= $Btn_float_note ?></p>
 		</div>
 	</div>
 </section>
@@ -72,7 +79,7 @@
 <section>
 
   <div class="rel">
-    <div class="abs slider-tabs-wrap w-100 d-flex">
+    <nav class="abs slider-tabs-wrap w-100 d-flex">
       <button id="prevTab" type="button" class="btn c-surf br-8 slider-tabs-nav no-animate">
         <?php include __DIR__ . '/../includes/iconArrow.php'; ?>
       </button>
@@ -88,7 +95,7 @@
       <button id="nextTab" type="button" class="btn c-surf br-8 slider-tabs-nav no-animate">
         <?php include __DIR__ . '/../includes/iconArrow.php'; ?>
       </button>
-    </div>
+    </nav>
     <div class="tabs-content">
       <ul class="rel tabs-content-wrapper h-dvh t-c">
         <?php foreach($sfmlm_tabs as $k => $item): ?>
@@ -102,6 +109,12 @@
         <?php endforeach; ?>
       </ul>
     </div>
+    <footer class="abs t-c w-100 pb-20" style="bottom:0;left:0;z-index:2;">
+      <a href='<?= $constants['demo']; ?>' target="_blank" class="h6 btn c-acc br-8 mt-60">
+        <?= $Btn_started; ?>
+      </a>
+      <p class="t-c tc-0"><?= $Btn_float_note ?></p>
+    </footer>
   </div>
 </section>
 
@@ -114,14 +127,15 @@
 	<?php include(__DIR__ . '/../includes/arrowsLat.php'); ?>
 
 	<div class="mw-1440 t-c h-100 med-h-0 d-flex fd-col jc-center g-40 small-g-20 small-pt-40 small-pb-40">
-		<h2 class="h1-special"><?= $Vision_text; ?></h2>
+		<h2 class="h1"><?= $Vision_text; ?></h2>
 		<ul class="br-16 c-surf-400 d-flex of-h med-fd-col">
       <?php foreach($sfmlm_vision as $item): ?>
         <li class="vision-item rel d-flex fd-col jc-center g-0 w-100 p-40 pt-100 pb-100 med-p-20 med-pt-40 med-pb-40">
-          <h3 class="h4 m-0"><?= $item['title']; ?></h3>
+          <h3 class="h5 m-0"><?= $item['title']; ?></h3>
           <div class="vision-text-wrap d-grid col-1">
             <div class="of-h">
               <p class="m-0 pt-10"><?= $item['text']; ?></p>
+              <p class="m-0 pt-10"><?= $item['text2']; ?></p>
             </div>
           </div>
         </li>
@@ -285,7 +299,5 @@
 	</div>
 </section>
 
-<script src="/js/slider.js"></script>
-<script type="module" src="/js/swiper.js"></script>
 <script src="/js/home.js"></script>
 <script src="/js/slider-tabs.js"></script>
