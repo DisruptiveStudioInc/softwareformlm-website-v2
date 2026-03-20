@@ -29,6 +29,10 @@ $Btn_store = "Visit our store";
 $Btn_live = "Discover SW4MLM";
 $Btn_part = "Grow your NETWORK";
 $Btn_started = "Start Demo";
+$Btn_float_note = "Access the live system now";
+$Btn_float_note2 = "Explore the live system and discover its flexibility";
+$Btn_float_note3 = "Access the live system and start building your network today";
+$Btn_float_note4 = "Immediate access with a real-time advisor";
 $Btn_read = "Read more";
 
 //-------------------------//
@@ -98,33 +102,41 @@ $Letters_text_04 = "Receive payments, monitor key metrics, and access real-time 
 // Vision
 //-------------------------//
 
-$Vision_text = "Turn your project into a profitable network";
+$Vision_text = "Turn your project into a profitable, automated, and scalable network";
 
-$Vision_title_01 = "Unilevel";
-$Vision_text_01 = "Configure your unilevel for as many levels and percentages as you wish. You can also adjust the percentage for each user plan when referring new clients, as well as the number of levels each user can have according to their plan.";
+$Vision_title_01 = "Flexible compensation models";
+$Vision_text_01 = "Implement structures like unilevel, binary, matrix, or custom hybrids according to your strategy.";
+$Vision_text_01_2 = "Adapt your business to any market and evolve your network without technical limitations.";
 
-$Vision_title_02 = "Binary";
-$Vision_text_02 = "Adjust the percentage and limits of the binary. The administrator can set the percentage for each plan, as well as daily, weekly, or monthly limits for each compensation.";
+$Vision_title_02 = "Total automation of your operation";
+$Vision_text_02 = "Bonuses, commissions, payments, ranks, and processes running automatically.";
+$Vision_text_02_2 = "Reduce errors, eliminate operational load, and focus on growing your network.";
 
-$Vision_title_03 = "Forced matrix";
-$Vision_text_03 = "Each time someone joins the binary, the administrator can choose the percentage that each user can earn with each new enrollment. It also determines how many deep levels each compensation plan can earn.";
+$Vision_title_03 = "Real-time control and visibility";
+$Vision_text_03 = "Access metrics, reports, and network behavior from a single location.";
+$Vision_text_03_2 = "Make strategic decisions with clear, updated, and actionable information.";
 
-$Vision_title_04 = "Daily payment / shared earnings";
-$Vision_text_04 = "Set up each user's payment according to their plan or membership. The payment is distributed among all qualified users, and the administrator receives a general report.";
+$Vision_title_04 = "Scalable infrastructure ready to use";
+$Vision_text_04 = "System prepared to support massive growth from day one.";
+$Vision_text_04_2 = "Thousands of users, multiple markets, and continuous operation without friction.";
+
 
 //-------------------------//
 // Slogan
 //-------------------------//
 
-$Slogan_title = "MLM Technology Already Transforming Global Businesses";
-$Slogan_text = "+100 networks professionalized. +50,000 transactions managed in real time. <span class='tc-acc-alt fw-700'>Will your company be the next to make the leap?</span>";
+$Slogan_title = "MLM technology that drives real networks and businesses that scale";
+$Slogan_text = "More than 100 networks already operate with this system and thousands of transactions are processed every day in real time.";
+$Slogan_text2 = "It's not a promise. <span class='fw-700'>It's proven infrastructure ready for your growth.</span>";
+$Slogan_text3 = "Will your company be the next to scale?";
 
 //-------------------------//
 // Products
 //-------------------------//
 
-$Product_title = "Full customization for your project";
-$Product_text = "Our plans adapt to your vision and scale with you, with secure support from certified servers.";
+$Product_title = "Customize your business and scale it without limits";
+$Product_text = "Adapt every part of your operation: compensation, products, users, rules, and structure. Your system evolves with you, without technical restrictions or dependence on developers.";
+$Product_text2 = "Designed to operate in multiple markets, currencies, and growth structures.";
 
 //-------------------------//
 // Envolvers
@@ -136,40 +148,47 @@ $Envolvers_title = "Results that back our technology";
 // Truth
 //-------------------------//
 
-$Truth_title = "Enterprise Product";
+$Truth_title = "Choose the operating level for your business";
+$Truth_subtitle = "From an initial structure to a fully automated global operation. Scale at your own pace with infrastructure that grows with you.";
 
-$Truth_title_01 = "Basic";
-$Truth_text_01 = "License + Unilevel + 4 modules";
-$Truth_text2_01 = "The ideal foundation to start your multilevel operation with control and structure.";
+$Truth_title_01 = "Starter";
+$Truth_text_01 = "Start your operation with solid foundations";
+$Truth_text2_01 = "Ideal for early-stage projects looking to launch their network with structure, control, and progressive growth.";
 
-$Truth_title_02 = "Advanced";
-$Truth_text_02 = "License + Unilevel + 11 modules";
-$Truth_text2_02 = "More tools and efficiency for expanding networks.";
+$Truth_title_02 = "Growth";
+$Truth_text_02 = "Expand your network and accelerate results";
+$Truth_text2_02 = "Designed for growing businesses that need automation, greater control, and advanced tools to scale.";
 
-$Truth_title_03 = "Premium";
-$Truth_text_03 = "License + Unilevel + 18 modules";
-$Truth_text2_03 = "Total control and unlimited scalability for professional management.";
+$Truth_title_03 = "Scale";
+$Truth_text_03 = "Operate at a professional level without limits";
+$Truth_text2_03 = "Designed for companies requiring maximum customization, high user volume, and global operation without friction.";
 
 //-------------------------//
 // Spirit
 //-------------------------//
 
-$Spirit_title = "Your program, under absolute control";
+$Spirit_title = "Your operation under absolute control, from day one";
+$Spirit_subtitle = "Everything you need to launch, operate, and scale your network in a single system, without friction and with total visibility.";
 
 $Spirit_title_01 = "High performance";
-$Spirit_text_01 = "Our exclusive system supports over <span class='fw-700'>60 million users and millions of monthly transactions</span>, guaranteeing scalable and unlimited performance for your network.";
+$Spirit_text_01 = "Infrastructure designed to support real growth: thousands of users, high transaction volume, and continuous operation without failures.";
+$Spirit_text_01_2 = "Your business ready to scale from the first moment.";
 
 $Spirit_title_02 = "Immediate deployment";
-$Spirit_text_02 = "Launch your business in record time with a <span class='fw-700'>team of experts</span>, preconfigured business rules, and ready-to-use reports and dashboards.";
+$Spirit_text_02 = "Launch your operation in record time with ready configurations, specialized support, and a system prepared to operate from day one.";
+$Spirit_text_02_2 = "Less time implementing, more time growing.";
 
-$Spirit_title_03 = "Leading security";
-$Spirit_text_03 = "Enterprise-level protection with <span class='fw-700'>advanced data encryption, application security, and physical safeguarding</span>, ensuring complete confidence in every operation.";
+$Spirit_title_03 = "Enterprise-level security";
+$Spirit_text_03 = "Advanced data protection, operational stability, and technological backup to ensure confidence in every transaction.";
+$Spirit_text_03_2 = "Your business protected while it grows.";
 
 //-------------------------//
 // Traits
 //-------------------------//
 
-$Traits_title = "Your business, your network, your unlimited power";
+$Traits_title = "Everything is ready.<br/>Now it's your turn to scale.";
+$Traits_text1 = "Access the system, explore how it works in real time, and discover how you can launch or transform your network starting today.";
+$Traits_text2 = "<span class='fw-700'>No commitment. No friction.</span> With live guidance.";
 
 //-------------------------//
 // Footer

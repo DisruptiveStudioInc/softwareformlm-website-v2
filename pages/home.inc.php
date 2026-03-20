@@ -151,12 +151,14 @@
 <section class="c-grad-2-4">
 	<?php include(__DIR__ . '/../includes/arrowsLat.php'); ?>
 
-	<div class="mw-1280 t-c h-100 med-h-0 jc-center fd-col small-pt-40 small-pb-40">
-		<h2 class="h1"><?= $Slogan_title; ?></h2>
-		<p class="slogan-text h4 m-center"><?= $Slogan_text; ?></p>
+	<div class="mw-1440 t-c h-100 med-h-0 jc-center fd-col small-pt-40 small-pb-40">
+		<h2 class="h1 t-balance"><?= $Slogan_title; ?></h2>
+		<p class="h5 m-center"><?= $Slogan_text; ?></p>
+		<p class="h5 m-center"><?= $Slogan_text2; ?></p>
+		<h3 class="h3 font-title m-center tc-acc-alt mt-40"><?= $Slogan_text3; ?></h3>
 		<a href="<?= $constants['demo']; ?>" target="_blank" class="btn big c-acc br-8 mt-60 small-mt-30" style="gap:8px">
-      <?= $Btn_live; ?>
-       <?php include __DIR__ . '/../includes/iconArrow.php'; ?>
+      <?= $Btn_started; ?>
+      <?php include __DIR__ . '/../includes/iconArrow.php'; ?>
     </a>
 	</div>
 </section>
@@ -187,8 +189,15 @@
           </span>
         </div>
         <div class="product-content-wrap w-50 med-w-100 med-pt-30 tc-0">
-          <h2 class="product-bo-title h2 t-pretty tc-acc"><?= $Product_title; ?></h2>
-          <p class="product-bo-text h5"><?= $Product_text; ?></p>
+          <h2 class="product-bo-title h4 t-pretty tc-acc"><?= $Product_title; ?></h2>
+          <p class="product-bo-text"><?= $Product_text; ?></p>
+          <p class="product-bo-text2"><?= $Product_text2; ?></p>
+          <div class="product-bo-btn">
+            <a href='<?= $constants['demo']; ?>' target="_blank" class="btn c-acc br-8 mt-60">
+              <?= $Btn_started; ?>
+            </a>
+            <small class="d-block tc-0 mt-10"><?= $Btn_float_note2 ?></small>
+          </div>
         </div>
       </div>
 
@@ -227,7 +236,8 @@
   <div class="anchor" id="plans"></div>
 	<?php include(__DIR__ . '/../includes/arrowsLat.php'); ?>
 
-  <h2 class="h1 tc-acc t-c mb-40"><?= $Truth_title ?></h2>
+  <h2 class="h2 tc-acc t-c"><?= $Truth_title ?></h2>
+  <p class="h5 t-c mb-40 m-center" style="max-width:64ch;"><?= $Truth_subtitle ?></p>
 
   <ul>
     <?php foreach($Big_texts as $item): ?>
@@ -237,7 +247,10 @@
           <h3 class="truth-title m-0"><?= $item['title']; ?></h3>
           <div class="truth-text">
             <p class="h3 m-0 t-pretty fw-700"><?= $item['module']; ?></p>
-            <p class="h5 mb-0 t-pretty"><?= $item['text']; ?></p>
+            <p class="h5 t-pretty"><?= $item['text']; ?></p>
+            <a href="<?= $constants['demo']; ?>" target="_blank" class="btn c-ter br-8" style="gap:8px">
+              <?= $Btn_started; ?>
+            </a>
           </div>
         </div>
       </li>
@@ -262,7 +275,8 @@
 
 		<!-- Textos -->
 		<div class="w-50 med-w-100 d-flex fd-col jc-center p-80 med-p-50 small-p-20 small-pt-50 small-pb-50">
-			<h2 class="h2 small-t-c mt-0 mb-50"><?= $Spirit_title; ?></h2>
+			<h2 class="h2 small-t-c mt-0"><?= $Spirit_title; ?></h2>
+      <p class="h5 mb-50"><?= $Spirit_subtitle ?></p>
       <ul class="d-flex fd-col g-40">
         <?php foreach($Sfmlm_spirit as $item): ?>
           <li class="spirit-container br-16 c-surf-400 rel">
@@ -270,10 +284,17 @@
               <svg class="w-90" style="height:auto;aspect-ratio:1"><use href="#<?= $item['icon']; ?>" /></svg>
             </div>
             <h3 class="h4 mt-0"><?= $item['title']; ?></h3>
-            <p class="mb-0 t-pretty"><?= $item['text']; ?></p>
+            <p class="t-pretty"><?= $item['text']; ?></p>
+            <p class="mb-0 t-pretty"><?= $item['text2']; ?></p>
           </li>
         <?php endforeach; ?>
       </ul>
+      <div class="">
+        <a href='<?= $constants['demo']; ?>' target="_blank" class="btn c-acc br-8 mt-60">
+          <?= $Btn_started; ?>
+        </a>
+        <small class="d-block mt-10"><?= $Btn_float_note2 ?></small>
+      </div>
 		</div>
 	</div>
 </section>
@@ -290,12 +311,15 @@
     </button>
 	</div>
 
-	<div class="mw-1280 t-c big">
-		<h2 class="h1 big-last"><?= $Traits_title; ?></h2>
-		<a href="<?= $constants['wame'] ?>" target="_blank" class="btn big c-acc br-8 mt-40 small-mt-20" style="gap:8px">
-      <?= $Btn_part; ?>
+	<div class="mw-1440 t-c big">
+		<h2 class="h1 mb-20"><?= $Traits_title; ?></h2>
+		<p class="h5 t-balance m-center" style="max-width:82ch"><?= $Traits_text1 ?></p>
+		<p class="h5 t-balance"><?= $Traits_text2 ?></p>
+		<a href="<?= $constants['demo'] ?>" target="_blank" class="btn big c-acc br-8 mt-40 small-mt-20" style="gap:8px">
+      <?= $Btn_started; ?>
       <?php include __DIR__ . '/../includes/iconArrow.php'; ?>
     </a>
+    <p><?= $Btn_float_note4 ?></p>
 	</div>
 </section>
 

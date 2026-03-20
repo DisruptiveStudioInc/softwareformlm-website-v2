@@ -7,7 +7,7 @@ return [
   'phone' => "(1) 408 858 4504",
   'address' => "15218 Summit AveSuite 300-527 Fontana CA 92336",
   'wame' => "https://wa.me/14088584504",
-  'demo' => "https://wa.me/14088584504",
+  'demo' => "https://demo.softwareformlm.com/",
   'socials' => array(
     'twitter' => 'https://x.com/softwareformlm',
     'facebook' => 'https://www.facebook.com/profile.php?id=61550970312320',

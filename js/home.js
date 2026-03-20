@@ -132,6 +132,16 @@ document.addEventListener("DOMContentLoaded", function () {
         x: 80,
         opacity: 0,
         duration: animationSpeed,
+      })
+      .from(".product-bo-text2", {
+        x: 80,
+        opacity: 0,
+        duration: animationSpeed,
+      })
+      .from(".product-bo-btn", {
+        x: 80,
+        opacity: 0,
+        duration: animationSpeed,
       });
   });
 

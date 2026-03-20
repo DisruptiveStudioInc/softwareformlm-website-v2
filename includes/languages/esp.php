@@ -30,6 +30,9 @@ $Btn_live = "Descubre SW4MLM";
 $Btn_part = "Impulsa tu RED";
 $Btn_started = "Iniciar Demo";
 $Btn_float_note = "Accede al sistema en vivo ahora";
+$Btn_float_note2 = "Explora el sistema en vivo y descubre su flexibilidad";
+$Btn_float_note3 = "Accede al sistema en vivo y comienza a construir tu red hoy";
+$Btn_float_note4 = "Acceso inmediato con un asesor en tiempo real";
 $Btn_read = "Leer más";
 
 //-------------------------//
@@ -122,15 +125,18 @@ $Vision_text_04_2 = "Miles de usuarios, múltiples mercados y operación continu
 // Slogan
 //-------------------------//
 
-$Slogan_title = "Tecnología MLM Que ya transforma negocios globales";
-$Slogan_text = "+100 redes profesionalizadas. +50,000 transacciones gestionadas en tiempo real. <span class='tc-acc-alt fw-700'>¿Tu empresa será la próxima en dar el salto?</span>";
+$Slogan_title = "Tecnología MLM que impulsa redes reales y negocios que escalan";
+$Slogan_text = "Más de 100 redes ya operan con este sistema y miles de transacciones se procesan todos los días en tiempo real.";
+$Slogan_text2 = "No es una promesa. <span class='fw-700'>Es infraestructura probada lista para tu crecimiento.</span>";
+$Slogan_text3 = "¿Tu empresa será la próxima en escalar?";
 
 //-------------------------//
 // Products
 //-------------------------//
 
-$Product_title = "Personalización total para tu proyecto";
-$Product_text = "Nuestros planes se ajustan a tu visión y escalan contigo, con soporte seguro desde servidores certificados.";
+$Product_title = "Personaliza tu negocio y escálalo sin límites";
+$Product_text = "Adapta cada parte de tu operación: compensaciones, productos, usuarios, reglas y estructura. Tu sistema evoluciona contigo, sin restricciones técnicas ni dependencia de desarrolladores.";
+$Product_text2 = "Diseñado para operar en múltiples mercados, monedas y estructuras de crecimiento.";
 
 //-------------------------//
 // Envolvers
@@ -142,40 +148,47 @@ $Envolvers_title = "Resultados que respaldan nuestra tecnología";
 // Truth
 //-------------------------//
 
-$Truth_title = "Enterprise Product";
+$Truth_title = "Elige el nivel de operación para tu negocio";
+$Truth_subtitle = "Desde una estructura inicial hasta una operación global completamente automatizada. Escala a tu ritmo con una infraestructura que crece contigo.";
 
-$Truth_title_01 = "Basic";
-$Truth_text_01 = "Licencia + Unilevel + 4 módulos";
-$Truth_text2_01 = "La base ideal para iniciar tu operación multinivel con control y estructura.";
+$Truth_title_01 = "Starter";
+$Truth_text_01 = "Empieza tu operación con bases sólidas";
+$Truth_text2_01 = "Ideal para proyectos en etapa inicial que buscan lanzar su red con estructura, control y crecimiento progresivo.";
 
-$Truth_title_02 = "Advanced";
-$Truth_text_02 = "Licencia + Unilevel + 11 módulos";
-$Truth_text2_02 = "Más herramientas y eficiencia para redes en expansión.";
+$Truth_title_02 = "Growth";
+$Truth_text_02 = "Expande tu red y acelera resultados";
+$Truth_text2_02 = "Pensado para negocios en crecimiento que necesitan automatización, mayor control y herramientas avanzadas para escalar.";
 
-$Truth_title_03 = "Premium";
-$Truth_text_03 = "Licencia + Unilevel + 18 módulos";
-$Truth_text2_03 = "Control total y escalabilidad sin límites para una gestión profesional.";
+$Truth_title_03 = "Scale";
+$Truth_text_03 = "Opera a nivel profesional y sin límites";
+$Truth_text2_03 = "Diseñado para empresas que requieren máxima personalización, alto volumen de usuarios y operación global sin fricciones.";
 
 //-------------------------//
 // Spirit
 //-------------------------//
 
-$Spirit_title = "Tu programa, bajo control absoluto";
+$Spirit_title = "Tu operación bajo control absoluto, desde el día uno";
+$Spirit_subtitle = "Todo lo que necesitas para lanzar, operar y escalar tu red en un solo sistema, sin fricción y con total visibilidad.";
 
 $Spirit_title_01 = "Alto rendimiento";
-$Spirit_text_01 = "Nuestro sistema exclusivo respalda más de <span class='fw-700'>60 millones de usuarios y millones de transacciones mensuales</span>, garantizando un rendimiento escalable e ilimitado para tu red.";
+$Spirit_text_01 = "Infraestructura diseñada para soportar crecimiento real: miles de usuarios, alto volumen de transacciones y operación continua sin caídas.";
+$Spirit_text_01_2 = "Tu negocio listo para escalar desde el primer momento.";
 
 $Spirit_title_02 = "Despliegue inmediato";
-$Spirit_text_02 = "Implementa tu negocio en tiempo récord con un <span class='fw-700'>equipo experto</span>, reglas comerciales preconfiguradas, reportes y paneles listos para usar.";
+$Spirit_text_02 = "Lanza tu operación en tiempo récord con configuraciones listas, soporte especializado y un sistema preparado para operar desde el día uno.";
+$Spirit_text_02_2 = "Menos tiempo implementando, más tiempo creciendo.";
 
-$Spirit_title_03 = "Seguridad líder";
-$Spirit_text_03 = "Protección de nivel empresarial con <span class='fw-700'>cifrado avanzado de datos, seguridad de aplicaciones y resguardo físico</span>, asegurando confianza total en cada operación.";
+$Spirit_title_03 = "Seguridad de nivel empresarial";
+$Spirit_text_03 = "Protección avanzada de datos, estabilidad en la operación y respaldo tecnológico para garantizar confianza en cada transacción.";
+$Spirit_text_03_2 = "Tu negocio protegido mientras crece.";
 
 //-------------------------//
 // Traits
 //-------------------------//
 
-$Traits_title = "Tu negocio, tu red, tu poder sin límites";
+$Traits_title = "Todo está listo.<br/>Ahora es tu turno de escalar.";
+$Traits_text1 = "Accede al sistema, explora su funcionamiento en tiempo real y descubre cómo puedes lanzar o transformar tu red desde hoy.";
+$Traits_text2 = "<span class='fw-700'>Sin compromiso. Sin fricción.</span> Con acompañamiento en vivo.";
 
 //-------------------------//
 // Footer

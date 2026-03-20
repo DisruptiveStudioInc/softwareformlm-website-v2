@@ -123,16 +123,19 @@ $Sfmlm_spirit = array(
   [
     'title' => $Spirit_title_01,
     'text' => $Spirit_text_01,
+    'text2' => $Spirit_text_01_2,
     'icon' => 'strategist'
   ],
   [
     'title' => $Spirit_title_02,
     'text' => $Spirit_text_02,
+    'text2' => $Spirit_text_02_2,
     'icon' => 'build'
   ],
   [
     'title' => $Spirit_title_03,
     'text' => $Spirit_text_03,
+    'text2' => $Spirit_text_03_2,
     'icon' => 'leader'
   ],
 );
