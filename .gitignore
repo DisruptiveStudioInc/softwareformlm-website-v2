@@ -1,9 +1,5 @@
-# environment variables
 .env
-.env.production
-.env.local
-.env.*.local
-
-# macOS-specific files
-.DS_Store
-docker-compose.yml
+nginx.conf
+node_modules/
+pnpm-lock.yaml
+temp/

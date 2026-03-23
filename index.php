@@ -1,32 +1,65 @@
 <?php
-session_start();
+
+// Load Composer autoloader
 require __DIR__ . '/vendor/autoload.php';
 
-require __DIR__ . '/includes/helpers.php';
-$constants = require __DIR__ . '/includes/constants.php';
-foreach ($constants as $key => $value) {
-  $GLOBALS[$key] = $value;
-}
-$config = require __DIR__ . '/config.php';
-$bypassMaintenance = $_GET['dev'] ?? null;
+// Load environment variables
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
 
-// Initialize user_replica from session or URL parameter
-if(isset($_SESSION['user_replica']) && !isset($_GET['ref'])){
-  $user_replica = $_SESSION['user_replica'];
-}
-else{
-  $user_replica = isset($_GET['ref']) ? $_GET['ref'] : NULL;
-  $_SESSION['user_replica'] = $user_replica;
+// Error handling based on environment
+$config = require __DIR__ . '/config/config.php';
+
+// Add debugging for development
+if ($config['app']['debug']) {
+  ini_set('display_startup_errors', 1);
+  ini_set('display_errors', 1);
+  error_reporting(E_ALL);
 }
 
-// Make $user_replica available globally throughout the application
-$GLOBALS['user_replica'] = $user_replica;
+// Load helper functions
+require __DIR__ . '/src/helpers.php';
 
-// Maintenance Mode
-if (isset($config['maintenance_mode']) && $config['maintenance_mode'] === true && !isset($bypassMaintenance)) {
-  include __DIR__ . '/includes/soon.php';
-  exit;
+if ($config['app']['debug']) {
+  error_reporting(E_ALL);
+  ini_set('display_errors', 1);
+} else {
+  error_reporting(0);
+  ini_set('display_errors', 0);
 }
 
-// Router Dispatch
-require __DIR__ . '/includes/routes.php';
+// Create request and router instances
+$request = new App\Request();
+$router = new App\Router($config['languages']);
+
+// Load routes
+$routeLoader = require __DIR__ . '/config/routes.php';
+$routeLoader($router);
+
+// Dispatch request and send response
+try {
+  $response = $router->dispatch($request);
+  // ---------------------------------------------------------
+  // ### FIX LCP: HTTP Header Preload (Turbo Boost)
+  // Esto le grita al navegador que descargue la imagen YA,
+  // incluso antes de procesar el HTML.
+  // ---------------------------------------------------------
+  $lcpImage = '/public/images/background/black-01.webp'; // La ruta que vimos en el reporte
+  header("Link: <$lcpImage>; rel=preload; as=image; fetchpriority=high");
+  // ---------------------------------------------------------
+  $response->send();
+} catch (Throwable $e) {
+  // Log error
+  error_log($e->getMessage());
+
+  // Show error page
+  if ($config['app']['debug']) {
+    echo "<h1>Error</h1>";
+    echo "<p>" . htmlspecialchars($e->getMessage()) . "</p>";
+    echo "<pre>" . htmlspecialchars($e->getTraceAsString()) . "</pre>";
+  } else {
+    http_response_code(500);
+    echo "<h1>500 Internal Server Error</h1>";
+    echo "<p>Something went wrong. Please try again later.</p>";
+  }
+}
