@@ -16,7 +16,7 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
   <div class="block-content py-16 lg:py-24 min-h-dvh flex-center gap-4 flex-col lg:flex-row">
     <div class="lg:w-1/2 text-center lg:text-left">
       <h2 class="font-khand uppercase bg-clip-text bg-text-white leading-none text-5xl xs:text-7xl sm:text-8xl md:text-11xl xl:text-12xl text-balance es:pt-2"><?= $trans('home.hero.title') ?></h2>
-      <p class="lg:text-xl text-secondary-200 text-balance text-white"><?= $trans('home.hero.text') ?></p>
+      <p class="lg:text-xl text-balance text-white"><?= $trans('home.hero.text') ?></p>
       <a href="<?= $constants['zoom'] ?>" target="_blank" rel="noopener noreferrer" class="button inline-flex rounded-full mt-4 mx-auto lg:mx-0 lg:mt-8 px-7 lg:px-10 bg-white border border-brand-100 text-secondary-200 hover:bg-brand-100 active:bg-brand-100 hover:text-white active:text-white"><?= $trans('common.demo') ?></a>
     </div>
     <div class="relative lg:w-1/2">
@@ -157,36 +157,38 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
 <!-- Plans -->
 <section data-nav-index="8" class="nav-section relative bg-surface-100">
   <span class="absolute top-0 left-0 size-0" id="plans"></span>
-  <?php generateBackground('white-g2',3, true); ?>
   <div class="block-content min-h-dvh flex-center flex-col py-16 lg:py-32">
-    <h2 class="font-title text-center leading-tight uppercase text-2xl sm:text-6xl lg:text-3xl xl:text-5xl lg:mb-4 slide-up-words-black"><?= $trans('home.plans.title') ?></h2>
+    <h2 class="font-title text-center leading-tight uppercase text-2xl sm:text-6xl lg:text-3xl xl:text-5xl mb-4 lg:mb-12 slide-up-words-black"><?= $trans('home.plans.title') ?></h2>
 
-    <div class="flex-center flex-col mt-20 relative pt-12 lg:py-30">
-      <div class="flex-center relative w-full mb-10 lg:mb-0">
-        <div class="circle-expansion absolute top-1/2 left-1/2 -translate-1/2 aspect-square rounded-full w-4/5 xs:w-1/2 lg:w-12/5 bg-brand-100/10"></div>
-        <div class="circle-expansion middle absolute top-1/2 left-1/2 -translate-1/2 aspect-square rounded-full w-3/5 xs:w-7/20 lg:w-9/5 bg-brand-100/10"></div>
-        <div id="ecosystem-circle" class="relative flex-center bg-brand-200 text-white aspect-square rounded-full p-4 w-1/6 min-w-41 z-2">
-          <p class="font-light leading-tight text-center text-lg md:text:xl lg:text-3xl xl:text-4xl"><?= $trans('home.plans.circle') ?></p>
-        </div>
-      </div>
-      <ul id="disr-verticals" class="max-lg:grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 gap-5" style="--total:<?= count($content['plans']); ?>">
-        <?php foreach($content['plans'] as $k => $item): ?>
-          <li class="disr-vertical lg:absolute lg:top-1/2 lg:left-1/2 max-lg:transform-none hover:z-3" style="--i:<?= $k+1; ?>
-            <?= $k === 0 ? ';--r-alt:-80px' : '' ?>"
-          >
-            <span
-              class="block <?= $k === 1 ? 'lg:translate-x-12' : '' ?> <?= $k === 2 ? 'lg:-translate-x-12' : '' ?>"
-            >
-              <div class="bg-white rounded-2xl px-5 py-4 drop-shadow-lg drop-shadow-grey-100/10 origin-center text-center hover:ring-3 ring-brand-100 transition-shadow lg:w-100 lg:max-w-92">
-                <h3 class="font-bold lg:text-xl text-brand-100"><?= $item['title'] ?></h3>
-                <p class="font-title uppercase lg:text-4xl"><?= $item['price']." USD" ?></p>
-                <p class="text-sm"><?= $trans('home.plans.user_limit').":" ?> <?= $item['users'] ?></p>
-                <p class="text-sm"><?= $trans('home.plans.support').":" ?> <?= $item['support'] ?></p>
-              </div>
-            </span>
-          </li>
-        <?php endforeach; ?>
-      </ul>
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 xl:gap-6">
+      <?php foreach($content['plans'] as $k => $item): ?>
+        <article class="bg-white rounded-lg p-4 lg:p-6 flex flex-col">
+          <h3 class="font-title uppercase text-center text-lg lg:text-2xl text-secondary-200 mb-4"><?= $item['title'] ?></h3>
+          <p class="text-pretty mb-2">
+            <span class="font-bold"><?= $trans('home.plans.user_limit').':' ?></span>
+            <?= $item['users'] ?>
+          </p>
+          <p class="text-pretty mb-6 lg:min-h-12 xl:en:min-h-0">
+            <span class="font-bold"><?= $trans('home.plans.support').':' ?></span>
+            <?= $item['support'] ?>
+          </p>
+          <p class="font-title text-brand-200 text-center text-xl lg:text-6xl"><?= '$'."{$item['price']}.00" ?></p>
+          <a href="<?= $constants['zoom'] ?>" target="_blank" rel="noopener noreferrer" class="button rounded-lg">
+            <?= $trans('common.demo') ?>
+          </a>
+          <ul class="mt-6 text-sm lg:text-base text-secondary-200 flex flex-col gap-0">
+            <?php foreach($item['items'] as $feature => $available): ?>
+              <li class="flex items-center justify-between gap-2 py-2 first:border-t border-b border-secondary-100/20">
+                <span class="text-balance text-left <?= $available ? 'text-secondary-200' : 'text-secondary-100/70' ?>"><?= $trans('home.plans.items.' . $feature) ?></span>
+                <svg class="shrink-0 size-6 <?= $available ? 'text-green-400' : 'text-red-400' ?>"><use href="#<?= $available ? 'check-circle' : 'x-circle' ?>"/></svg>
+              </li>
+            <?php endforeach; ?>
+          </ul>
+          <a href="<?= $constants['zoom'] ?>" target="_blank" rel="noopener noreferrer" class="button rounded-lg lg:text-xl mt-6">
+            <?= $trans('common.demo') ?>
+          </a>
+        </article>
+      <?php endforeach; ?>
     </div>
   </div>
 </section>
