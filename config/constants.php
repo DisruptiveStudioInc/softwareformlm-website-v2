@@ -16,17 +16,17 @@ return [
   ],
 
   'social_media' => [
-    'x' => 'https://x.com/softwareformlm',
-    'facebook' => 'https://www.facebook.com/profile.php?id=61550970312320',
-    'instagram' => 'https://www.instagram.com/software.formlm/',
-    'linkedin' => 'https://www.linkedin.com/company/90639843/admin/feed/posts/',
-    'telegram' => 'https://t.me/+vTvws-qeLfYwNTYx',
+    // 'x' => 'https://x.com/softwareformlm',
+    'facebook' => 'https://www.facebook.com/profile.php?id=61580591774327',
+    'instagram' => 'https://www.instagram.com/softwareformlm_',
+    // 'linkedin' => 'https://www.linkedin.com/company/90639843/admin/feed/posts/',
+    // 'telegram' => 'https://t.me/+vTvws-qeLfYwNTYx',
   ],
 
   'contact_info' => [
-    'email' => 'info@softwareformlm.com',
-    'phone' => '(1) 408 858 4504',
-    'address' => '15218 Summit AveSuite 300-527 Fontana CA 92336',
+    'email' => 'socialmedia@softwareformlm.com',
+    'phone' => '(1) 408 826 1822',
+    'address' => '500 N Estrella Pwy, Goodyear, AZ, United States, 85338',
     'wame' => '+14088584504',
   ],
 

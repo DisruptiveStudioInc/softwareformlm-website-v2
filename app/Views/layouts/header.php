@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<!-- <html lang="<?= $currentLang ?>" class="scroll-smooth <?= isset($hasSnapScroll) ? 'snap-y snap-proximity' : '' ?>"> -->
-<html lang="<?= $currentLang ?>" class="<?= isset($hasSnapScroll) ? 'snap-y snap-proximity' : '' ?>">
+<html lang="<?= $currentLang ?>" class="scroll-smooth <?= isset($hasSnapScroll) ? 'snap-y snap-proximity' : '' ?>">
+<!-- <html lang="<?= $currentLang ?>" class="<?= isset($hasSnapScroll) ? 'snap-y snap-proximity' : '' ?>"> -->
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">

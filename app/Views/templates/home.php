@@ -17,7 +17,7 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
     <div class="lg:w-1/2 text-center lg:text-left">
       <h2 class="font-khand uppercase bg-clip-text bg-text-white leading-none text-5xl xs:text-7xl sm:text-8xl md:text-11xl xl:text-12xl text-balance es:pt-2"><?= $trans('home.hero.title') ?></h2>
       <p class="lg:text-xl text-secondary-200 text-balance text-white"><?= $trans('home.hero.text') ?></p>
-      <button class="button rounded-full mt-4 mx-auto lg:mx-0 lg:mt-8 px-7 lg:px-10 bg-white border border-brand-100 text-secondary-200 hover:bg-brand-100 active:bg-brand-100 hover:text-white active:text-white" type="button" id="serv-int-button"><?= $trans('common.demo') ?></button>
+      <a href="<?= $constants['zoom'] ?>" target="_blank" rel="noopener noreferrer" class="button inline-flex rounded-full mt-4 mx-auto lg:mx-0 lg:mt-8 px-7 lg:px-10 bg-white border border-brand-100 text-secondary-200 hover:bg-brand-100 active:bg-brand-100 hover:text-white active:text-white"><?= $trans('common.demo') ?></a>
     </div>
     <div class="relative lg:w-1/2">
       <img src="/public/images/home/bo-computer.webp" alt="" class="lg:min-w-[44vw] relative max-h-[45vh] h-full lg:max-h-none lg:h-auto lg:absolute lg:top-1/2 lg:left-0 lg:-translate-y-1/2 transition-op-trans duration-500 delay-200" loading="eager">
@@ -27,6 +27,7 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
 
 <!-- Operate -->
 <section data-nav-index="1" class="nav-section relative bg-surface-100">
+  <span class="absolute top-0" id="sfmlm"></span>
   <div class="block-content min-h-dvh flex-center flex-col justify-center py-16 lg:py-32 xl:py-40">
     <h2 class="font-title text-center leading-tight uppercase text-2xl md:text-3xl lg:text-5xl xl:text-[4vw] slide-up-words-black"><?= $trans('home.operate.title') ?></h2>
     <p class="text-center lg:text-xl text-balance mb-6 lg:mb-16 slide-up"><?= $trans('home.operate.text') ?></p>
@@ -51,7 +52,7 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
 
 <!-- Steps -->
 <section data-nav-index="2" class="nav-section relative bg-surface-200">
-  <span class="absolute top-0 left-0 size-0" id="our-ip"></span>
+  <span class="absolute top-0 left-0 size-0"></span>
   <div class="block-content min-h-dvh py-16 lg:py-20 flex flex-col justify-center">
     <div class="flex justify-center flex-wrap gap-6 lg:gap-12 max-w-md md:max-w-3xl lg:max-w-none mx-auto stagger-parent">
       <?php foreach($content['steps'] as $k => $step): ?>
@@ -97,7 +98,7 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
 
 <!-- Scale Banner -->
 <section data-nav-index="4" class="nav-section relative text-white">
-  <span class="absolute top-0 left-0 size-0" id="essence"></span>
+  <span class="absolute top-0 left-0 size-0"></span>
   <?php generateBackground('creators',3); ?>
   <div class="block-content min-h-dvh py-16 lg:py-40 flex items-center">
     <h2 class="banner-text font-title leading-none uppercase text-[9vw] md:text-10xl lg:text-12xl slide-up-words-white"><?= $trans('home.scale.title') ?></h2>
@@ -106,7 +107,7 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
 
 <!-- Scale Info -->
 <section data-nav-index="5" class="nav-section relative section-about bg-surface-100 text-secondary-200 w-full overflow-hidden">
-  <span class="absolute top-0 left-0 size-0" id="about"></span>
+  <span class="absolute top-0 left-0 size-0"></span>
   <div class="block-content about-content min-h-dvh flex-center flex-col text-center">
     <p class="max-w-[64ch] mx-auto my-6 lg:text-2xl text-balance slide-up"><?= $trans('home.scale.text') ?></p>
     <p class="font-title uppercase text-lg md:text-xl lg:text-8xl max-w-[20ch] leading-tight mx-auto slide-up"><?= $trans('home.scale.accent') ?></p>
@@ -138,7 +139,7 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
 
 <!-- Clients -->
 <section data-nav-index="7" class="nav-section relative min-h-dvh py-16 flex-center flex-col overflow-x-hidden bg-surface-300">
-  <span class="absolute top-0 left-0 size-0" id="certifications"></span>
+  <span class="absolute top-0 left-0 size-0"></span>
   <div class="text-center px-7 pb-20">
     <h2 class="font-title leading-tight uppercase text-2xl sm:text-6xl lg:text-7xl xl:text-9xl slide-up-words-black"><?= $trans('home.clients') ?></h2>
   </div>
@@ -192,7 +193,7 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
 
 <!-- Control -->
 <section data-nav-index="9" class="nav-section relative w-full overflow-x-hidden bg-surface-200">
-  <span class="absolute top-0 left-0 size-0" id="solutions"></span>
+  <span class="absolute top-0 left-0 size-0"></span>
   <div class="block-content min-h-dvh lg:max-w-none lg:px-0 py-16 lg:py-40 flex-center flex-col lg:flex-row lg:justify-end gap-4 lg:gap-0">
     <div class="half max-lg:max-w-none lg:pr-12 w-full lg:w-1/2 text-center lg:text-left max-lg:px-0">
       <h2 class="solutions-title font-title uppercase leading-none text-2xl sm:text-6xl lg:text-7xl slide-up-words-black">
