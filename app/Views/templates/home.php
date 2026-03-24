@@ -13,14 +13,14 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
     <img class="background opacity-0 animate-cycle" src="/public/images/background/black-02.webp" alt="" loading="lazy" style="animation-duration:36s;animation-delay:12s">
     <img class="background opacity-0 animate-cycle" src="/public/images/background/black-03.webp" alt="" loading="lazy" style="animation-duration:36s;animation-delay:24s">
   </div>
-  <div class="block-content py-16 lg:py-24 min-h-dvh flex-center gap-4 flex-col lg:flex-row">
+  <div class="block-content py-16 lg:py-24 min-h-dvh flex-center gap-4 flex-col lg:flex-row-reverse">
     <div class="lg:w-1/2 text-center lg:text-left">
       <h2 class="font-khand uppercase bg-clip-text bg-text-white leading-none text-5xl xs:text-7xl sm:text-8xl md:text-11xl xl:text-12xl text-balance es:pt-2"><?= $trans('home.hero.title') ?></h2>
       <p class="lg:text-xl text-balance text-white"><?= $trans('home.hero.text') ?></p>
       <a href="<?= $constants['zoom'] ?>" target="_blank" rel="noopener noreferrer" class="button inline-flex rounded-full mt-4 mx-auto lg:mx-0 lg:mt-8 px-7 lg:px-10 bg-white border border-brand-100 text-secondary-200 hover:bg-brand-100 active:bg-brand-100 hover:text-white active:text-white"><?= $trans('common.demo') ?></a>
     </div>
     <div class="relative lg:w-1/2">
-      <img src="/public/images/home/bo-computer.webp" alt="" class="lg:min-w-[44vw] relative max-h-[45vh] h-full lg:max-h-none lg:h-auto lg:absolute lg:top-1/2 lg:left-0 lg:-translate-y-1/2 transition-op-trans duration-500 delay-200" loading="eager">
+      <img src="/public/images/home/bo-computer.webp" alt="" class="max-h-[40vh] w-auto mx-auto lg:max-h-none lg:w-9/10 lg:ml-0 lg:mr-auto" loading="eager">
     </div>
   </div>
 </section>

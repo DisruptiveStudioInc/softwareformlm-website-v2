@@ -10,6 +10,18 @@ $dotenv->load();
 // Error handling based on environment
 $config = require __DIR__ . '/config/config.php';
 
+// Initialize user_replica from session or URL parameter
+if(isset($_SESSION['user_replica']) && !isset($_GET['ref'])){
+  $user_replica = $_SESSION['user_replica'];
+}
+else{
+  $user_replica = isset($_GET['ref']) ? $_GET['ref'] : 'master';
+  $_SESSION['user_replica'] = $user_replica;
+}
+
+// Make $user_replica available globally throughout the application
+$GLOBALS['user_replica'] = $user_replica;
+
 // Add debugging for development
 if ($config['app']['debug']) {
   ini_set('display_startup_errors', 1);

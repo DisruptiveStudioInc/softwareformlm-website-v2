@@ -223,6 +223,79 @@ function getNavigationMenu(string $lang, callable $trans): array {
   ];
 }
 
+function getFooterMenu(string $lang, callable $trans): array {
+  return [
+    [
+      'label' => $trans('footer.legal'),
+      'items' => [
+        [
+          'label' => $trans('footer.privacy'),
+          'url' => route('privacy', $lang)
+        ],
+        [
+          'label' => $trans('footer.terms'),
+          'url' => route('terms', $lang)
+        ],
+        [
+          'label' => $trans('footer.cookies'),
+          'url' => route('cookies', $lang)
+        ],
+        [
+          'label' => $trans('footer.refunds'),
+          'url' => route('refunds', $lang)
+        ]
+      ]
+    ],
+    [
+      'label' => $trans('footer.compliance'),
+      'items' => [
+        [
+          'label' => $trans('footer.use'),
+          'url' => route('compliance-use', $lang)
+        ],
+        [
+          'label' => $trans('footer.compliance_policy'),
+          'url' => route('compliance-policy', $lang)
+        ],
+        [
+          'label' => $trans('footer.risk_disclosure'),
+          'url' => route('compliance-risk', $lang)
+        ],
+        [
+          'label' => $trans('footer.security'),
+          'url' => route('compliance-security', $lang)
+        ]
+      ]
+    ],
+    [
+      'label' => $trans('footer.platform'),
+      'items' => [
+        [
+          'label' => $trans('footer.sla'),
+          'url' => route('platform-sla', $lang)
+        ],
+        [
+          'label' => $trans('footer.ip'),
+          'url' => route('platform-ip', $lang)
+        ],
+        // [
+        //   'label' => $trans('footer.copyright'),
+        //   'url' => route('platform-copyright', $lang)
+        // ]
+      ]
+    ],
+    [
+      'label' => $trans('footer.technology'),
+      'items' => [
+        [
+          'label' => $trans('footer.architecture'),
+          'url' => route('technology-architecture', $lang)
+        ]
+      ]
+    ]
+  ];
+}
+
 function generateBackground(string $fileName, int $amount, bool $reverse = false): void{
   $timing = 5;
   $duration = $amount * $timing;
@@ -265,4 +338,181 @@ function loadLangDynamic(string $servicesDir = ''): array
   }
 
   return $services;
+}
+
+function loadMarkdownPageTranslations(string $markdownDir, string $englishFilename, string $spanishFilename, string $defaultPageTitle = 'Document'): array
+{
+  $normalizeText = static function (string $text): string {
+    $text = str_replace(['\\.', '**', '\\[', '\\]'], ['.', '', '[', ']'], trim($text));
+    return preg_replace('/\s+/', ' ', $text) ?? $text;
+  };
+
+  $isStandaloneSubheading = static function (string $line): bool {
+    if (preg_match('/[.?!;:]$/', $line)) {
+      return false;
+    }
+
+    if (preg_match('/^\d+\.\d+/', $line)) {
+      return false;
+    }
+
+    $words = preg_split('/\s+/', trim($line));
+    $wordCount = is_array($words) ? count($words) : 0;
+
+    if ($wordCount === 0 || $wordCount > 8) {
+      return false;
+    }
+
+    return preg_match('/^[\p{Lu}0-9][\p{L}0-9\/().,&\'" -]+$/u', $line) === 1;
+  };
+
+  $parseMarkdown = static function (string $markdown) use ($defaultPageTitle, $normalizeText, $isStandaloneSubheading): array {
+    $page = [
+      'page' => $defaultPageTitle,
+      'updated_at' => '',
+      'intro' => [],
+      'sections' => [],
+    ];
+
+    if (trim($markdown) === '') {
+      return $page;
+    }
+
+    $lines = preg_split("/\r\n|\n|\r/", trim($markdown)) ?: [];
+    $currentSection = null;
+    $paragraphBuffer = [];
+    $listBuffer = [];
+    $expectList = false;
+
+    $pushBlock = static function (array $block) use (&$currentSection, &$page): void {
+      if ($currentSection !== null) {
+        $currentSection['blocks'][] = $block;
+        return;
+      }
+
+      if (($block['type'] ?? null) === 'paragraph') {
+        $page['intro'][] = $block['text'];
+      }
+    };
+
+    $flushParagraph = static function () use (&$paragraphBuffer, &$expectList, $normalizeText, $pushBlock): void {
+      if ($paragraphBuffer === []) {
+        return;
+      }
+
+      $text = $normalizeText(implode(' ', $paragraphBuffer));
+      $pushBlock([
+        'type' => 'paragraph',
+        'text' => $text,
+      ]);
+
+      $paragraphBuffer = [];
+      $expectList = str_ends_with($text, ':');
+    };
+
+    $flushList = static function () use (&$listBuffer, &$expectList, $pushBlock): void {
+      if ($listBuffer === []) {
+        return;
+      }
+
+      $pushBlock([
+        'type' => 'list',
+        'items' => $listBuffer,
+      ]);
+
+      $listBuffer = [];
+      $expectList = false;
+    };
+
+    $flushBlocks = static function () use ($flushParagraph, $flushList): void {
+      $flushParagraph();
+      $flushList();
+    };
+
+    foreach ($lines as $line) {
+      $line = trim($line);
+
+      if ($line === '') {
+        $flushBlocks();
+        continue;
+      }
+
+      if (preg_match('/^#\s+\*\*(.+)\*\*$/', $line, $matches) === 1) {
+        $page['page'] = $normalizeText($matches[1]);
+        continue;
+      }
+
+      if (preg_match('/^\*\*(Last Updated|Última actualización):\s*(.+?)\*\*$/u', $line, $matches) === 1) {
+        $page['updated_at'] = $normalizeText($matches[1] . ': ' . $matches[2]);
+        continue;
+      }
+
+      if (preg_match('/^###\s+\*\*(.+)\*\*$/', $line, $matches) === 1) {
+        $flushBlocks();
+
+        if ($currentSection !== null) {
+          $page['sections'][] = $currentSection;
+        }
+
+        $currentSection = [
+          'title' => $normalizeText($matches[1]),
+          'blocks' => [],
+        ];
+        continue;
+      }
+
+      if (preg_match('/^\*\*(.+)\*\*$/', $line, $matches) === 1) {
+        $flushBlocks();
+        $pushBlock([
+          'type' => 'subheading',
+          'text' => $normalizeText($matches[1]),
+        ]);
+        continue;
+      }
+
+      if ($isStandaloneSubheading($line)) {
+        $flushBlocks();
+        $pushBlock([
+          'type' => 'subheading',
+          'text' => $normalizeText($line),
+        ]);
+        continue;
+      }
+
+      if (preg_match('/^[-*]\s+(.+)$/', $line, $matches) === 1 || preg_match('/^[a-z]\.\s+(.+)$/i', $line, $matches) === 1) {
+        $flushParagraph();
+        $listBuffer[] = $normalizeText($matches[1]);
+        $expectList = true;
+        continue;
+      }
+
+      if ($expectList) {
+        $listBuffer[] = $normalizeText($line);
+        continue;
+      }
+
+      $flushList();
+      $paragraphBuffer[] = $line;
+    }
+
+    $flushBlocks();
+
+    if ($currentSection !== null) {
+      $page['sections'][] = $currentSection;
+    }
+
+    return $page;
+  };
+
+  $loadPage = static function (string $filename) use ($markdownDir, $parseMarkdown): array {
+    $path = rtrim($markdownDir, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . $filename;
+    $markdown = file_exists($path) ? file_get_contents($path) : '';
+
+    return $parseMarkdown($markdown === false ? '' : $markdown);
+  };
+
+  return [
+    'es' => $loadPage($spanishFilename),
+    'en' => $loadPage($englishFilename),
+  ];
 }

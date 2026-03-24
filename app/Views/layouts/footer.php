@@ -1,10 +1,10 @@
 </main>
 
 <footer class="bg-surface-300 <?= (isset($hasSnapScroll) && $hasSnapScroll) ? 'snap-start' : '' ?>">
-  <div class="block-content flex flex-col lg:flex-row items-center justify-between gap-6 py-12 lg:py-16">
+  <div class="block-content flex flex-col items-center gap-6 lg:gap-12 py-12 lg:py-16">
     <div class="flex flex-col items-center lg:items-start">
       <svg width="250" height="60" class="h-12 w-auto"><use href="#disruptive-studio-logo"/></svg>
-      <ul class="flex flex-wrap gap-6 mt-4">
+      <ul class="flex flex-wrap items-center gap-6 mt-4 lg:mt-2 mx-auto">
         <?php foreach($constants['social_media'] as $key => $url): ?>
           <li>
             <a href="<?= $url ?>" target="_blank" rel="noopener noreferrer" class="block text-secondary-100 hover:text-brand-200 active:text-brand-200 p-2 transition-colors">
@@ -15,18 +15,19 @@
       </ul>
     </div>
 
-    <div class="flex flex-col md:flex-row justify-center lg:justify-end gap-8 text-center lg:text-left">
-      <div>
-        <h3 class="font-title text-lg mb-4"><?= $trans('footer.legal') ?></h3>
-        <ul class="space-y-2">
-          <li>
-            <a href="<?= route('privacy', $currentLang) ?>"><?= $trans('footer.privacy') ?></a>
-          </li>
-          <li>
-            <a href="<?= route('terms', $currentLang) ?>"><?= $trans('footer.terms') ?></a>
-          </li>
-        </ul>
-      </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 justify-center lg:justify-end gap-8 text-center lg:text-left">
+      <?php foreach(getFooterMenu($currentLang, $trans) as $menu): ?>
+        <div>
+          <h3 class="font-title text-lg mb-4"><?= $menu['label'] ?></h3>
+          <ul class="space-y-2">
+            <?php foreach($menu['items'] as $item): ?>
+            <li>
+              <a href="<?= $item['url'] ?>"><?= $item['label'] ?></a>
+            </li>
+            <?php endforeach; ?>
+          </ul>
+        </div>
+      <?php endforeach; ?>
       <div>
         <h3 class="font-title text-lg mb-4"><?= $trans('footer.about') ?></h3>
         <ul class="space-y-2">

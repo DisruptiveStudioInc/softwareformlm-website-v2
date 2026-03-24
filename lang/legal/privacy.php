@@ -1,157 +1,177 @@
 <?php
 
+$markdownDirectory = __DIR__ . '/md';
+
+$normalizePrivacyText = static function (string $text): string {
+  $text = str_replace(['\\.', '**', '\\[', '\\]'], ['.', '', '[', ']'], trim($text));
+  return preg_replace('/\s+/', ' ', $text) ?? $text;
+};
+
+$isStandaloneSubheading = static function (string $line): bool {
+  if (preg_match('/[.?!;:]$/', $line)) {
+    return false;
+  }
+
+  if (preg_match('/^\d+\.\d+/', $line)) {
+    return false;
+  }
+
+  $words = preg_split('/\s+/', trim($line));
+  $wordCount = is_array($words) ? count($words) : 0;
+
+  if ($wordCount === 0 || $wordCount > 8) {
+    return false;
+  }
+
+  return preg_match('/^[\p{Lu}0-9][\p{L}0-9\/().,&\'" -]+$/u', $line) === 1;
+};
+
+$parsePrivacyMarkdown = static function (string $markdown) use ($normalizePrivacyText, $isStandaloneSubheading): array {
+  $privacy = [
+    'page' => 'Privacy Policy',
+    'updated_at' => '',
+    'intro' => [],
+    'sections' => [],
+  ];
+
+  if (trim($markdown) === '') {
+    return $privacy;
+  }
+
+  $lines = preg_split("/\r\n|\n|\r/", trim($markdown)) ?: [];
+  $currentSection = null;
+  $paragraphBuffer = [];
+  $listBuffer = [];
+  $expectList = false;
+
+  $pushBlock = static function (array $block) use (&$currentSection, &$privacy): void {
+    if ($currentSection !== null) {
+      $currentSection['blocks'][] = $block;
+      return;
+    }
+
+    if (($block['type'] ?? null) === 'paragraph') {
+      $privacy['intro'][] = $block['text'];
+    }
+  };
+
+  $flushParagraph = static function () use (&$paragraphBuffer, &$expectList, $normalizePrivacyText, $pushBlock): void {
+    if ($paragraphBuffer === []) {
+      return;
+    }
+
+    $text = $normalizePrivacyText(implode(' ', $paragraphBuffer));
+    $pushBlock([
+      'type' => 'paragraph',
+      'text' => $text,
+    ]);
+
+    $paragraphBuffer = [];
+    $expectList = str_ends_with($text, ':');
+  };
+
+  $flushList = static function () use (&$listBuffer, &$expectList, $pushBlock): void {
+    if ($listBuffer === []) {
+      return;
+    }
+
+    $pushBlock([
+      'type' => 'list',
+      'items' => $listBuffer,
+    ]);
+
+    $listBuffer = [];
+    $expectList = false;
+  };
+
+  $flushBlocks = static function () use ($flushParagraph, $flushList): void {
+    $flushParagraph();
+    $flushList();
+  };
+
+  foreach ($lines as $line) {
+    $line = trim($line);
+
+    if ($line === '') {
+      $flushBlocks();
+      continue;
+    }
+
+    if (preg_match('/^#\s+\*\*(.+)\*\*$/', $line, $matches) === 1) {
+      $privacy['page'] = $normalizePrivacyText($matches[1]);
+      continue;
+    }
+
+    if (preg_match('/^\*\*(Last Updated|Última actualización):\s*(.+?)\*\*$/u', $line, $matches) === 1) {
+      $privacy['updated_at'] = $normalizePrivacyText($matches[1] . ': ' . $matches[2]);
+      continue;
+    }
+
+    if (preg_match('/^###\s+\*\*(.+)\*\*$/', $line, $matches) === 1) {
+      $flushBlocks();
+
+      if ($currentSection !== null) {
+        $privacy['sections'][] = $currentSection;
+      }
+
+      $currentSection = [
+        'title' => $normalizePrivacyText($matches[1]),
+        'blocks' => [],
+      ];
+      continue;
+    }
+
+    if (preg_match('/^\*\*(.+)\*\*$/', $line, $matches) === 1) {
+      $flushBlocks();
+      $pushBlock([
+        'type' => 'subheading',
+        'text' => $normalizePrivacyText($matches[1]),
+      ]);
+      continue;
+    }
+
+    if ($isStandaloneSubheading($line)) {
+      $flushBlocks();
+      $pushBlock([
+        'type' => 'subheading',
+        'text' => $normalizePrivacyText($line),
+      ]);
+      continue;
+    }
+
+    if (preg_match('/^[-*]\s+(.+)$/', $line, $matches) === 1 || preg_match('/^[a-z]\.\s+(.+)$/i', $line, $matches) === 1) {
+      $flushParagraph();
+      $listBuffer[] = $normalizePrivacyText($matches[1]);
+      $expectList = true;
+      continue;
+    }
+
+    if ($expectList) {
+      $listBuffer[] = $normalizePrivacyText($line);
+      continue;
+    }
+
+    $flushList();
+    $paragraphBuffer[] = $line;
+  }
+
+  $flushBlocks();
+
+  if ($currentSection !== null) {
+    $privacy['sections'][] = $currentSection;
+  }
+
+  return $privacy;
+};
+
+$loadPrivacyMarkdown = static function (string $filename) use ($markdownDirectory, $parsePrivacyMarkdown): array {
+  $path = $markdownDirectory . '/' . $filename;
+  $markdown = file_exists($path) ? file_get_contents($path) : '';
+
+  return $parsePrivacyMarkdown($markdown === false ? '' : $markdown);
+};
+
 return [
-  'es' => [
-    'p1' => 'Los sitios web ubicados en <a class=\'text-brand-200\' href=\'http://www.disruptivesrudio.com/\' target=\'_blank\'>www.disruptivestudio.com</a>, y los sitios web de Internet relacionados (colectivamente, nuestro &#34;Sitio&#34;) son operados por Disruptive Studio Inc, una corporación de Wyoming (&#34;DSI&#34;, que en lo sucesivo puede ser referido como &#34;nosotros&#34; y &#34;nuestro&#34;). DSI ha creado esta Política de Privacidad para demostrar nuestro firme compromiso con la privacidad de nuestros visitantes y clientes. Nos comprometemos a respetar su privacidad y a reconocer su necesidad de una adecuada protección y gestión de la información personal identificable que usted comparte con nosotros (las frases &#34;información personal identificable&#34; e &#34;información personal&#34; significan cualquier información por la que usted, individualmente, pueda ser identificado, como su nombre, dirección, número de teléfono, etc.). El objetivo de esta política de privacidad es informarle, cuando visite nuestro sitio, cómo utilizamos dicha información, y de las opciones que tiene en relación con el uso que hacemos de su información, así como de su capacidad para evaluarla y corregirla.',
-    'p2' => 'Tenga en cuenta que cualquier información que nos envíe, ya sea a través de formularios, correo electrónico, blogs u otros medios de envío, incluyendo información de identificación personal, puede ser mostrada públicamente en sitios alojados por DSI, o en sitios web que no están bajo nuestro control. Si no quiere que otros vean dicha información, no la envíe.',
-    'p3' => 'Para su beneficio, esta Política de Privacidad se publica de forma visible en el Sitio.',
-    'title1' => 'Nuestro compromiso con la privacidad',
-    'p4' => 'Nuestra Política de Privacidad ha sido desarrollada como una extensión de nuestro compromiso de combinar servicios de calidad con integridad en el trato con los clientes. La Política está diseñada para ayudarle a entender cómo recolectamos, utilizamos y protegemos la información personal que nos proporciona.',
-    'title2' => 'Aviso especial sobre los hijos menores',
-    'p5' => 'Los menores (niños menores de 18 años) no pueden utilizar el Sitio sin supervisión, y les pedimos que no nos envíen ninguna información personal. Si usted es menor de 18 años, sólo puede utilizar el Sitio junto con sus padres o tutores y bajo su constante supervisión y consentimiento, y sólo si tiene entre 13 y 18 años. Pero en NINGÚN caso queremos ni solicitamos información personal de niños menores de edad, es decir, menores de dieciocho (18) años. En algunos otros países existen mínimos legales más elevados para el uso de un sitio web sin supervisión - en esos países se aplican los límites legales más elevados.',
-    'p6' => 'Tenemos especial cuidado en proteger las necesidades de privacidad de los niños y animamos a los padres a participar activamente en las actividades en línea de sus hijos. Nuestro sitio no se dirige ni está destinado a niños menores de 18 años, y no recopilaremos conscientemente información personal identificable de ellos. Si descubrimos datos personales de un niño a través de nuestro sitio, los eliminaremos.',
-    'p7' => 'Puede obtener más información sobre la protección de la privacidad de los niños en línea visitando: <a href=\'http://www.ftc.gov/bcp/edu/pubs/consumer/tech/tec08.shtm\' target=\'_blank\' class=\'text-brand-200\'>http://www.ftc.gov/bcp/edu/pubs/consumer/tech/tec08.shtm</a>.',
-    'title3' => 'General',
-    'p8' => 'A veces (como cuando se registra para una cuenta de cliente o pide Software y/o Servicios) le pediremos que proporcione información personal sobre usted, como su nombre, direcciones de envío/facturación, número de teléfono, dirección de correo electrónico, información de la tarjeta de crédito, fecha de nacimiento, sexo, ocupación o intereses personales. También mantenemos un registro de sus compras en línea. El hecho de que usted decida o no proporcionar la información que le pedimos depende enteramente de usted. Pero si decide no proporcionar la información que le pedimos, es posible que no pueda comprar o acceder a determinados Servicios, Software, ofertas y contenidos del Sitio.',
-    'p9' => 'Recogemos su información personal de la siguiente manera:',
-    'list1_1' => 'Para hacer un seguimiento de sus transacciones en el Sitio o a través de él, incluyendo, sin limitación, lo relativo a sus Pedidos, el Software y el mantenimiento de sus cuentas de Usuario Final Cliente.',
-    'list1_2' => 'Al establecer una cuenta y presencia en línea con nosotros.',
-    'list1_3' => 'Al proporcionar comentarios en blogs, encuestas y otras interacciones con nuestra empresa.',
-    'p10' => 'Sus datos personales nos permiten proporcionarle la información que ha solicitado, facilitarle información sobre el estado de sus activos y transacciones, cumplir con sus compras y proporcionarle información sobre futuros servicios y productos que puedan ser de su interés. También utilizamos su información personal para ayudar a identificarle si pierde su contraseña y para ayudarle a encontrar rápidamente información en el Sitio.',
-    'title4' => 'Puerto Seguro',
-    'p11' => 'DSI se adhiere a los principios de privacidad de la política de puerto seguro de EE.UU. de notificación, elección, transferencia posterior, seguridad, integridad de los datos, acceso y aplicación. En consecuencia, la transferencia de sus datos personales por parte de DSI a naciones no pertenecientes a la Unión Europea que no cumplan con la estricta norma de &#34;adecuación&#34; de la Unión Europea para la protección de la privacidad está prohibida, y DSI no transferirá sus datos personales a ninguna de estas naciones. Si tiene alguna pregunta sobre esta política, póngase en contacto con nosotros a través del Sitio.',
-    'title5' => '¿Qué información recogemos?',
-    'p12' => 'Cuando usted visita nuestro Sitio, recopilamos dos tipos de información: la información personal que usted decide activamente revelar (<span class=\'font-bold\'>&#34;Información Activa&#34;</span>) y la información de uso recopilada, de forma no visible para usted, de forma anónima mientras usted y otros usuarios navegan por nuestro Sitio (<span class=\'font-bold\'>&#34;Información Pasiva&#34;</span>).',
-    'subtitle1' => 'Información personal identificable',
-    'p13' => 'Esto se refiere a la información que nos permite saber específicamente sobre usted, es decir, la información del perfil.',
-    'item1' => 'Registro',
-    'p14' => 'Cuando usted se registra para convertirse en un cliente o proveedor autorizado en relación con nuestro Software y Servicios, recopilaremos Información de identificación Personal (como nombre, dirección, dirección de correo electrónico y número de teléfono). Esta información de identificación personal se almacena de forma segura y se puede acceder a ella en nuestro sitio. Se le asigna un nombre de usuario y selecciona su propia contraseña - ambos son necesarios para entrar en el Sitio y para acceder a su Información de Contacto. Por favor, guarde su nombre de usuario y su contraseña en un lugar seguro, ya que no nos hacemos responsables de las violaciones del sistema cuando el acceso se proporciona voluntariamente.',
-    'item2' => 'Transacción',
-    'p15' => 'Cuando usted participa en una transacción a través del Sitio y de nuestro Software y Servicios, incluyendo, sin limitación, con respecto a uno o más Pedidos, recogemos Información Personalmente Identificable (como nombre, información de contacto y de facturación, tarjeta de crédito y otra información transaccional).',
-    'p16' => 'Utilizamos esta información para entregar su pedido, procesar el pago y comunicar el estado de su pedido.',
-    'item3' => 'Almacenamiento de tarjetas de crédito',
-    'p17' => 'Los datos de la tarjeta de crédito recogidos en el momento del registro o de los pedidos se utilizan únicamente para procesar el pago de la transacción y, por lo general, no se conservan en nuestro sitio. Sin embargo, usted puede elegir voluntariamente almacenar de forma segura varias tarjetas de crédito para utilizarlas en los pedidos de nuestro Software y Servicios.',
-    'item4' => 'Encuestas y promociones',
-    'p18' => 'Ocasionalmente, usted puede proporcionar voluntariamente información de identificación personal para completar encuestas y cuestionarios o para participar en encuestas de clientes o usuarios. Utilizamos esta información para mejorar nuestro Sitio, Software y Servicios y para asegurarnos de que estamos proporcionando información precisa. También podemos utilizar su información de identificación personal para proporcionarle boletines de noticias y otra información de marketing que coincida con sus preferencias. Usted puede personalizar sus preferencias de marketing, o hacernos saber si no desea recibir ningún material promocional, incluyendo, entre otros, llamadas promocionales, textos y comunicaciones por correo electrónico, ajustando sus opciones de Suscripciones y Correo Electrónico en el Sitio.',
-    'subtitle2' => 'Información agregada',
-    'p19' => 'Se trata de información que, por sí misma, no le identifica como individuo concreto. Dicha información incluirá el Localizador Uniforme de Recursos (<span class=\'font-bold\'>&#34;URL&#34;</span>) del sitio web que le remita a nuestro Sitio, su dirección de Protocolo de Internet (<span class=\'font-bold\'>&#34;IP&#34;</span>) (un número asignado automáticamente a su ordenador cada vez que navega por la web), su sistema operativo y tipo de navegador, y cualquier término de búsqueda que introduzca en nuestro Sitio. Nuestro servidor web agrega esta información para controlar el nivel de actividad en nuestro sitio, evaluar su eficacia y mejorar el contenido de nuestro sitio para que su visita sea una experiencia fácil y agradable.',
-    'p20' => 'Podemos recoger, recopilar, almacenar, publicar, promover, informar o divulgar de cualquier otra forma o utilizar cualquier Información Agregada, siempre que dicha información no le identifique personalmente.',
-    'p21' => 'No recolectamos ninguna Información Personalmente Identificable con la Información Agregada que recogemos en nuestro Sitio. Si recolectamos cualquier Información Agregada con usted, estará protegida como cualquier otra Información Personalmente Identificable bajo esta Política de Privacidad.',
-    'title6' => 'Información activa que decide proporcionar',
-    'p22' => 'Para poder utilizar el Sitio (convertirse en un &#34;Cliente&#34; o en un posible Cliente), le pedimos que revele la siguiente información: Nombre, dirección y número de teléfono.',
-    'p23' => 'Utilizamos una codificación de capa de conexión segura (SSL) para proteger la transmisión de la información que nos envía cuando utiliza nuestros formularios seguros en línea. La información que nos proporciona se almacena de forma segura.',
-    'title7' => 'Información pasiva recogida',
-    'subtitle3' => '¿Qué es una cookie?',
-    'p24' => 'El Sitio utiliza la tecnología de las cookies para mejorar la calidad de su experiencia. Una cookie es un pequeño archivo que contiene información enviada por un sitio web y que el navegador de su ordenador guarda en su disco duro. Las cookies almacenan información que un sitio web puede necesitar para personalizar su experiencia y recopilar datos estadísticos del sitio. Nuestro sitio utiliza cookies para recopilar información sobre cómo se utiliza nuestro sitio. La información pasiva recopilada puede incluir la fecha y la hora de las visitas, las páginas del sitio visitadas, el tiempo de permanencia en nuestro sitio, los sitios visitados justo antes y justo después de visitar nuestro sitio. En concreto, cada vez que usted visita el sitio para navegar o para leer o descargar información, recogemos y almacenamos el nombre del dominio y del host desde el que accede a Internet (por ejemplo, msn.com, aol.com, etc.); la dirección del protocolo de Internet (IP) del ordenador que está utilizando; el software del navegador que utiliza y su sistema operativo; la fecha y la hora de acceso al sitio; y la dirección de Internet del sitio web desde el que ha enlazado directamente con el sitio. Utilizamos esta información para medir el número de visitantes a las áreas del Sitio, y para ayudarnos a hacer el Sitio más útil e interesante para nuestros visitantes. Utilizamos la información de las cookies de forma agregada para analizar las tendencias y las estadísticas, y luego la descartamos; no hacemos un seguimiento de las personas, sino sólo de los casos de entrada en el Sitio. Esto facilita que el usuario se desplace de un sitio a otro y que realice transacciones en Internet. Las cookies deberían facilitar su experiencia en línea y hacerla más personalizada.',
-    'p25' => 'Algunos consumidores pueden no saber que se colocan cookies en sus ordenadores cuando visitan sitios web. Si quiere saber cuándo ocurre esto, o evitar que ocurra, puede configurar su navegador para que le avise cuando un sitio web intente colocar una cookie en su ordenador. Si no desea transmitir información sobre usted a través de las &#34;cookies&#34;, puede desactivar la función de cookies en su navegador.',
-    'p26' => 'Los servidores de nuestro sitio web también identifican automáticamente su ordenador por su dirección de Protocolo de Internet (IP), que es una cadena de números única asignada a su ordenador por su proveedor de servicios de Internet. La dirección IP puede utilizarse para solucionar problemas con nuestro servidor o para recopilar información demográfica general sobre nuestros usuarios. Recogemos su dirección IP de forma pasiva.',
-    'subtitle4' => '¿Cómo utilizamos la información recogida?',
-    'p27' => 'En términos generales, las personas que empleamos directamente, o como contratistas o agentes bajo nuestra dirección, utilizan la Información Activa con el fin de administrar nuestras actividades comerciales, proporcionar atención al cliente y poner a disposición otros servicios o productos que creemos que pueden ser de interés para nuestros usuarios. Podemos utilizar la Información Activa o la Información Pasiva que usted nos proporcione para ponernos en contacto con usted sobre diversos cambios en nuestro sitio, nuevos servicios, características o productos que podamos ofrecer. Si en algún momento no desea recibir dicha información, puede &#34;optar por no hacerlo&#34; ajustando la configuración de su correo electrónico en el back office del sitio.',
-    'p28' => 'En general, compartiremos su información personal con nuestros socios y con terceros contratistas independientes con el fin de (1) realizar funciones en nombre de DSI; (2) proporcionarle ofertas por correo electrónico o postal; (3) hacer un seguimiento de la información generada a través del Sitio; y (4) coordinar con terceros contratistas independientes para proporcionarle características de los servicios que recibe y cualquier artículo que obtenga a través del Sitio, el Software y los Servicios. Nuestros socios y contratistas independientes están obligados por contrato a no utilizar ni compartir su información personal para fines no autorizados.',
-    'p29' => 'Sujeto a la Ley Aplicable, nos reservamos el derecho de transferir su información personal a un tercero en el caso de una transferencia de todos o sustancialmente todos los activos de la compañía DSI, siempre que el tercero acepte adherirse a los términos de esta Política de Privacidad.',
-    'p30' => 'En concreto, utilizamos la información pasiva para recopilar información sobre nuestros usuarios y para mejorar nuestro sitio y hacerlo más fácil, rápido y amigable para los usuarios. Además, las cookies nos ayudan a entender mejor el patrón de uso de las personas que visitan nuestro Sitio, lo que nos ayuda a mejorar nuestros servicios. La información pasiva puede dar lugar a que usted vea determinada publicidad basada en sus hábitos de uso. Su información en relación con otros enlaces usted puede acceder a otros sitios web a través de nuestro sitio mediante hipervínculos. Al hacerlo, se somete a sus políticas de privacidad y de recopilación de datos. Por favor, lea las políticas de privacidad de esos sitios para asegurarse de que esté de acuerdo con los términos antes de utilizarlos.',
-    'title8' => 'Compartir información con anunciantes u otros terceros',
-    'p31' => 'Podemos revelar información anónima sobre los hábitos de los usuarios a los anunciantes de nuestro Sitio. Las partes que prestan servicios para nosotros (procesadores de tarjetas de crédito, banco comercial, proveedor de servicios de Internet) también pueden tener acceso a su información al prestar dichos servicios. En caso de que compremos o vendamos activos de nuestra empresa, es posible que otra empresa necesite revisar los activos de nuestra empresa, que podrían incluir su información, para tomar decisiones comerciales sobre la adquisición de dichos activos.',
-    'title9' => 'Compartir información con el gobierno o según lo exija la ley',
-    'p32' => 'Es posible que nos veamos obligados por una citación, una ley o un organismo gubernamental a revelar tanto la información activa como la pasiva que nos ha proporcionado.',
-    'p33' => 'Por ello, nos reservamos el derecho a revelar su información personal para cumplir con una orden judicial, citación, orden de registro u otro proceso legal; para cumplir con los requisitos legales, reglamentarios o administrativos de cualquier autoridad gubernamental; para protegernos y defendernos a nosotros, y/o a nuestras subsidiarias y filiales, y a sus funcionarios, directores, empleados, abogados, agentes, contratistas y socios, en relación con cualquier acción legal, reclamación o disputa; para hacer cumplir los Términos y Condiciones de Uso (las Condiciones de Servicio de nuestro sitio web) del Sitio; para prevenir un daño físico inminente; y en el caso de que descubramos que sus acciones en el Sitio violan cualquier ley, nuestros Términos y Condiciones de Uso, o cualquiera de nuestras directrices de uso para servicios específicos.',
-    'title10' => 'No participar',
-    'p34' => 'Puede optar por no compartir su información personal para recibir ofertas de servicios o productos por correo electrónico, texto o correo postal, y por no recibir ofertas de servicios o productos directamente de nosotros por correo electrónico o correo postal, simplemente haciendo clic en la casilla &#34;No estoy de acuerdo&#34; que aparece en el Sitio cuando se le pide que acceda a esta Política de Privacidad la primera vez que utiliza su nombre de usuario y contraseña para acceder al área del Sitio que requiere registro. Además, puede excluirse proporcionándonos una notificación por escrito en la que se identifiquen las comunicaciones que decide no recibir, escribiéndonos a Disruptive Studio Inc, Attention: Karen Martínez, Presidenta, 15218 Summit Avenue 300-527, Fontana, California 92336.',
-    'p35' => 'Una exclusión por correo electrónico, enviada a <a href=\'mailto:support@disruptivestud.io\' class=\'text-brand-200\'>support@disruptivestud.io</a>, irá a un buzón de correo electrónico activo para su supervisión y procesamiento en un plazo de tres (3) días desde su recepción. Las exclusiones postales serán supervisadas adecuadamente por uno o varios administradores de exclusiones designados por la empresa.',
-    'p36' => 'Si decide no darnos su información personal en absoluto, podrá seguir accediendo al Sitio; sin embargo, no podrá acceder a las áreas que requieren registro o información personal, incluyendo, sin limitación, las áreas a través de las cuales puede pedir Software y Servicios, lo que significa que tendrá que adquirir los servicios a través de un contrato duro.',
-    'title11' => '¿Cómo protegemos la información activa y pasiva?',
-    'p37' => 'Protegemos la información personal que nos envía haciendo esfuerzos razonables para evitar el acceso o la divulgación no autorizados, o la pérdida accidental de la Información Activa y Pasiva. Las publicaciones individuales en este sitio y otras comunicaciones a nuestra oficina a través del correo electrónico o del correo ordinario pueden no ser seguras, a menos que le avisemos de que existen medidas de seguridad antes de que envíe la información. Por lo tanto, si decide comunicarse con nosotros a través de estos medios, está asumiendo el riesgo de hacerlo y le pedimos respetuosamente que no envíe o publique información sensible a través de estos medios.',
-    'title12' => 'Acceso y corrección de su información',
-    'p38' => 'Tomamos medidas razonables para asegurarnos de que toda la información de identificación personal que recopilamos en nuestro sitio es precisa, actual, completa y fiable para el uso previsto. Si desea actualizar o corregir la información de identificación personal que nos ha proporcionado, puede editar su información en línea.',
-    'p39' => 'Si cree que alguno de sus datos personales es incorrecto, o ha sido modificado desde su registro en el Sitio, también puede enviar un mensaje de correo electrónico a <a href=\'mailto:support@centralbusinessdevelopment.com\' class=\'text-brand-200\'>support@centralbusinessdevelopment.com</a> explicando la corrección o el cambio y proporcionando cualquier número de confirmación o referencia pertinente.',
-    'p40' => 'Protección de su información reconocemos su confianza y nos comprometemos a tomar medidas razonables para proteger la información de identificación personal proporcionada contra la pérdida, el mal uso y el acceso no autorizado. Empleamos procesos físicos, electrónicos y de gestión para salvaguardar y asegurar su información. Es su responsabilidad salvaguardar la contraseña que utiliza para acceder a nuestro Sitio y avisarnos rápidamente si sospecha que su contraseña ha sido comprometida. Le recomendamos encarecidamente que cambie su contraseña con regularidad para evitar accesos no autorizados. Dado
-    que su nombre de usuario y contraseña son específicos para usted, usted reconoce la responsabilidad exclusiva de cualquier uso de nuestro Sitio realizado con su nombre de usuario y contraseña.',
-    'title13' => 'Alojamiento de terceros',
-    'p41' => 'Contratamos a uno o más terceros para mantener y alojar el Sitio. Por lo tanto, cualquier información que usted envíe, incluida la información personal, se colocará y almacenará en un servidor informático mantenido por este tercero. Dichos terceros han acordado implementar características tecnológicas y de seguridad, así como estrictas directrices políticas para salvaguardar la privacidad de su información personal del acceso no autorizado o del uso indebido.',
-    'title14' => 'Tecnologías del sitio',
-    'p42' => 'Nosotros no proporcionamos las tecnologías utilizadas para construir el Sitio, y por lo tanto, no recomendamos ni avalamos las mismas. Cualquier información relativa a las tecnologías identificadas, incluyendo sus capacidades, limitaciones y aplicaciones, debe ser solicitada directamente a sus fabricantes. DSI renuncia por la presente a cualquier derecho sobre marcas comerciales, marcas de servicio, nombres comerciales, logotipos, derechos de autor, patentes, nombres de dominio u otros intereses de propiedad intelectual de terceros que no sean intereses de propiedad intelectual de DSI.',
-    'title15' => 'Enlaces a otros sitios web',
-    'p43' => 'Los enlaces a sitios web de terceros pueden proporcionarse únicamente para su información y conveniencia o para proporcionar compras adicionales de otros bienes y servicios a través de nuestros socios comerciales y de servicios. Si utiliza estos enlaces, saldrá de nuestro Sitio. Estos enlaces son una adaptación a los respectivos propietarios de los sitios de terceros y para su comodidad. Los sitios enlazados hacia y desde el Sitio no están necesariamente bajo el control de DSI, y no tendremos responsabilidad alguna por el contenido o las prácticas de privacidad de cualquier sitio enlazado, o cualquier enlace o programa de enlace en cualquier momento. Usted debe leer y entender las políticas de DSI con respecto a dichos enlaces de terceros, tal y como se indica en los Términos y Condiciones de Uso (Términos de Uso) de la web. Esta Política de Privacidad no cubre las prácticas de información de esas páginas web ni controlamos su contenido o políticas de privacidad. Le sugerimos que revise cuidadosamente las políticas de privacidad de cada sitio que visite.',
-    'title16' => 'Cambios en esta política de privacidad',
-    'p44' => 'Esta política de privacidad es efectiva a partir del 1 de febrero de 2022.',
-    'p45' => 'DSI se reserva el derecho de modificar los términos de esta Política de Privacidad en cualquier momento y a su sola discreción, publicando un aviso de cambio en esta página.',
-    'p46' => 'Cualquier actualización o cambio en los términos de esta Política de Privacidad se publicará en nuestro Sitio y la fecha de la versión más reciente se publicará a continuación. Por favor, compruebe con frecuencia, especialmente antes de enviar cualquier información de identificación personal en nuestro sitio, para ver si esta política de privacidad ha cambiado. Al utilizar nuestro Sitio, usted reconoce la aceptación de esta Política de Privacidad en vigor en el momento de su uso.',
-    'p47' => 'El uso de nuestro Sitio significa que usted acepta las prácticas establecidas en esta política. <span class=\'font-bold\'>SU USO CONTINUADO DEL SITIO TRAS LA PUBLICACIÓN POR NUESTRA PARTE DE UN AVISO DE CAMBIO CONSTITUIR* UNA ACEPTACIÓN VINCULANTE DE DICHOS CAMBIO</span>.',
-  ],
-  'en' => [
-    'p1' => 'The websites located at <a class=\'text-brand-200\' href=\'http://www.disruptivesrudio.com/\' target=\'_blank\'>www.disruptivestudio.com</a>, and related Internet websites (collectively, our &#34;Site&#34;) are operated by Disruptive Studio Inc, a Wyoming corporation (&#34;DSI&#34;, which may hereinafter be referred to as &#34;us,&#34; &#34;we,&#34; and &#34;our&#34;). DSI has created this Privacy Policy to demonstrate our firm commitment to the privacy of our visitors and customers. We are committed to respecting your privacy and recognizing your need for appropriate protection and management of personally identifiable information you share with us (the phrases &#34;personally identifiable information&#34; and &#34;personal information&#34; mean any information by which you, individually, can be identified, such as your name, address, telephone number, etc.). The purpose of this Privacy Policy is to inform you when you visit our Site how we use such information, and the choices you have regarding our use of, and your ability to review and correct, your information.',
-    'p2' => 'Please be aware that any information that you submit to us whether through forms, email, blogs, or other submission means including personally identifiable information, may be publicly displayed on sites hosted by DSI, or on websites not within our control. If you don’t want others to see such information, don\'t submit it.',
-    'p3' => 'For your benefit, this Privacy Policy is posted conspicuously on the Site.',
-    'title1' => 'Our Commitment to Privacy',
-    'p4' => 'Our Privacy Policy has been developed as an extension of our commitment to combine quality services with integrity in dealing with customers. The Policy is designed to assist you in the understanding of how we collect, use and protect the personal information provided to us.',
-    'title2' => 'A Special Notice About Minor Children',
-    'p5' => 'Minors (children under the age of 18) are not eligible to use the Site unsupervised, and we ask that children do not submit any personal information to us.  If you are under the age of 18, you may only use the Site in conjunction with, and under the constant supervision and consent of, your parents or guardians, and then only if you are between the ages of 13 and 18.  But in NO case do we want nor solicit any personal information from minor children, i.e. those under the age of eighteen (18) years old.  In certain other countries there are higher legal minimums for using a website unsupervised - in those countries the higher legal limits apply.',
-    'p6' => 'We take special care to protect the privacy needs of children and encourage parents to be an active participant in their child’s online activities. Our Site does not target and is not intended for children under the age of 18, and we will not knowingly collect Personally Identifiable Information from them. If we discover personal data from a child through our site, we will eliminate that data.',
-    'p7' => 'You may learn more about protecting children’s privacy online by visiting: <a href=\'http://www.ftc.gov/bcp/edu/pubs/consumer/tech/tec08.shtm\' target=\'_blank\' class=\'text-brand-200\'>http://www.ftc.gov/bcp/edu/pubs/consumer/tech/tec08.shtm</a>.',
-    'title3' => 'General',
-    'p8' => 'Sometimes (such as when you sign up for a customer account or order Software and/or Services) we will ask you to provide personal information about yourself, such as your name, shipping/billing addresses, telephone number, e-mail address, credit card information, birth date, gender, occupation, or personal interests. We also maintain a record of your online purchases. Whether or not you choose to provide the information we request is entirely up to you. But if you choose not to provide the information we request, you may be unable to purchase or access certain Services, Software, offers, and content on the Site.',
-    'p9' => 'We collect your personal information in the following manner:',
-    'list1_1' => 'To track your transactions at or through the Site, including without limitation with respect to your Orders, Software and maintenance of your Client End User accounts.',
-    'list1_2' => 'When establishing on online account and presence with us.',
-    'list1_3' => 'When provide feedback on blogs, surveys, and other interactions with our company',
-    'p10' => 'Your personal information enables us to provide you with the information you have requested, provide you with information regarding the status of your assets and transactions, fulfill your purchases, and provide you with information regarding future services and products that may suit your particular interests. We also use your personal information to help identify you if you lose your password and to help you quickly find information on the Site.',
-    'title4' => 'Safe Harbor',
-    'p11' => 'DSI adheres to the U.S. safe harbor policy privacy principles of notice, choice, onward transfer, security, data integrity, access, and enforcement.  Accordingly, DSI\'s transfer of your personal data to non-European Union nations that do not meet the stringent European Union “adequacy” standard for privacy protection is prohibited, and DSI will not transfer your personal data to any such nation.  If you have any questions regarding this policy, please contact us through the Site.',
-    'title5' => 'What Information Do We Collect?',
-    'p12' => 'When you visit our Site, we collect two types of information: personal information you actively choose to disclose (<span class=\'font-bold\'>&#34;Active Information&#34;</span>) and Use information collected, in a way not visible to you, on an aggregate anonymous basis as you and other users browse our Site (<span class=\'font-bold\'>&#34;Passive Information&#34;</span>).',
-    'subtitle1' => 'Personally Identifiable Information',
-    'p13' => 'This refers to information that lets us know specifically about you, i.e. profile information.',
-    'item1' => 'Registration',
-    'p14' => 'When you register to become an authorized customer or Provider in relation to our Software and Services, we will collect Personally Identifiable Information (such as name, address, email address, and telephone number). This Personally Identifiable Information is securely stored and may be accessed on our Site. You are assigned a user name and select your own password - both are needed to enter the Site and to access your Contact Information. Please safeguard your user name and password in a secure location as we are not responsible for breaches into the system when access is willingly provided.',
-    'item2' => 'Transaction',
-    'p15' => 'When you participate in a transaction through the Site and our Software and Services, including without limitation with respect to one or more Orders, we collect Personally Identifiable Information (such as name, contact and billing information, credit card, and other transactional information).',
-    'p16' => 'We use this information to deliver your order, process payment, and to communicate the status of your order.',
-    'item3' => 'Credit Card Storage',
-    'p17' => 'Credit card information collected at registration or for orders is used only to process payment for the transaction and, generally, is not retained on our Site. However, you may voluntarily elect to securely store multiple credit cards to be used for orders for our Software and Services.',
-    'item4' => 'Surveys and Promotions',
-    'p18' => 'Occasionally, you may voluntarily provide Personally Identifiable Information to complete surveys and questionnaires or to participate in customer or user polls. We use this information to improve our Site, Software and Services and to ensure that we’re providing accurate disclosures. We may also use your Personally Identifiable Information to provide you newsletters and other marketing information that coincide with your preferences. You may customize your marketing preferences, or let us know if you do not wish to receive any promotional materials, including without limitation promotional calls, texts and e-mail communications, by adjusting your Subscriptions & Email options on the Site.',
-    'subtitle2' => 'Aggregate Information',
-    'p19' => 'This refers to information that does not, by itself, identify you as a specific individual. Such information would include the Uniform Resource Locator (<span class=\'font-bold\'>&#34;URL&#34;</span>) of the website that referred you to our Site, your Internet Protocol (<span class=\'font-bold\'>&#34;IP&#34;</span>) address (a number automatically assigned to your computer whenever you surf the web), your operating system and browser type, and any search terms that you enter on our Site. Our web server aggregates this information in order to monitor the level of activity on our Site, evaluate its effectiveness, and improve the content or our Site in order to make your visit an easy and enjoyable experience.',
-    'p20' => 'We may collect, compile, store, publish, promote, report, or otherwise disclose or use any Aggregate Information, provided that such information does not personally identify you.',
-    'p21' => 'We do not correlate any Personally Identifiable Information with the Aggregate Information that we collect on our Site. If we do correlate any Aggregate Information to you, it will be protected like any other Personally Identifiable Information under this Privacy Policy.',
-    'title6' => 'Active Information You Choose to Provide',
-    'p22' => 'In order to gain use of the Site (become a “Customer” or a prospective Customer), we require you to disclose the following information: Name, Address and Phone Number.',
-    'p23' => 'We use secure socket layer (SSL) encryption to protect the transmission of the information you submit to us when you use our secure online forms. The information you provide to us is stored securely.',
-    'title7' => 'Passive Information Collected',
-    'subtitle3' => 'What is a Cookie?',
-    'p24' => 'The Site uses cookie technology to improve the quality of your experience. A cookie is a small file that contains information sent by a website that is saved on your hard disk by your computer\'s browser. Cookies store information that a website may need in order to personalize your experience and gather website statistical data.  Our Site utilizes cookies to collect information about how our site is used.  Passive Information gathered may include the date and time of visits, the site pages viewed, time spent at our site, the sites visited just before and just after visiting our site.  Specifically, any time you visit the Site to browse or to read or download information, we collect and store the name of the domain and host from which you access the Internet (for example, msn.com, aol.com, etc.); the Internet protocol (IP) address of the computer you are using; the browser software you use and your operating system; the date and time you access the Site; and the Internet address of the website from which you linked directly to the Site. We use this information to measure the number of visitors to areas of the Site, and to help us make the Site more useful and interesting to our visitors. We use information from cookies in the aggregate to analyze for trends and statistics, and then discard it—we do not track individuals, only instances of entry onto the Site.  This makes it easier for a user to move from site to site and to complete transactions over the Internet. Cookies should make your online experience easier and more personalized.',
-    'p25' => 'Some consumers may not know that cookies are being placed on their computers when they visit websites. If you want to know when this happens, or to prevent it from happening, you can set your browser to advise you when a website attempts to place a cookie on your computer.  If you do not wish to transmit &#34;cookie&#34; information about yourself, you may turn off the cookie function in your web browser.',
-    'p26' => 'Our Site\'s servers also automatically identify your computer by its Internet Protocol (IP) address, which is a unique string of numbers that are assigned to your computer by your Internet Service Provider. The IP address may be used to address problems with our server or to gather broad demographic information about our users. We passively collect your IP Address.',
-    'subtitle4' => 'How Do We Use the Information Collected?',
-    'p27' => 'Broadly speaking, persons we employ directly, or as contractors or agents at our direction use Active Information for purposes of administering our business activities, providing customer support and making available other services or products we think might be of interest to our users. We may use the Active Information or Passive Information you provide to contact you about various changes to our site, new services, features or products we might offer. If at any time you do not wish to receive such information, you may &#34;opt-out&#34; of doing so by adjusting your email settings in the back office of the Site.',
-    'p28' => 'Generally, we will share your personal information with our partners and with third-party independent contractors for purposes of: (1) performing functions on behalf of DSI; (2) providing you with offers via e-mail or postal mail; (3) tracking information generated through the Site; and (4) coordinating with third-party independent contractors to provide you with features of services you receive and any items you obtain through the Site, Software and Services. Our partners and third-party independent contractors are obligated contractually not to use or share your personal information for unauthorized purposes.',
-    'p29' => 'Subject to the Applicable Law, we reserve the right to transfer your personal information to a third party in the event of a transfer of all or substantially all of DSI’s company assets, provided that the third party agrees to adhere to the terms of this Privacy Policy.',
-    'p30' => 'Specifically, we use Passive Information to gather information about our users and to enhance our site to make it easier, faster and friendlier for users. Additionally, cookies help us better understand the usage pattern of the people that visit our Site, which helps us improve our services. Passive Information may result in your viewing of particular advertising based on your user habits. Your Information In Relation to Others We Link To You might be able to access other websites through our site via hyperlinks. When you do so, you are subjecting yourself to their privacy policies and data collection. Please read the privacy policies of those sites to ensure you agree with the terms before using such sites.',
-    'title8' => 'Sharing Information with Advertisers or Other Third Parties',
-    'p31' => 'We may disclose anonymous information about user habits to advertisers on our Site. The parties who perform services for us (credit card processors, merchant bank, Internet Service Provider) may also have access to your information in performing such services. Should we buy or sell assets of our company, another company may need to review our company\'s assets, which might include your information, to make business decisions as to whether to acquire such assets.',
-    'title9' => 'Sharing Information with the Government or As Otherwise Required by Law',
-    'p32' => 'We may be required by subpoena, law or government agency to disclose both Active and Passive Information you have provided to us.',
-    'p33' => 'As such, we reserve the right to disclose your personal information to comply with a court order, subpoena, search warrant, or other legal process; to comply with legal, regulatory, or administrative requirements of any governmental authorities; to protect and defend us, and/or our subsidiaries and affiliates, and their officers, directors, employees, attorneys, agents, contractors, and partners, in connection with any legal action, claim, or dispute; to enforce Terms and Conditions of Use (our website Terms of Service) of the Site; to prevent imminent physical harm; and in the event that we find that your actions on the Site violate any laws, our Terms and Conditions of Use, or any of our usage guidelines for specific services.',
-    'title10' => 'Opt Out',
-    'p34' => 'You may &#34;opt out&#34; of having your personal information shared for purposes of receiving service or product offers via e-mail, text or postal mail, and from receiving service or product offers directly from us via e-mail or postal mail, by simply clicking on the box stating “I Do Not Agree” provided at the Site when prompted to access this Privacy Policy the first time you use your login and password to access the area of the Site that requires registration. Additionally, you can opt out by providing us written notice identifying which communications you choose not to receive by writing us at:  Disruptive Studio Inc, Attention:  Karen Martinez, President, 15218 Summit Avenue 300-527, Fontana, California 92336.',
-    'p35' => 'An opt-out by e-mail, sent to <a href=\'mailto:support@disruptivestud.io\' class=\'text-brand-200\'>support@disruptivestud.io</a>, will go to a live e-mail box for monitoring and processing within three (3) days of receipt.  Postal opt-outs will be properly monitored by one or more opt-out administrators designated by Company.',
-    'p36' => 'If you choose not to give us your personal information at all, you can still access the Site; however, you will not be able to access areas that require registration or personal information, including without limitation the areas through which you may order Software and Services, which means you will have to procure services through a hard contract.',
-    'title11' => 'How Do We Secure Active Information and Passive Information?',
-    'p37' => 'We secure your personal information submitted by you by using reasonable efforts to prevent unauthorized access or disclosure, or accidental loss of Active and Passive Information. Individual postings on this site and other communications to our office via email or standard mail may not be secure unless we advise you that security measures are in place prior to your submission of information. Therefore, if you choose to communicate with us through these means, you are assuming the risk of doing so and we respectfully request that you do not send or post sensitive information through these means.',
-    'title12' => 'Accessing and Correcting Your Information',
-    'p38' => 'We take reasonable measures to ensure that any Personally Identifiable Information we collect on our Site is accurate, current, complete, and reliable for its intended use. If you wish to update or otherwise correct Personally Identifiable Information provided to us, you may edit your information online.',
-    'p39' => 'If you believe that any of your personal information is incorrect, or has been changed since your registration at the Site, you may also send an e-mail message to <a href=\'mailto:support@centralbusinessdevelopment.com\' class=\'text-brand-200\'>support@centralbusinessdevelopment.com</a> explaining the correction or change and provide any relevant confirmation or reference number.',
-    'p40' => 'Protecting Your Information We acknowledge your trust and are committed to take reasonable steps to protect Personally Identifiable Information provided from loss, misuse, and unauthorized access. We employ physical, electronic, and managerial processes to safeguard and secure your information. It is your responsibility to safeguard the password you use to access our Site and to promptly advise us if you ever suspect that your password has been compromised. We strongly encourage you to change your password regularly to prevent unauthorized access. Because your username and password are specific to you, you acknowledge sole responsibility for any and all use of our Site conducted with your username and password.',
-    'title13' => 'Third-Party Hosting',
-    'p41' => 'We contract with one or more third parties to maintain and host the Site.  Therefore, any information you submit, including personal information, will be placed and stored on a computer server maintained by this third-party host.  Any such third party has agreed to implement technology and security features and strict policy guidelines to safeguard the privacy of your personal information from unauthorized access or improper use.',
-    'title14' => 'Site Technologies',
-    'p42' => 'We do not provide the technologies used to build the Site, and therefore, we neither recommend nor endorse the same. Any information regarding identified technologies, including their capabilities, limitations, and applications, should be sought directly from their manufacturers.  DSI hereby disclaims any rights to trademarks, service marks, trade names, logos, copyrights, patents, domain names, or other intellectual property interests of third parties that are not intellectual property interests of DSI.',
-    'title15' => 'Links to Other Websites',
-    'p43' => 'Links to third-party websites may be provided solely for your information and convenience or to provide additional shopping for various other goods and services through our Merchant and Services Partners. If you use these links, you will leave our Site.  These links are an accommodation to the respective third-party site owners and for your convenience.  Sites linked to and from the Site are not necessarily under the control of DSI, and we shall have no responsibility or liability whatsoever for the content or privacy practices of any linked sites, or any link or linking program at any time. You should read and understand DSI\'s policies with respect to such third-party links, as stated in the Terms and Conditions of Use (Terms of Use) of the Site.  This Privacy Policy does not cover the information practices of those websites nor do we control their content or privacy policies. We suggest that you carefully review the privacy policies of each site you visit.',
-    'title16' => 'Changes to This Privacy Policy',
-    'p44' => 'This Privacy Policy is effective as of February 1, 2022.',
-    'p45' => 'DSI reserves the right to modify the terms of this Privacy Policy at any time and in its sole discretion, by posting a change notice on this page.',
-    'p46' => 'Any updates or changes to the terms of this Privacy Policy will be posted on our Site and the date of the newest version posted below. Please check back frequently, especially before you submit any Personally Identifiable Information at our Site, to see if this Privacy Policy has changed. By using our Site, you acknowledge acceptance of this Privacy Policy in effect at the time of use.',
-    'p47' => 'Your use of our site means that you accept the practices set forth in this policy. <span class=\'font-bold\'>YOUR CONTINUED USE OF THE SITE FOLLOWING OUR POSTING OF A CHANGE NOTICE WILL CONSTITUTE BINDING ACCEPTANCE OF THOSE CHANGES</span>.',
-  ],
+  'es' => $loadPrivacyMarkdown('privacy-es.md'),
+  'en' => $loadPrivacyMarkdown('privacy.md'),
 ];

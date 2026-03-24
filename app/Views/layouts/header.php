@@ -50,34 +50,6 @@
   }
   </script>
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4047FZ4Z5R"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-4047FZ4Z5R');
-  </script>
-
-  <!-- Facebook Pixel -->
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1562889971501829');
-    fbq('track', 'PageView');
-  </script>
-  <noscript>
-    <img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1562889971501829&ev=PageView&noscript=1"/>
-  </noscript>
-
   <!-- CSS -->
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link rel="preconnect" href="https://www.googletagmanager.com">
@@ -123,8 +95,8 @@
 <body class="text-grey-100 antialiased overflow-x-hidden">
 <header class="bg-white border-b border-surface-300 w-full fixed top-0 left-0 z-50">
   <nav class="w-full">
-    <div class="flex justify-between items-center lg:items-stretch gap-4 lg:gap-1 lg:es:gap-0.5 xl:es:gap-1 xl:gap-2 w-full px-7">
-      <div class="flex items-center lg:shrink-0 border-r border-surface-300 gap-2 lg:gap-4 lg:es:gap-1 xl:es:gap-4 pr-4 lg:es:pr-2 xl:es:pr-4">
+    <div class="flex justify-between items-center lg:items-stretch gap-4 lg:gap-1 xl:gap-2 w-full px-7">
+      <div class="flex items-center lg:shrink-0 border-r border-surface-300 gap-2 lg:gap-4 pr-4">
         <!-- Logo -->
         <a href="<?= route('home', $currentLang, $config['languages']['default']) ?>" class="text-2xl font-bold text-gray-800">
           <svg width="100" height="100" class="h-8 lg:h-10 w-auto"><use href="#disruptive-favicon"/></svg>
@@ -152,6 +124,12 @@
 
       <a href="<?= $constants['zoom'] ?>" target="_blank" rel="noopener noreferrer" class="button self-center shrink-0 rounded-lg font-bold hidden lg:flex lg:es:text-sm xl:es:text-base">
         <?= $trans('common.demo') ?>
+      </a>
+      <a href="<?= $constants['bo_link'] ?>login" target="_blank" rel="noopener noreferrer" class="button self-center shrink-0 rounded-lg font-bold hidden bg-secondary-100 hover:bg-secondary-200 text-white lg:flex lg:es:text-sm xl:es:text-base">
+        <?= $trans('common.login') ?>
+      </a>
+      <a href="<?= $constants['bo_link'] ?>register/<?= $GLOBALS['user_replica'] ?>" target="_blank" rel="noopener noreferrer" class="button self-center shrink-0 rounded-lg font-bold hidden lg:flex lg:es:text-sm xl:es:text-base">
+        <?= $trans('common.register') ?>
       </a>
     </div>
 
@@ -200,13 +178,15 @@
 
         </ul>
 
-        <a href="<?= route('contact', $currentLang) ?>" class="button w-full rounded-lg font-bold flex text-xl mb-3">
-          <?= $trans('nav.contact') ?>
+        <a href="<?= $constants['zoom'] ?>" target="_blank" rel="noopener noreferrer" class="button w-full rounded-lg font-bold">
+          <?= $trans('common.demo') ?>
         </a>
-
-        <button type="button" class="video-button cursor-pointer flex-center py-2 px-4 rounded-lg bg-surface-100 hover:bg-surface-300/25 text-brand-100 hover:text-brand-200 transition-colors mx-auto">
-          <svg class="size-7"><use href="#play"/></svg>
-        </button>
+        <a href="<?= $constants['bo_link'] ?>login" target="_blank" rel="noopener noreferrer" class="button w-full rounded-lg font-bold bg-secondary-100 hover:bg-secondary-200 text-white">
+          <?= $trans('common.login') ?>
+        </a>
+        <a href="<?= $constants['bo_link'] ?>register/<?= $GLOBALS['user_replica'] ?>" target="_blank" rel="noopener noreferrer" class="button w-full rounded-lg font-bold">
+          <?= $trans('common.register') ?>
+        </a>
       </div>
     </div>
   </nav>

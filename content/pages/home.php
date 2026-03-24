@@ -121,7 +121,7 @@ return[
       'text' => Language::trans('home.plans.plan2.text'),
       'users' => 5000,
       'support' => Language::trans('home.plans.plan2.support'),
-      'price' => 678,
+      'price' => 397,
       'items' => [
         'encrypted_data' => true,
         'availability' => true,

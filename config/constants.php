@@ -30,7 +30,8 @@ return [
     'wame' => '+14088584504',
   ],
 
-  'zoom' => 'https://us02web.zoom.us/j/1234567890?pwd=example',
+  'zoom' => '#',
+  'bo_link' => 'https://my.softwareformlm.com/',
 
   'videos' => [
     'es' => '1159033854',
