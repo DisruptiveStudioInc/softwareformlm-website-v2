@@ -7,7 +7,7 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
 ?>
 
 <!-- Hero -->
-<section data-nav-index="0" class="nav-section relative text-white w-full overflow-x-hidden">
+<section data-nav-index="0" class="nav-section relative text-white w-full overflow-x-hidden" id="home">
   <div class="absolute -z-1 w-full h-full top-0 left-0">
     <img class="background" src="/public/images/background/black-01.webp" alt="" loading="eager" fetchpriority="high">
     <img class="background opacity-0 animate-cycle" src="/public/images/background/black-02.webp" alt="" loading="lazy" style="animation-duration:36s;animation-delay:12s">
