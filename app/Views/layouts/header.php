@@ -123,7 +123,7 @@
       <?php include(__DIR__.'/../components/navDesktop.php') ?>
 
       <a href="<?= $constants['zoom'] ?>" target="_blank" rel="noopener noreferrer" class="button self-center shrink-0 rounded-lg font-bold hidden lg:flex lg:es:text-sm xl:es:text-base">
-        <?= $trans('common.demo') ?>
+        <?= $trans('nav.buy') ?>
       </a>
       <a href="<?= $constants['bo_link'] ?>login" target="_blank" rel="noopener noreferrer" class="button self-center shrink-0 rounded-lg font-bold hidden bg-secondary-100 hover:bg-secondary-200 text-white lg:flex lg:es:text-sm xl:es:text-base">
         <?= $trans('common.login') ?>
@@ -179,7 +179,7 @@
         </ul>
 
         <a href="<?= $constants['zoom'] ?>" target="_blank" rel="noopener noreferrer" class="button w-full rounded-lg font-bold">
-          <?= $trans('common.demo') ?>
+          <?= $trans('nav.buy') ?>
         </a>
         <a href="<?= $constants['bo_link'] ?>login" target="_blank" rel="noopener noreferrer" class="button w-full rounded-lg font-bold bg-secondary-100 hover:bg-secondary-200 text-white">
           <?= $trans('common.login') ?>

@@ -16,7 +16,8 @@ return [
     'case_studies' => 'Casos de estudio',
     'certifications' => 'Certificaciones',
     'contact' => 'Contáctanos',
-    'blog' => 'Blog'
+    'blog' => 'Blog',
+    'buy' => 'Comprar ahora',
   ],
 
   // Footer
