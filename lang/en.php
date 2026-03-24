@@ -7,7 +7,7 @@ return [
   'nav' => [
     'home' => 'Home',
     'sfmlm' => 'Software4MLM',
-    'plans' => 'Plans',
+    'plans' => 'Pricing',
     'team' => 'Team',
     'solutions' => 'Solutions',
     'services' => 'Services',
@@ -123,8 +123,16 @@ return [
     ],
     'scale' => [
       'title' => 'MLM technology that drives real networks and businesses that scale',
-      'text' => "More than 100 networks already operate with this system and thousands of transactions are processed every day in real time. It's not a promise. It's proven infrastructure ready for your growth.",
-      'accent' => 'Will your company be the next to scale?'
+      'text' => 'You can do much more with Softwareformlm',
+      'accent' => 'Ready to take your company to dominate the market?',
+      'stats' => [
+        'business1' => 'companies',
+        'business2' => 'use our system',
+        'people1' => 'people',
+        'people2' => 'use our platform',
+        'money1' => 'of dollars',
+        'money2' => 'processed by clients'
+      ]
     ],
     'customize' => [
       'title' => "Customize your business and scale it without limits",
@@ -158,6 +166,7 @@ return [
       'support' => 'Support channels',
       'unlimited' => 'Unlimited',
       'per_month' => 'month',
+      'everything_in' => 'Everything in',
       'items' => [
         'encrypted_data' => 'Encrypted data',
         'availability' => 'High availability',
@@ -245,6 +254,8 @@ return [
     'demo' => 'Start Demo',
     'login' => 'Login',
     'register' => 'Register',
+    'recommended' => 'Recommended',
+    'get_info' => 'Get information'
   ],
 
   // Common titles

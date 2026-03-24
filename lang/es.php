@@ -7,7 +7,7 @@ return [
   'nav' => [
     'home' => 'Inicio',
     'sfmlm' => 'Software4MLM',
-    'plans' => 'Planes',
+    'plans' => 'Precios',
     'team' => 'Equipo',
     'solutions' => 'Soluciones',
     'services' => 'Servicios',
@@ -123,8 +123,16 @@ return [
     ],
     'scale' => [
       'title' => 'Tecnología MLM que impulsa redes reales y negocios que escalan',
-      'text' => 'Más de 100 redes ya operan con este sistema y miles de transacciones se procesan todos los días en tiempo real. No es una promesa. Es infraestructura probada lista para tu crecimiento.',
-      'accent' => '¿Tu empresa será la próxima en escalar?'
+      'text' => 'Puedes hacer mucho más con Softwareformlm',
+      'accent' => '¿Listo para llevar a tu empresa a dominar el mercado?',
+      'stats' => [
+        'business1' => 'empresas',
+        'business2' => 'emplean nuestro sistema',
+        'people1' => 'personas',
+        'people2' => 'usan nuestra plataforma',
+        'money1' => 'de dólares',
+        'money2' => 'procesados por clientes'
+      ]
     ],
     'customize' => [
       'title' => 'Personaliza tu negocio y escálalo sin límites',
@@ -158,6 +166,7 @@ return [
       'support' => 'Canales de soporte',
       'unlimited' => 'Ilimitado',
       'per_month' => 'mes',
+      'everything_in' => 'Todo lo incluido en',
       'items' => [
         'encrypted_data' => 'Datos encryptados',
         'availability' => 'Alta disponibilidad',
@@ -245,6 +254,8 @@ return [
     'demo' => 'Iniciar demo',
     'login' => 'Login',
     'register' => 'Registro',
+    'recommended' => 'Recomendado',
+    'get_info' => 'Obtener información'
   ],
 
   // Common titles

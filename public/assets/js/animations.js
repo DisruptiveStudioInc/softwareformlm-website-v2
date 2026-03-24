@@ -27,6 +27,29 @@ if (slideUpEls.length > 0) {
   });
 }
 
+const slideUpDelayedEls = document.querySelectorAll(".slide-up-delay");
+
+if (slideUpEls.length > 0) {
+  const slideUpDelay = gsap.utils.toArray(".slide-up-delay");
+  gsap.utils.toArray(".slide-up-delay").forEach((element) => {
+    const delayTime = element.dataset.delay;
+    gsap.from(element, {
+      scrollTrigger: {
+        trigger: element,
+        start: "top 80%",
+        // end: "top 50%",
+        // scrub: true,
+        toggleActions: playReverse,
+      },
+      opacity: 0,
+      y: 30,
+      delay: delayTime,
+      // duration: 0.8,
+      // ease: "power2.out",
+    });
+  });
+}
+
 document.fonts.ready.then(() => {
   const wordsEls = document.querySelectorAll(".slide-up-words");
   const wordsBlackEls = document.querySelectorAll(".slide-up-words-black");
@@ -69,7 +92,7 @@ document.fonts.ready.then(() => {
           return gsap.from(self.words, {
             yPercent: 20,
             autoAlpha: 0,
-            stagger: 0.3,
+            stagger: 0.2,
             scrollTrigger: {
               trigger: element,
               start: "top 80%",
@@ -93,7 +116,7 @@ document.fonts.ready.then(() => {
           return gsap.from(self.words, {
             yPercent: 20,
             autoAlpha: 0,
-            stagger: 0.3,
+            stagger: 0.2,
             scrollTrigger: {
               trigger: element,
               start: "top 80%",

@@ -70,6 +70,23 @@ return[
       'text2' => Language::trans('home.network.item4.text2')
     ]
   ],
+  'stats' => [
+    [
+      'number' => '+250',
+      'name' => Language::trans('home.scale.stats.business1'),
+      'text' => Language::trans('home.scale.stats.business2')
+    ],
+    [
+      'number' => '+35M',
+      'name' => Language::trans('home.scale.stats.people1'),
+      'text' => Language::trans('home.scale.stats.people2')
+    ],
+    [
+      'number' => '+400M',
+      'name' => Language::trans('home.scale.stats.money1'),
+      'text' => Language::trans('home.scale.stats.money2')
+    ]
+  ],
   'plans' => [
     [
       'title' => Language::trans('home.plans.plan1.title'),
@@ -100,22 +117,11 @@ return[
         'roles' => true,
         'notifications' => true,
         'languages' => true,
-        'cashout' => true,
-        'ecommerce' => false,
-        'suscriptions' => false,
-        'inventory_management' => false,
-        'referrals' => false,
-        'events' => false,
-        'ipayout' => false,
-        'multicountry' => false,
-        'kyc' => false,
-        'wallet_connect' => false,
-        'aml' => false,
-        'signed_contract' => false,
-        'payment_processors' => false
+        'cashout' => true
       ]
     ],
     [
+      'recommended' => true,
       'title' => Language::trans('home.plans.plan2.title'),
       'subtitle' => Language::trans('home.plans.plan2.subtitle'),
       'text' => Language::trans('home.plans.plan2.text'),
@@ -123,40 +129,14 @@ return[
       'support' => Language::trans('home.plans.plan2.support'),
       'price' => 397,
       'items' => [
-        'encrypted_data' => true,
-        'availability' => true,
-        'access_24_7' => true,
-        'unilevel' => true,
-        'binary_tree' => true,
-        'bonuses' => true,
-        'compression' => true,
-        'monthly_membership' => true,
-        'investment_plans' => true,
-        'education_plans' => true,
-        'repurchase' => true,
-        'upgrades' => true,
-        'wallets' => true,
-        'ranks' => true,
-        'brokers_module' => true,
-        'stripe' => true,
-        'crypto' => true,
-        'user_control' => true,
-        'roles' => true,
-        'notifications' => true,
-        'languages' => true,
-        'cashout' => true,
+        'includes' => Language::trans('home.plans.plan1.title'),
         'ecommerce' => true,
         'suscriptions' => true,
         'inventory_management' => true,
         'referrals' => true,
         'events' => true,
         'ipayout' => true,
-        'multicountry' => true,
-        'kyc' => false,
-        'wallet_connect' => false,
-        'aml' => false,
-        'signed_contract' => false,
-        'payment_processors' => false
+        'multicountry' => true
       ]
     ],
     [
@@ -167,35 +147,7 @@ return[
       'support' => Language::trans('home.plans.plan3.support'),
       'price' => 997,
       'items' => [
-        'encrypted_data' => true,
-        'availability' => true,
-        'access_24_7' => true,
-        'unilevel' => true,
-        'binary_tree' => true,
-        'bonuses' => true,
-        'compression' => true,
-        'monthly_membership' => true,
-        'investment_plans' => true,
-        'education_plans' => true,
-        'repurchase' => true,
-        'upgrades' => true,
-        'wallets' => true,
-        'ranks' => true,
-        'brokers_module' => true,
-        'stripe' => true,
-        'crypto' => true,
-        'user_control' => true,
-        'roles' => true,
-        'notifications' => true,
-        'languages' => true,
-        'cashout' => true,
-        'ecommerce' => true,
-        'suscriptions' => true,
-        'inventory_management' => true,
-        'referrals' => true,
-        'events' => true,
-        'ipayout' => true,
-        'multicountry' => true,
+        'includes' => Language::trans('home.plans.plan2.title'),
         'kyc' => true,
         'wallet_connect' => true,
         'aml' => true,

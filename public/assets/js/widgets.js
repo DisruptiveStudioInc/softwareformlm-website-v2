@@ -351,3 +351,63 @@ if (videoButtons.length > 0 && videoPopup && closeVideo) {
     }
   });
 }
+
+//Home popup
+const demoButtons = document.querySelectorAll(".open-popup");
+const demoDialog = document.getElementById("demo-popup");
+
+if (demoButtons.length > 0 && demoDialog) {
+  const closeDemoButton = demoDialog.querySelector(".close-popup");
+  const demoBackdropStyleId = "demo-popup-backdrop-style";
+
+  const lockScroll = () => {
+    document.documentElement.classList.add("overflow-hidden");
+    document.body.classList.add("overflow-hidden");
+  };
+
+  const unlockScroll = () => {
+    document.documentElement.classList.remove("overflow-hidden");
+    document.body.classList.remove("overflow-hidden");
+  };
+
+  const injectBackdropStyle = () => {
+    if (document.getElementById(demoBackdropStyleId)) return;
+
+    const style = document.createElement("style");
+    style.id = demoBackdropStyleId;
+    style.textContent = `
+      #demo-popup::backdrop {
+        background: rgb(0 0 0 / 0.8);
+      }
+    `;
+    document.head.appendChild(style);
+  };
+
+  const openDemoDialog = () => {
+    if (demoDialog.open) return;
+    injectBackdropStyle();
+    lockScroll();
+    demoDialog.showModal();
+  };
+
+  const closeDemoDialog = () => {
+    if (!demoDialog.open) return;
+    demoDialog.close();
+  };
+
+  demoButtons.forEach((button) => {
+    button.addEventListener("click", openDemoDialog);
+  });
+
+  if (closeDemoButton) {
+    closeDemoButton.addEventListener("click", closeDemoDialog);
+  }
+
+  demoDialog.addEventListener("click", (event) => {
+    if (event.target === demoDialog) {
+      closeDemoDialog();
+    }
+  });
+
+  demoDialog.addEventListener("close", unlockScroll);
+}

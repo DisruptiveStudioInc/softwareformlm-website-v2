@@ -55,7 +55,7 @@ const ipsSwiper = new Swiper("#ips-swiper", {
 
 const clientsSliderOps = {
   speed: 9000,
-  spaceBetween: 40,
+  spaceBetween: 20,
   autoHeight: false,
   slidesPerView: 2,
   loop: true,
@@ -71,17 +71,30 @@ const clientsSliderOps = {
       slidesPerView: 3,
     },
     768: {
-      slidesPerView: 4,
+      slidesPerView: 5,
+    },
+    1088: {
+      slidesPerView: 10,
     },
   },
 };
-const clients1Swiper = new Swiper(".clients-swiper", {
+const clients1Swiper = new Swiper(".clients-odd-swiper", {
   ...clientsSliderOps,
   autoplay: {
     delay: 0,
     disableOnInteraction: false,
     pauseOnMouseEnter: false,
     reverseDirection: false,
+  },
+});
+
+const clients2Swiper = new Swiper(".clients-even-swiper", {
+  ...clientsSliderOps,
+  autoplay: {
+    delay: 0,
+    disableOnInteraction: false,
+    pauseOnMouseEnter: false,
+    reverseDirection: true,
   },
 });
 
