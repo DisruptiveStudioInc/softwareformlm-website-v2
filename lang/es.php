@@ -157,6 +157,7 @@ return [
       'user_limit' => 'Límite de usuarios',
       'support' => 'Canales de soporte',
       'unlimited' => 'Ilimitado',
+      'per_month' => 'mes',
       'items' => [
         'encrypted_data' => 'Datos encryptados',
         'availability' => 'Alta disponibilidad',

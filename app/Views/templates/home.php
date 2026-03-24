@@ -16,9 +16,14 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
   </div>
   <div class="block-content py-16 lg:py-24 min-h-dvh flex-center gap-4 flex-col lg:flex-row-reverse">
     <div class="lg:w-1/2 text-center lg:text-left">
-      <h2 class="font-khand uppercase bg-clip-text bg-text-white leading-none text-5xl xs:text-7xl sm:text-8xl md:text-11xl xl:text-12xl text-balance es:pt-2"><?= $trans('home.hero.title') ?></h2>
+      <h2 class="font-khand uppercase bg-clip-text bg-text-white leading-none text-5xl xs:text-7xl sm:text-8xl md:text-9xl xl:text-10xl text-balance es:pt-2"><?= $trans('home.hero.title') ?></h2>
       <p class="lg:text-xl text-balance text-white"><?= $trans('home.hero.text') ?></p>
-      <a href="<?= $constants['zoom'] ?>" target="_blank" rel="noopener noreferrer" class="button inline-flex rounded-full mt-4 mx-auto lg:mx-0 lg:mt-8 px-7 lg:px-10 bg-white border border-brand-100 text-secondary-200 hover:bg-brand-100 active:bg-brand-100 hover:text-white active:text-white"><?= $trans('common.demo') ?></a>
+      <div class="relative w-fit mt-4 mx-auto lg:mx-0 lg:mt-8">
+        <a href="<?= $constants['zoom'] ?>" target="_blank" rel="noopener noreferrer" class="button relative gradient rounded-lg lg:text-2xl px-7 lg:px-10 hover:text-white duration-300 z-1">
+          <span class="relative"><?= $trans('common.demo') ?></span>
+        </a>
+        <div class="button-glow"></div>
+      </div>
     </div>
     <div class="relative lg:w-1/2">
       <img src="/public/images/home/bo-computer.webp" alt="" class="max-h-[40vh] w-auto mx-auto lg:max-h-none lg:w-9/10 lg:ml-0 lg:mr-auto" loading="eager">
@@ -35,7 +40,7 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
     <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7 max-w-md md:max-w-none mx-auto mb-6 lg:mb-16">
       <?php foreach($content['operate'] as $item): ?>
         <li class="bg-surface-50 rounded-2xl p-4 md:p-6 lg:p-7 drop-shadow-lg drop-shadow-grey-100/10">
-          <h3 class="text-center font-bold mb-4 leading-tight text-lg lg:text-2xl text-secondary-200">
+          <h3 class="text-center font-bold mb-4 leading-tight text-lg lg:text-2xl text-brand-200">
             <?= $item['title'] ?>
           </h3>
           <p class="text-center md:font-light ext-balance"><?= $item['text'] ?></p>
@@ -43,9 +48,12 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
       <?php endforeach; ?>
     </ul>
     <div class="stagger-parent flex-center flex-col">
-      <a href="<?= $constants['zoom'] ?>" target="_blank" rel="noopener noreferrer" class="button rounded-lg slide-up-stagger">
-        <?= $trans('common.demo') ?>
-      </a>
+      <div class="relative w-fit slide-up-stagger">
+        <a href="<?= $constants['zoom'] ?>" target="_blank" rel="noopener noreferrer" class="button relative gradient rounded-lg lg:text-xl px-7 lg:px-10 hover:text-white duration-300 z-1">
+          <span class="relative"><?= $trans('common.demo') ?></span>
+        </a>
+        <div class="button-glow"></div>
+      </div>
       <p class="slide-up-stagger text-center mt-4"><?= $trans('home.operate.footnote') ?></p>
     </div>
   </div>
@@ -57,20 +65,23 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
   <div class="block-content min-h-dvh py-16 lg:py-20 flex flex-col justify-center">
     <div class="flex justify-center flex-wrap gap-6 lg:gap-12 max-w-md md:max-w-3xl lg:max-w-none mx-auto stagger-parent">
       <?php foreach($content['steps'] as $k => $step): ?>
-        <article class="group w-full md:w-[calc(50%_-_--spacing(6))] lg:w-[calc(50%_-_--spacing(12))] p-4 md:p-5 flex-center flex-col bg-white hover:bg-brand-100 text-grey-100 hover:text-white drop-shadow-md drop-shadow-grey-100/20 rounded-xl md:rounded-2xl slide-up-stagger transition-colors">
+        <article class="group w-full md:w-[calc(50%_-_--spacing(6))] lg:w-[calc(50%_-_--spacing(12))] p-4 md:p-5 flex-center flex-col bg-white hover:bg-brand-100 text-grey-100 drop-shadow-md drop-shadow-grey-100/20 rounded-xl md:rounded-2xl slide-up-stagger transition-colors">
           <h2 class="font-title uppercase text-center text-brand-100 group-hover:text-white mb-2 sm:mb-6 transition-colors"><?= 0 . ($k+1) . "." ?> <?= $step['number'] ?></h2>
           <div class="w-full flex-center flex-col text-center flex-grow">
-            <h3 class="font-title leading-tight text-balance text-secondary-200 group-hover:text-white text-lg md:text-xl lg:text-2xl mb-2 transition-colors"><?= $step['title'] ?></h3>
-            <p class="transition-colors"><?= $step['text'] ?></p>
+            <h3 class="font-khand leading-tight text-balance bg-clip-text bg-text-black text-2xl md:text-4xl lg:text-6xl mb-2 transition-colors"><?= $step['title'] ?></h3>
+            <p><?= $step['text'] ?></p>
           </div>
         </article>
       <?php endforeach; ?>
     </div>
 
     <div class="stagger-parent flex-center flex-col mt-6 lg:mt-12">
-      <a href="<?= $constants['zoom'] ?>" target="_blank" rel="noopener noreferrer" class="button rounded-lg slide-up-stagger">
-        <?= $trans('common.demo') ?>
-      </a>
+      <div class="relative w-fit slide-up-stagger">
+        <a href="<?= $constants['zoom'] ?>" target="_blank" rel="noopener noreferrer" class="button relative gradient rounded-lg lg:text-xl px-7 lg:px-10 hover:text-white duration-300 z-1">
+          <span class="relative"><?= $trans('common.demo') ?></span>
+        </a>
+        <div class="button-glow"></div>
+      </div>
       <p class="slide-up-stagger text-center mt-4"><?= $trans('home.operate.footnote') ?></p>
     </div>
   </div>
@@ -79,10 +90,18 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
 <!-- Network -->
 <section data-nav-index="3" class="nav-section relative tech-section snap-align-none h-screen w-full overflow-hidden bg-surface-300" style="height:100vh;">
   <div class="block-content h-screen py-12 lg:py-40 flex-center flex-col overflow-hidden" style="height:100vh;">
-    <h2 class="tech-title font-title leading-none uppercase text-2xl sm:text-5xl md:text-8xl lg:text-9xl text-center slide-up-words-black"><?= $trans('home.network.title') ?></h2>
+    <div class="tech-title">
+      <h2 class="font-title leading-none uppercase text-2xl sm:text-5xl md:text-8xl lg:text-9xl text-center slide-up-words-black"><?= $trans('home.network.title') ?></h2>
+      <div class="relative w-fit mt-4 mx-auto lg:mt-8 slide-up">
+        <a href="<?= $constants['zoom'] ?>" target="_blank" rel="noopener noreferrer" class="button relative gradient rounded-lg lg:text-2xl px-7 lg:px-10 hover:text-white duration-300 z-1">
+          <span class="relative"><?= $trans('common.demo') ?></span>
+        </a>
+        <div class="button-glow"></div>
+      </div>
+    </div>
     <div class="w-full mx-auto">
       <?php foreach($content['network'] as $k => $slide): ?>
-        <div class="absolute top-1/2 left-1/2 -translate-1/2 w-3/5 lg:max-w-9/20">
+        <div class="absolute top-1/2 left-1/2 -translate-1/2 w-3/5 lg:max-w-9/20 z-2">
           <article class="tech-card flex-center flex-col text-center bg-brand-100 text-secondary-100 px-4 py-6 lg:p-10 rounded-2xl
           <?= $k===1 ? '-translate-x-1/4' : '' ?>
           <?= $k===2 ? 'translate-x-3/10 lg:translate-x-1/2' : '' ?>
@@ -101,8 +120,14 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
 <section data-nav-index="4" class="nav-section relative text-white">
   <span class="absolute top-0 left-0 size-0"></span>
   <?php generateBackground('creators',3); ?>
-  <div class="block-content min-h-dvh py-16 lg:py-40 flex items-center">
+  <div class="block-content min-h-dvh py-16 lg:py-40 flex flex-col items-center">
     <h2 class="banner-text font-title leading-none uppercase text-[9vw] md:text-10xl lg:text-12xl slide-up-words-white"><?= $trans('home.scale.title') ?></h2>
+    <div class="relative w-fit mt-4 lg:mt-8 slide-up self-start">
+      <a href="<?= $constants['zoom'] ?>" target="_blank" rel="noopener noreferrer" class="button relative gradient rounded-lg lg:text-2xl px-7 lg:px-10 hover:text-white duration-300 z-1">
+        <span class="relative"><?= $trans('common.demo') ?></span>
+      </a>
+      <div class="button-glow"></div>
+    </div>
   </div>
 </section>
 
@@ -112,9 +137,12 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
   <div class="block-content about-content min-h-dvh flex-center flex-col text-center">
     <p class="max-w-[64ch] mx-auto my-6 lg:text-2xl text-balance slide-up"><?= $trans('home.scale.text') ?></p>
     <p class="font-title uppercase text-lg md:text-xl lg:text-8xl max-w-[20ch] leading-tight mx-auto slide-up"><?= $trans('home.scale.accent') ?></p>
-    <a href="<?= $constants['zoom'] ?>" target="_blank" rel="noopener noreferrer" class="button rounded-lg slide-up lg:text-xl mt-6 lg:mt-12">
-      <?= $trans('common.demo') ?>
-    </a>
+    <div class="relative w-fit slide-up mt-6 lg:mt-12">
+      <a href="<?= $constants['zoom'] ?>" target="_blank" rel="noopener noreferrer" class="button relative gradient rounded-lg lg:text-xl px-7 lg:px-10 hover:text-white duration-300 z-1">
+        <span class="relative"><?= $trans('common.demo') ?></span>
+      </a>
+      <div class="button-glow"></div>
+    </div>
   </div>
 </section>
 
@@ -126,9 +154,12 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
       <p class="text-secondary-200 lg:text-xl text-balance"><?= $trans('home.customize.text') ?></p>
       <p class="text-secondary-200 lg:text-xl text-balance"><?= $trans('home.customize.text2') ?></p>
       <div class="stagger-parent flex flex-col items-center lg:items-start mt-6 lg:mt-12">
-        <a href="<?= $constants['zoom'] ?>" target="_blank" rel="noopener noreferrer" class="button rounded-lg slide-up-stagger">
-          <?= $trans('common.demo') ?>
-        </a>
+        <div class="relative w-fit slide-up">
+          <a href="<?= $constants['zoom'] ?>" target="_blank" rel="noopener noreferrer" class="button relative gradient rounded-lg lg:text-xl px-7 lg:px-10 hover:text-white duration-300 z-1 slide-up-stagger">
+            <span class="relative"><?= $trans('common.demo') ?></span>
+          </a>
+          <div class="button-glow"></div>
+        </div>
         <p class="slide-up-stagger text-center mt-4"><?= $trans('home.customize.footnote') ?></p>
       </div>
     </div>
@@ -173,10 +204,10 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
             <span class="font-bold"><?= $trans('home.plans.support').':' ?></span>
             <?= $item['support'] ?>
           </p>
-          <p class="font-title text-brand-200 text-center text-xl lg:text-6xl"><?= '$'."{$item['price']}.00" ?></p>
-          <a href="<?= $constants['zoom'] ?>" target="_blank" rel="noopener noreferrer" class="button rounded-lg">
-            <?= $trans('common.demo') ?>
-          </a>
+          <p class="font-title text-brand-200 text-center text-xl sm:text-5xl lg:text-[2.6vw] flex gap-1 items-end justify-center">
+            <span><?= '$'."{$item['price']} USD" ?></span>
+            <span class="text-xs lg:text-[40%] -translate-y-2.5">/<?= $trans('home.plans.per_month') ?></span>
+          </p>
           <ul class="mt-6 text-sm lg:text-base text-secondary-200 flex flex-col gap-0">
             <?php foreach($item['items'] as $feature => $available): ?>
               <li class="flex items-center justify-between gap-2 py-2 first:border-t border-b border-secondary-100/20">
@@ -185,8 +216,8 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
               </li>
             <?php endforeach; ?>
           </ul>
-          <a href="<?= $constants['zoom'] ?>" target="_blank" rel="noopener noreferrer" class="button rounded-lg lg:text-xl mt-6">
-            <?= $trans('common.demo') ?>
+          <a href="<?= $constants['zoom'] ?>" target="_blank" rel="noopener noreferrer" class="button relative gradient rounded-lg lg:text-xl px-7 lg:px-10 hover:text-white duration-300 z-1 mt-6">
+            <span class="relative"><?= $trans('common.demo') ?></span>
           </a>
         </article>
       <?php endforeach; ?>
@@ -203,7 +234,16 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
         <?= $trans('home.control.title') ?>
       </h2>
       <p class="lg:text-xl mb-6 slide-up"><?= $trans('home.control.subtitle') ?></p>
-      <nav class="flex gap-2 justify-center slide-up lg:max-w-[48ch]">
+      <div class="stagger-parent flex flex-col items-center lg:items-start mt-4 lg:mt-6">
+        <div class="relative w-fit slide-up">
+          <a href="<?= $constants['zoom'] ?>" target="_blank" rel="noopener noreferrer" class="button relative gradient rounded-lg lg:text-xl px-7 lg:px-10 hover:text-white duration-300 z-1 slide-up-stagger">
+            <span class="relative"><?= $trans('common.demo') ?></span>
+          </a>
+          <div class="button-glow"></div>
+        </div>
+        <p class="slide-up-stagger text-center mt-4"><?= $trans('home.customize.footnote') ?></p>
+      </div>
+      <nav class="flex gap-2 justify-center slide-up lg:max-w-[48ch] mt-2">
         <button class="subcategories-button-prev rounded-lg cursor-pointer text-gray-100 hover:bg-brand-100 hover:text-secondary-100 [&.swiper-button-disabled]:pointer-events-none [&.swiper-button-disabled]:opacity-30 p-2 transition-op-colors">
           <svg class="size-10 transition-colors"><use href="#arrow-left"/></svg>
         </button>
@@ -239,9 +279,12 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
       <h2 class="font-title bg-clip-text bg-text-black pt-2 text-3xl sm:text-7xl md:text-3xl lg:text-[6vw] lg:es:text-[5vw] leading-none uppercase slide-up-stagger"><?= $trans('home.ready.title2') ?></h2>
       <p class="bg-clip-text bg-text-black text-lg sm:text-2xl md:text-3xl lg:text-3xl leading-tight mb-4 uppercase slide-up-stagger"><?= $trans('home.ready.text1') ?></p>
       <p class="font-title bg-clip-text bg-text-black text-lg sm:text-2xl md:text-3xl lg:text-5xl lg:es:pt-1 leading-tight uppercase slide-up-stagger"><?= $trans('home.ready.text2') ?></p>
-      <a href="<?= $constants['zoom'] ?>" target="_blank" rel="noopener noreferrer" class="button w-fit bg-brand-100 text-lg lg:text-xl rounded-full font-semibold px-7 py-3 hover:bg-brand-200 mt-6 mt-12 transition-colors slide-up-stagger">
-        <?= $trans('common.demo') ?>
-      </a>
+      <div class="relative w-fit mt-4 mx-auto lg:mt-8 slide-up">
+        <a href="<?= $constants['zoom'] ?>" target="_blank" rel="noopener noreferrer" class="button relative gradient rounded-lg lg:text-2xl px-7 lg:px-10 hover:text-white duration-300 z-1">
+          <span class="relative"><?= $trans('common.demo') ?></span>
+        </a>
+        <div class="button-glow"></div>
+      </div>
     </div>
   </div>
 </section>
