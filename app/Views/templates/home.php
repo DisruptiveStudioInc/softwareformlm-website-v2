@@ -254,7 +254,7 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
           </p>
           <div class="relative">
             <a href="<?= $constants['shop_link'] . $item['slug'] ?>" target="_blank" rel="noopener noreferrer" class="button open-popup w-full relative gradient rounded-lg lg:text-xl px-7 lg:px-10 hover:text-white duration-300 z-1">
-              <span class="relative"><?= $trans('common.demo') ?></span>
+              <span class="relative"><?= $trans('nav.buy') ?></span>
             </a>
             <?php if($recommended): ?>
               <div class="button-glow"></div>
