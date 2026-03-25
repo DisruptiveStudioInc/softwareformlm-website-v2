@@ -157,7 +157,10 @@ return[
         'signed_contract' => true,
         'payment_processors' => true,
         'token_sale' => true,
-        'p2p_token' => true
+        'p2p_token' => true,
+        'module_otc' => true,
+        'global_api' => true,
+        'nft_marketplace' => true
       ]
     ]
   ],

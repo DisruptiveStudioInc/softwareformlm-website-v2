@@ -198,12 +198,15 @@ return [
         'ipayout' => 'Ipayout',
         'multicountry' => 'Multi-country (stores have extra cost)',
         'kyc' => 'KYC module',
-        'wallet_connect' => 'Wallet Connect',
+        'wallet_connect' => 'Wallet Connect (Web3)',
         'aml' => 'AML',
         'signed_contract' => 'Contract signing upon purchase',
         'payment_processors' => 'Multiple payment processors',
         'token_sale' => 'Token sale (setup required)',
-        'p2p_token' => 'P2P token exchange (setup required)'
+        'p2p_token' => 'P2P token exchange (setup required)',
+        'module_otc' => 'OTC module (setup required)',
+        'global_api' => 'Global API',
+        'nft_marketplace' => 'NFT Marketplace (Setup required)'
       ]
     ],
     'control' => [

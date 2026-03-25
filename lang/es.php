@@ -198,12 +198,15 @@ return [
         'ipayout' => 'Ipayout',
         'multicountry' => 'Multi-pais (tiendas tienen costo extra)',
         'kyc' => 'Modulo de KYC',
-        'wallet_connect' => 'Wallet Connect',
+        'wallet_connect' => 'Wallet Connect (Web3)',
         'aml' => 'AML',
         'signed_contract' => 'Firma de contrato por compra',
         'payment_processors' => 'Multiples procesadores de pago',
-        'token_sale' => 'Token sale (configuración requerida)',
-        'p2p_token' => 'Intercambio de token P2P (configuración requerida)'
+        'token_sale' => 'Token sale (setup requerido)',
+        'p2p_token' => 'Intercambio de token P2P (setup requerido)',
+        'module_otc' => 'Módulo OTC (setup requerido)',
+        'global_api' => 'Global API',
+        'nft_marketplace' => 'NFT Marketplace (setup requerido)'
       ]
     ],
     'control' => [
