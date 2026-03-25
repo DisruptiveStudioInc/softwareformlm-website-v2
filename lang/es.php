@@ -254,7 +254,7 @@ return [
     'demo' => 'Iniciar demo',
     'login' => 'Login',
     'register' => 'Registro',
-    'recommended' => 'Recomendado',
+    'recommended' => 'Más popular',
     'get_info' => 'Obtener información'
   ],
 

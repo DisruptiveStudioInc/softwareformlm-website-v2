@@ -263,7 +263,7 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
           <ul class="mt-6 text-sm lg:text-base <?= $recommended ? 'text-white' : 'text-secondary-200' ?> flex flex-col gap-0 flex-grow overflow-y-auto">
             <?php foreach($item['items'] as $feature => $available): ?>
               <li class="flex items-center justify-between gap-2 py-2 first:border-t border-b <?= $recommended ? 'border-white/20' : 'border-secondary-100/20' ?>">
-                <span class="text-balance text-left"><?= (gettype($available) === 'string')? $trans('home.plans.everything_in').' '.$available : $trans('home.plans.items.' . $feature) ?></span>
+                <span class="text-balance text-left <?= (gettype($available) === 'string')? 'text-brand-200' : '' ?>"><?= (gettype($available) === 'string')? $trans('home.plans.everything_in').' '.$available : $trans('home.plans.items.' . $feature) ?></span>
                 <svg class="shrink-0 size-6 text-green-400"><use href="#check-circle"/></svg>
               </li>
             <?php endforeach; ?>

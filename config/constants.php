@@ -248,6 +248,7 @@ return [
 
   'zoom' => '#',
   'bo_link' => 'https://my.softwareformlm.com/',
+  'login_link' => 'https://store.softwareformlm.com/my-account/',
   'shop_link' => 'https://store.softwareformlm.com/',
 
   'videos' => [
