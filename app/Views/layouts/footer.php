@@ -40,10 +40,11 @@
   </div>
   <div class="p-7 border-t border-grey-100 text-center text-surface-100">
     <ul class="flex justify-center gap-4 sm:gap-6 mb-4">
-      <li class=""><svg width="80" height="80" class="h-5 sm:h-6 w-auto aspect-square"><use href="#americanexpress"/></svg></li>
-      <li class=""><svg width="289" height="80" class="h-5 sm:h-6 w-auto aspect-[289/80]"><use href="#dinnersclub"/></svg></li>
-      <li class=""><svg width="103" height="80" class="h-5 sm:h-6 w-auto aspect-[103/80]"><use href="#mastercard"/></svg></li>
-      <li class=""><svg width="247" height="80" class="h-5 sm:h-6 w-auto aspect-[247/80]"><use href="#visa"/></svg></li>
+      <li class=""><svg width="180" height="120" class="h-5 sm:h-7 lg:h-9 w-auto aspect-[3/2]"><use href="#card-americanexpress"/></svg></li>
+      <li class=""><svg width="180" height="120" class="h-5 sm:h-7 lg:h-9 w-auto aspect-[3/2]"><use href="#card-dinnersclub"/></svg></li>
+      <li class=""><svg width="180" height="120" class="h-5 sm:h-7 lg:h-9 w-auto aspect-[3/2]"><use href="#card-mastercard"/></svg></li>
+      <li class=""><svg width="180" height="120" class="h-5 sm:h-7 lg:h-9 w-auto aspect-[3/2]"><use href="#card-visa"/></svg></li>
+      <li class=""><svg width="180" height="120" class="h-5 sm:h-7 lg:h-9 w-auto aspect-[3/2]"><use href="#card-usdt"/></svg></li>
     </ul>
     <small>&copy; <?= date("Y") ?> Software for MLM. All rights reserved</small>
   </div>

@@ -240,9 +240,9 @@ return [
   ],
 
   'contact_info' => [
-    'email' => 'sales@disruptivestudio.com',
-    'phone' => '(1) 408 858 4504',
-    'address' => '500 N Estrella Pwy, Goodyear, AZ, United States, 85338',
+    'email' => 'sales@softwareformlm.com',
+    'phone' => '(1) 602 614 9128',
+    'address' => '500 N Estrella Pwy. Suite B2-467<br/>Goodyear, Arizona 85338',
     'wame' => '+16026149128',
   ],
 
