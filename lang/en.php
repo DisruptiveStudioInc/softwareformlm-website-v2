@@ -31,7 +31,7 @@ return [
     'privacy' => 'Privacy Policy',
     'terms' => 'Terms and Conditions',
     'cookies' => 'Cookies Policy',
-    'refunds' => 'Refunds Policy',
+    'refunds' => 'Refund Policy',
     'use' => 'Acceptable Use Policy',
     'compliance_policy' => 'Compliance Policy',
     'risk_disclosure' => 'Risk Disclosure',
