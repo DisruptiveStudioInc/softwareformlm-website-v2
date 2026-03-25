@@ -8,7 +8,7 @@ return [
   ],
 
   'languages' => [
-    'default' => 'en',
+    'default' => 'es',
     'available' => ['es', 'en'],
     'names' => [
       'es' => 'Esp',
