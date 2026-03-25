@@ -18,20 +18,20 @@ La existencia de una revisión no implica obligación de emitir reembolso alguno
 
 Para que una solicitud sea considerada, el Cliente debe:
 
-* presentar la solicitud dentro del plazo aplicable, si existe;  
-* estar al corriente en sus obligaciones contractuales y de cooperación;  
-* proporcionar la información razonablemente solicitada para revisar el caso;  
-* demostrar, cuando corresponda, que la situación no deriva de uso indebido, falta de uso, errores de configuración del cliente o causas ajenas a Disruptive Studio.  
+- presentar la solicitud dentro del plazo aplicable, si existe;
+- estar al corriente en sus obligaciones contractuales y de cooperación;
+- proporcionar la información razonablemente solicitada para revisar el caso;
+- demostrar, cuando corresponda, que la situación no deriva de uso indebido, falta de uso, errores de configuración del cliente o causas ajenas a Disruptive Studio.
 
 ### **4\. CONCEPTOS NO REEMBOLSABLES**
 
 Salvo aprobación expresa por escrito o requerimiento legal, no son reembolsables:
 
-* tarifas de activación, instalación u onboarding;  
-* cargos por implementación o configuración;  
-* tarifas de suscripción ya facturadas;  
-* desarrollos personalizados;  
-* costos de terceros, comisiones bancarias o cargos de procesamiento.  
+- tarifas de activación, instalación u onboarding;
+- cargos por implementación o configuración;
+- tarifas de suscripción ya facturadas;
+- desarrollos personalizados;
+- costos de terceros, comisiones bancarias o cargos de procesamiento.
 
 ### **5\. PROCESAMIENTO DE REEMBOLSOS**
 
@@ -39,16 +39,10 @@ Si Disruptive Studio aprueba un reembolso, este podrá emitirse mediante el mét
 
 Los tiempos de procesamiento pueden depender de proveedores externos, instituciones financieras o pasarelas de pago.
 
-### **6\. SIN CONTRACARGOS**
-
-El Cliente se compromete a intentar una resolución de buena fe directamente con Disruptive Studio antes de iniciar cualquier contracargo o disputa de pago.
-
-Los contracargos o reversiones no autorizados pueden considerarse incumplimiento material y dar lugar a suspensión de acceso, reclamación de montos pendientes y cualquier otro recurso disponible.
-
-### **7\. AUTORIDAD FINAL**
+### **6\. AUTORIDAD FINAL**
 
 Salvo disposición legal obligatoria en contrario, Disruptive Studio conservará la autoridad final para determinar si existe base para un reembolso, crédito o ajuste.
 
-### **8\. MODIFICACIONES**
+### **7\. MODIFICACIONES**
 
 Disruptive Studio podrá actualizar esta Política de Reembolsos de tiempo en tiempo. El uso continuado del Software o de los Servicios después de una actualización constituirá aceptación de la versión vigente.
