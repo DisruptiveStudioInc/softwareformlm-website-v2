@@ -95,6 +95,7 @@ return[
       'users' => 500,
       'support' => Language::trans('home.plans.plan1.support'),
       'price' => 197,
+      'slug' => "product/starter",
       'items' => [
         'encrypted_data' => true,
         'availability' => true,
@@ -128,6 +129,7 @@ return[
       'users' => 5000,
       'support' => Language::trans('home.plans.plan2.support'),
       'price' => 397,
+      'slug' => "product/growth",
       'items' => [
         'includes' => Language::trans('home.plans.plan1.title'),
         'ecommerce' => true,
@@ -146,6 +148,7 @@ return[
       'users' => Language::trans('home.plans.unlimited'),
       'support' => Language::trans('home.plans.plan3.support'),
       'price' => 997,
+      'slug' => "product/scale",
       'items' => [
         'includes' => Language::trans('home.plans.plan2.title'),
         'kyc' => true,

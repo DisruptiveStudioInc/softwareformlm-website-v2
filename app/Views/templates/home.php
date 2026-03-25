@@ -253,9 +253,9 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
             <span class="text-xs lg:text-[40%] -translate-y-2.5">/<?= $trans('home.plans.per_month') ?></span>
           </p>
           <div class="relative">
-            <button type="button" class="button open-popup w-full relative gradient rounded-lg lg:text-xl px-7 lg:px-10 hover:text-white duration-300 z-1">
+            <a href="<?= $constants['shop_link'] . $item['slug'] ?>" target="_blank" rel="noopener noreferrer" class="button open-popup w-full relative gradient rounded-lg lg:text-xl px-7 lg:px-10 hover:text-white duration-300 z-1">
               <span class="relative"><?= $trans('common.demo') ?></span>
-            </button>
+            </a>
             <?php if($recommended): ?>
               <div class="button-glow"></div>
             <?php endif; ?>
