@@ -339,16 +339,30 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
 </section>
 
 <!-- Popup -->
-<dialog id="demo-popup" class="bg-surface-50 rounded-xl lg:rounded-2xl m-auto">
-  <div class="relative w-full">
+<dialog id="demo-popup" class="bg-transparent m-auto w-full max-w-2xl px-7">
+  <div class="relative w-full bg-white rounded-xl lg:rounded-2xl max-h-[90vh] overflow-x-hidden overflow-y-auto">
     <button type="button" class="close-popup absolute top-2 right-2 text-gray-100 bg-surface-200 hover:bg-brand-100 hover:text-secondary-100 rounded-lg cursor-pointer p-1 transition-colors">
       <svg class="size-6 transition-colors"><use href="#xmark"/></svg>
     </button>
-    <div class="px-6 pb-6 pt-12">
-      <h2 class="font-title text-secondary-50 text-center text-xl lg:text-3xl mb-4"><?= $trans('common.get_info') ?></h2>
-      <p class="text-center">form</p>
-    </div>
-  </div>
+    <iframe
+      src="https://api.leadconnectorhq.com/widget/form/j3OiqEPmD9t6s1Gopf3c"
+      style="width:100%;height:100%;border:none;border-radius:3px"
+      id="inline-j3OiqEPmD9t6s1Gopf3c"
+      data-layout="{'id':'INLINE'}"
+      data-trigger-type="alwaysShow"
+      data-trigger-value=""
+      data-activation-type="alwaysActivated"
+      data-activation-value=""
+      data-deactivation-type="neverDeactivate"
+      data-deactivation-value=""
+      data-form-name="Meta Ads - Lead Form UTM"
+      data-height="1174"
+      data-layout-iframe-id="inline-j3OiqEPmD9t6s1Gopf3c"
+      data-form-id="j3OiqEPmD9t6s1Gopf3c"
+      title="Meta Ads - Lead Form UTM"
+    >
+    </iframe>
+    <script src="https://link.msgsndr.com/js/form_embed.js"></script>
   </div>
 </dialog>
 
