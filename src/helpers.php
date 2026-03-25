@@ -168,33 +168,7 @@ function getServiceSubcategoryName(string $lang): array{
 }
 
 function getNavigationMenu(string $lang, callable $trans): array {
-  $subcategoryLabels = require __DIR__ . '/../config/subcategories.php';
-  $servicesGrouped = \App\Models\Service::getServicesGroupedBySubcategory($lang);
-  $subSolutions = [];
-  foreach($servicesGrouped as $subcategory => $items){
-    $subcatName = $subcategoryLabels[$subcategory][$lang] ?? $subcategory;
-    $subcat = [
-      'name' => $subcatName,
-      'list' => []
-    ];
-    foreach($items as $item){
-      $subcat['list'][] = [
-        'label' => $item['meta']['meta_title'],
-        'url' => serviceRoute($item['meta']['slug'], $lang)
-      ];
-    }
-    array_push($subSolutions, $subcat);
-  }
-  // $partReferral = \App\Models\Service::getBySubcategory('referral-marketing', $lang);
-  // $partHr = \App\Models\Service::getBySubcategory('hr', $lang);
-  // $partCreative = \App\Models\Service::getBySubcategory('creative-services', $lang);
-  // $subSolutions = array_values(array_merge(
-  //   is_array($partReferral) ? $partReferral : [],
-  //   is_array($partCreative) ? $partCreative : [],
-  //   is_array($partHr) ? $partHr : [],
-  // ));
-  $subEcosystem = \App\Models\Service::getByCategory('ecosystem', $lang);
-  $subIps = \App\Models\Service::getNavIps($lang);
+  $constants = require __DIR__ . '/../config/constants.php';
   return [
     [
       'label' => $trans('nav.home'),
@@ -219,7 +193,25 @@ function getNavigationMenu(string $lang, callable $trans): array {
       'url' => route('blog', $lang),
       'hasSubmenu' => false,
       'isMegamenu' => false
-    ]
+    ],
+    [
+      'label' => $trans('nav.buy'),
+      'url' => $constants['shop_link'],
+      'hasSubmenu' => false,
+      'isMegamenu' => false
+    ],
+    [
+      'label' => $trans('common.login'),
+      'url' => $constants['login_link'],
+      'hasSubmenu' => false,
+      'isMegamenu' => false
+    ],
+    [
+      'label' => $trans('common.register'),
+      'url' => $constants['bo_link'].'register/'.$GLOBALS['user_replica'],
+      'hasSubmenu' => false,
+      'isMegamenu' => false
+    ],
   ];
 }
 
