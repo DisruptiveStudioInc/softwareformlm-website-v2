@@ -201,7 +201,9 @@ return [
         'wallet_connect' => 'Wallet Connect',
         'aml' => 'AML',
         'signed_contract' => 'Firma de contrato por compra',
-        'payment_processors' => 'Multiples procesadores de pago'
+        'payment_processors' => 'Multiples procesadores de pago',
+        'token_sale' => 'Token sale (configuración requerida)',
+        'p2p_token' => 'Intercambio de token P2P (configuración requerida)'
       ]
     ],
     'control' => [

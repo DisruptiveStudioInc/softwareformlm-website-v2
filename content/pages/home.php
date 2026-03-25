@@ -155,7 +155,9 @@ return[
         'wallet_connect' => true,
         'aml' => true,
         'signed_contract' => true,
-        'payment_processors' => true
+        'payment_processors' => true,
+        'token_sale' => true,
+        'p2p_token' => true
       ]
     ]
   ],
