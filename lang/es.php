@@ -256,7 +256,7 @@ return [
     'next' => 'Siguiente',
     'previous' => 'Anterior',
     'sales' => 'Ventas',
-    'demo' => 'Iniciar demo',
+    'demo' => 'Iniciar demo en vivo',
     'login' => 'Login',
     'register' => 'Registro',
     'recommended' => 'Más popular',

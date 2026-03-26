@@ -256,7 +256,7 @@ return [
     'next' => 'Next',
     'previous' => 'Previous',
     'sales' => 'Sales',
-    'demo' => 'Start Demo',
+    'demo' => 'Start Live Demo',
     'login' => 'Login',
     'register' => 'Register',
     'recommended' => 'Most popular',
