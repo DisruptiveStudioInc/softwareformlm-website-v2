@@ -296,13 +296,7 @@ Todos los pagos se realizarán en dólares de los Estados Unidos (USD), salvo qu
 
 El Cliente es responsable de cualquier impuesto, cargo, costo de conversión de moneda, cargo por procesamiento de pagos o comisión bancaria asociada con los pagos.
 
-**6.9 Sin Contracargos ni Reversiones**
-
-El Cliente acepta no iniciar contracargos, reversiones de pago o disputas con cualquier proveedor de pago sin antes realizar un esfuerzo de buena fe para resolver el asunto directamente con Disruptive Studio.
-
-Cualquier contracargo o reversión no autorizada constituirá un incumplimiento material de estos Términos y podrá resultar en suspensión o terminación inmediata del acceso, además de cualquier recurso legal disponible.
-
-**6.10 Gastos**
+**6.9 Gastos**
 
 En la medida en que Disruptive Studio acepte prestar servicios que requieran viaje o costos adicionales de bolsillo, el Cliente reembolsará todos los gastos razonables y necesarios, siempre que dichos gastos sean aprobados por Disruptive Studio conforme a sus políticas internas.
 

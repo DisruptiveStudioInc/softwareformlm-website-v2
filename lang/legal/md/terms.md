@@ -298,13 +298,7 @@ All payments shall be made in United States Dollars (USD), unless otherwise spec
 
 Client is responsible for any taxes, fees, currency conversion costs, payment processing charges, or banking fees associated with payments.
 
-**6.9 No Chargebacks or Payment Reversals**
-
-Client agrees not to initiate chargebacks, payment reversals, or disputes with any payment provider without first making a good faith effort to resolve the issue directly with Disruptive Studio.
-
-Any unauthorized chargeback or reversal shall constitute a material breach of these Terms and may result in immediate suspension or termination of access, in addition to any legal remedies available.
-
-**6.10 Expenses**
+**6.9 Expenses**
 
 To the extent that Disruptive Studio agrees to perform services requiring travel or additional out-of-pocket costs, Client shall reimburse all reasonable and necessary expenses, provided that such expenses are approved by Disruptive Studio in accordance with its internal policies.
 
