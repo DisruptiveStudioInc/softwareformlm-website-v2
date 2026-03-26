@@ -108,6 +108,16 @@
   src="https://www.facebook.com/tr?id=952835547247464&ev=PageView&noscript=1"
   /></noscript>
   <!-- End Meta Pixel Code -->
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6K7G73DG2Y"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-6K7G73DG2Y');
+  </script>
 </head>
 
 <body class="text-grey-100 antialiased overflow-x-hidden">
