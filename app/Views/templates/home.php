@@ -344,25 +344,30 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
     <button type="button" class="close-popup absolute top-2 right-2 text-gray-100 bg-surface-200 hover:bg-brand-100 hover:text-secondary-100 rounded-lg cursor-pointer p-1 transition-colors">
       <svg class="size-6 transition-colors"><use href="#xmark"/></svg>
     </button>
-    <iframe
-      src="https://api.leadconnectorhq.com/widget/form/j3OiqEPmD9t6s1Gopf3c"
-      style="width:100%;height:100%;border:none;border-radius:3px"
-      id="inline-j3OiqEPmD9t6s1Gopf3c"
-      data-layout="{'id':'INLINE'}"
-      data-trigger-type="alwaysShow"
-      data-trigger-value=""
-      data-activation-type="alwaysActivated"
-      data-activation-value=""
-      data-deactivation-type="neverDeactivate"
-      data-deactivation-value=""
-      data-form-name="Meta Ads - Lead Form UTM"
-      data-height="1174"
-      data-layout-iframe-id="inline-j3OiqEPmD9t6s1Gopf3c"
-      data-form-id="j3OiqEPmD9t6s1Gopf3c"
-      title="Meta Ads - Lead Form UTM"
-    >
-    </iframe>
-    <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+    <?php if (isArizonaBusinessHours()): ?>
+      <iframe
+        src="https://api.leadconnectorhq.com/widget/form/j3OiqEPmD9t6s1Gopf3c"
+        style="width:100%;height:100%;border:none;border-radius:3px"
+        id="inline-j3OiqEPmD9t6s1Gopf3c"
+        data-layout="{'id':'INLINE'}"
+        data-trigger-type="alwaysShow"
+        data-trigger-value=""
+        data-activation-type="alwaysActivated"
+        data-activation-value=""
+        data-deactivation-type="neverDeactivate"
+        data-deactivation-value=""
+        data-form-name="Meta Ads - Lead Form UTM"
+        data-height="1174"
+        data-layout-iframe-id="inline-j3OiqEPmD9t6s1Gopf3c"
+        data-form-id="j3OiqEPmD9t6s1Gopf3c"
+        title="Meta Ads - Lead Form UTM"
+      >
+      </iframe>
+      <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+    <?php else: ?>
+      <p class="text-center pt-4 mb-2">Outside of business hours</p>
+      <p class="text-center pb-4">9:00 AM - 9:00 PM</p>
+    <?php endif; ?>
   </div>
 </dialog>
 

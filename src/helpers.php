@@ -508,3 +508,12 @@ function loadMarkdownPageTranslations(string $markdownDir, string $englishFilena
     'en' => $loadPage($englishFilename),
   ];
 }
+
+function isArizonaBusinessHours(): bool
+{
+  $timezone = new DateTimeZone('America/Phoenix');
+  $now = new DateTime('now', $timezone);
+  $currentTime = $now->format('H:i:s');
+
+  return $currentTime >= '09:00:00' && $currentTime < '21:00:00';
+}
