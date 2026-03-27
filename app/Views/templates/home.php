@@ -233,7 +233,7 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
         foreach($content['plans'] as $k => $item):
           $recommended = (isset($item['recommended']) && $item['recommended']);
       ?>
-        <article class="<?= $recommended ? 'bg-secondary-200 relative text-white' : 'bg-white text-secondary-200' ?> rounded-lg px-4 pb-4 pt-6 lg:p-6 flex flex-col lg:max-h-[70vh]">
+        <article class="<?= $recommended ? 'recommended bg-secondary-200 relative text-white' : 'bg-white text-secondary-200' ?> rounded-lg px-4 pb-4 pt-6 lg:p-6 flex flex-col lg:max-h-[70vh]">
           <?php if($recommended): ?>
             <div class="absolute w-full top-0 left-0 -translate-y-1/2 text-center pointer-events-none">
               <span class="bg-brand-50 text-secondary-100 py-1 px-2 rounded-full text-xs lg:text-base"><?= $trans('common.recommended') ?></span>
@@ -252,14 +252,16 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
               <div class="button-glow"></div>
             <?php endif; ?>
           </div>
-          <ul class="mt-6 text-sm lg:text-base <?= $recommended ? 'text-white' : 'text-secondary-200' ?> flex flex-col gap-0 flex-grow overflow-y-auto">
-            <?php foreach($item['items'] as $feature => $available): ?>
-              <li class="flex items-center justify-between gap-2 py-2 first:border-t border-b <?= $recommended ? 'border-white/20' : 'border-secondary-100/20' ?>">
-                <span class="text-balance text-left <?= (gettype($available) === 'string')? 'text-brand-200' : '' ?>"><?= (gettype($available) === 'string')? $trans('home.plans.everything_in').' '.$available : $trans('home.plans.items.' . $feature) ?></span>
-                <svg class="shrink-0 size-6 text-green-400"><use href="#check-circle"/></svg>
-              </li>
-            <?php endforeach; ?>
-          </ul>
+          <div class="flex-grow mt-6 relative custom-scrollbar top-bottom-scroll-grad overflow-hidden">
+            <ul class="text-sm lg:text-base <?= $recommended ? 'text-white' : 'text-secondary-200' ?> flex flex-col gap-0 h-full overflow-y-auto">
+              <?php foreach($item['items'] as $feature => $available): ?>
+                <li class="flex items-center justify-between gap-2 py-2 first:border-t border-b <?= $recommended ? 'border-white/20' : 'border-secondary-100/20' ?>">
+                  <span class="text-balance text-left <?= (gettype($available) === 'string')? 'text-brand-200' : '' ?>"><?= (gettype($available) === 'string')? $trans('home.plans.everything_in').' '.$available : $trans('home.plans.items.' . $feature) ?></span>
+                  <svg class="shrink-0 size-6 text-green-400"><use href="#check-circle"/></svg>
+                </li>
+              <?php endforeach; ?>
+            </ul>
+          </div>
           <small class="text-center mt-4 text-balance"><?= $trans('home.plans.non_binding_subscription') ?></small>
         </article>
       <?php endforeach; ?>

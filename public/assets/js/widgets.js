@@ -68,9 +68,47 @@ if (langSwitchers.length > 0) {
 const lateralUp = document.getElementById("lat-nav-up");
 const lateralDown = document.getElementById("lat-nav-down");
 const navSections = document.querySelectorAll(".nav-section");
+const mainFooter = document.getElementById("main-footer");
 
 if (lateralUp && lateralDown && navSections.length > 0) {
   let currentSectionIndex = 0;
+
+  const isFullyInsideFooter = (element, footerRect) => {
+    const elementRect = element.getBoundingClientRect();
+
+    return (
+      elementRect.top >= footerRect.top &&
+      elementRect.bottom <= footerRect.bottom &&
+      elementRect.left >= footerRect.left &&
+      elementRect.right <= footerRect.right
+    );
+  };
+
+  const updateLateralNavigationState = () => {
+    const isFirst = currentSectionIndex === 0;
+    const isLast = currentSectionIndex === navSections.length - 1;
+    const buttonsInsideFooter = mainFooter
+      ? (() => {
+          const footerRect = mainFooter.getBoundingClientRect();
+
+          return (
+            isFullyInsideFooter(lateralUp, footerRect) &&
+            isFullyInsideFooter(lateralDown, footerRect)
+          );
+        })()
+      : false;
+
+    lateralUp.classList.toggle("!opacity-0", isFirst || buttonsInsideFooter);
+    lateralDown.classList.toggle("!opacity-0", isLast || buttonsInsideFooter);
+    lateralUp.classList.toggle(
+      "pointer-events-none",
+      isFirst || buttonsInsideFooter,
+    );
+    lateralDown.classList.toggle(
+      "pointer-events-none",
+      isLast || buttonsInsideFooter,
+    );
+  };
 
   navSections.forEach((innerSection, index) => {
     const sectionIndex = innerSection.dataset.navIndex;
@@ -87,12 +125,9 @@ if (lateralUp && lateralDown && navSections.length > 0) {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         const index = Array.from(navSections).indexOf(entry.target);
-        const isFirst = index === 0;
-        const isLast = index === navSections.length - 1;
-        lateralUp.classList.toggle("!opacity-0", isFirst);
-        lateralDown.classList.toggle("!opacity-0", isLast);
         if (index !== -1) {
           currentSectionIndex = index;
+          updateLateralNavigationState();
         }
       }
     });
@@ -111,6 +146,105 @@ if (lateralUp && lateralDown && navSections.length > 0) {
 
   lateralUp.addEventListener("click", () => navigateToSection(-1));
   lateralDown.addEventListener("click", () => navigateToSection(1));
+  window.addEventListener("scroll", updateLateralNavigationState, {
+    passive: true,
+  });
+  window.addEventListener("resize", updateLateralNavigationState);
+  updateLateralNavigationState();
+}
+
+// Scroll gradients
+const scrollGradientContainers = document.querySelectorAll(
+  ".top-bottom-scroll-grad",
+);
+
+if (scrollGradientContainers.length > 0) {
+  const scrollGradientThreshold = 0.3;
+  const scrollGradientObserverThresholds = [0, scrollGradientThreshold, 1];
+
+  const setScrollGradientState = (
+    container,
+    scrollRoot,
+    firstChild,
+    lastChild,
+  ) => {
+    const scrollRootRect = scrollRoot.getBoundingClientRect();
+    const firstRect = firstChild.getBoundingClientRect();
+    const lastRect = lastChild.getBoundingClientRect();
+
+    const firstVisibleHeight =
+      Math.min(firstRect.bottom, scrollRootRect.bottom) -
+      Math.max(firstRect.top, scrollRootRect.top);
+    const lastVisibleHeight =
+      Math.min(lastRect.bottom, scrollRootRect.bottom) -
+      Math.max(lastRect.top, scrollRootRect.top);
+
+    const firstRatio =
+      firstRect.height > 0
+        ? Math.max(0, firstVisibleHeight) / firstRect.height
+        : 0;
+    const lastRatio =
+      lastRect.height > 0
+        ? Math.max(0, lastVisibleHeight) / lastRect.height
+        : 0;
+    const hasOverflow = scrollRoot.scrollHeight > scrollRoot.clientHeight;
+
+    container.classList.toggle(
+      "show-top-scroll-grad",
+      hasOverflow && firstRatio < scrollGradientThreshold,
+    );
+    container.classList.toggle(
+      "show-bottom-scroll-grad",
+      hasOverflow && lastRatio < scrollGradientThreshold,
+    );
+  };
+
+  scrollGradientContainers.forEach((container) => {
+    const scrollRoot = container.firstElementChild;
+    const firstChild = scrollRoot?.firstElementChild;
+    const lastChild = scrollRoot?.lastElementChild;
+
+    if (!scrollRoot || !firstChild || !lastChild) return;
+
+    const handleObserverEntry = (entries) => {
+      const hasOverflow = scrollRoot.scrollHeight > scrollRoot.clientHeight;
+
+      entries.forEach((entry) => {
+        if (entry.target === firstChild) {
+          container.classList.toggle(
+            "show-top-scroll-grad",
+            hasOverflow && entry.intersectionRatio < scrollGradientThreshold,
+          );
+        }
+
+        if (entry.target === lastChild) {
+          container.classList.toggle(
+            "show-bottom-scroll-grad",
+            hasOverflow && entry.intersectionRatio < scrollGradientThreshold,
+          );
+        }
+      });
+    };
+
+    const scrollGradientObserver = new IntersectionObserver(
+      handleObserverEntry,
+      {
+        root: scrollRoot,
+        threshold: scrollGradientObserverThresholds,
+      },
+    );
+
+    scrollGradientObserver.observe(firstChild);
+    if (lastChild !== firstChild) {
+      scrollGradientObserver.observe(lastChild);
+    }
+
+    setScrollGradientState(container, scrollRoot, firstChild, lastChild);
+
+    window.addEventListener("resize", () => {
+      setScrollGradientState(container, scrollRoot, firstChild, lastChild);
+    });
+  });
 }
 
 // Accordion toggle

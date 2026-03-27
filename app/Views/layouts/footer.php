@@ -1,6 +1,6 @@
 </main>
 
-<footer class="bg-secondary-200 <?= (isset($hasSnapScroll) && $hasSnapScroll) ? 'snap-start' : '' ?>">
+<footer id="main-footer" class="bg-secondary-200 <?= (isset($hasSnapScroll) && $hasSnapScroll) ? 'snap-start' : '' ?>">
   <div class="block-content flex flex-col items-center gap-6 lg:gap-12 py-12 lg:py-16">
     <div class="flex flex-col items-center lg:items-start">
       <svg width="250" height="60" class="h-12 w-auto"><use href="#disruptive-studio-logo"/></svg>
