@@ -115,7 +115,6 @@ return[
       ]
     ],
     [
-      'recommended' => true,
       'title' => Language::trans('home.plans.plan2.title'),
       'subtitle' => Language::trans('home.plans.plan2.subtitle'),
       'text' => Language::trans('home.plans.plan2.text'),
@@ -138,6 +137,7 @@ return[
       ]
     ],
     [
+      'recommended' => true,
       'title' => Language::trans('home.plans.plan3.title'),
       'subtitle' => Language::trans('home.plans.plan3.subtitle'),
       'text' => Language::trans('home.plans.plan3.text'),
