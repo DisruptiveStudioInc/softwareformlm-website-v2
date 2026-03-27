@@ -154,20 +154,28 @@ return [
         'title' => "Growth",
         'subtitle' => "Expand your network and accelerate results",
         'text' => "Designed for growing businesses that need automation, greater control, and advanced tools to scale.",
-        'support' => "Tickets, Email"
+        'support' => "Tickets, Chat"
       ],
       'plan3' => [
         'title' => "Scale",
         'subtitle' => "Operate at a professional level without limits",
         'text' => "Designed for companies requiring maximum customization, high user volume, and global operation without friction.",
-        'support' => "Tickets, Email, WhatsApp"
+        'support' => "Tickets, Chat"
+      ],
+      'plan4' => [
+        'title' => "Dominate",
+        'subtitle' => "Lead the market with unparalleled capabilities",
+        'text' => "Designed for companies aiming to dominate their industry with maximum customization, high user volume, and global operation without friction.",
+        'support' => "Tickets, Chat, WhatsApp"
       ],
       'user_limit' => 'Users limit',
       'support' => 'Support channels',
       'unlimited' => 'Unlimited',
       'per_month' => 'month',
       'everything_in' => 'Everything in',
+      'non_binding_subscription' => 'Non-binding monthly subscription. Cancel anytime.',
       'items' => [
+        'traffic' => 'Unlimited traffic',
         'encrypted_data' => 'Encrypted data',
         'availability' => 'High availability',
         'access_24_7' => '24/7/365 access',
@@ -197,9 +205,8 @@ return [
         'events' => 'Events module',
         'ipayout' => 'Ipayout',
         'multicountry' => 'Multi-country (stores have extra cost)',
-        'kyc' => 'KYC module',
+        'kyc_aml' => 'KYC - AML module',
         'wallet_connect' => 'Wallet Connect (Web3)',
-        'aml' => 'AML',
         'signed_contract' => 'Contract signing upon purchase',
         'payment_processors' => 'Multiple payment processors',
         'token_sale' => 'Token sale (setup required)',

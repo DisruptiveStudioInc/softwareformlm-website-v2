@@ -97,28 +97,21 @@ return[
       'price' => 197,
       'slug' => "product/starter",
       'items' => [
+        'traffic' => true,
         'encrypted_data' => true,
         'availability' => true,
         'access_24_7' => true,
         'unilevel' => true,
-        'binary_tree' => true,
+        'events' => true,
         'bonuses' => true,
-        'compression' => true,
-        'monthly_membership' => true,
-        'investment_plans' => true,
-        'education_plans' => true,
-        'repurchase' => true,
-        'upgrades' => true,
-        'wallets' => true,
-        'ranks' => true,
-        'brokers_module' => true,
         'stripe' => true,
         'crypto' => true,
         'user_control' => true,
         'roles' => true,
         'notifications' => true,
         'languages' => true,
-        'cashout' => true
+        'cashout' => true,
+        'referrals' => true
       ]
     ],
     [
@@ -132,13 +125,16 @@ return[
       'slug' => "product/growth",
       'items' => [
         'includes' => Language::trans('home.plans.plan1.title'),
-        'ecommerce' => true,
-        'suscriptions' => true,
-        'inventory_management' => true,
-        'referrals' => true,
-        'events' => true,
-        'ipayout' => true,
-        'multicountry' => true
+        'binary_tree' => true,
+        'compression' => true,
+        'monthly_membership' => true,
+        'education_plans' => true,
+        'repurchase' => true,
+        'upgrades' => true,
+        'wallets' => true,
+        'ranks' => true,
+        'brokers_module' => true,
+        'kyc_aml' => true
       ]
     ],
     [
@@ -147,18 +143,32 @@ return[
       'text' => Language::trans('home.plans.plan3.text'),
       'users' => Language::trans('home.plans.unlimited'),
       'support' => Language::trans('home.plans.plan3.support'),
-      'price' => 997,
+      'price' => 597,
       'slug' => "product/scale",
       'items' => [
         'includes' => Language::trans('home.plans.plan2.title'),
-        'kyc' => true,
+        'ecommerce' => true,
+        'suscriptions' => true,
+        'inventory_management' => true,
+        'ipayout' => true,
+        'multicountry' => true,
+        'payment_processors' => true
+      ]
+    ],
+    [
+      'title' => Language::trans('home.plans.plan4.title'),
+      'subtitle' => Language::trans('home.plans.plan4.subtitle'),
+      'text' => Language::trans('home.plans.plan4.text'),
+      'users' => Language::trans('home.plans.unlimited'),
+      'support' => Language::trans('home.plans.plan4.support'),
+      'price' => 997,
+      'slug' => "product/dominate",
+      'items' => [
+        'includes' => Language::trans('home.plans.plan3.title'),
         'wallet_connect' => true,
-        'aml' => true,
         'signed_contract' => true,
-        'payment_processors' => true,
         'token_sale' => true,
         'p2p_token' => true,
-        'module_otc' => true,
         'global_api' => true,
         'nft_marketplace' => true
       ]

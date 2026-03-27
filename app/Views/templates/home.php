@@ -228,7 +228,7 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
   <div class="block-content min-h-dvh flex-center flex-col py-16 lg:py-32">
     <h2 class="font-title text-center leading-tight uppercase text-2xl sm:text-6xl lg:text-3xl xl:text-5xl mb-4 lg:mb-12 slide-up-words-black"><?= $trans('home.plans.title') ?></h2>
 
-    <div class="w-full max-w-screen-sm lg:max-w-none grid grid-cols-1 lg:grid-cols-3 gap-6 xl:gap-6">
+    <div class="w-full max-w-screen-sm sm:max-w-screen-lg lg:max-w-none grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 xl:gap-6">
       <?php
         foreach($content['plans'] as $k => $item):
           $recommended = (isset($item['recommended']) && $item['recommended']);
@@ -239,21 +239,13 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
               <span class="bg-brand-50 text-secondary-100 py-1 px-2 rounded-full text-xs lg:text-base"><?= $trans('common.recommended') ?></span>
             </div>
           <?php endif; ?>
-          <h3 class="font-title uppercase text-center text-xl lg:text-2xl mb-4"><?= $item['title'] ?></h3>
-          <p class="text-pretty text-center lg:text-left mb-2">
-            <span class="font-bold"><?= $trans('home.plans.user_limit').':' ?></span>
-            <?= $item['users'] ?>
-          </p>
-          <p class="text-pretty text-center lg:text-left mb-6 lg:min-h-12 xl:en:min-h-0 lg:shrink-0">
-            <span class="font-bold"><?= $trans('home.plans.support').':' ?></span>
-            <?= $item['support'] ?>
-          </p>
-          <p class="font-title text-brand-200 text-center text-xl sm:text-5xl lg:text-[2.6vw] xl:text-[2.2vw] flex gap-1 items-end justify-center">
+          <h3 class="font-title uppercase text-center text-xl lg:text-3xl mt-1 mb-2"><?= $item['title'] ?></h3>
+          <p class="font-title text-brand-200 text-center text-xl sm:text-3xl lg:text-[1.8vw] xl:text-[1.5vw] flex gap-1 items-end justify-center">
             <span><?= '$'."{$item['price']} USD" ?></span>
             <span class="text-xs lg:text-[40%] -translate-y-2.5">/<?= $trans('home.plans.per_month') ?></span>
           </p>
           <div class="relative">
-            <a href="<?= $constants['shop_link'] . $item['slug'] ?>" target="_blank" rel="noopener noreferrer" class="button open-popup w-full relative gradient rounded-lg lg:text-xl px-7 lg:px-10 hover:text-white duration-300 z-1">
+            <a href="<?= $constants['shop_link'] . $item['slug'] ?>" target="_blank" rel="noopener noreferrer" class="button w-full relative gradient rounded-lg lg:text-lg xl:text-xl px-7 lg:px-10 lg:es:px-4 xl:es:px-10 hover:text-white duration-300 z-1">
               <span class="relative"><?= $trans('nav.buy') ?></span>
             </a>
             <?php if($recommended): ?>
@@ -268,6 +260,7 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
               </li>
             <?php endforeach; ?>
           </ul>
+          <small class="text-center mt-4 text-balance"><?= $trans('home.plans.non_binding_subscription') ?></small>
         </article>
       <?php endforeach; ?>
     </div>

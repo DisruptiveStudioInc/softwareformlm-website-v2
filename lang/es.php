@@ -154,20 +154,28 @@ return [
         'title' => 'Growth',
         'subtitle' => 'Expande tu red y acelera resultados',
         'text' => 'Pensado para negocios en crecimiento que necesitan automatización, mayor control y herramientas avanzadas para escalar.',
-        'support' => 'Tickets, correo electrónico'
+        'support' => 'Tickets, Chat'
       ],
       'plan3' => [
         'title' => 'Scale',
         'subtitle' => 'Opera a nivel profesional y sin límites',
         'text' => 'Diseñado para empresas que requieren máxima personalización, alto volumen de usuarios y operación global sin fricciones.',
-        'support' => 'Tickets, correo electrónico, WhatsApp'
+        'support' => 'Tickets, Chat, WhatsApp'
+      ],
+      'plan4' => [
+        'title' => "Dominate",
+        'subtitle' => "Lidera el mercado con capacidades incomparables",
+        'text' => "Diseñado para empresas que buscan dominar su industria con máxima personalización, alto volumen de usuarios y operación global sin fricciones.",
+        'support' => "Tickets, Chat"
       ],
       'user_limit' => 'Límite de usuarios',
       'support' => 'Canales de soporte',
       'unlimited' => 'Ilimitado',
       'per_month' => 'mes',
       'everything_in' => 'Todo lo incluido en',
+      'non_binding_subscription' => 'Suscripción mensual no vinculante. Cancela cuando quieras.',
       'items' => [
+        'traffic' => 'Tráfico ilimitado',
         'encrypted_data' => 'Datos encryptados',
         'availability' => 'Alta disponibilidad',
         'access_24_7' => 'Acceso 24/7/365',
@@ -197,9 +205,8 @@ return [
         'events' => 'Modulo de eventos',
         'ipayout' => 'Ipayout',
         'multicountry' => 'Multi-pais (tiendas tienen costo extra)',
-        'kyc' => 'Modulo de KYC',
+        'kyc_aml' => 'Módulo de KYC - AML',
         'wallet_connect' => 'Wallet Connect (Web3)',
-        'aml' => 'AML',
         'signed_contract' => 'Firma de contrato por compra',
         'payment_processors' => 'Multiples procesadores de pago',
         'token_sale' => 'Token sale (setup requerido)',
