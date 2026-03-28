@@ -2,6 +2,38 @@
 
 use App\Models\Language;
 
+$getPlanModal = static function (
+  string $planKey,
+  int $introCount,
+  int $featureCount,
+  int $idealForCount
+): array {
+  $intro = [];
+  $features = [];
+  $idealFor = [];
+
+  for ($i = 1; $i <= $introCount; $i++) {
+    $intro[] = Language::trans("home.plans.{$planKey}.modal.intro{$i}");
+  }
+
+  for ($i = 1; $i <= $featureCount; $i++) {
+    $features[] = Language::trans("home.plans.{$planKey}.modal.feature{$i}");
+  }
+
+  for ($i = 1; $i <= $idealForCount; $i++) {
+    $idealFor[] = Language::trans("home.plans.{$planKey}.modal.ideal_for{$i}");
+  }
+
+  return [
+    'intro' => $intro,
+    'features_title' => Language::trans("home.plans.{$planKey}.modal.features_title"),
+    'features' => $features,
+    'ideal_for_title' => Language::trans("home.plans.{$planKey}.modal.ideal_for_title"),
+    'ideal_for' => $idealFor,
+    'closing' => Language::trans("home.plans.{$planKey}.modal.closing"),
+  ];
+};
+
 return[
   'seoDescription' => Language::trans('home.description'),
   'operate' => [
@@ -90,8 +122,7 @@ return[
   'plans' => [
     [
       'title' => Language::trans('home.plans.plan1.title'),
-      'subtitle' => Language::trans('home.plans.plan1.subtitle'),
-      'text' => Language::trans('home.plans.plan1.text'),
+      'modal' => $getPlanModal('plan1', 3, 5, 3),
       'users' => 500,
       'support' => Language::trans('home.plans.plan1.support'),
       'price' => 197,
@@ -116,8 +147,7 @@ return[
     ],
     [
       'title' => Language::trans('home.plans.plan2.title'),
-      'subtitle' => Language::trans('home.plans.plan2.subtitle'),
-      'text' => Language::trans('home.plans.plan2.text'),
+      'modal' => $getPlanModal('plan2', 3, 6, 4),
       'users' => 5000,
       'support' => Language::trans('home.plans.plan2.support'),
       'price' => 397,
@@ -139,8 +169,7 @@ return[
     [
       'recommended' => true,
       'title' => Language::trans('home.plans.plan3.title'),
-      'subtitle' => Language::trans('home.plans.plan3.subtitle'),
-      'text' => Language::trans('home.plans.plan3.text'),
+      'modal' => $getPlanModal('plan3', 3, 6, 4),
       'users' => Language::trans('home.plans.unlimited'),
       'support' => Language::trans('home.plans.plan3.support'),
       'price' => 597,
@@ -157,8 +186,7 @@ return[
     ],
     [
       'title' => Language::trans('home.plans.plan4.title'),
-      'subtitle' => Language::trans('home.plans.plan4.subtitle'),
-      'text' => Language::trans('home.plans.plan4.text'),
+      'modal' => $getPlanModal('plan4', 4, 7, 4),
       'users' => Language::trans('home.plans.unlimited'),
       'support' => Language::trans('home.plans.plan4.support'),
       'price' => 997,

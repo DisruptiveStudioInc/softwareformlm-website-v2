@@ -19,7 +19,7 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
       <h2 class="font-khand uppercase bg-clip-text bg-text-white leading-none text-5xl xs:text-7xl sm:text-8xl md:text-9xl xl:text-10xl text-balance es:pt-2"><?= $trans('home.hero.title') ?></h2>
       <p class="lg:text-xl text-balance text-white"><?= $trans('home.hero.text') ?></p>
       <div class="relative w-fit mt-4 mx-auto lg:mx-0 lg:mt-8">
-        <button type="button" class="button open-popup relative gradient rounded-lg lg:text-2xl px-7 lg:px-10 hover:text-white duration-300 z-1">
+        <button type="button" data-target="demo-popup" class="button open-popup relative gradient rounded-lg lg:text-2xl px-7 lg:px-10 hover:text-white duration-300 z-1">
           <span class="relative"><?= $trans('common.demo') ?></span>
         </button>
         <div class="button-glow"></div>
@@ -49,7 +49,7 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
     </ul>
     <div class="stagger-parent flex-center flex-col">
       <div class="relative w-fit slide-up-stagger">
-        <button type="button" class="button open-popup relative gradient rounded-lg lg:text-xl px-7 lg:px-10 hover:text-white duration-300 z-1">
+        <button type="button" data-target="demo-popup" class="button open-popup relative gradient rounded-lg lg:text-xl px-7 lg:px-10 hover:text-white duration-300 z-1">
           <span class="relative"><?= $trans('common.demo') ?></span>
         </button>
         <div class="button-glow"></div>
@@ -77,7 +77,7 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
 
     <div class="stagger-parent flex-center flex-col mt-6 lg:mt-12">
       <div class="relative w-fit slide-up-stagger">
-        <button type="button" class="button open-popup relative gradient rounded-lg lg:text-xl px-7 lg:px-10 hover:text-white duration-300 z-1">
+        <button type="button" data-target="demo-popup" class="button open-popup relative gradient rounded-lg lg:text-xl px-7 lg:px-10 hover:text-white duration-300 z-1">
           <span class="relative"><?= $trans('common.demo') ?></span>
         </button>
         <div class="button-glow"></div>
@@ -93,7 +93,7 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
     <div class="tech-title">
       <h2 class="font-title leading-none uppercase text-2xl sm:text-5xl md:text-8xl lg:text-9xl text-center slide-up-words-black"><?= $trans('home.network.title') ?></h2>
       <div class="relative w-fit mt-4 mx-auto lg:mt-8 slide-up-delay" data-delay="2">
-        <button type="button" class="button open-popup relative gradient rounded-lg lg:text-2xl px-7 lg:px-10 hover:text-white duration-300 z-1">
+        <button type="button" data-target="demo-popup" class="button open-popup relative gradient rounded-lg lg:text-2xl px-7 lg:px-10 hover:text-white duration-300 z-1">
           <span class="relative"><?= $trans('common.demo') ?></span>
         </button>
         <div class="button-glow"></div>
@@ -123,7 +123,7 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
   <div class="block-content min-h-dvh py-16 lg:py-40 flex flex-col items-center">
     <h2 class="banner-text font-title leading-none uppercase text-[9vw] md:text-10xl lg:text-12xl slide-up-words-white"><?= $trans('home.scale.title') ?></h2>
     <div class="relative w-fit mt-4 lg:mt-8 slide-up-delay self-start" data-delay="5">
-      <button type="button" class="button open-popup relative gradient rounded-lg lg:text-2xl px-7 lg:px-10 hover:text-white duration-300 z-1">
+      <button type="button" data-target="demo-popup" class="button open-popup relative gradient rounded-lg lg:text-2xl px-7 lg:px-10 hover:text-white duration-300 z-1">
         <span class="relative"><?= $trans('common.demo') ?></span>
       </button>
       <div class="button-glow"></div>
@@ -147,7 +147,7 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
     <p class="max-w-[64ch] mx-auto my-6 lg:text-2xl text-balance slide-up"><?= $trans('home.scale.text') ?></p>
     <p class="font-title uppercase bg-clip-text bg-text-black text-2xl md:text-4xl lg:text-6xl max-w-[28ch] leading-tight mx-auto slide-up"><?= $trans('home.scale.accent') ?></p>
     <div class="relative w-fit slide-up mt-6 lg:mt-12">
-      <button type="button" class="button open-popup relative gradient rounded-lg lg:text-xl px-7 lg:px-10 hover:text-white duration-300 z-1">
+      <button type="button" data-target="demo-popup" class="button open-popup relative gradient rounded-lg lg:text-xl px-7 lg:px-10 hover:text-white duration-300 z-1">
         <span class="relative"><?= $trans('common.demo') ?></span>
       </button>
       <div class="button-glow"></div>
@@ -164,7 +164,7 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
       <p class="text-secondary-200 lg:text-xl text-balance"><?= $trans('home.customize.text2') ?></p>
       <div class="stagger-parent flex flex-col items-center lg:items-start mt-6 lg:mt-12">
         <div class="relative w-fit slide-up">
-          <button type="button" class="button open-popup relative gradient rounded-lg lg:text-xl px-7 lg:px-10 hover:text-white duration-300 z-1 slide-up-stagger">
+          <button type="button" data-target="demo-popup" class="button open-popup relative gradient rounded-lg lg:text-xl px-7 lg:px-10 hover:text-white duration-300 z-1 slide-up-stagger">
             <span class="relative"><?= $trans('common.demo') ?></span>
           </button>
           <div class="button-glow"></div>
@@ -233,7 +233,10 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
         foreach($content['plans'] as $k => $item):
           $recommended = (isset($item['recommended']) && $item['recommended']);
       ?>
-        <article class="<?= $recommended ? 'recommended bg-secondary-200 relative text-white' : 'bg-white text-secondary-200' ?> rounded-lg px-4 pb-4 pt-6 lg:p-6 flex flex-col lg:max-h-[70vh]">
+        <article class="<?= $recommended ? 'recommended bg-secondary-200 text-white' : 'bg-white text-secondary-200' ?> relative rounded-lg px-4 pb-4 pt-6 lg:p-6 flex flex-col lg:max-h-[70vh]">
+            <button type="button" class="open-popup absolute top-2 right-2 <?= $recommended ? 'text-surface-300' : 'text-secondary-50/70' ?> hover:text-brand-100 rounded-full cursor-pointer p-1 transition-colors" data-target="product-popup-<?= strtolower($item['title']) ?>">
+              <svg class="size-6 transition-colors"><use href="#info-flat"/></svg>
+            </button>
           <?php if($recommended): ?>
             <div class="absolute w-full top-0 left-0 -translate-y-1/2 text-center pointer-events-none">
               <span class="bg-brand-50 text-secondary-100 py-1 px-2 rounded-full text-xs lg:text-base"><?= $trans('common.recommended') ?></span>
@@ -280,7 +283,7 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
       <p class="lg:text-xl mb-6 slide-up"><?= $trans('home.control.subtitle') ?></p>
       <div class="stagger-parent flex flex-col items-center lg:items-start mt-4 lg:mt-6">
         <div class="relative w-fit slide-up">
-          <button type="button" class="button open-popup relative gradient rounded-lg lg:text-xl px-7 lg:px-10 hover:text-white duration-300 z-1 slide-up-stagger">
+          <button type="button" data-target="demo-popup" class="button open-popup relative gradient rounded-lg lg:text-xl px-7 lg:px-10 hover:text-white duration-300 z-1 slide-up-stagger">
             <span class="relative"><?= $trans('common.demo') ?></span>
           </button>
           <div class="button-glow"></div>
@@ -324,7 +327,7 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
       <p class="bg-clip-text bg-text-black text-lg sm:text-2xl md:text-3xl lg:text-3xl leading-tight mb-4 uppercase slide-up-stagger"><?= $trans('home.ready.text1') ?></p>
       <p class="font-title bg-clip-text bg-text-black text-lg sm:text-2xl md:text-3xl lg:text-5xl lg:es:pt-1 leading-tight uppercase slide-up-stagger"><?= $trans('home.ready.text2') ?></p>
       <div class="relative w-fit mt-4 mx-auto lg:mt-8 slide-up">
-        <button type="button" class="button open-popup relative gradient rounded-lg lg:text-2xl px-7 lg:px-10 hover:text-white duration-300 z-1">
+        <button type="button" data-target="demo-popup" class="button open-popup relative gradient rounded-lg lg:text-2xl px-7 lg:px-10 hover:text-white duration-300 z-1">
           <span class="relative"><?= $trans('common.demo') ?></span>
         </button>
         <div class="button-glow"></div>
@@ -334,9 +337,9 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
 </section>
 
 <!-- Popup -->
-<dialog id="demo-popup" class="bg-transparent m-auto w-full max-w-2xl px-7">
+<dialog id="demo-popup" class="popup bg-transparent m-auto w-full max-w-2xl px-7">
   <div class="relative w-full bg-white rounded-xl lg:rounded-2xl max-h-[90vh] overflow-x-hidden overflow-y-auto">
-    <button type="button" class="close-popup absolute top-2 right-2 text-gray-100 bg-surface-200 hover:bg-brand-100 hover:text-secondary-100 rounded-lg cursor-pointer p-1 transition-colors">
+    <button type="button" data-target="demo-popup" class="close-popup absolute top-2 right-2 text-gray-100 bg-surface-200 hover:bg-brand-100 hover:text-secondary-100 rounded-lg cursor-pointer p-1 transition-colors">
       <svg class="size-6 transition-colors"><use href="#xmark"/></svg>
     </button>
     <?php #if (isArizonaBusinessHours()): ?>
@@ -366,5 +369,45 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
     <?php endif; ?>
   </div>
 </dialog>
+
+<!-- Product popups -->
+<?php foreach($content['plans'] as $k => $product): ?>
+  <dialog id="product-popup-<?= strtolower($product['title']) ?>" class="popup bg-transparent m-auto w-full max-w-2xl px-7">
+    <div class="relative w-full bg-white rounded-xl lg:rounded-2xl max-h-[90vh] overflow-x-hidden overflow-y-auto">
+      <button type="button" data-target="product-popup-<?= strtolower($product['title']) ?>" class="close-popup absolute top-2 right-2 text-gray-100 bg-surface-200 hover:bg-brand-100 hover:text-secondary-100 rounded-lg cursor-pointer p-1 transition-colors">
+        <svg class="size-6 transition-colors"><use href="#xmark"/></svg>
+      </button>
+      <div class="p-6 lg:p-10 text-secondary-200">
+        <h3 class="font-title text-center text-2xl lg:text-4xl mb-4"><?= $product['title'] ?></h3>
+
+        <?php foreach(($product['modal']['intro'] ?? []) as $paragraph): ?>
+          <p class="mb-2"><?= $paragraph ?></p>
+        <?php endforeach; ?>
+
+        <h4 class="font-bold text-lg mt-4 mb-2"><?= $product['modal']['features_title'] ?? '' ?></h4>
+        <ul class="space-y-2 mb-6">
+          <?php foreach(($product['modal']['features'] ?? []) as $feature): ?>
+            <li class="flex gap-1.5 items-start">
+              <svg class="size-6 shrink-0 text-brand-200"><use href="#check-circle"/></svg>
+              <span><?= $feature ?></span>
+            </li>
+          <?php endforeach; ?>
+        </ul>
+
+        <h4 class="font-bold text-lg mb-2"><?= $product['modal']['ideal_for_title'] ?? '' ?></h4>
+        <ul class="space-y-2 mb-6">
+          <?php foreach(($product['modal']['ideal_for'] ?? []) as $idealItem): ?>
+            <li class="flex gap-1.5 items-start">
+              <svg class="size-6 shrink-0 text-brand-200"><use href="#check-circle"/></svg>
+              <span><?= $idealItem ?></span>
+            </li>
+          <?php endforeach; ?>
+        </ul>
+
+        <p class="font-title text-center text-xl lg:text-2xl leading-tight"><?= $product['modal']['closing'] ?? '' ?></p>
+      </div>
+    </div>
+  </dialog>
+<?php endforeach; ?>
 
 <?php require __DIR__ . '/../layouts/footer.php'; ?>

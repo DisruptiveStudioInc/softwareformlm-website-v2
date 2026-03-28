@@ -289,6 +289,10 @@
       );
     }
   }
+  .popup::backdrop {
+    background-color: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(4px);
+  }
   .half {
     max-width: calc(var(--breakpoint-2xl) * 0.5);
     padding-inline: --spacing(7);

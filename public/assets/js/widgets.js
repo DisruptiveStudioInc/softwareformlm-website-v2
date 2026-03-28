@@ -486,62 +486,75 @@ if (videoButtons.length > 0 && videoPopup && closeVideo) {
   });
 }
 
-//Home popup
-const demoButtons = document.querySelectorAll(".open-popup");
-const demoDialog = document.getElementById("demo-popup");
+// Dialog popups
+const popupOpenButtons = document.querySelectorAll(".open-popup[data-target]");
+const popupCloseButtons = document.querySelectorAll(
+  ".close-popup[data-target]",
+);
+const popupDialogs = document.querySelectorAll("dialog.popup");
 
-if (demoButtons.length > 0 && demoDialog) {
-  const closeDemoButton = demoDialog.querySelector(".close-popup");
-  const demoBackdropStyleId = "demo-popup-backdrop-style";
-
+if (
+  popupOpenButtons.length > 0 &&
+  popupCloseButtons.length > 0 &&
+  popupDialogs.length > 0
+) {
   const lockScroll = () => {
     document.documentElement.classList.add("overflow-hidden");
     document.body.classList.add("overflow-hidden");
   };
 
   const unlockScroll = () => {
+    const hasOpenPopup = Array.from(popupDialogs).some((dialog) => dialog.open);
+
+    if (hasOpenPopup) return;
+
     document.documentElement.classList.remove("overflow-hidden");
     document.body.classList.remove("overflow-hidden");
   };
 
-  const injectBackdropStyle = () => {
-    if (document.getElementById(demoBackdropStyleId)) return;
+  const getPopupDialog = (targetId) => {
+    if (!targetId) return null;
 
-    const style = document.createElement("style");
-    style.id = demoBackdropStyleId;
-    style.textContent = `
-      #demo-popup::backdrop {
-        background: rgb(0 0 0 / 0.8);
-      }
-    `;
-    document.head.appendChild(style);
+    const targetDialog = document.getElementById(targetId);
+    if (!(targetDialog instanceof HTMLDialogElement)) return null;
+
+    return targetDialog;
   };
 
-  const openDemoDialog = () => {
-    if (demoDialog.open) return;
-    injectBackdropStyle();
+  const openPopupDialog = (targetId) => {
+    const targetDialog = getPopupDialog(targetId);
+    if (!targetDialog || targetDialog.open) return;
+
     lockScroll();
-    demoDialog.showModal();
+    targetDialog.showModal();
   };
 
-  const closeDemoDialog = () => {
-    if (!demoDialog.open) return;
-    demoDialog.close();
+  const closePopupDialog = (targetId) => {
+    const targetDialog = getPopupDialog(targetId);
+    if (!targetDialog || !targetDialog.open) return;
+
+    targetDialog.close();
   };
 
-  demoButtons.forEach((button) => {
-    button.addEventListener("click", openDemoDialog);
+  popupOpenButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      openPopupDialog(button.dataset.target);
+    });
   });
 
-  if (closeDemoButton) {
-    closeDemoButton.addEventListener("click", closeDemoDialog);
-  }
-
-  demoDialog.addEventListener("click", (event) => {
-    if (event.target === demoDialog) {
-      closeDemoDialog();
-    }
+  popupCloseButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      closePopupDialog(button.dataset.target);
+    });
   });
 
-  demoDialog.addEventListener("close", unlockScroll);
+  popupDialogs.forEach((dialog) => {
+    dialog.addEventListener("click", (event) => {
+      if (event.target === dialog) {
+        closePopupDialog(dialog.id);
+      }
+    });
+
+    dialog.addEventListener("close", unlockScroll);
+  });
 }
