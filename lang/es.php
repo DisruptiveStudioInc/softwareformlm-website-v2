@@ -237,7 +237,7 @@ return [
       'unlimited' => 'Ilimitado',
       'per_month' => 'mes',
       'everything_in' => 'Todo lo incluido en',
-      'non_binding_subscription' => 'Suscripción mensual no vinculante. Cancela cuando quieras.',
+      'non_binding_subscription' => 'Suscripción mensual no forzosa. Cancela cuando quieras.',
       'items' => [
         'traffic' => 'Tráfico ilimitado',
         'encrypted_data' => 'Datos encryptados',
@@ -331,7 +331,8 @@ return [
     'login' => 'Login',
     'register' => 'Registro',
     'recommended' => 'Más popular',
-    'get_info' => 'Obtener información'
+    'get_info' => 'Obtener información',
+    'suscribe' => 'Suscríbete',
   ],
 
   // Common titles

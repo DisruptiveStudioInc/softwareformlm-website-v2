@@ -331,7 +331,8 @@ return [
     'login' => 'Login',
     'register' => 'Register',
     'recommended' => 'Most popular',
-    'get_info' => 'Get information'
+    'get_info' => 'Get information',
+    'suscribe' => 'Suscribe',
   ],
 
   // Common titles

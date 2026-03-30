@@ -54,7 +54,6 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
         </button>
         <div class="button-glow"></div>
       </div>
-      <p class="slide-up-stagger text-center mt-4"><?= $trans('home.operate.footnote') ?></p>
     </div>
   </div>
 </section>
@@ -82,7 +81,6 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
         </button>
         <div class="button-glow"></div>
       </div>
-      <p class="slide-up-stagger text-center mt-4"><?= $trans('home.operate.footnote') ?></p>
     </div>
   </div>
 </section>
@@ -169,7 +167,6 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
           </button>
           <div class="button-glow"></div>
         </div>
-        <p class="slide-up-stagger text-center mt-4"><?= $trans('home.customize.footnote') ?></p>
       </div>
     </div>
     <div class="relative lg:w-1/2 lg:pr-12">
@@ -249,7 +246,7 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
           </p>
           <div class="relative">
             <a href="<?= $constants['shop_link'] . $item['slug'] ?>" target="_blank" rel="noopener noreferrer" class="button w-full relative gradient rounded-lg lg:text-lg xl:text-xl px-7 lg:px-10 lg:es:px-4 xl:es:px-10 hover:text-white duration-300 z-1">
-              <span class="relative"><?= $trans('nav.buy') ?></span>
+              <span class="relative"><?= $trans('common.suscribe') ?></span>
             </a>
             <?php if($recommended): ?>
               <div class="button-glow"></div>
@@ -288,7 +285,6 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
           </button>
           <div class="button-glow"></div>
         </div>
-        <p class="slide-up-stagger text-center mt-4"><?= $trans('home.customize.footnote') ?></p>
       </div>
       <nav class="flex gap-2 justify-center slide-up lg:max-w-[48ch] mt-2">
         <button class="subcategories-button-prev rounded-lg cursor-pointer text-gray-100 hover:bg-brand-100 hover:text-secondary-100 [&.swiper-button-disabled]:pointer-events-none [&.swiper-button-disabled]:opacity-30 p-2 transition-op-colors">
@@ -404,7 +400,14 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
           <?php endforeach; ?>
         </ul>
 
-        <p class="font-title text-center text-xl lg:text-2xl leading-tight"><?= $product['modal']['closing'] ?? '' ?></p>
+        <p class="font-title text-center text-xl lg:text-2xl leading-tight mb-6"><?= $product['modal']['closing'] ?? '' ?></p>
+
+        <div class="relative w-fit mx-auto">
+          <a href="<?= $constants['shop_link'] . $product['slug'] ?>" target="_blank" rel="noopener noreferrer" class="button relative gradient rounded-lg lg:text-lg xl:text-xl px-7 lg:px-10 lg:es:px-4 xl:es:px-10 hover:text-white duration-300 z-1">
+            <span class="relative"><?= $trans('nav.buy') ?></span>
+          </a>
+          <div class="button-glow"></div>
+        </div>
       </div>
     </div>
   </dialog>
