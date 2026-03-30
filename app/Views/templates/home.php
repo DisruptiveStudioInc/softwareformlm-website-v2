@@ -341,9 +341,9 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
     <?php #if (isArizonaBusinessHours()): ?>
     <?php if (true): ?>
       <iframe
-        src="https://api.leadconnectorhq.com/widget/form/X2ITzrwHHELujZVjnyQK"
+        src="https://api.leadconnectorhq.com/widget/form/<?= $currentLang === 'es' ? 'X2ITzrwHHELujZVjnyQK' : 'ZYcPrzRgQkMc4ZocMJEj' ?>"
         style="width:100%;height:100%;border:none;border-radius:0px"
-        id="inline-X2ITzrwHHELujZVjnyQK"
+        id="inline-<?= $currentLang === 'es' ? 'X2ITzrwHHELujZVjnyQK' : 'ZYcPrzRgQkMc4ZocMJEj' ?>"
         data-layout="{'id':'INLINE'}"
         data-trigger-type="alwaysShow"
         data-trigger-value=""
@@ -351,11 +351,11 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
         data-activation-value=""
         data-deactivation-type="neverDeactivate"
         data-deactivation-value=""
-        data-form-name="META ADS - LEADS FORM UTM"
-        data-height="945"
-        data-layout-iframe-id="inline-X2ITzrwHHELujZVjnyQK"
-        data-form-id="X2ITzrwHHELujZVjnyQK"
-        title="META ADS - LEADS FORM UTM"
+        data-form-name="META ADS - LEADS FORM UTM<?= $currentLang === 'en' ? '  ZOOM - INGLES' : '' ?>"
+        data-height="<?= $currentLang === 'es' ? '945' : 'undefined' ?>"
+        data-layout-iframe-id="inline-<?= $currentLang === 'es' ? 'X2ITzrwHHELujZVjnyQK' : 'ZYcPrzRgQkMc4ZocMJEj' ?>"
+        data-form-id="<?= $currentLang === 'es' ? 'X2ITzrwHHELujZVjnyQK' : 'ZYcPrzRgQkMc4ZocMJEj' ?>"
+        title="META ADS - LEADS FORM UTM<?= $currentLang === 'en' ? '  ZOOM - INGLES' : '' ?>"
       >
       </iframe>
       <script src="https://link.msgsndr.com/js/form_embed.js"></script>
