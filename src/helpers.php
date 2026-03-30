@@ -194,12 +194,12 @@ function getNavigationMenu(string $lang, callable $trans): array {
       'hasSubmenu' => false,
       'isMegamenu' => false
     ],
-    [
-      'label' => $trans('nav.buy'),
-      'url' => $constants['shop_link'],
-      'hasSubmenu' => false,
-      'isMegamenu' => false
-    ],
+    // [
+    //   'label' => $trans('nav.buy'),
+    //   'url' => $constants['shop_link'],
+    //   'hasSubmenu' => false,
+    //   'isMegamenu' => false
+    // ],
     [
       'label' => $trans('common.login'),
       'url' => $constants['login_link'],

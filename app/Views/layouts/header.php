@@ -150,10 +150,10 @@
       <!-- Desktop Navigation -->
       <?php include(__DIR__.'/../components/navDesktop.php') ?>
 
+      <a href="<?= $constants['shop_link'] ?>" target="_blank" rel="noopener noreferrer" class="button self-center shrink-0 rounded-lg font-bold hidden lg:flex lg:es:text-sm xl:es:text-base">
+        <?= $trans('common.subscribe') ?>
+      </a>
       <?php if(false): ?>
-        <a href="<?= $constants['shop_link'] ?>" target="_blank" rel="noopener noreferrer" class="button self-center shrink-0 rounded-lg font-bold hidden lg:flex lg:es:text-sm xl:es:text-base">
-          <?= $trans('nav.buy') ?>
-        </a>
         <a href="<?= $constants['login_link'] ?>" target="_blank" rel="noopener noreferrer" class="button self-center shrink-0 rounded-lg font-bold hidden bg-secondary-100 hover:bg-secondary-200 text-white lg:flex lg:es:text-sm xl:es:text-base">
           <?= $trans('common.login') ?>
         </a>

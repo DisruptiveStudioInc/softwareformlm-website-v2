@@ -332,7 +332,7 @@ return [
     'register' => 'Registro',
     'recommended' => 'Más popular',
     'get_info' => 'Obtener información',
-    'suscribe' => 'Suscríbete',
+    'subscribe' => 'Suscríbete',
   ],
 
   // Common titles
