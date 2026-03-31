@@ -17,6 +17,18 @@ function esc(?string $value): string
 }
 
 /**
+ * Format numeric values with comma thousands separators.
+ */
+function format_number_with_commas(mixed $value): string
+{
+  if (!is_numeric($value)) {
+    return (string) $value;
+  }
+
+  return number_format((float) $value, 0, '.', ',');
+}
+
+/**
  * Split array in halfs
  */
 function split_array_in_half(array $array): array {
