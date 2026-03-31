@@ -5,6 +5,7 @@ use App\Router;
 return function(Router $router) {
   // Home
   $router->get('/', 'App\\Controllers\\HomeController', 'index');
+  $router->get('/zoom-demo-redirect', 'App\\Controllers\\RedirectController', 'zoomDemoRedirect');
 
   // Contact
   // $router->get('/contacto', 'App\\Controllers\\ContactController', 'index');

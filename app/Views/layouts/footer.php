@@ -51,5 +51,6 @@
   </div>
   <?php require_once __DIR__ .'/../components/svgSprites.php'; ?>
 </footer>
+<?php include __DIR__ . '/../components/footer-traking.php'; ?>
 </body>
 </html>
