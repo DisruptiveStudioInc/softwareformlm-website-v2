@@ -9,8 +9,9 @@ class RedirectController extends BaseController
 {
   public function zoomDemoRedirect(Request $request): Response
   {
-    return $this->view('zoom-demo-redirect', [
+    return $this->view('demo-redirect', [
       'pageTitle' => 'Zoom Demo Redirect',
+      'eventName' => 'zoom_demo_redirect',
       'redirectUrl' => 'https://disr.vip/demo',
       'redirectDelayMs' => 200,
       'metaRefreshSeconds' => 1,
@@ -19,8 +20,9 @@ class RedirectController extends BaseController
 
   public function calendarDemoRedirect(Request $request): Response
   {
-    return $this->view('calendar-demo-redirect', [
+    return $this->view('demo-redirect', [
       'pageTitle' => 'Calendar Demo Redirect',
+      'eventName' => 'calendar_demo_redirect',
       'redirectUrl' => 'https://disr.vip/calendar',
       'redirectDelayMs' => 200,
       'metaRefreshSeconds' => 1,
