@@ -344,12 +344,11 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
 
 <!-- Popup -->
 <dialog id="demo-popup" class="popup bg-transparent m-auto w-full max-w-2xl px-7">
-  <div class="relative w-full bg-white rounded-xl lg:rounded-2xl max-h-[90vh] overflow-x-hidden overflow-y-auto">
+  <div class="relative w-full rounded-xl lg:rounded-2xl max-h-[90vh] overflow-x-hidden overflow-y-auto" style="background-color:#12173800">
     <button type="button" data-target="demo-popup" class="close-popup absolute top-2 right-2 text-gray-100 bg-surface-200 hover:bg-brand-100 hover:text-secondary-100 rounded-lg cursor-pointer p-1 transition-colors">
       <svg class="size-6 transition-colors"><use href="#xmark"/></svg>
     </button>
-    <?php #if (isArizonaBusinessHours()): ?>
-    <?php if (true): ?>
+    <?php if (isArizonaBusinessHours()): ?>
       <iframe
         src="https://api.leadconnectorhq.com/widget/form/<?= $currentLang === 'es' ? 'X2ITzrwHHELujZVjnyQK' : 'ZYcPrzRgQkMc4ZocMJEj' ?>"
         style="width:100%;height:100%;border:none;border-radius:0px"
@@ -370,8 +369,25 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
       </iframe>
       <script src="https://link.msgsndr.com/js/form_embed.js"></script>
     <?php else: ?>
-      <p class="text-center pt-4 mb-2">Outside of business hours</p>
-      <p class="text-center pb-4">9:00 AM - 9:00 PM</p>
+      <iframe
+        src="https://link.softwareformlm.com/widget/form/<?= $currentLang === 'es' ? 'SPxBEy47oduUYUIhcgA0' : '46NJyYtTIThYmprhbA4R' ?>"
+        style="width:100%;height:100%;border:none;border-radius:0px"
+        id="inline-<?= $currentLang === 'es' ? 'SPxBEy47oduUYUIhcgA0' : '46NJyYtTIThYmprhbA4R' ?>"
+        data-layout="{'id':'INLINE'}"
+        data-trigger-type="alwaysShow"
+        data-trigger-value=""
+        data-activation-type="alwaysActivated"
+        data-activation-value=""
+        data-deactivation-type="neverDeactivate"
+        data-deactivation-value=""
+        data-form-name="META ADS - LEADS FORM UTM CALENDARIO - <?= $currentLang === 'es' ? 'ESPAÑOL' : 'INGLES' ?>"
+        data-height="1153"
+        data-layout-iframe-id="inline-<?= $currentLang === 'es' ? 'SPxBEy47oduUYUIhcgA0' : '46NJyYtTIThYmprhbA4R' ?>"
+        data-form-id="<?= $currentLang === 'es' ? 'SPxBEy47oduUYUIhcgA0' : '46NJyYtTIThYmprhbA4R' ?>"
+        title="META ADS - LEADS FORM UTM CALENDARIO - <?= $currentLang === 'es' ? 'ESPAÑOL' : 'INGLES' ?>"
+      >
+      </iframe>
+      <script src="https://link.softwareformlm.com/js/form_embed.js"></script>
     <?php endif; ?>
   </div>
 </dialog>
