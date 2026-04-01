@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 // Load Composer autoloader
 require __DIR__ . '/vendor/autoload.php';
 
@@ -10,13 +10,17 @@ $dotenv->load();
 // Error handling based on environment
 $config = require __DIR__ . '/config/config.php';
 
-// Initialize user_replica from session or URL parameter
-if(isset($_SESSION['user_replica']) && !isset($_GET['ref'])){
-  $user_replica = $_SESSION['user_replica'];
-}
-else{
-  $user_replica = isset($_GET['ref']) ? $_GET['ref'] : 'master';
-  $_SESSION['user_replica'] = $user_replica;
+/* handles sponsor url */
+$ref = $_GET['ref'] ?? NULL;
+$user_replica = NULL;
+
+if (!empty($ref)){
+    $ref = rtrim($ref, '/');
+    $url_parts = explode('/', $ref);
+    $user_replica = $url_parts[0];
+    $_SESSION['ref'] = $user_replica;
+}else if( !empty($_SESSION['ref']) ){
+    $user_replica = $_SESSION['ref'];
 }
 
 // Make $user_replica available globally throughout the application

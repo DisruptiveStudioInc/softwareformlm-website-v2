@@ -245,7 +245,7 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
             <span class="text-xs lg:text-[40%] -translate-y-2.5">/<?= $trans('home.plans.per_month') ?></span>
           </p>
           <div class="relative">
-            <a href="<?= $constants['shop_link'] . $item['slug'] ?>" target="_blank" rel="noopener noreferrer" class="button w-full relative gradient rounded-lg lg:text-lg xl:text-xl px-7 lg:px-10 lg:es:px-4 xl:es:px-10 hover:text-white duration-300 z-1">
+            <a href="<?= $constants['shop_link'] . $item['slug'] . '?ref=' . $GLOBALS['user_replica'] ?>" target="_blank" rel="noopener noreferrer" class="button w-full relative gradient rounded-lg lg:text-lg xl:text-xl px-7 lg:px-10 lg:es:px-4 xl:es:px-10 hover:text-white duration-300 z-1">
               <span class="relative"><?= $trans('common.subscribe') ?></span>
             </a>
             <?php if($recommended): ?>
@@ -429,7 +429,7 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
         <p class="font-title text-center text-xl lg:text-2xl leading-tight mb-6"><?= $product['modal']['closing'] ?? '' ?></p>
 
         <div class="relative w-fit mx-auto">
-          <a href="<?= $constants['shop_link'] . $product['slug'] ?>" target="_blank" rel="noopener noreferrer" class="button relative gradient rounded-lg lg:text-lg xl:text-xl px-7 lg:px-10 lg:es:px-4 xl:es:px-10 hover:text-white duration-300 z-1">
+          <a href="<?= $constants['shop_link'] . $product['slug'] . '?ref=' . $GLOBALS['user_replica'] ?>" target="_blank" rel="noopener noreferrer" class="button relative gradient rounded-lg lg:text-lg xl:text-xl px-7 lg:px-10 lg:es:px-4 xl:es:px-10 hover:text-white duration-300 z-1">
             <span class="relative"><?= $trans('nav.buy') ?></span>
           </a>
           <div class="button-glow"></div>
