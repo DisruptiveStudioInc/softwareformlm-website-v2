@@ -6,6 +6,7 @@ return function(Router $router) {
   // Home
   $router->get('/', 'App\\Controllers\\HomeController', 'index');
   $router->get('/zoom-demo-redirect', 'App\\Controllers\\RedirectController', 'zoomDemoRedirect');
+  $router->get('/calendar-demo-redirect', 'App\\Controllers\\RedirectController', 'calendarDemoRedirect');
 
   // Contact
   // $router->get('/contacto', 'App\\Controllers\\ContactController', 'index');

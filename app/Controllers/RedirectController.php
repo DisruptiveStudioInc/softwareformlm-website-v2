@@ -16,4 +16,14 @@ class RedirectController extends BaseController
       'metaRefreshSeconds' => 1,
     ]);
   }
+
+  public function calendarDemoRedirect(Request $request): Response
+  {
+    return $this->view('calendar-demo-redirect', [
+      'pageTitle' => 'Calendar Demo Redirect',
+      'redirectUrl' => 'https://disr.vip/calendar',
+      'redirectDelayMs' => 200,
+      'metaRefreshSeconds' => 1,
+    ]);
+  }
 }

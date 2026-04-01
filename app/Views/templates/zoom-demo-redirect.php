@@ -20,7 +20,7 @@
   </script>
 </head>
 <body style="display:flex;justify-content:center;align-items:center;height:100vh;margin:0;">
-  <p>Redirecting to demo. If you are not redirected automatically, <a href="<?= htmlspecialchars($redirectUrl, ENT_QUOTES, 'UTF-8') ?>">continue here</a>.</p>
+  <p style="font-family:sans-serif;">Redirecting to demo. If you are not redirected automatically, <a href="<?= htmlspecialchars($redirectUrl, ENT_QUOTES, 'UTF-8') ?>">continue here</a>.</p>
   <?php include __DIR__ . '/../components/footer-traking.php'; ?>
 </body>
 </html>
