@@ -123,7 +123,7 @@ return [
     ],
     'scale' => [
       'title' => 'MLM technology that drives real networks and businesses that scale',
-      'text' => 'You can do much more with Softwareformlm',
+      'text' => 'You can do much more with SoftwareForMLM',
       'accent' => 'Ready to take your company to dominate the market?',
       'stats' => [
         'business1' => 'companies',

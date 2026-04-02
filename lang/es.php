@@ -123,7 +123,7 @@ return [
     ],
     'scale' => [
       'title' => 'Tecnología MLM que impulsa redes reales y negocios que escalan',
-      'text' => 'Puedes hacer mucho más con Softwareformlm',
+      'text' => 'Puedes hacer mucho más con SoftwareForMLM',
       'accent' => '¿Listo para llevar a tu empresa a dominar el mercado?',
       'stats' => [
         'business1' => 'empresas',
