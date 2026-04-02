@@ -17,7 +17,7 @@ return [
     'certifications' => 'Certificaciones',
     'contact' => 'Contáctanos',
     'blog' => 'Blog',
-    'buy' => 'Comprar ahora',
+    'buy' => 'Suscríbete ahora',
   ],
 
   // Footer
