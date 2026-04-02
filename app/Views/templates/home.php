@@ -282,12 +282,12 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
 <!-- Control -->
 <section data-nav-index="9" class="nav-section relative w-full overflow-x-hidden bg-surface-200">
   <span class="absolute top-0 left-0 size-0"></span>
-  <div class="block-content min-h-dvh lg:max-w-none lg:px-0 py-16 lg:py-40 flex-center flex-col lg:flex-row lg:justify-end gap-4 lg:gap-0">
-    <div class="half max-lg:max-w-none lg:pr-12 w-full lg:w-1/2 text-center lg:text-left max-lg:px-0">
+  <div class="block-content min-h-dvh py-16 lg:py-40 flex-center flex-col lg:flex-row lg:justify-end gap-4 lg:gap-0">
+    <div class="lg:pr-12 w-full lg:w-3/5 text-center lg:text-left max-lg:px-0">
       <h2 class="solutions-title font-title uppercase leading-none text-2xl sm:text-6xl lg:text-7xl slide-up-words-black">
         <?= $trans('home.control.title') ?>
       </h2>
-      <p class="lg:text-xl mb-6 slide-up"><?= $trans('home.control.subtitle') ?></p>
+      <p class="lg:text-xl text-balance mb-6 slide-up"><?= $trans('home.control.subtitle') ?></p>
       <div class="stagger-parent flex flex-col items-center lg:items-start mt-4 lg:mt-6">
         <div class="relative w-fit slide-up">
           <button type="button" data-target="demo-popup" class="button open-popup relative gradient rounded-lg lg:text-xl px-7 lg:px-10 hover:text-white duration-300 z-1 slide-up-stagger">
@@ -305,15 +305,15 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
         </button>
       </nav>
     </div>
-    <div class="w-full lg:w-1/2 px-2 lg:pl-0 lg:pr-[18%] lg:overflow-x-hidden h-full max-w-lg sm:max-w-sm lg:max-w-none flex items-end">
-      <div id="subcategories-swiper" data-swiper-autoplay="2000" class="swiper flex w-full !overflow-visible items-center">
-        <div class="swiper-wrapper !overflow-visible items-center">
+    <div class="w-full lg:w-2/5 px-2 lg:pl-0 h-full max-w-lg lg:max-w-none flex items-end">
+      <div id="subcategories-swiper" data-swiper-autoplay="2000" class="swiper flex w-full items-center">
+        <div class="swiper-wrapper items-center">
           <?php foreach($content['control_list'] as $slide): ?>
             <article class="swiper-slide group h-fit !grid grid-rows-[repeat(2,auto)] grid-cols-1 gap-0">
               <img class="rounded-2xl h-64 xl:h-80 w-full object-cover z-1 translate-y-32 xl:translate-y-40 opacity-0 group-[&.swiper-slide-active]:translate-y-0 group-[&.swiper-slide-active]:opacity-100 transition-op-trans" src="/public/images/home/<?= $slide['image'] ?>" alt="<?= $slide['title'] ?>" loading="lazy">
               <div class="relative flex flex-col rounded-2xl h-full p-6 xl:p-10 bg-secondary-200 group-[&.swiper-slide-active]:bg-brand-100 text-surface-100 group-[&.swiper-slide-active]:text-secondary-100 group-[&.swiper-slide-active]:rounded-t-none before:absolute before:-top-8 before:left-0 before:w-full before:h-12 before:bg-brand-100 before:-z-1 before:opacity-0 group-[&.swiper-slide-active]:before:opacity-100 before:transition-opacity -translate-y-32 xl:-translate-y-40 group-[&.swiper-slide-active]:translate-y-0 transition-trans-colors duration-300">
-                <h3 class="font-title leading-tight uppercase text-xl sm:text-3xl lg:text-4xl lg:es:text-3xl xl:es:text-5xl mb-4 text-pretty"><?= $slide['title'] ?></h3>
-                <p class=""><?= $slide['text'] ?></p>
+                <h3 class="font-title leading-tight uppercase text-xl sm:text-3xl lg:text-4xl lg:es:text-3xl xl:es:text-5xl mb-4 text-balance"><?= $slide['title'] ?></h3>
+                <p class="mb-2"><?= $slide['text'] ?></p>
                 <p class=""><?= $slide['text2'] ?></p>
               </div>
             </article>
