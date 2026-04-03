@@ -47,7 +47,7 @@ class WordPressClient
    * @param int $limit Posts per page
    * @return array
    */
-  public function getPosts(string $lang = 'EN', ?string $after = null, int $limit = 10): array
+  public function getPosts(string $lang = 'ES', ?string $after = null, int $limit = 10): array
   {
     $cacheKey = "posts_{$lang}_" . ($after ?: 'first') . "_{$limit}";
 
@@ -116,7 +116,7 @@ class WordPressClient
    * @param int $postsPerPage Posts per page
    * @return int Total number of pages
    */
-  public function getTotalPages(string $lang = 'EN', int $postsPerPage = 10): int
+  public function getTotalPages(string $lang = 'ES', int $postsPerPage = 10): int
   {
     $cacheKey = "total_pages_{$lang}_{$postsPerPage}";
 
@@ -154,7 +154,7 @@ class WordPressClient
    * @param int $limit Posts per page
    * @return array Array of cursors indexed by page number
    */
-  public function getPageCursors(string $lang = 'EN', int $limit = 10): array
+  public function getPageCursors(string $lang = 'ES', int $limit = 10): array
   {
     $cacheKey = "page_cursors_{$lang}_{$limit}";
 
@@ -350,7 +350,7 @@ class WordPressClient
    * @param int $limit Posts per page
    * @return array Array of cursors indexed by page number
    */
-  public function getCategoryPageCursors(string $categorySlug, string $lang = 'EN', int $limit = 10): array
+  public function getCategoryPageCursors(string $categorySlug, string $lang = 'ES', int $limit = 10): array
   {
     $cacheKey = "category_cursors_{$categorySlug}_{$lang}_{$limit}";
 

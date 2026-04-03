@@ -4,6 +4,8 @@ namespace App\Models;
 
 class Blog
 {
+  private static ?array $config = null;
+
   /**
    * Format post data for display
    *
@@ -197,8 +199,26 @@ class Blog
    */
   private static function buildPostUrl(string $slug, string $lang): string
   {
-    $prefix = $lang === 'es' ? '/es' : '';
+    $languagesConfig = self::getLanguagesConfig();
+    $defaultLanguage = $languagesConfig['default'] ?? 'es';
+    $availableLanguages = $languagesConfig['available'] ?? [];
+    $normalizedLang = strtolower($lang);
+    $prefix = '';
+
+    if (in_array($normalizedLang, $availableLanguages, true) && $normalizedLang !== $defaultLanguage) {
+      $prefix = '/' . $normalizedLang;
+    }
+
     return $prefix . '/blog/' . $slug;
+  }
+
+  private static function getLanguagesConfig(): array
+  {
+    if (self::$config === null) {
+      self::$config = require __DIR__ . '/../../config/config.php';
+    }
+
+    return self::$config['languages'] ?? [];
   }
 
   /**
