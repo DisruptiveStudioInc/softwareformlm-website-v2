@@ -197,6 +197,7 @@ return[
       'items' => [
         'includes' => Language::trans('home.plans.plan3.title'),
         'user_limit' => true,
+        'whatsapp_group' => true,
         'wallet_connect' => true,
         'signed_contract' => true,
         'token_sale' => true,

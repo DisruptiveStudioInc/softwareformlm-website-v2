@@ -188,12 +188,12 @@ function getNavigationMenu(string $lang, callable $trans): array {
       'hasSubmenu' => false,
       'isMegamenu' => false
     ],
-    [
-      'label' => $trans('nav.sfmlm'),
-      'url' => route('home', $lang).'#sfmlm',
-      'hasSubmenu' => false,
-      'isMegamenu' => false
-    ],
+    // [
+    //   'label' => $trans('nav.sfmlm'),
+    //   'url' => route('home', $lang).'#sfmlm',
+    //   'hasSubmenu' => false,
+    //   'isMegamenu' => false
+    // ],
     [
       'label' => $trans('nav.plans'),
       'url' => route('home', $lang).'#plans',

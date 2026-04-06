@@ -277,7 +277,8 @@ return [
         'p2p_token' => 'P2P token exchange (setup required)',
         'module_otc' => 'OTC module (setup required)',
         'global_api' => 'Global API',
-        'nft_marketplace' => 'NFT Marketplace (Setup required)'
+        'nft_marketplace' => 'NFT Marketplace (Setup required)',
+        'whatsapp_group' => 'Dedicated WhatsApp group for support'
       ]
     ],
     'control' => [
