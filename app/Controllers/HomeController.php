@@ -25,6 +25,10 @@ class HomeController extends BaseController
       'ecosystem' => $ecosystem,
       'subcategories' => $subcatServices,
       'ips' => $disrIps,
+      'includeTracking' => true,
+      'includeSwiper' => true,
+      'includeAnimations' => true,
+      'includeDemoEmbed' => true,
       'hasSnapScroll' => true,
       'hasTextTexture' => true,
       'metaDescription' => $pageContent['seoDescription'] ?? null

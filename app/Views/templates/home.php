@@ -10,7 +10,7 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
 <section data-nav-index="0" class="nav-section relative text-white w-full overflow-x-hidden">
   <span class="absolute top-0 left-0 size-0" id="home"></span>
   <div class="absolute -z-1 w-full h-full top-0 left-0">
-    <img class="background" src="/public/images/background/black-01.webp" alt="" loading="eager" fetchpriority="high">
+    <img class="background" src="/public/images/background/black-01.webp" alt="" loading="eager" fetchpriority="high" width="1920" height="1080" decoding="async">
     <img class="background opacity-0 animate-cycle" src="/public/images/background/black-02.webp" alt="" loading="lazy" style="animation-duration:36s;animation-delay:12s">
     <img class="background opacity-0 animate-cycle" src="/public/images/background/black-03.webp" alt="" loading="lazy" style="animation-duration:36s;animation-delay:24s">
   </div>
@@ -26,16 +26,16 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
       </div>
     </div>
     <div class="relative lg:w-1/2">
-      <img src="/public/images/home/bo-computer.webp" alt="" class="max-h-[40vh] w-auto mx-auto lg:max-h-none lg:w-9/10 lg:ml-0 lg:mr-auto" loading="eager">
+      <img src="/public/images/home/bo-computer.webp" alt="" class="max-h-[40vh] w-auto mx-auto lg:max-h-none lg:w-9/10 lg:ml-0 lg:mr-auto" loading="eager" fetchpriority="high" decoding="async">
     </div>
   </div>
 </section>
 
 <!-- Operate -->
-<section data-nav-index="1" class="nav-section relative bg-surface-100">
+<section data-nav-index="1" class="nav-section relative bg-surface-100" style="content-visibility:auto;contain-intrinsic-size:1000px;">
   <span class="absolute top-0" id="sfmlm"></span>
   <div class="block-content min-h-dvh flex-center flex-col justify-center py-16 lg:py-32 xl:py-40">
-    <h2 class="font-title text-center leading-tight uppercase text-2xl md:text-3xl lg:text-5xl xl:text-[4vw] slide-up-words-black"><?= $trans('home.operate.title') ?></h2>
+    <h2 class="font-title text-center leading-tight uppercase text-2xl md:text-3xl lg:text-5xl xl:text-[4vw] bg-clip-text bg-text-black slide-up-words-black"><?= $trans('home.operate.title') ?></h2>
     <p class="text-center lg:text-xl text-balance mb-6 lg:mb-16 slide-up"><?= $trans('home.operate.text') ?></p>
     <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7 max-w-md md:max-w-none mx-auto mb-6 lg:mb-16">
       <?php foreach($content['operate'] as $item): ?>
@@ -59,7 +59,7 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
 </section>
 
 <!-- Steps -->
-<section data-nav-index="2" class="nav-section relative bg-surface-200">
+<section data-nav-index="2" class="nav-section relative bg-surface-200" style="content-visibility:auto;contain-intrinsic-size:1000px;">
   <span class="absolute top-0 left-0 size-0"></span>
   <div class="block-content min-h-dvh py-16 lg:py-20 flex flex-col justify-center">
     <div class="flex justify-center flex-wrap gap-6 lg:gap-12 max-w-md md:max-w-3xl lg:max-w-none mx-auto stagger-parent">
@@ -86,10 +86,10 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
 </section>
 
 <!-- Network -->
-<section data-nav-index="3" class="nav-section relative tech-section snap-align-none h-screen w-full overflow-hidden bg-surface-300" style="height:100vh;">
-  <div class="block-content h-screen py-12 lg:py-40 flex-center flex-col overflow-hidden" style="height:100vh;">
+<section data-nav-index="3" class="nav-section relative tech-section snap-align-none lg:h-screen w-full lg:overflow-hidden bg-surface-300" style="content-visibility:auto;contain-intrinsic-size:1000px;">
+  <div class="block-content h-auto lg:h-screen py-12 lg:py-40 flex-center flex-col lg:overflow-hidden">
     <div class="tech-title">
-      <h2 class="font-title leading-none uppercase text-2xl sm:text-5xl md:text-8xl lg:text-9xl text-center slide-up-words-black"><?= $trans('home.network.title') ?></h2>
+      <h2 class="font-title leading-none uppercase text-2xl sm:text-5xl md:text-8xl lg:text-9xl text-center bg-clip-text bg-text-black slide-up-words-black"><?= $trans('home.network.title') ?></h2>
       <div class="relative w-fit mt-4 mx-auto lg:mt-8 slide-up-delay" data-delay="2">
         <button type="button" data-target="demo-popup" class="button open-popup relative gradient rounded-lg lg:text-2xl px-7 lg:px-10 hover:text-white duration-300 z-1">
           <span class="relative"><?= $trans('common.demo') ?></span>
@@ -97,12 +97,12 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
         <div class="button-glow"></div>
       </div>
     </div>
-    <div class="w-full mx-auto pointer-events-none">
+    <div class="w-full lg:mx-auto lg:pointer-events-none mt-8 lg:mt-0">
       <?php foreach($content['network'] as $k => $slide): ?>
-        <div class="absolute top-1/2 left-1/2 -translate-1/2 w-3/5 lg:max-w-9/20 z-2">
+        <div class="mb-4 last:mb-0 lg:mb-0 lg:absolute lg:top-1/2 lg:left-1/2 lg:-translate-1/2 lg:w-3/5 lg:max-w-9/20 z-2">
           <article class="tech-card flex-center flex-col text-center bg-brand-100 text-secondary-100 px-4 py-6 lg:p-10 rounded-2xl
-          <?= $k===1 ? '-translate-x-1/4' : '' ?>
-          <?= $k===2 ? 'translate-x-3/10 lg:translate-x-1/2' : '' ?>
+          <?= $k===1 ? 'lg:-translate-x-1/4' : '' ?>
+          <?= $k===2 ? 'lg:translate-x-1/2' : '' ?>
           ">
             <h2 class="font-title leading-tight uppercase text-balance text-lg sm:text-2xl md:text-3xl lg:text-5xl mb-2 lg:mb-0"><?= $slide['title'] ?></h2>
             <p class="lg:font-light md:text-xl lg:text-xl text-pretty"><?= $slide['text'] ?></p>
@@ -115,11 +115,11 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
 </section>
 
 <!-- Scale Banner -->
-<section data-nav-index="4" class="nav-section relative text-white">
+<section data-nav-index="4" class="nav-section relative text-white" style="content-visibility:auto;contain-intrinsic-size:1000px;">
   <span class="absolute top-0 left-0 size-0"></span>
   <?php generateBackground('creators',3); ?>
-  <div class="block-content min-h-dvh py-16 lg:py-40 flex flex-col items-center">
-    <h2 class="banner-text font-title leading-none uppercase text-[9vw] md:text-10xl lg:text-12xl slide-up-words-white"><?= $trans('home.scale.title') ?></h2>
+  <div class="block-content min-h-dvh py-16 lg:py-40 flex flex-col items-center justify-center">
+    <h2 class="banner-text font-title leading-none uppercase text-[9vw] md:text-10xl lg:text-12xl es:pt-3 bg-clip-text bg-text-white slide-up-words-white"><?= $trans('home.scale.title') ?></h2>
     <div class="relative w-fit mt-4 lg:mt-8 slide-up-delay self-start" data-delay="5">
       <button type="button" data-target="demo-popup" class="button open-popup relative gradient rounded-lg lg:text-2xl px-7 lg:px-10 hover:text-white duration-300 z-1">
         <span class="relative"><?= $trans('common.demo') ?></span>
@@ -130,9 +130,9 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
 </section>
 
 <!-- Scale Info -->
-<section data-nav-index="5" class="nav-section relative section-about bg-surface-100 text-secondary-200 w-full overflow-hidden">
+<section data-nav-index="5" class="nav-section relative section-about bg-surface-100 text-secondary-200 w-full overflow-hidden" style="content-visibility:auto;contain-intrinsic-size:1000px;">
   <span class="absolute top-0 left-0 size-0"></span>
-  <div class="block-content about-content min-h-dvh flex-center flex-col text-center">
+  <div class="block-content about-content min-h-dvh flex-center flex-col text-center py-16">
     <ul class="w-full max-w-screen-md lg:max-w-none flex flex-col md:flex-row justify-center gap-6 mb-6 lg:mb-10">
       <?php foreach($content['stats'] as $stat): ?>
         <li class="flex flex-col items-center p-4 lg:p-6 bg-white rop-shadow-md drop-shadow-grey-100/20 rounded-xl md:rounded-2xl w-full md:w-1/3 lg:w-1/4">
@@ -154,7 +154,7 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
 </section>
 
 <!-- Customize -->
-<section data-nav-index="6" class="nav-section relative bg-surface-200">
+<section data-nav-index="6" class="nav-section relative bg-surface-200" style="content-visibility:auto;contain-intrinsic-size:1000px;">
   <div class="block-content py-16 lg:py-24 min-h-dvh flex-center gap-7 lg:gap-4 flex-col lg:flex-row-reverse">
     <div class="lg:w-1/2 text-center lg:text-left">
       <h2 class="font-khand uppercase bg-clip-text bg-text-black leading-none text-5xl xs:text-7xl sm:text-8xl md:text-11xl xl:text-10xl text-balance es:pt-2"><?= $trans('home.customize.title') ?></h2>
@@ -179,7 +179,7 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
 <section data-nav-index="7" class="nav-section relative min-h-dvh py-16 flex-center flex-col overflow-x-hidden bg-surface-300">
   <span class="absolute top-0 left-0 size-0"></span>
   <div class="text-center px-7 pb-20">
-    <h2 class="font-title leading-tight uppercase text-2xl sm:text-4xl lg:text-6xl xl:text-7xl slide-up-words-black"><?= $trans('home.clients') ?></h2>
+    <h2 class="font-title leading-tight uppercase text-2xl sm:text-4xl lg:text-6xl xl:text-7xl bg-clip-text bg-text-black slide-up-words-black"><?= $trans('home.clients') ?></h2>
   </div>
   <ul id="clients1-swiper" class="clients-odd-swiper swiper !overflow-visible w-full linear-swiper mask-x-from-85% mask-x-to-95% pointer-events-none">
     <div class="swiper-wrapper">
@@ -220,10 +220,10 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
 </section>
 
 <!-- Pricing -->
-<section data-nav-index="8" class="nav-section relative bg-surface-100">
+<section data-nav-index="8" class="nav-section relative bg-surface-100" style="content-visibility:auto;contain-intrinsic-size:1000px;">
   <span class="absolute top-0 left-0 size-0" id="plans"></span>
   <div class="block-content min-h-dvh flex-center flex-col py-16 lg:py-32">
-    <h2 class="font-title text-center leading-tight uppercase text-2xl sm:text-6xl lg:text-3xl xl:text-5xl mb-4 lg:mb-12 slide-up-words-black"><?= $trans('home.plans.title') ?></h2>
+    <h2 class="font-title text-center leading-tight uppercase text-2xl sm:text-6xl lg:text-3xl xl:text-5xl mb-4 lg:mb-12 bg-clip-text bg-text-black slide-up-words-black"><?= $trans('home.plans.title') ?></h2>
 
     <div class="w-full max-w-screen-sm sm:max-w-screen-lg lg:max-w-none grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 xl:gap-6">
       <?php
@@ -280,11 +280,11 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
 </section>
 
 <!-- Control -->
-<section data-nav-index="9" class="nav-section relative w-full overflow-x-hidden bg-surface-200">
+<section data-nav-index="9" class="nav-section relative w-full overflow-x-hidden bg-surface-200" style="content-visibility:auto;contain-intrinsic-size:1000px;">
   <span class="absolute top-0 left-0 size-0"></span>
   <div class="block-content min-h-dvh py-16 lg:py-40 flex-center flex-col lg:flex-row lg:justify-end gap-4 lg:gap-0">
     <div class="lg:pr-12 w-full lg:w-3/5 text-center lg:text-left max-lg:px-0">
-      <h2 class="solutions-title font-title uppercase leading-none text-2xl sm:text-6xl lg:text-7xl slide-up-words-black">
+      <h2 class="solutions-title font-title uppercase leading-none text-2xl sm:text-6xl lg:text-7xl bg-clip-text bg-text-black slide-up-words-black">
         <?= $trans('home.control.title') ?>
       </h2>
       <p class="lg:text-xl text-balance mb-6 slide-up"><?= $trans('home.control.subtitle') ?></p>
@@ -325,7 +325,7 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
 </section>
 
 <!-- Ready -->
-<section data-nav-index="10" class="nav-section relative w-full bg-gradient-to-b from-surface-200 to-surface-50">
+<section data-nav-index="10" class="nav-section relative w-full bg-gradient-to-b from-surface-200 to-surface-50" style="content-visibility:auto;contain-intrinsic-size:1000px;">
   <div class="block-content min-h-dvh flex-center flex-col text-secondary-200">
     <div class="stagger-parent flex-center flex-col text-center">
       <p class="uppercase md:text-lg lg:text-5xl mb-6 lg:mb-2 slide-up-stagger"><?= $trans('home.ready.title1') ?></p>
@@ -342,52 +342,51 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
   </div>
 </section>
 
+<?php
+$demoFormConfig = null;
+if (!empty($includeDemoEmbed)) {
+  $isBusinessHours = isArizonaBusinessHours();
+  $formId = $isBusinessHours
+    ? ($currentLang === 'es' ? 'X2ITzrwHHELujZVjnyQK' : 'ZYcPrzRgQkMc4ZocMJEj')
+    : ($currentLang === 'es' ? 'SPxBEy47oduUYUIhcgA0' : '46NJyYtTIThYmprhbA4R');
+  $formName = $isBusinessHours
+    ? 'META ADS - LEADS FORM UTM' . ($currentLang === 'en' ? '  ZOOM - INGLES' : '')
+    : 'META ADS - LEADS FORM UTM CALENDARIO - ' . ($currentLang === 'es' ? 'ESPANOL' : 'INGLES');
+  $scriptSrc = $isBusinessHours
+    ? 'https://link.msgsndr.com/js/form_embed.js'
+    : 'https://link.softwareformlm.com/js/form_embed.js';
+  $src = $isBusinessHours
+    ? 'https://api.leadconnectorhq.com/widget/form/' . $formId
+    : 'https://link.softwareformlm.com/widget/form/' . $formId;
+
+  $demoFormConfig = [
+    'src' => $src,
+    'scriptSrc' => $scriptSrc,
+    'id' => 'inline-' . $formId,
+    'title' => $formName,
+    'height' => $isBusinessHours ? ($currentLang === 'es' ? '945' : '1153') : '1153',
+    'formId' => $formId,
+  ];
+}
+?>
+
 <!-- Popup -->
 <dialog id="demo-popup" class="popup bg-transparent m-auto w-full max-w-2xl px-7">
   <div class="relative w-full rounded-xl lg:rounded-2xl max-h-[90vh] overflow-x-hidden overflow-y-auto" style="background-color:#12173800">
     <button type="button" data-target="demo-popup" class="close-popup absolute top-2 right-2 text-gray-100 bg-surface-200 hover:bg-brand-100 hover:text-secondary-100 rounded-lg cursor-pointer p-1 transition-colors">
       <svg class="size-6 transition-colors"><use href="#xmark"/></svg>
     </button>
-    <?php if (isArizonaBusinessHours()): ?>
-      <iframe
-        src="https://api.leadconnectorhq.com/widget/form/<?= $currentLang === 'es' ? 'X2ITzrwHHELujZVjnyQK' : 'ZYcPrzRgQkMc4ZocMJEj' ?>"
-        style="width:100%;height:100%;border:none;border-radius:0px"
-        id="inline-<?= $currentLang === 'es' ? 'X2ITzrwHHELujZVjnyQK' : 'ZYcPrzRgQkMc4ZocMJEj' ?>"
-        data-layout="{'id':'INLINE'}"
-        data-trigger-type="alwaysShow"
-        data-trigger-value=""
-        data-activation-type="alwaysActivated"
-        data-activation-value=""
-        data-deactivation-type="neverDeactivate"
-        data-deactivation-value=""
-        data-form-name="META ADS - LEADS FORM UTM<?= $currentLang === 'en' ? '  ZOOM - INGLES' : '' ?>"
-        data-height="<?= $currentLang === 'es' ? '945' : 'undefined' ?>"
-        data-layout-iframe-id="inline-<?= $currentLang === 'es' ? 'X2ITzrwHHELujZVjnyQK' : 'ZYcPrzRgQkMc4ZocMJEj' ?>"
-        data-form-id="<?= $currentLang === 'es' ? 'X2ITzrwHHELujZVjnyQK' : 'ZYcPrzRgQkMc4ZocMJEj' ?>"
-        title="META ADS - LEADS FORM UTM<?= $currentLang === 'en' ? '  ZOOM - INGLES' : '' ?>"
-      >
-      </iframe>
-      <script src="https://link.msgsndr.com/js/form_embed.js"></script>
-    <?php else: ?>
-      <iframe
-        src="https://link.softwareformlm.com/widget/form/<?= $currentLang === 'es' ? 'SPxBEy47oduUYUIhcgA0' : '46NJyYtTIThYmprhbA4R' ?>"
-        style="width:100%;height:100%;border:none;border-radius:0px"
-        id="inline-<?= $currentLang === 'es' ? 'SPxBEy47oduUYUIhcgA0' : '46NJyYtTIThYmprhbA4R' ?>"
-        data-layout="{'id':'INLINE'}"
-        data-trigger-type="alwaysShow"
-        data-trigger-value=""
-        data-activation-type="alwaysActivated"
-        data-activation-value=""
-        data-deactivation-type="neverDeactivate"
-        data-deactivation-value=""
-        data-form-name="META ADS - LEADS FORM UTM CALENDARIO - <?= $currentLang === 'es' ? 'ESPAÑOL' : 'INGLES' ?>"
-        data-height="1153"
-        data-layout-iframe-id="inline-<?= $currentLang === 'es' ? 'SPxBEy47oduUYUIhcgA0' : '46NJyYtTIThYmprhbA4R' ?>"
-        data-form-id="<?= $currentLang === 'es' ? 'SPxBEy47oduUYUIhcgA0' : '46NJyYtTIThYmprhbA4R' ?>"
-        title="META ADS - LEADS FORM UTM CALENDARIO - <?= $currentLang === 'es' ? 'ESPAÑOL' : 'INGLES' ?>"
-      >
-      </iframe>
-      <script src="https://link.softwareformlm.com/js/form_embed.js"></script>
+    <div
+      class="min-h-[70vh] rounded-xl lg:rounded-2xl bg-white overflow-hidden"
+      data-lazy-embed-root
+      data-lazy-embed-state="idle"
+    >
+      <div class="flex min-h-[70vh] items-center justify-center p-6 text-center text-secondary-200">
+        <p><?= $currentLang === 'es' ? 'Cargando demo...' : 'Loading demo...' ?></p>
+      </div>
+    </div>
+    <?php if ($demoFormConfig !== null): ?>
+      <script type="application/json" data-lazy-embed-config><?= htmlspecialchars(json_encode($demoFormConfig, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE), ENT_QUOTES, 'UTF-8') ?></script>
     <?php endif; ?>
   </div>
 </dialog>

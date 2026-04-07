@@ -1,5 +1,24 @@
 <?php
-session_start();
+function shouldStartSession(): bool
+{
+  if ($_SERVER['REQUEST_METHOD'] !== 'GET' && $_SERVER['REQUEST_METHOD'] !== 'HEAD') {
+    return true;
+  }
+
+  if (!empty($_GET['ref'])) {
+    return true;
+  }
+
+  return !empty($_COOKIE[session_name()]);
+}
+
+session_cache_limiter('');
+
+$hasSession = shouldStartSession();
+if ($hasSession) {
+  session_start();
+}
+
 // Load Composer autoloader
 require __DIR__ . '/vendor/autoload.php';
 
@@ -19,7 +38,7 @@ if (!empty($ref)){
     $url_parts = explode('/', $ref);
     $user_replica = $url_parts[0];
     $_SESSION['ref'] = $user_replica;
-}else if( !empty($_SESSION['ref']) ){
+}else if($hasSession && !empty($_SESSION['ref']) ){
     $user_replica = $_SESSION['ref'];
 }
 
@@ -60,8 +79,28 @@ try {
   // Esto le grita al navegador que descargue la imagen YA,
   // incluso antes de procesar el HTML.
   // ---------------------------------------------------------
-  $lcpImage = '/public/images/background/black-01.webp'; // La ruta que vimos en el reporte
-  header("Link: <$lcpImage>; rel=preload; as=image; fetchpriority=high");
+  $requestPath = parse_url($request->getUri(), PHP_URL_PATH) ?? '/';
+  if (preg_match('#^/(?:[a-z]{2})?$#', $requestPath) === 1) {
+    $lcpImage = '/public/images/background/black-01.webp';
+    header("Link: <$lcpImage>; rel=preload; as=image; fetchpriority=high");
+  }
+
+  $method = $request->getMethod();
+  $hasRef = !empty($_GET['ref']);
+  $hasSessionCookie = !empty($_COOKIE[session_name()]);
+  $contentType = $response->getHeader('Content-Type') ?? '';
+  $isHtmlResponse = !str_contains($contentType, 'application/json');
+  $isSuccessfulGet = in_array($method, ['GET', 'HEAD'], true) && $response->getStatusCode() === 200;
+  $isCacheableDocument = $isSuccessfulGet && $isHtmlResponse && !$hasRef && !$hasSession && !$hasSessionCookie;
+
+  if ($isCacheableDocument) {
+    header('Cache-Control: public, max-age=0, s-maxage=300, stale-while-revalidate=86400');
+  } else {
+    header('Cache-Control: private, no-store, no-cache, must-revalidate');
+    header('Pragma: no-cache');
+    header('Expires: Thu, 19 Nov 1981 08:52:00 GMT');
+  }
+
   // ---------------------------------------------------------
   $response->send();
 } catch (Throwable $e) {

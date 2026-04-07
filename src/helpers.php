@@ -17,6 +17,25 @@ function esc(?string $value): string
 }
 
 /**
+ * Generate a cache-busted local asset URL using the file modification time.
+ */
+function asset_url(string $path): string
+{
+  $normalizedPath = '/' . ltrim($path, '/');
+  $fullPath = __DIR__ . '/..' . $normalizedPath;
+
+  if (!file_exists($fullPath)) {
+    return $normalizedPath;
+  }
+
+  $version = filemtime($fullPath);
+
+  return $version === false
+    ? $normalizedPath
+    : sprintf('%s?v=%s', $normalizedPath, $version);
+}
+
+/**
  * Format numeric values with comma thousands separators.
  */
 function format_number_with_commas(mixed $value): string

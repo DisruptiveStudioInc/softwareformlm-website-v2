@@ -1,6 +1,3 @@
-import { ballDownAnim, ballUpAnim, flipTabContent } from "./animations.js";
-
-// Mobile menu toggle
 const mobileMenuButton = document.getElementById("mobile-menu-button");
 const mobileCloseMenuButton = document.getElementById("close-mobile-button");
 const mobileMenu = document.getElementById("mobile-menu");
@@ -11,19 +8,23 @@ if (mobileMenuButton && mobileCloseMenuButton && mobileMenu && mobileNavMenu) {
     mobileMenu.classList.remove("-translate-y-full");
     document.body.classList.add("overflow-y-hidden");
   });
+
   mobileCloseMenuButton.addEventListener("click", () => {
     mobileMenu.classList.add("-translate-y-full");
     document.body.classList.remove("overflow-y-hidden");
   });
+
   mobileNavMenu.addEventListener("click", (event) => {
     const link = event.target.closest("a");
-    if (!link || !mobileNavMenu.contains(link)) return;
+    if (!link || !mobileNavMenu.contains(link)) {
+      return;
+    }
+
     mobileMenu.classList.add("-translate-y-full");
     document.body.classList.remove("overflow-y-hidden");
   });
 }
 
-// Language switcher for mobile
 const langSwitchers = document.querySelectorAll(".language-switcher");
 
 if (langSwitchers.length > 0) {
@@ -31,40 +32,40 @@ if (langSwitchers.length > 0) {
     const trigger = switcher.querySelector(".lang-trigger");
     const options = switcher.querySelector(".lang-options");
 
+    if (!trigger || !options) {
+      return;
+    }
+
     const handleLangClose = () => {
       trigger.classList.remove("open");
       options.classList.remove("open");
     };
 
-    const handleLangToggle = () => {
-      if (window.innerWidth >= 1088) return;
-      trigger.addEventListener("click", () => {
-        trigger.classList.toggle("open");
-        options.classList.toggle("open");
-      });
+    const toggleLangOptions = () => {
+      if (window.innerWidth >= 1088) {
+        return;
+      }
+
+      trigger.classList.toggle("open");
+      options.classList.toggle("open");
     };
+
+    trigger.addEventListener("click", toggleLangOptions);
 
     window.addEventListener("resize", () => {
       if (window.innerWidth >= 1088) {
         handleLangClose();
-      } else {
-        handleLangToggle();
       }
     });
 
-    //close switcher when clicked outsite
     window.addEventListener("click", (event) => {
-      const targetElement = event.target;
-      if (!switcher.contains(targetElement)) {
+      if (!switcher.contains(event.target)) {
         handleLangClose();
       }
     });
-
-    handleLangToggle();
   });
 }
 
-// Side navigation for sections
 const lateralUp = document.getElementById("lat-nav-up");
 const lateralDown = document.getElementById("lat-nav-down");
 const navSections = document.querySelectorAll(".nav-section");
@@ -110,39 +111,47 @@ if (lateralUp && lateralDown && navSections.length > 0) {
     );
   };
 
-  navSections.forEach((innerSection, index) => {
+  navSections.forEach((innerSection) => {
     const sectionIndex = innerSection.dataset.navIndex;
-    if (!sectionIndex) return;
+
+    if (!sectionIndex) {
+      return;
+    }
+
     innerSection.id = `inner-section-${sectionIndex}`;
   });
 
-  const optionsNavObserver = {
-    rootMargin: `-64px 0px -${window.innerHeight - 104}px 0px`,
-    threshold: 0,
-  };
+  const navObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return;
+        }
 
-  const navObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
         const index = Array.from(navSections).indexOf(entry.target);
         if (index !== -1) {
           currentSectionIndex = index;
           updateLateralNavigationState();
         }
-      }
-    });
-  }, optionsNavObserver);
+      });
+    },
+    {
+      rootMargin: `-64px 0px -${window.innerHeight - 104}px 0px`,
+      threshold: 0,
+    },
+  );
 
   navSections.forEach((section) => {
     navObserver.observe(section);
   });
 
-  function navigateToSection(direction) {
+  const navigateToSection = (direction) => {
     const targetIndex = currentSectionIndex + direction;
+
     if (targetIndex >= 0 && targetIndex < navSections.length) {
       navSections[targetIndex].scrollIntoView({ behavior: "smooth" });
     }
-  }
+  };
 
   lateralUp.addEventListener("click", () => navigateToSection(-1));
   lateralDown.addEventListener("click", () => navigateToSection(1));
@@ -153,7 +162,6 @@ if (lateralUp && lateralDown && navSections.length > 0) {
   updateLateralNavigationState();
 }
 
-// Scroll gradients
 const scrollGradientContainers = document.querySelectorAll(
   ".top-bottom-scroll-grad",
 );
@@ -204,7 +212,9 @@ if (scrollGradientContainers.length > 0) {
     const firstChild = scrollRoot?.firstElementChild;
     const lastChild = scrollRoot?.lastElementChild;
 
-    if (!scrollRoot || !firstChild || !lastChild) return;
+    if (!scrollRoot || !firstChild || !lastChild) {
+      return;
+    }
 
     const handleObserverEntry = (entries) => {
       const hasOverflow = scrollRoot.scrollHeight > scrollRoot.clientHeight;
@@ -247,155 +257,67 @@ if (scrollGradientContainers.length > 0) {
   });
 }
 
-// Accordion toggle
 const accordionContainers = document.querySelectorAll(".accordion-container");
 
 if (accordionContainers.length > 0) {
   accordionContainers.forEach((accContainer) => {
     accContainer.addEventListener("click", (event) => {
       const trigger = event.target.closest(".acc-trigger");
-      if (!trigger) return;
+      if (!trigger) {
+        return;
+      }
 
       const content = document.getElementById(trigger.dataset.target);
-      if (!content) return;
+      if (!content) {
+        return;
+      }
+
       content.classList.toggle("open");
       trigger.classList.toggle("open");
     });
   });
 }
 
-// Discover tabs
-const discoverTabs = document.getElementById("discover-tabs");
-const discoverContent = document.getElementById("discover-content");
-
-if (discoverTabs && discoverContent) {
-  discoverTabs.addEventListener("click", (event) => {
-    const trigger = event.target.closest(".discover-tab");
-    if (!trigger) return;
-
-    const tabs = discoverTabs.querySelectorAll(".discover-tab");
-    tabs.forEach((tab) => tab.classList.remove("active"));
-    trigger.classList.add("active");
-
-    const contentData = JSON.parse(discoverContent.dataset.content);
-    if (!contentData) return;
-    const index = trigger.dataset.index;
-    const svgAnim = trigger.dataset.animation;
-
-    const icon = discoverContent.querySelector("svg use");
-    const title = discoverContent.querySelector("h3");
-    const text = discoverContent.querySelector("p");
-
-    const setContent = () => {
-      title.innerHTML = contentData[index].title;
-      text.innerHTML = contentData[index].text;
-      icon.setAttribute("href", `#${contentData[index].icon}`);
-    };
-
-    svgAnim === "up" ? ballUpAnim.restart() : ballDownAnim.restart();
-    setTimeout(() => {
-      flipTabContent.restart();
-    }, 1000);
-    setTimeout(() => {
-      setContent();
-    }, 1200);
-  });
-}
-// Cases image parallax
-const casesSection = document.querySelector(".cases-section");
-const cases = document.querySelectorAll(".case");
-
-if (casesSection && cases.length > 0) {
-  let mouseMoveHandler = null;
-
-  const handleMouseMove = (event) => {
-    const target = event.target.closest(".case");
-    if (!target) return;
-    const image = target.querySelector(".case-image");
-    if (!image) return;
-
-    const rect = target.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
-    const moveX = (rect.width / 2 - x) / 20;
-    const moveY = (rect.height / 2 - y) / 20;
-
-    image.style.transform = `translate(${moveX}px, ${moveY}px)`;
-
-    target.addEventListener(
-      "mouseleave",
-      () => {
-        image.style.transform = `translate(0px, 0px)`;
-      },
-      { once: true },
-    );
-  };
-
-  const attachParallax = () => {
-    if (window.innerWidth >= 1088 && !mouseMoveHandler) {
-      mouseMoveHandler = handleMouseMove;
-      casesSection.addEventListener("mousemove", mouseMoveHandler);
-    }
-  };
-
-  const detachParallax = () => {
-    if (mouseMoveHandler) {
-      casesSection.removeEventListener("mousemove", mouseMoveHandler);
-      mouseMoveHandler = null;
-
-      // Reset all images
-      cases.forEach((caseEl) => {
-        const image = caseEl.querySelector(".case-image");
-        if (image) {
-          image.style.transform = "none";
-        }
-      });
-    }
-  };
-
-  const checkViewport = () => {
-    if (window.innerWidth >= 1088) {
-      attachParallax();
-    } else {
-      detachParallax();
-    }
-  };
-
-  // Initial check
-  checkViewport();
-
-  // Listen for resize
-  window.addEventListener("resize", checkViewport);
-}
-
-// IPs how works tabs
 const ipTabsContainer = document.getElementById("ip-works-tabs");
 const ipTabs = document.querySelectorAll(".ip-works-trigger");
 const ipTabsContents = document.querySelectorAll(".ip-works-content");
 const ipTabsImages = document.querySelectorAll(".ip-works-image");
 
-if (ipTabsContainer && ipTabs && ipTabsContents && ipTabsImages) {
+if (ipTabsContainer && ipTabs.length > 0 && ipTabsContents.length > 0) {
   const ipImagesWraps = Array.from(ipTabsImages).map((el) => el.parentElement);
 
   const setIpTabsImages = () => {
+    if (ipImagesWraps.length === 0) {
+      return;
+    }
+
     const [current] = ipImagesWraps.filter((wrap) =>
       wrap.classList.contains("active"),
     );
     const inactiveWraps = ipImagesWraps.filter(
       (wrap) => !wrap.classList.contains("active"),
     );
+
+    if (!current) {
+      return;
+    }
+
     current.style.zIndex = `${ipImagesWraps.length}`;
     current.style.transform = "";
+
     inactiveWraps.forEach((wrap, index) => {
       wrap.style.zIndex = `${inactiveWraps.length - index}`;
       wrap.style.transform = `translateX(calc(40px * ${index + 1}))`;
     });
   };
+
   setIpTabsImages();
 
   ipTabsContainer.addEventListener("click", (event) => {
     const target = event.target.closest(".ip-works-trigger");
-    if (!target) return;
+    if (!target) {
+      return;
+    }
 
     ipTabs.forEach((tab) => tab.parentElement.classList.remove("active"));
     ipTabsContents.forEach((tabText) => tabText.classList.remove("open"));
@@ -403,13 +325,14 @@ if (ipTabsContainer && ipTabs && ipTabsContents && ipTabsImages) {
 
     target.parentElement.classList.add("active");
     target.nextElementSibling.classList.add("open");
-    ipImagesWraps[target.dataset.index].classList.add("active");
 
-    setIpTabsImages();
+    if (ipImagesWraps[target.dataset.index]) {
+      ipImagesWraps[target.dataset.index].classList.add("active");
+      setIpTabsImages();
+    }
   });
 }
 
-//Video popup
 const videoButtons = document.querySelectorAll(".video-button");
 const videoPopup = document.getElementById("popup-video");
 const closeVideo = document.getElementById("close-video");
@@ -418,22 +341,19 @@ if (videoButtons.length > 0 && videoPopup && closeVideo) {
   const iframe = videoPopup.querySelector("iframe");
   let player = null;
 
-  // Initialize Vimeo player after the script loads
   const initPlayer = () => {
     if (window.Vimeo && iframe) {
-      player = new Vimeo.Player(iframe);
+      player = new window.Vimeo.Player(iframe);
     }
   };
 
-  // Check if Vimeo API is already loaded, otherwise wait for it
   if (window.Vimeo) {
     initPlayer();
   } else {
-    // Wait for Vimeo script to load
-    const checkVimeo = setInterval(() => {
+    const checkVimeo = window.setInterval(() => {
       if (window.Vimeo) {
         initPlayer();
-        clearInterval(checkVimeo);
+        window.clearInterval(checkVimeo);
       }
     }, 100);
   }
@@ -443,11 +363,8 @@ if (videoButtons.length > 0 && videoPopup && closeVideo) {
     videoPopup.classList.add("opacity-100");
     document.body.classList.add("overflow-hidden");
 
-    // Play video with audio
     if (player) {
-      player.setMuted(false).then(() => {
-        player.play();
-      });
+      player.setMuted(false).then(() => player.play());
     }
   };
 
@@ -456,19 +373,14 @@ if (videoButtons.length > 0 && videoPopup && closeVideo) {
     videoPopup.classList.remove("opacity-100");
     document.body.classList.remove("overflow-hidden");
 
-    // Pause video
     if (player) {
       player.pause();
     }
   };
 
-  // Open popup on button click
   videoButtons.forEach((btn) => btn.addEventListener("click", openPopup));
-
-  // Close popup on close button click
   closeVideo.addEventListener("click", closePopup);
 
-  // Close popup on ESC key
   document.addEventListener("keydown", (event) => {
     if (
       event.key === "Escape" &&
@@ -478,7 +390,6 @@ if (videoButtons.length > 0 && videoPopup && closeVideo) {
     }
   });
 
-  // Close popup when clicking outside the video (on the backdrop)
   videoPopup.addEventListener("click", (event) => {
     if (event.target === videoPopup) {
       closePopup();
@@ -486,12 +397,99 @@ if (videoButtons.length > 0 && videoPopup && closeVideo) {
   });
 }
 
-// Dialog popups
 const popupOpenButtons = document.querySelectorAll(".open-popup[data-target]");
 const popupCloseButtons = document.querySelectorAll(
   ".close-popup[data-target]",
 );
 const popupDialogs = document.querySelectorAll("dialog.popup");
+const externalScripts = new Map();
+
+const loadExternalScript = (src) => {
+  if (!src) {
+    return Promise.resolve();
+  }
+
+  if (externalScripts.has(src)) {
+    return externalScripts.get(src);
+  }
+
+  const existingScript = document.querySelector(`script[src="${src}"]`);
+  if (existingScript) {
+    const resolved = Promise.resolve(existingScript);
+    externalScripts.set(src, resolved);
+    return resolved;
+  }
+
+  const promise = new Promise((resolve, reject) => {
+    const script = document.createElement("script");
+    script.src = src;
+    script.async = true;
+    script.onload = () => resolve(script);
+    script.onerror = () => reject(new Error(`Failed to load ${src}`));
+    document.body.appendChild(script);
+  });
+
+  externalScripts.set(src, promise);
+  return promise;
+};
+
+const createDemoEmbed = (dialog) => {
+  const configElement = dialog.querySelector("[data-lazy-embed-config]");
+  const root = dialog.querySelector("[data-lazy-embed-root]");
+
+  if (!configElement || !root || root.dataset.lazyEmbedState === "loaded") {
+    return Promise.resolve();
+  }
+
+  let config = null;
+
+  try {
+    config = JSON.parse(configElement.textContent);
+  } catch (error) {
+    root.dataset.lazyEmbedState = "error";
+    root.innerHTML =
+      '<div class="flex min-h-[70vh] items-center justify-center p-6 text-center text-red-700"><p>Unable to load demo.</p></div>';
+    return Promise.reject(error);
+  }
+
+  root.dataset.lazyEmbedState = "loading";
+  root.innerHTML =
+    '<div class="flex min-h-[70vh] items-center justify-center p-6 text-center text-secondary-200"><p>Loading demo...</p></div>';
+
+  const iframe = document.createElement("iframe");
+  iframe.src = config.src;
+  iframe.id = config.id;
+  iframe.title = config.title;
+  iframe.style.width = "100%";
+  iframe.style.height = "100%";
+  iframe.style.border = "none";
+  iframe.style.borderRadius = "0px";
+  iframe.setAttribute("data-layout", "{'id':'INLINE'}");
+  iframe.setAttribute("data-trigger-type", "alwaysShow");
+  iframe.setAttribute("data-trigger-value", "");
+  iframe.setAttribute("data-activation-type", "alwaysActivated");
+  iframe.setAttribute("data-activation-value", "");
+  iframe.setAttribute("data-deactivation-type", "neverDeactivate");
+  iframe.setAttribute("data-deactivation-value", "");
+  iframe.setAttribute("data-form-name", config.title);
+  iframe.setAttribute("data-height", config.height);
+  iframe.setAttribute("data-layout-iframe-id", config.id);
+  iframe.setAttribute("data-form-id", config.formId);
+
+  root.innerHTML = "";
+  root.appendChild(iframe);
+
+  return loadExternalScript(config.scriptSrc)
+    .then(() => {
+      root.dataset.lazyEmbedState = "loaded";
+    })
+    .catch((error) => {
+      root.dataset.lazyEmbedState = "error";
+      root.innerHTML =
+        '<div class="flex min-h-[70vh] items-center justify-center p-6 text-center text-red-700"><p>Unable to load demo.</p></div>';
+      throw error;
+    });
+};
 
 if (
   popupOpenButtons.length > 0 &&
@@ -506,32 +504,50 @@ if (
   const unlockScroll = () => {
     const hasOpenPopup = Array.from(popupDialogs).some((dialog) => dialog.open);
 
-    if (hasOpenPopup) return;
+    if (hasOpenPopup) {
+      return;
+    }
 
     document.documentElement.classList.remove("overflow-hidden");
     document.body.classList.remove("overflow-hidden");
   };
 
   const getPopupDialog = (targetId) => {
-    if (!targetId) return null;
+    if (!targetId) {
+      return null;
+    }
 
     const targetDialog = document.getElementById(targetId);
-    if (!(targetDialog instanceof HTMLDialogElement)) return null;
+    if (!(targetDialog instanceof HTMLDialogElement)) {
+      return null;
+    }
 
     return targetDialog;
   };
 
-  const openPopupDialog = (targetId) => {
+  const openPopupDialog = async (targetId) => {
     const targetDialog = getPopupDialog(targetId);
-    if (!targetDialog || targetDialog.open) return;
+    if (!targetDialog || targetDialog.open) {
+      return;
+    }
 
     lockScroll();
     targetDialog.showModal();
+
+    if (targetDialog.id === "demo-popup") {
+      try {
+        await createDemoEmbed(targetDialog);
+      } catch (error) {
+        console.error(error);
+      }
+    }
   };
 
   const closePopupDialog = (targetId) => {
     const targetDialog = getPopupDialog(targetId);
-    if (!targetDialog || !targetDialog.open) return;
+    if (!targetDialog || !targetDialog.open) {
+      return;
+    }
 
     targetDialog.close();
   };

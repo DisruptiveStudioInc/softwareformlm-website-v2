@@ -33,6 +33,9 @@ class ServiceController extends BaseController
       'service' => $service,
       'meta' => $service['meta'],
       'content' => $service['content'],
+      'includeTracking' => true,
+      'includeSwiper' => $service['template'] === 'service-type-1',
+      'includeAnimations' => $service['template'] === 'service-type-2',
       'hasSnapScroll' => false
     ]);
   }

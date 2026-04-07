@@ -74,6 +74,7 @@ class BlogController extends BaseController
         'categories' => $categories,
         'pagination' => $pagination,
         'selectedCategory' => $category,
+        'includeTracking' => true,
         'hasSnapScroll' => false,
         'hasTextTexture' => false,
       ]);
@@ -87,6 +88,7 @@ class BlogController extends BaseController
         'categories' => [],
         'pagination' => null,
         'error' => Language::trans('blog.error_loading'),
+        'includeTracking' => true,
         'hasSnapScroll' => false,
         'hasTextTexture' => false,
       ]);
@@ -155,6 +157,7 @@ class BlogController extends BaseController
         'readingTime' => $readingTime,
         'structuredData' => $structuredData,
         'postTranslations' => $postTranslations, // Pass translations to header
+        'includeTracking' => true,
         'hasSnapScroll' => false,
         'hasTextTexture' => false,
         // SEO meta tags (using title/excerpt/featuredImage)

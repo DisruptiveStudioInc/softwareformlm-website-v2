@@ -10,6 +10,7 @@ class LegalController extends BaseController
   private function renderLegalPage(string $template, ?string $metaDescription = null, ?string $legalPageKey = null): Response
   {
     return $this->view($template, [
+      'includeTracking' => true,
       'metaDescription' => $metaDescription,
       'legalPageKey' => $legalPageKey,
     ]);

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="<?= $currentLang ?>" class="scroll-smooth <?= isset($hasSnapScroll) ? 'snap-y snap-proximity' : '' ?>">
+<html lang="<?= $currentLang ?>" class="scroll-smooth <?= isset($hasSnapScroll) ? 'lg:snap-y snap-proximity' : '' ?>">
 <!-- <html lang="<?= $currentLang ?>" class="<?= isset($hasSnapScroll) ? 'snap-y snap-proximity' : '' ?>"> -->
 <head>
   <meta charset="UTF-8">
@@ -51,20 +51,25 @@
   </script>
 
   <!-- CSS -->
-  <link rel="preconnect" href="https://cdn.jsdelivr.net">
-  <link rel="preconnect" href="https://www.googletagmanager.com">
-  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" /> -->
-  <!-- <link rel="stylesheet" href="/public/assets/css/styles.css"> -->
-  <link rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
-      media="print"
-      onload="this.media='all'; this.onload=null;">
+  <?php if (!empty($includeSwiper) || !empty($includeAnimations)): ?>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <?php endif; ?>
+  <?php if (!empty($includeTracking)): ?>
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+  <?php endif; ?>
 
-  <noscript>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
-  </noscript>
+  <?php if (!empty($includeSwiper)): ?>
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
+        media="print"
+        onload="this.media='all'; this.onload=null;">
 
-  <link rel="stylesheet" href="/public/assets/css/styles.css">
+    <noscript>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+    </noscript>
+  <?php endif; ?>
+
+  <link rel="stylesheet" href="<?= asset_url('/public/assets/css/styles.css') ?>">
 
   <?php if (!empty($hasTextTexture)): ?>
     <link rel="preload" as="image" href="/public/images/background/light-grad.webp" fetchpriority="high">
@@ -75,22 +80,22 @@
     <script src="https://www.google.com/recaptcha/api.js?render=<?= $config['recaptcha']['site_key'] ?>"></script>
   <?php endif; ?>
 
-  <!-- GSAP -->
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/MotionPathPlugin.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollSmoother.min.js"></script>
-
-  <!-- Swiper -->
-
-
-  <!-- Main JS -->
-  <script type="module" src="/public/assets/js/main.js"></script>
+  <script type="module" src="<?= asset_url('/public/assets/js/base.js') ?>"></script>
+  <?php if (!empty($includeSwiper)): ?>
+    <script type="module" src="<?= asset_url('/public/assets/js/home-sliders.js') ?>"></script>
+  <?php endif; ?>
+  <?php if (!empty($includeAnimations)): ?>
+    <script type="module" src="<?= asset_url('/public/assets/js/home-animations.js') ?>"></script>
+  <?php endif; ?>
+  <?php if (!empty($includeContactForm)): ?>
+    <script type="module" src="<?= asset_url('/public/assets/js/contact-form.js') ?>"></script>
+  <?php endif; ?>
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/public/favicon.svg">
-  <?php include __DIR__ . '/../components/header-traking.php'; ?>
+  <?php if (!empty($includeTracking)): ?>
+    <?php include __DIR__ . '/../components/header-traking.php'; ?>
+  <?php endif; ?>
 </head>
 
 <body class="text-grey-100 antialiased overflow-x-hidden">

@@ -1,45 +1,96 @@
-  <!-- Meta Pixel Code -->
   <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '2091918928324101');
-  fbq('track', 'PageView');
+  (function(window, document) {
+    const config = {
+      gtagId: 'G-6K7G73DG2Y',
+      gtmId: 'GTM-WNG6M4TX',
+      metaPixelId: '2091918928324101'
+    };
+
+    let hasLoadedTracking = false;
+
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function(){ window.dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    window.gtag('config', config.gtagId);
+
+    if (!window.fbq) {
+      const fbq = function() {
+        fbq.callMethod ? fbq.callMethod.apply(fbq, arguments) : fbq.queue.push(arguments);
+      };
+
+      fbq.push = fbq;
+      fbq.loaded = true;
+      fbq.version = '2.0';
+      fbq.queue = [];
+      window.fbq = fbq;
+      window._fbq = fbq;
+    }
+
+    window.fbq('init', config.metaPixelId);
+    window.fbq('track', 'PageView');
+
+    const loadScript = (src) => {
+      if (document.querySelector(`script[src="${src}"]`)) {
+        return;
+      }
+
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = src;
+      document.head.appendChild(script);
+    };
+
+    const loadTracking = () => {
+      if (hasLoadedTracking) {
+        return;
+      }
+
+      hasLoadedTracking = true;
+      removeListeners();
+
+      window.dataLayer.push({
+        'gtm.start': Date.now(),
+        event: 'gtm.js'
+      });
+
+      loadScript(`https://www.googletagmanager.com/gtag/js?id=${config.gtagId}`);
+      loadScript(`https://www.googletagmanager.com/gtm.js?id=${config.gtmId}`);
+      loadScript('https://connect.facebook.net/en_US/fbevents.js');
+
+      window.setTimeout(() => {
+        if (typeof window.clarity === 'function') {
+          return;
+        }
+
+        window.clarity = function() {
+          (window.clarity.q = window.clarity.q || []).push(arguments);
+        };
+
+        loadScript('https://www.clarity.ms/tag/w4g6vx93c3');
+      }, 4000);
+    };
+
+    const events = ['pointerdown', 'touchstart', 'keydown', 'scroll'];
+
+    const removeListeners = () => {
+      events.forEach((eventName) => {
+        window.removeEventListener(eventName, loadTracking, listenerOptions);
+      });
+    };
+
+    const listenerOptions = { passive: true, once: true };
+
+    events.forEach((eventName) => {
+      window.addEventListener(eventName, loadTracking, listenerOptions);
+    });
+
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(loadTracking, { timeout: 3000 });
+    } else {
+      window.setTimeout(loadTracking, 3000);
+    }
+  })(window, document);
   </script>
   <noscript><img height="1" width="1" style="display:none"
   src="https://www.facebook.com/tr?id=2091918928324101&ev=PageView&noscript=1"
   /></noscript>
-  <!-- End Meta Pixel Code -->
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6K7G73DG2Y"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-6K7G73DG2Y');
-  </script>
-
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-WNG6M4TX');</script>
-  <!-- End Google Tag Manager -->
-
-  <!-- Microsoft Clarity -->
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "w4g6vx93c3");
-  </script>
-  <!-- End Microsoft Clarity -->

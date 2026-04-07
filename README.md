@@ -1281,9 +1281,10 @@ Edit `public/assets/css/tailwind-config.css`:
 
 **Main files**:
 
-- `main.js` - Core functionality
-- `animations.js` - GSAP animations
-- `contact.js` - Contact form handling
+- `base.js` - Core UI interactions and dialog handling
+- `home-animations.js` - Deferred GSAP loader for animation-heavy pages
+- `home-sliders.js` - Deferred Swiper loader for slider-heavy pages
+- `contact-form.js` - Contact form handling
 
 **Adding animations**:
 

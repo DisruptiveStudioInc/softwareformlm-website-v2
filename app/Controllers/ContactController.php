@@ -17,6 +17,8 @@ class ContactController extends BaseController
     $pageContent = $this->loadPageContent('contact');
 
     return $this->view('contact', [
+      'includeContactForm' => true,
+      'includeTracking' => true,
       'includeRecaptcha' => true,
       'content' => $pageContent,
       'metaDescription' => $pageContent['seoDescription'] ?? null

@@ -120,27 +120,6 @@ window.contactConfig = {
   submitUrl: '/<?= $currentLang === 'es' ? 'es/' : '' ?><?= $currentLang === 'es' ? 'contacto' : 'contact' ?>',
   language: '<?= $currentLang ?>'
 };
-
-document.addEventListener('DOMContentLoaded', () => {
-  document.getElementById('contact-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    grecaptcha.ready(function() {
-      grecaptcha.execute(window.contactConfig.recaptchaSiteKey, {action: 'contact'}).then(function(token) {
-        const formData = new FormData(e.target);
-        formData.append('recaptcha_token', token);
-
-        fetch(window.contactConfig.submitUrl, {
-          method: 'POST',
-          body: formData
-        })
-        .then(res => res.json())
-        .then(data => {
-          console.log('send')
-        });
-      });
-    });
-  });
-})
 </script>
 
 <?php require __DIR__ . '/../layouts/footer.php'; ?>

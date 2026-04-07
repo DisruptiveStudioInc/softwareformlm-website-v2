@@ -9,7 +9,9 @@ class ErrorController extends BaseController
 {
   public function notFound(Request $request): Response
   {
-    $response = $this->view('404');
+    $response = $this->view('404', [
+      'includeTracking' => true,
+    ]);
     $response->setStatusCode(404);
     return $response;
   }

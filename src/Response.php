@@ -26,6 +26,16 @@ class Response
     return $this;
   }
 
+  public function getStatusCode(): int
+  {
+    return $this->statusCode;
+  }
+
+  public function getHeader(string $name): ?string
+  {
+    return $this->headers[$name] ?? null;
+  }
+
   public function json(array $data, int $statusCode = 200): self
   {
     $this->setStatusCode($statusCode);
