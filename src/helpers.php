@@ -542,7 +542,7 @@ function loadMarkdownPageTranslations(string $markdownDir, string $englishFilena
 
 function isArizonaBusinessHours(): bool
 {
-  $timezone = new DateTimeZone('America/Phoenix');
+  $timezone = new DateTimeZone('America/Los_Angeles');
   $now = new DateTime('now', $timezone);
   $currentTime = $now->format('H:i:s');
 
