@@ -415,18 +415,54 @@ const loadExternalScript = (src) => {
 
   const existingScript = document.querySelector(`script[src="${src}"]`);
   if (existingScript) {
-    const resolved = Promise.resolve(existingScript);
-    externalScripts.set(src, resolved);
-    return resolved;
+    if (existingScript.dataset.loadStatus === "loaded") {
+      const resolved = Promise.resolve(existingScript);
+      externalScripts.set(src, resolved);
+      return resolved;
+    }
+
+    if (existingScript.dataset.loadStatus === "error") {
+      existingScript.remove();
+    } else {
+      const pending = new Promise((resolve, reject) => {
+        existingScript.addEventListener("load", () => resolve(existingScript), {
+          once: true,
+        });
+        existingScript.addEventListener(
+          "error",
+          () => reject(new Error(`Failed to load ${src}`)),
+          { once: true },
+        );
+      }).catch((error) => {
+        externalScripts.delete(src);
+        existingScript.remove();
+        throw error;
+      });
+
+      externalScripts.set(src, pending);
+      return pending;
+    }
   }
 
   const promise = new Promise((resolve, reject) => {
     const script = document.createElement("script");
     script.src = src;
     script.async = true;
-    script.onload = () => resolve(script);
-    script.onerror = () => reject(new Error(`Failed to load ${src}`));
+    script.dataset.loadStatus = "loading";
+    script.onload = () => {
+      script.dataset.loadStatus = "loaded";
+      resolve(script);
+    };
+    script.onerror = () => {
+      script.dataset.loadStatus = "error";
+      externalScripts.delete(src);
+      script.remove();
+      reject(new Error(`Failed to load ${src}`));
+    };
     document.body.appendChild(script);
+  }).catch((error) => {
+    externalScripts.delete(src);
+    throw error;
   });
 
   externalScripts.set(src, promise);

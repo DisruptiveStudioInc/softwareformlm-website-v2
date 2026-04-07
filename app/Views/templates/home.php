@@ -352,12 +352,8 @@ if (!empty($includeDemoEmbed)) {
   $formName = $isBusinessHours
     ? 'META ADS - LEADS FORM UTM' . ($currentLang === 'en' ? '  ZOOM - INGLES' : '')
     : 'META ADS - LEADS FORM UTM CALENDARIO - ' . ($currentLang === 'es' ? 'ESPANOL' : 'INGLES');
-  $scriptSrc = $isBusinessHours
-    ? 'https://link.msgsndr.com/js/form_embed.js'
-    : 'https://link.softwareformlm.com/js/form_embed.js';
-  $src = $isBusinessHours
-    ? 'https://api.leadconnectorhq.com/widget/form/' . $formId
-    : 'https://link.softwareformlm.com/widget/form/' . $formId;
+  $scriptSrc = 'https://link.msgsndr.com/js/form_embed.js';
+  $src = 'https://api.leadconnectorhq.com/widget/form/' . $formId;
 
   $demoFormConfig = [
     'src' => $src,
@@ -386,7 +382,7 @@ if (!empty($includeDemoEmbed)) {
       </div>
     </div>
     <?php if ($demoFormConfig !== null): ?>
-      <script type="application/json" data-lazy-embed-config><?= htmlspecialchars(json_encode($demoFormConfig, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE), ENT_QUOTES, 'UTF-8') ?></script>
+      <script type="application/json" data-lazy-embed-config><?= json_encode($demoFormConfig, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) ?></script>
     <?php endif; ?>
   </div>
 </dialog>

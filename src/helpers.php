@@ -546,5 +546,5 @@ function isArizonaBusinessHours(): bool
   $now = new DateTime('now', $timezone);
   $currentTime = $now->format('H:i:s');
 
-  return $currentTime >= '09:00:00' && $currentTime < '21:00:00';
+  return $currentTime >= '07:00:00' && $currentTime < '19:00:00';
 }
