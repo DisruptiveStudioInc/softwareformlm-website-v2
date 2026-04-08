@@ -128,7 +128,7 @@
       <!-- Desktop Navigation -->
       <?php include(__DIR__.'/../components/navDesktop.php') ?>
 
-      <a href="<?= $constants['shop_link'] ?>" target="_blank" rel="noopener noreferrer" class="button self-center shrink-0 rounded-lg font-bold hidden lg:flex lg:es:text-sm xl:es:text-base">
+      <a href="<?= $constants['bo_link'] ?>register/<?= $GLOBALS['user_replica'] ?>" target="_blank" rel="noopener noreferrer" class="button self-center shrink-0 rounded-lg font-bold hidden lg:flex lg:es:text-sm xl:es:text-base">
         <?= $trans('common.subscribe') ?>
       </a>
       <?php if(false): ?>

@@ -31,7 +31,7 @@ $config = require __DIR__ . '/config/config.php';
 
 /* handles sponsor url */
 $ref = $_GET['ref'] ?? NULL;
-$user_replica = NULL;
+$user_replica = 'parentless';
 
 if (!empty($ref)){
     $ref = rtrim($ref, '/');
