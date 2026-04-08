@@ -239,7 +239,7 @@ function getNavigationMenu(string $lang, callable $trans): array {
     ],
     [
       'label' => $trans('common.register'),
-      'url' => $constants['login_link'].'?ref='.$GLOBALS['user_replica'],
+      'url' => $constants['bo_link'].'register/'.$GLOBALS['user_replica'].'?ref=store&store=1',
       'hasSubmenu' => false,
       'isMegamenu' => false
     ],
