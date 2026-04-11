@@ -542,9 +542,14 @@ function loadMarkdownPageTranslations(string $markdownDir, string $englishFilena
 
 function isArizonaBusinessHours(): bool
 {
-  $timezone = new DateTimeZone('America/Los_Angeles');
+  $timezone = new DateTimeZone('America/Mexico_City');
   $now = new DateTime('now', $timezone);
+  $dayOfWeek = (int) $now->format('N');
   $currentTime = $now->format('H:i:s');
 
-  return $currentTime >= '07:00:00' && $currentTime < '19:00:00';
+  if ($dayOfWeek > 5) {
+    return false;
+  }
+
+  return $currentTime >= '08:00:00' && $currentTime < '20:00:00';
 }
