@@ -42,9 +42,9 @@ return [
     'architecture' => 'Arquitectura de seguridad',
     'use_terms' => 'Términos de uso',
     'legal_small' => 'Todas las marcas registradas, logotipos y nombres comerciales son propiedad de sus respectivos titulares. Su uso en este sitio es únicamente con fines de identificación y referencia, y no implica ninguna afiliación, patrocinio ni respaldo.',
-    'affiliate_brand' => 'Software MLM',
+    'affiliate_brand' => 'Software for MLM',
     'affiliate_text' => 'está verificado como',
-    'affiliate_name' => 'Software para Afiliados en México',
+    'affiliate_name' => 'Software de MLM en México',
   ],
 
   // Home page

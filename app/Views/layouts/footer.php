@@ -47,6 +47,7 @@
       <li class=""><svg width="180" height="120" class="h-5 sm:h-7 lg:h-9 w-auto aspect-[3/2]"><use href="#card-usdt"/></svg></li>
     </ul>
     <small class="block mb-4"><?= $trans('footer.legal_small') ?></small>
+    <small class="block mb-4"><a href="https://www.comparasoftware.com/software-for-mlm" target="_blank" rel="noopener noreferrer"><?= $trans('footer.affiliate_brand') ?></a> <?= $trans('footer.affiliate_text') ?> <a href="https://www.comparasoftware.com/mlm" target="_blank" rel="noopener noreferrer"><?= $trans('footer.affiliate_name') ?></a></small>
     <small>&copy; <?= date("Y") ?> Software for MLM. All rights reserved</small>
   </div>
   <?php require_once __DIR__ .'/../components/svgSprites.php'; ?>

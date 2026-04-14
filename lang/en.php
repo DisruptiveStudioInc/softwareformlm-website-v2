@@ -42,9 +42,9 @@ return [
     'architecture' => 'Security Architecture',
     'use_terms' => 'Terms Of Use',
     'legal_small' => 'All trademarks, logos, and brand names are the property of their respective owners. Their use on this site is for identification and reference purposes only and does not imply any affiliation, sponsorship, or endorsement.',
-    'affiliate_brand' => 'MLM Software',
+    'affiliate_brand' => 'Software for MLM',
     'affiliate_text' => 'is verified as',
-    'affiliate_name' => 'Affiliate Software in Mexico',
+    'affiliate_name' => 'Software for MLM in Mexico',
   ],
 
   // Home page
