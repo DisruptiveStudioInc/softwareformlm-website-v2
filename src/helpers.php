@@ -131,14 +131,49 @@ function serviceRoute(string $serviceSlug, string $lang, string $defaultLang = '
   return '/' . $lang . '/' . $serviceSlug;
 }
 
+function buildUrlWithQuery(string $path, array $queryParams = []): string
+{
+  if (empty($queryParams)) {
+    return $path;
+  }
+
+  $queryString = http_build_query($queryParams);
+
+  return $queryString === '' ? $path : $path . '?' . $queryString;
+}
+
+function appendLanguageSelectionToUrl(string $url, string $targetLang): string
+{
+  $parts = parse_url($url);
+  $path = $parts['path'] ?? $url;
+  $queryParams = [];
+
+  if (!empty($parts['query'])) {
+    parse_str($parts['query'], $queryParams);
+  }
+
+  unset($queryParams['set_lang']);
+  $queryParams['set_lang'] = $targetLang;
+
+  return buildUrlWithQuery($path, $queryParams);
+}
+
 /**
  * Get language-switched URL
  */
 function getLanguageSwitchUrl(string $currentUri, string $currentLang, string $targetLang, string $defaultLang): string
 {
-  // Remove leading slash
-  $path = ltrim($currentUri, '/');
+  $parts = parse_url($currentUri);
+  $path = ltrim($parts['path'] ?? '/', '/');
+  $queryParams = [];
 
+  if (!empty($parts['query'])) {
+    parse_str($parts['query'], $queryParams);
+  }
+
+  unset($queryParams['set_lang']);
+
+  // Remove leading slash
   // Remove current language prefix if present
   if ($currentLang !== $defaultLang && str_starts_with($path, $currentLang . '/')) {
     $path = substr($path, strlen($currentLang) + 1);
@@ -148,7 +183,8 @@ function getLanguageSwitchUrl(string $currentUri, string $currentLang, string $t
 
   // Handle root/home
   if (empty($path)) {
-    return $targetLang === $defaultLang ? '/' : '/' . $targetLang;
+    $targetPath = $targetLang === $defaultLang ? '/' : '/' . $targetLang;
+    return appendLanguageSelectionToUrl(buildUrlWithQuery($targetPath, $queryParams), $targetLang);
   }
 
   // Static routes mapping
@@ -169,7 +205,8 @@ function getLanguageSwitchUrl(string $currentUri, string $currentLang, string $t
   foreach ($staticRoutes as $routes) {
     if (in_array($path, $routes)) {
       $translatedPath = $routes[$targetLang] ?? $path;
-      return $targetLang === $defaultLang ? '/' . $translatedPath : '/' . $targetLang . '/' . $translatedPath;
+      $targetPath = $targetLang === $defaultLang ? '/' . $translatedPath : '/' . $targetLang . '/' . $translatedPath;
+      return appendLanguageSelectionToUrl(buildUrlWithQuery($targetPath, $queryParams), $targetLang);
     }
   }
 
@@ -177,11 +214,14 @@ function getLanguageSwitchUrl(string $currentUri, string $currentLang, string $t
   $translatedSlug = \App\Models\Service::getTranslatedSlug($path, $currentLang, $targetLang);
 
   if ($translatedSlug !== null) {
-    return $targetLang === $defaultLang ? '/' . $translatedSlug : '/' . $targetLang . '/' . $translatedSlug;
+    $targetPath = $targetLang === $defaultLang ? '/' . $translatedSlug : '/' . $targetLang . '/' . $translatedSlug;
+    return appendLanguageSelectionToUrl(buildUrlWithQuery($targetPath, $queryParams), $targetLang);
   }
 
   // Fallback: return path as-is with language prefix
-  return $targetLang === $defaultLang ? '/' . $path : '/' . $targetLang . '/' . $path;
+  $targetPath = $targetLang === $defaultLang ? '/' . $path : '/' . $targetLang . '/' . $path;
+
+  return appendLanguageSelectionToUrl(buildUrlWithQuery($targetPath, $queryParams), $targetLang);
 }
 
 function getServiceSubcategoryName(string $lang): array{

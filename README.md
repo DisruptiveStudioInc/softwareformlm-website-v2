@@ -213,23 +213,32 @@ The website supports multiple languages with a custom translation system.
 
 ### Current Languages
 
-- **Spanish (es)** - Default language
+- **Spanish (es)** - Default URL without prefix
 - **English (en)**
 
 ### How It Works
 
-1. **Language Detection**: The router automatically detects the language from the URL
+1. **First-Visit Language Detection**: The router negotiates language only when the `site_language` cookie does not exist yet
 
-- Default language (Spanish): `https://domain.com/`
-- Other languages: `https://domain.com/en/`
+- First explicit English entry: `https://domain.com/en/...` selects English immediately and saves it
+- First unprefixed entry with `Accept-Language: es` or `es-*`: serves the Spanish canonical URL
+- First unprefixed entry with `Accept-Language: en` or any other language: redirects to the English canonical URL under `/en/...`
+- After that first visit, the router uses the saved `site_language` cookie and does not negotiate from browser headers again
 
-2. **Translation Files**: Located in `/lang/` directory
+2. **Canonical URL Scheme**:
+
+- Spanish canonical URLs are unprefixed: `https://domain.com/`, `https://domain.com/politica-de-privacidad`
+- English canonical URLs live under `/en`: `https://domain.com/en/`, `https://domain.com/en/privacy-policy`
+- If a saved language and requested URL do not match, the router redirects to the equivalent canonical URL
+- Manual language changes from the switcher append `?set_lang=...`, persist the cookie, and immediately redirect to the clean translated URL
+
+3. **Translation Files**: Located in `/lang/` directory
 
 - `lang/es.php` - Spanish translations
 - `lang/en.php` - English translations
 - `lang/services/` - Service-specific translations
 
-3. **Using Translations in Code**:
+4. **Using Translations in Code**:
 
 ```php
 use App\Models\Language;
@@ -322,14 +331,14 @@ Language::trans('key.path');
 loadLangServices();
 
 // Get translated route
-route('contact'); // Returns translated path for current language
+route('privacy', 'en'); // Returns /en/privacy-policy
 ```
 
 ---
 
 ## Routing System
 
-The website uses a custom router with automatic language prefix handling.
+The website uses a custom router with canonical language URLs, first-visit language detection, and persistent language cookies.
 
 ### How Routes Work
 
@@ -353,14 +362,30 @@ return function(Router $router) {
 };
 ```
 
-### Language Prefixes
+### Language Resolution
 
-The router automatically handles language prefixes:
+The router resolves language in this order:
 
-- Spanish (default): `/` or `/contacto`
-- English: `/en/` or `/en/contact`
+1. Manual language change through `?set_lang=es` or `?set_lang=en`
+2. Saved `site_language` cookie
+3. First-visit URL detection
+4. First-visit `Accept-Language` fallback
 
-**No need to define routes for each language separately!**
+This means browser language detection runs only on the first visit, then the saved cookie is used on later requests.
+
+### Canonical URL Behavior
+
+- Spanish routes are canonical without a prefix
+- English routes are canonical under `/en/...`
+- The router redirects to the equivalent translated URL when the saved language and requested URL do not match
+- Static routes use `config/route-translations.php`
+- Blog routes translate `/blog` and, when possible, individual blog post slugs between languages before redirecting
+
+Examples:
+
+- `/privacy-policy` can redirect to `/en/privacy-policy` for a first-time English visitor
+- `/en/terms-and-conditions` can redirect to `/terminos-y-condiciones` for a user with a saved Spanish cookie
+- Clicking the language switcher persists the new language and redirects to the clean translated URL
 
 ### Adding New Routes
 
@@ -414,7 +439,7 @@ $router->get('/blog/{slug}', 'BlogController', 'show');
 $router->get('/user/{id}', 'UserController', 'show');
 
 // Access in controller:
-$slug = $request->getUri(); // Parse manually
+$slug = $request->getRouteParam('slug');
 ```
 
 ---

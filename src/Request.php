@@ -8,6 +8,7 @@ class Request
   private string $uri;
   private array $query;
   private array $post;
+  private array $cookie;
   private array $server;
   private array $routeParams = [];
 
@@ -17,6 +18,7 @@ class Request
     $this->uri = $this->parseUri();
     $this->query = $_GET;
     $this->post = $_POST;
+    $this->cookie = $_COOKIE;
     $this->server = $_SERVER;
   }
 
@@ -61,6 +63,28 @@ class Request
       return $this->post;
     }
     return $this->post[$key] ?? $default;
+  }
+
+  public function getCookie(?string $key = null, mixed $default = null): mixed
+  {
+    if ($key === null) {
+      return $this->cookie;
+    }
+
+    return $this->cookie[$key] ?? $default;
+  }
+
+  public function getHeader(string $name, mixed $default = null): mixed
+  {
+    $serverKey = 'HTTP_' . strtoupper(str_replace('-', '_', $name));
+
+    if ($name === 'Content-Type') {
+      $serverKey = 'CONTENT_TYPE';
+    } elseif ($name === 'Content-Length') {
+      $serverKey = 'CONTENT_LENGTH';
+    }
+
+    return $this->server[$serverKey] ?? $default;
   }
 
   public function input(string $key, mixed $default = null): mixed

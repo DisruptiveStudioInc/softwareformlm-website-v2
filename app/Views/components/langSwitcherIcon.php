@@ -16,7 +16,7 @@ if ($hasPostTranslations) {
   $languageOptions = [];
   foreach ($postTranslations as $translation) {
     $languageOptions[$translation['code']] = [
-      'url' => $translation['url'],
+      'url' => appendLanguageSelectionToUrl($translation['url'], $translation['code']),
       'name' => substr($translation['name'], 0, 3),
       'isCurrent' => $translation['code'] === $currentLang,
     ];

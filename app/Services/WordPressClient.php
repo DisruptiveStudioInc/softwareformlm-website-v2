@@ -220,6 +220,10 @@ class WordPressClient
           id
           title
           slug
+          language {
+            code
+            name
+          }
           content
           excerpt
           date
@@ -268,6 +272,32 @@ class WordPressClient
       $post = $result['data']['post'];
       $this->saveToCache($cacheKey, $post);
       return $post;
+    }
+
+    return null;
+  }
+
+  public function getTranslatedPostSlug(string $slug, string $targetLang): ?string
+  {
+    $post = $this->getPostBySlug($slug);
+
+    if ($post === null) {
+      return null;
+    }
+
+    $normalizedTargetLang = strtolower($targetLang);
+    $currentLang = strtolower($post['language']['code'] ?? '');
+
+    if ($currentLang === $normalizedTargetLang) {
+      return $post['slug'] ?? $slug;
+    }
+
+    foreach ($post['translations'] ?? [] as $translation) {
+      $translationLang = strtolower($translation['language']['code'] ?? '');
+
+      if ($translationLang === $normalizedTargetLang && !empty($translation['slug'])) {
+        return $translation['slug'];
+      }
     }
 
     return null;

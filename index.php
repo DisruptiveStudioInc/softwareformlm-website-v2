@@ -93,6 +93,10 @@ try {
   $isSuccessfulGet = in_array($method, ['GET', 'HEAD'], true) && $response->getStatusCode() === 200;
   $isCacheableDocument = $isSuccessfulGet && $isHtmlResponse && !$hasRef && !$hasSession && !$hasSessionCookie;
 
+  if ($isHtmlResponse) {
+    header('Vary: Accept-Language, Cookie');
+  }
+
   if ($isCacheableDocument) {
     header('Cache-Control: public, max-age=0, s-maxage=300, stale-while-revalidate=86400');
   } else {

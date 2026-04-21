@@ -213,23 +213,32 @@ El sitio web soporta múltiples idiomas con un sistema de traducción personaliz
 
 ### Idiomas Actuales
 
-- **Español (es)** - Idioma predeterminado
+- **Español (es)** - URL predeterminada sin prefijo
 - **Inglés (en)**
 
 ### Cómo Funciona
 
-1. **Detección de Idioma**: El router detecta automáticamente el idioma desde la URL
+1. **Detección de Idioma en la Primera Visita**: El router negocia el idioma solo cuando todavía no existe la cookie `site_language`
 
-- Idioma predeterminado (Español): `https://domain.com/`
-- Otros idiomas: `https://domain.com/en/`
+- Primera entrada explícita en inglés: `https://domain.com/en/...` selecciona inglés de inmediato y lo guarda
+- Primera entrada sin prefijo con `Accept-Language: es` o `es-*`: sirve la URL canónica en español
+- Primera entrada sin prefijo con `Accept-Language: en` o cualquier otro idioma: redirige a la URL canónica en inglés bajo `/en/...`
+- Después de esa primera visita, el router usa la cookie `site_language` guardada y ya no vuelve a negociar con los headers del navegador
 
-2. **Archivos de Traducción**: Ubicados en el directorio `/lang/`
+2. **Esquema de URLs Canónicas**:
+
+- Las URLs canónicas en español no llevan prefijo: `https://domain.com/`, `https://domain.com/politica-de-privacidad`
+- Las URLs canónicas en inglés viven bajo `/en`: `https://domain.com/en/`, `https://domain.com/en/privacy-policy`
+- Si el idioma guardado y la URL solicitada no coinciden, el router redirige a la URL equivalente en el idioma correcto
+- Los cambios manuales de idioma desde el switcher agregan `?set_lang=...`, guardan la cookie y redirigen de inmediato a la URL traducida limpia
+
+3. **Archivos de Traducción**: Ubicados en el directorio `/lang/`
 
 - `lang/es.php` - Traducciones en español
 - `lang/en.php` - Traducciones en inglés
 - `lang/services/` - Traducciones específicas de servicios
 
-3. **Usando Traducciones en el Código**:
+4. **Usando Traducciones en el Código**:
 
 ```php
 use App\Models\Language;
@@ -322,14 +331,14 @@ Language::trans('key.path');
 loadLangServices();
 
 // Obtener ruta traducida
-route('contact'); // Retorna la ruta traducida para el idioma actual
+route('privacy', 'en'); // Retorna /en/privacy-policy
 ```
 
 ---
 
 ## Sistema de Rutas
 
-El sitio web usa un router personalizado con manejo automático de prefijos de idioma.
+El sitio web usa un router personalizado con URLs canónicas por idioma, detección de idioma en la primera visita y persistencia por cookie.
 
 ### Cómo Funcionan las Rutas
 
@@ -353,14 +362,30 @@ return function(Router $router) {
 };
 ```
 
-### Prefijos de Idioma
+### Resolución de Idioma
 
-El router maneja automáticamente los prefijos de idioma:
+El router resuelve el idioma en este orden:
 
-- Español (predeterminado): `/` o `/contacto`
-- Inglés: `/en/` o `/en/contact`
+1. Cambio manual de idioma mediante `?set_lang=es` o `?set_lang=en`
+2. Cookie guardada `site_language`
+3. Detección por URL en la primera visita
+4. Fallback a `Accept-Language` en la primera visita
 
-**¡No es necesario definir rutas para cada idioma por separado!**
+Eso significa que la detección por idioma del navegador solo corre en la primera visita. En las solicitudes siguientes se usa únicamente la cookie guardada.
+
+### Comportamiento de URLs Canónicas
+
+- Las rutas en español son canónicas sin prefijo
+- Las rutas en inglés son canónicas bajo `/en/...`
+- El router redirige a la URL traducida equivalente cuando el idioma guardado y la URL solicitada no coinciden
+- Las rutas estáticas usan `config/route-translations.php`
+- Las rutas del blog traducen `/blog` y, cuando es posible, también el slug de cada post antes de redirigir
+
+Ejemplos:
+
+- `/politica-de-privacidad` puede redirigir a `/en/privacy-policy` para un visitante nuevo con navegador en inglés
+- `/en/terms-and-conditions` puede redirigir a `/terminos-y-condiciones` para un usuario con cookie guardada en español
+- Al hacer clic en el switcher de idioma se guarda la nueva preferencia y se redirige a la URL traducida limpia
 
 ### Agregar Nuevas Rutas
 
@@ -414,7 +439,7 @@ $router->get('/blog/{slug}', 'BlogController', 'show');
 $router->get('/user/{id}', 'UserController', 'show');
 
 // Acceder en el controlador:
-$slug = $request->getUri(); // Analizar manualmente
+$slug = $request->getRouteParam('slug');
 ```
 
 ---
