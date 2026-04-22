@@ -50,6 +50,13 @@
     <small class="block mb-4"><a href="https://www.comparasoftware.com/software-for-mlm" target="_blank" rel="noopener noreferrer"><?= $trans('footer.affiliate_brand') ?></a> <?= $trans('footer.affiliate_text') ?> <a href="https://www.comparasoftware.com/mlm" target="_blank" rel="noopener noreferrer"><?= $trans('footer.affiliate_name') ?></a></small>
     <small>&copy; <?= date("Y") ?> Software for MLM. All rights reserved</small>
   </div>
+  <a
+    href="https://wa.me/<?= $constants['contact_info']['wame'] ?>?text=<?= $trans('common.wame_message') ?>" target="_blank" rel="noopener noreferrer"
+    class="fixed bottom-4 right-4 flex-center p-2 rounded-full bg-green-400 hover:bg-green-700 active:bg-green-700 transition-colors z-1"
+  >
+    <span class="h-4/5 w-4/5 rounded-full bg-green-400/70 backdrop-blur-3xl absolute top-1/10 left-1/10 animate-ping -z-1 pointer-events-none"></span>
+    <svg class="size-9 text-white"><use href="#whatsapp"/></svg>
+  </a>
   <?php require_once __DIR__ .'/../components/svgSprites.php'; ?>
 </footer>
 <?php include __DIR__ . '/../components/footer-traking.php'; ?>

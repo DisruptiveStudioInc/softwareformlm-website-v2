@@ -334,6 +334,7 @@ return [
     'recommended' => 'Most popular',
     'get_info' => 'Get information',
     'subscribe' => 'Subscribe',
+    'wame_message' => 'I%20want%20more%20information',
   ],
 
   // Common titles
