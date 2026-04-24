@@ -1,5 +1,6 @@
 <?php
 $pageTitle = $meta['meta_title'] ?? $content['hero']['title'];
+$encodedTitle = urlencode($pageTitle);
 $metaDescription = $meta['meta_description'] ?? '';
 require __DIR__ . '/../layouts/header.php';
 include __DIR__ . '/../components/fixedBackground.php';
@@ -8,11 +9,11 @@ include __DIR__ . '/../components/fixedBackground.php';
 <div class="fixed left-2 right-2 bottom-5 md:left-7 md:right-7 md:bottom-7 flex flex-col md:flex-row justify-between items-center z-10 gap-0">
   <ul id="serv-dots" class="flex gap-2 xs:gap-4 !transform-none"></ul>
   <nav class="absolute top-1/2 md:static flex gap-4 w-full md:w-auto justify-between">
-    <button id="serv-prev" class="button rounded-full leading-none gap-2 cursor-pointer -translate-y-1/2 md:translate-none disabled:opacity-0 disabled:pointer-events-none max-md:p-2">
+    <button id="serv-prev" class="button rounded-lg leading-none gap-2 cursor-pointer -translate-y-1/2 md:translate-none disabled:opacity-0 disabled:pointer-events-none max-md:p-2">
       <svg class="size-5"><use href="#arrow-left"/></svg>
       <span class="hidden md:inline"><?= $trans('common.previous') ?></span>
     </button>
-    <button id="serv-next" class="button rounded-full leading-none gap-2 cursor-pointer -translate-y-1/2 md:translate-none disabled:opacity-0 disabled:pointer-events-none max-md:p-2">
+    <button id="serv-next" class="button rounded-lg leading-none gap-2 cursor-pointer -translate-y-1/2 md:translate-none disabled:opacity-0 disabled:pointer-events-none max-md:p-2">
       <span class="hidden md:inline"><?= $trans('common.next') ?></span>
       <svg class="size-5"><use href="#arrow-right"/></svg>
     </button>
@@ -29,7 +30,7 @@ include __DIR__ . '/../components/fixedBackground.php';
           <div class="lg:w-1/2 text-center lg:text-left">
             <h2 class="font-khand uppercase bg-clip-text bg-text-black leading-none text-5xl xs:text-7xl sm:text-8xl md:text-11xl xl:text-12xl text-balance es:pt-2"><?= $content['hero'] ?></h2>
             <p class="lg:text-xl text-secondary-200 text-balance"><?= $content['hero_text'] ?></p>
-            <button class="button rounded-full mt-4 mx-auto lg:mx-0 lg:mt-8 px-7 lg:px-10 bg-white border border-brand-100 text-secondary-200 hover:bg-brand-100 active:bg-brand-100 hover:text-white active:text-white" type="button" id="serv-int-button"><?= $trans('common.know_more') ?></button>
+            <button class="button rounded-lg mt-4 mx-auto lg:mx-0 lg:mt-8 px-7 lg:px-10 bg-white border border-brand-100 text-secondary-200 hover:bg-brand-100 active:bg-brand-100 hover:text-white active:text-white" type="button" id="serv-int-button"><?= $trans('common.know_more') ?></button>
           </div>
           <div class="relative lg:w-1/2">
             <img src="/public/images/services/solutions/<?= $content['hero_images']['big'] ?>" alt="" class="rounded-xl md:rounded-2xl lg:min-w-[44vw] relative max-h-[45vh] h-full lg:max-h-none lg:h-auto lg:absolute lg:top-1/2 lg:left-1/5 opacity-0 group-[&.swiper-slide-fully-visible]:opacity-100 translate-y-12 group-[&.swiper-slide-fully-visible]:translate-y-0 lg:-translate-y-[calc(50%_-_--spacing(12))] lg:group-[&.swiper-slide-fully-visible]:-translate-y-1/2 transition-op-trans duration-500 delay-200" loading="eager">
@@ -74,7 +75,7 @@ include __DIR__ . '/../components/fixedBackground.php';
             <?php foreach($content['benefits'] as $k => $benefit): ?>
               <li class="flex items-start gap-2 sm:flex-col opacity-0 group-[&.swiper-slide-fully-visible]:opacity-100 translate-y-12 group-[&.swiper-slide-fully-visible]:translate-y-0 transition-op-trans duration-300"
               style="transition-delay: calc(200ms + (100ms * <?= $k ?>));">
-                <div class="p-2 rounded-lg bg-brand-100 text-white mb-0 lg:mb-4 flex-center shadow-md lg:shadow-xl">
+                <div class="p-2 rounded-lg bg-brand-100 text-secondary-100 mb-0 lg:mb-4 flex-center shadow-md lg:shadow-xl">
                   <svg class="size-6 lg:size-10"><use href="#<?= $benefit['image'] ?>"/></svg>
                 </div>
                 <div>
@@ -149,10 +150,13 @@ include __DIR__ . '/../components/fixedBackground.php';
           <div class="lg:w-1/2 text-center lg:text-left">
             <h2 class="font-khand uppercase bg-clip-text bg-text-black leading-none text-5xl xs:text-7xl sm:text-8xl md:text-11xl xl:text-12xl text-balance es:pt-2"><?= $content['sales']['title'] ?></h2>
             <p class="text-secondary-200 lg:text-xl text-balance"><?= $content['sales']['text'] ?></p>
-            <a href="https://wa.me/<?= $constants['contact_info']['wame'] ?>" target="_blank" rel="noopener noreferrer" class="button leading-none bg-green-400 hover:bg-green-700 active:bg-green-700 gap-2 rounded-full w-fit md:text-xl font-semibold mt-4 mx-auto lg:mt-8 lg:mx-0">
-              <svg class="size-7 md:size-8"><use href="#whatsapp" /></svg>
-              <span class="pt-0.5"><?= $trans('common.sales') ?></span>
-            </a>
+            <div class="relative w-fit mt-4 mx-auto lg:mt-8 lg:mx-0">
+              <a href="https://wa.me/<?= $constants['contact_info']['wame'] ?>?text=<?= $trans('common.wame_message') ?>%20<?= $encodedTitle ?>" target="_blank" rel="noopener noreferrer" class="button leading-none relative gradient gap-2 rounded-lg w-fit px-7 md:text-xl font-semibold hover:text-white z-1">
+                <svg class="relative size-7 md:size-8"><use href="#whatsapp" /></svg>
+                <span class="relative pt-0.5"><?= $trans('common.sales') ?></span>
+              </a>
+              <div class="button-glow"></div>
+            </div>
           </div>
           <div class="relative lg:w-1/2">
             <img src="/public/images/services/solutions/<?= $content['sales_images']['big'] ?>" alt="" class="rounded-xl md:rounded-2xl lg:min-w-[44vw] relative max-h-[45vh] h-full lg:max-h-none lg:h-auto lg:absolute lg:top-1/2 lg:left-1/5 opacity-0 group-[&.swiper-slide-fully-visible]:opacity-100 translate-y-12 group-[&.swiper-slide-fully-visible]:translate-y-0 lg:-translate-y-[calc(50%_-_--spacing(12))] lg:group-[&.swiper-slide-fully-visible]:-translate-y-1/2 transition-op-trans duration-500 delay-200" loading="lazy">

@@ -46,5 +46,5 @@ return function(Router $router) {
   $router->post('/blog/cache/clear', 'App\\Controllers\\BlogController', 'clearCache');
 
   // Services - dynamic route with slug (keep this last as it's a catch-all)
-  // $router->get('/{slug}', 'App\\Controllers\\ServiceController', 'show');
+  $router->get('/{slug}', 'App\\Controllers\\ServiceController', 'show');
 };

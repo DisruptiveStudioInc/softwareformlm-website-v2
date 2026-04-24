@@ -240,6 +240,23 @@ function getServiceSubcategoryName(string $lang): array{
 
 function getNavigationMenu(string $lang, callable $trans): array {
   $constants = require __DIR__ . '/../config/constants.php';
+  $subcategoryLabels = require __DIR__ . '/../config/subcategories.php';
+  $servicesGrouped = \App\Models\Service::getServicesGroupedBySubcategory($lang);
+  $subSolutions = [];
+  foreach($servicesGrouped as $subcategory => $items){
+    $subcatName = $subcategoryLabels[$subcategory][$lang] ?? $subcategory;
+    $subcat = [
+      'name' => $subcatName,
+      'list' => []
+    ];
+    foreach($items as $item){
+      $subcat['list'][] = [
+        'label' => $item['meta']['meta_title'],
+        'url' => serviceRoute($item['meta']['slug'], $lang)
+      ];
+    }
+    array_push($subSolutions, $subcat);
+  }
   return [
     [
       'label' => $trans('nav.home'),
@@ -258,6 +275,13 @@ function getNavigationMenu(string $lang, callable $trans): array {
       'url' => route('home', $lang).'#plans',
       'hasSubmenu' => false,
       'isMegamenu' => false
+    ],
+    [
+      'label' => $trans('nav.services'),
+      // 'url' => route('home', $lang).'#solutions',
+      'hasSubmenu' => true,
+      'isMegamenu' => true,
+      'submenu' => $subSolutions,
     ],
     [
       'label' => $trans('nav.blog'),

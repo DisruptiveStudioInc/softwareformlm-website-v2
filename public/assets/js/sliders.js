@@ -25,9 +25,8 @@ if (hasSliderMarkup) {
 }
 
 async function initSliders() {
-  const { default: Swiper } = await import(
-    "https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.mjs"
-  );
+  const { default: Swiper } =
+    await import("https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.mjs");
 
   const createSwiper = (selector, options) => {
     const element = document.querySelector(selector);
@@ -367,7 +366,7 @@ async function initSliders() {
       renderBullet(index, className) {
         return `<li tabindex="0" role="button" aria-label="Go to process ${
           index + 1
-        }" class="size-9 lg:size-12 text-lg lg:text-xl font-bold text-white leading-none rounded-full bg-brand-100 hover:bg-brand-200 active:bg-brand-200 [&.active]:bg-brand-200 [&.active]:ring-2 [&.active]:ring-white transition-colors cursor-pointer ${className}">${
+        }" class="size-9 lg:size-12 text-lg lg:text-xl font-bold text-secondary-100 leading-none rounded-full bg-brand-100 hover:bg-brand-200 active:bg-brand-200 [&.active]:bg-secondary-200 [&.active]:text-white transition-colors cursor-pointer ${className}">${
           index + 1
         }</li>`;
       },

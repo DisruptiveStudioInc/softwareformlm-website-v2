@@ -73,10 +73,10 @@ return [
     'en' => 'security-architecture',
   ],
 
-  // 'services' => [
-  //   'es' => 'servicios',
-  //   'en' => 'services',
-  // ],
+  'services' => [
+    'es' => 'servicios',
+    'en' => 'services',
+  ],
 
   // Add more static routes here as needed
   // 'about' => [

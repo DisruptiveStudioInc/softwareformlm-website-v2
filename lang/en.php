@@ -1,6 +1,7 @@
 <?php
 
 $legalTranslations = loadLangDynamic(__DIR__ . '/../lang/legal');
+$servicesTranslations = loadLangDynamic();
 
 return [
   // Navigation
@@ -344,14 +345,51 @@ return [
     'how_works' => 'How it works'
   ],
 
-  // IPs Content
-  // 'backoffice' => $servicesTranslations['backoffice'],
-  // 'blockchain' => $servicesTranslations['blockchain'],
-  // 'metaverse' => $servicesTranslations['metaverse'],
-  // 'otc' => $servicesTranslations['otc'],
-  // 'payment_processing' => $servicesTranslations['payment-processing'],
-  // 'tokenization' => $servicesTranslations['tokenization'],
-  // 'wallet' => $servicesTranslations['wallet'],
+  // Services Content
+  'hybrid_app' => $servicesTranslations['aplicaciones-hibridas'],
+  'inventory_control_storage' => $servicesTranslations['almacenaje-control-inventario'],
+  'mobile_app' => $servicesTranslations['aplicaciones-moviles'],
+  'multitenant_app' => $servicesTranslations['aplicaciones-multitenant'],
+  'web_app' => $servicesTranslations['aplicaciones-web'],
+  'web3_app' => $servicesTranslations['aplicaciones-web3'],
+  'secure_db' => $servicesTranslations['bases-datos-seguras'],
+  'smart_contracts' => $servicesTranslations['contratos-inteligentes'],
+  'crypto_fiat' => $servicesTranslations['cripto-fiat'],
+  'graphic_design' => $servicesTranslations['diseno-grafico'],
+  'web_design' => $servicesTranslations['diseno-web'],
+  'ecommerce' => $servicesTranslations['ecommerce'],
+  'elearning' => $servicesTranslations['elearning'],
+  'financial' => $servicesTranslations['financial'],
+  'training' => $servicesTranslations['formacion-desarrollo'],
+  'talent_management' => $servicesTranslations['gestion-talento'],
+  'mlm_software' => $servicesTranslations['mlm-software'],
+  'multimedia' => $servicesTranslations['multimedia'],
+  'massive_payments' => $servicesTranslations['pagos-masivos'],
+  'crypto_processing' => $servicesTranslations['procesamiento-criptomonedas'],
+  'recruitment' => $servicesTranslations['reclutamiento'],
+  'talent_recruitment' => $servicesTranslations['talento-captacion'],
+  'tokenization_projects' => $servicesTranslations['tokenizacion-proyectos'],
+  'ui_ux' => $servicesTranslations['ui-ux'],
+  'supplements' => $servicesTranslations['suplementos'],
+  'package_design' => $servicesTranslations['diseno-empaque'],
+  'client_support' => $servicesTranslations['client-support'],
+  'ticket_management' => $servicesTranslations['ticket-management'],
+  'support_training' => $servicesTranslations['support-training'],
+  'legal_financial' => $servicesTranslations['legal-financial-corporative'],
+  'legal_realestate' => $servicesTranslations['legal-real-estate'],
+  'intellectual_property' => $servicesTranslations['intellectual-property'],
+  'litigation' => $servicesTranslations['litigio'],
+  'storage_inventory' => $servicesTranslations['storage-inventory'],
+  'package_fulfillment' => $servicesTranslations['package-fulfillment'],
+  'shipment_distribution' => $servicesTranslations['shipment-distribution'],
+  'logistic_optimization' => $servicesTranslations['logistic-optimization'],
+  'operation_consulting' => $servicesTranslations['operation-consulting'],
+  'financial_management' => $servicesTranslations['financial-management'],
+  'corporate_financial' => $servicesTranslations['corporate-financial'],
+  'accounting_reporting' => $servicesTranslations['accounting-reporting'],
+  'taxes_compliance' => $servicesTranslations['taxes-compliance'],
+
+  // Legal pages
   'cookies' => $legalTranslations['cookies'],
   'refunds' => $legalTranslations['refunds'],
   'compliance-use' => $legalTranslations['compliance-use'],

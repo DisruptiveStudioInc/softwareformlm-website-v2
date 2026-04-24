@@ -14,7 +14,7 @@ class ServiceController extends BaseController
 
     // Extract slug from URI (remove language prefix if present)
     $slug = trim($uri, '/');
-    if ($this->language !== 'en') {
+    if ($this->language !== 'es') {
       $slug = str_replace($this->language . '/', '', $slug);
     }
 

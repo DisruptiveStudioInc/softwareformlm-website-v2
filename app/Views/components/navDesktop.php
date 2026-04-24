@@ -18,10 +18,10 @@
             if($item['isMegamenu']):
         ?>
           <li class="w-full p-2.5 2xl:p-4 rounded-lg group/category hover:bg-brand-100 transition-colors">
-            <h3 class="text-base 2xl:text-2xl font-bold mb-1 2xl:mb-2 text-secondary-100 group-hover/category:text-white transition-colors"><?= $sub['name'] ?></h3>
+            <h3 class="text-base 2xl:text-2xl font-bold mb-1 2xl:mb-2 text-secondary-100 group-hover/category:text-secondary-100 transition-colors"><?= $sub['name'] ?></h3>
             <ul class="flex flex-col gap-0.5 2xl:gap-2 pl-2 2xl:pl-4">
               <?php foreach($sub['list'] as $subItem): ?>
-                <a href="<?= $subItem['url'] ?>" class="transition-colors group-hover/category:text-white/80 hover:text-white text-sm 2xl:text-base"><?= $subItem['label'] ?></a>
+                <a href="<?= $subItem['url'] ?>" class="transition-colors group-hover/category:text-secondary-100/80 hover:text-secondary-200 text-sm 2xl:text-base"><?= $subItem['label'] ?></a>
               <?php endforeach; ?>
             </ul>
           </li>
