@@ -59,6 +59,10 @@
   </a>
   <?php require_once __DIR__ .'/../components/svgSprites.php'; ?>
 </footer>
+
+<?php if (($includeExitIntentPopup ?? true) === true):
+  require_once __DIR__ . '/../components/exitPopup.php';
+endif; ?>
 <?php include __DIR__ . '/../components/footer-traking.php'; ?>
 </body>
 </html>

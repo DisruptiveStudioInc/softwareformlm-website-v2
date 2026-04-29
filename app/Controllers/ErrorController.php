@@ -11,6 +11,7 @@ class ErrorController extends BaseController
   {
     $response = $this->view('404', [
       'includeTracking' => true,
+      'includeExitIntentPopup' => false,
     ]);
     $response->setStatusCode(404);
     return $response;

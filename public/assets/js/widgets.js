@@ -403,6 +403,8 @@ const popupCloseButtons = document.querySelectorAll(
 );
 const popupDialogs = document.querySelectorAll("dialog.popup");
 const externalScripts = new Map();
+const exitIntentPopup = document.getElementById("exit-intent-popup");
+const exitIntentSessionKey = "exit-intent-popup-shown";
 
 const loadExternalScript = (src) => {
   if (!src) {
@@ -469,7 +471,7 @@ const loadExternalScript = (src) => {
   return promise;
 };
 
-const createDemoEmbed = (dialog) => {
+const createLazyEmbed = (dialog) => {
   const configElement = dialog.querySelector("[data-lazy-embed-config]");
   const root = dialog.querySelector("[data-lazy-embed-root]");
 
@@ -484,13 +486,13 @@ const createDemoEmbed = (dialog) => {
   } catch (error) {
     root.dataset.lazyEmbedState = "error";
     root.innerHTML =
-      '<div class="flex min-h-[70vh] items-center justify-center p-6 text-center text-red-700"><p>Unable to load demo.</p></div>';
+      '<div class="flex min-h-[70vh] items-center justify-center p-6 text-center text-red-700"><p>Unable to load form.</p></div>';
     return Promise.reject(error);
   }
 
   root.dataset.lazyEmbedState = "loading";
   root.innerHTML =
-    '<div class="flex min-h-[70vh] items-center justify-center p-6 text-center text-secondary-200"><p>Loading demo...</p></div>';
+    '<div class="flex min-h-[70vh] items-center justify-center p-6 text-center text-secondary-200"><p>Loading form...</p></div>';
 
   const iframe = document.createElement("iframe");
   iframe.src = config.src;
@@ -522,16 +524,12 @@ const createDemoEmbed = (dialog) => {
     .catch((error) => {
       root.dataset.lazyEmbedState = "error";
       root.innerHTML =
-        '<div class="flex min-h-[70vh] items-center justify-center p-6 text-center text-red-700"><p>Unable to load demo.</p></div>';
+        '<div class="flex min-h-[70vh] items-center justify-center p-6 text-center text-red-700"><p>Unable to load form.</p></div>';
       throw error;
     });
 };
 
-if (
-  popupOpenButtons.length > 0 &&
-  popupCloseButtons.length > 0 &&
-  popupDialogs.length > 0
-) {
+if (popupDialogs.length > 0) {
   const lockScroll = () => {
     document.documentElement.classList.add("overflow-hidden");
     document.body.classList.add("overflow-hidden");
@@ -547,6 +545,9 @@ if (
     document.documentElement.classList.remove("overflow-hidden");
     document.body.classList.remove("overflow-hidden");
   };
+
+  const hasOpenPopup = () =>
+    Array.from(popupDialogs).some((dialog) => dialog.open);
 
   const getPopupDialog = (targetId) => {
     if (!targetId) {
@@ -570,9 +571,9 @@ if (
     lockScroll();
     targetDialog.showModal();
 
-    if (targetDialog.id === "demo-popup") {
+    if (targetDialog.querySelector("[data-lazy-embed-config]")) {
       try {
-        await createDemoEmbed(targetDialog);
+        await createLazyEmbed(targetDialog);
       } catch (error) {
         console.error(error);
       }
@@ -609,4 +610,43 @@ if (
 
     dialog.addEventListener("close", unlockScroll);
   });
+
+  if (
+    exitIntentPopup instanceof HTMLDialogElement &&
+    typeof window.matchMedia === "function" &&
+    window.matchMedia("(hover: hover) and (pointer: fine)").matches
+  ) {
+    const hasShownExitIntentPopup = () => {
+      try {
+        return sessionStorage.getItem(exitIntentSessionKey) === "true";
+      } catch (error) {
+        return false;
+      }
+    };
+
+    const markExitIntentPopupAsShown = () => {
+      try {
+        sessionStorage.setItem(exitIntentSessionKey, "true");
+      } catch (error) {
+        // Ignore storage access issues and keep the popup functional.
+      }
+    };
+
+    document.addEventListener("mouseout", (event) => {
+      if (event.relatedTarget || event.toElement) {
+        return;
+      }
+
+      if (event.clientY > 0) {
+        return;
+      }
+
+      if (hasOpenPopup() || hasShownExitIntentPopup()) {
+        return;
+      }
+
+      markExitIntentPopupAsShown();
+      openPopupDialog(exitIntentPopup.id);
+    });
+  }
 }
