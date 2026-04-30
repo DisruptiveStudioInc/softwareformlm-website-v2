@@ -404,7 +404,8 @@ const popupCloseButtons = document.querySelectorAll(
 const popupDialogs = document.querySelectorAll("dialog.popup");
 const externalScripts = new Map();
 const exitIntentPopup = document.getElementById("exit-intent-popup");
-const exitIntentSessionKey = "exit-intent-popup-shown";
+const exitIntentForm = document.getElementById("exit-intent-form");
+const exitIntentSubmittedKey = "exit-intent-form-submitted";
 
 const loadExternalScript = (src) => {
   if (!src) {
@@ -616,19 +617,11 @@ if (popupDialogs.length > 0) {
     typeof window.matchMedia === "function" &&
     window.matchMedia("(hover: hover) and (pointer: fine)").matches
   ) {
-    const hasShownExitIntentPopup = () => {
+    const hasSubmittedExitIntentForm = () => {
       try {
-        return sessionStorage.getItem(exitIntentSessionKey) === "true";
+        return localStorage.getItem(exitIntentSubmittedKey) === "true";
       } catch (error) {
         return false;
-      }
-    };
-
-    const markExitIntentPopupAsShown = () => {
-      try {
-        sessionStorage.setItem(exitIntentSessionKey, "true");
-      } catch (error) {
-        // Ignore storage access issues and keep the popup functional.
       }
     };
 
@@ -641,12 +634,112 @@ if (popupDialogs.length > 0) {
         return;
       }
 
-      if (hasOpenPopup() || hasShownExitIntentPopup()) {
+      if (hasOpenPopup() || hasSubmittedExitIntentForm()) {
         return;
       }
 
-      markExitIntentPopupAsShown();
       openPopupDialog(exitIntentPopup.id);
     });
   }
+}
+
+if (exitIntentForm) {
+  exitIntentForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const submitButton = document.getElementById("exit-intent-submit-btn");
+    const successMessage = document.getElementById("exit-intent-success-message");
+    const errorMessage = document.getElementById("exit-intent-error-message");
+    const errorText = document.getElementById("exit-intent-error-text");
+    const language = exitIntentForm.dataset.language || "es";
+    const recaptchaSiteKey = exitIntentForm.dataset.recaptchaSiteKey || "";
+    const submitUrl = exitIntentForm.dataset.submitUrl || "/exit-intent-submit";
+    const defaultSubmitText =
+      language === "en" ? "Get information" : "Obtener informacion";
+    const submittingText =
+      language === "en" ? "Sending..." : "Enviando...";
+
+    successMessage?.classList.add("hidden");
+    errorMessage?.classList.add("hidden");
+    document
+      .querySelectorAll("#exit-intent-form .error-message")
+      .forEach((element) => element.classList.add("hidden"));
+
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = submittingText;
+    }
+
+    try {
+      if (typeof window.grecaptcha === "undefined" || recaptchaSiteKey === "") {
+        throw new Error("reCAPTCHA is not available");
+      }
+
+      const token = await grecaptcha.execute(recaptchaSiteKey, {
+        action: "exit_intent",
+      });
+
+      const formData = new FormData(exitIntentForm);
+      formData.append("recaptcha_token", token);
+
+      const response = await fetch(submitUrl, {
+        method: "POST",
+        body: formData,
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        try {
+          localStorage.setItem(exitIntentSubmittedKey, "true");
+        } catch (error) {
+          // Ignore storage write issues and keep the form usable.
+        }
+
+        successMessage?.classList.remove("hidden");
+        exitIntentForm.reset();
+
+        window.setTimeout(() => {
+          if (exitIntentPopup instanceof HTMLDialogElement && exitIntentPopup.open) {
+            exitIntentPopup.close();
+          }
+        }, 1600);
+
+        return;
+      }
+
+      if (result.errors) {
+        Object.keys(result.errors).forEach((field) => {
+          const errorElement = document.getElementById(`exit-intent-error-${field}`);
+          if (errorElement) {
+            errorElement.textContent = result.errors[field];
+            errorElement.classList.remove("hidden");
+          }
+        });
+      } else {
+        if (errorText) {
+          errorText.textContent =
+            result.error ||
+            (language === "en"
+              ? "An error occurred. Please try again."
+              : "Ocurrio un error. Por favor, intenta nuevamente.");
+        }
+        errorMessage?.classList.remove("hidden");
+      }
+    } catch (error) {
+      console.error(error);
+      if (errorText) {
+        errorText.textContent =
+          language === "en"
+            ? "An error occurred. Please try again."
+            : "Ocurrio un error. Por favor, intenta nuevamente.";
+      }
+      errorMessage?.classList.remove("hidden");
+    } finally {
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = defaultSubmitText;
+      }
+    }
+  });
 }

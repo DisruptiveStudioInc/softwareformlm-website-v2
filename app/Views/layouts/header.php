@@ -75,7 +75,7 @@
     <link rel="preload" as="image" href="/public/images/background/light-grad.webp" fetchpriority="high">
   <?php endif; ?>
 
-  <?php if (!empty($includeRecaptcha)): ?>
+  <?php if (!empty($includeRecaptcha) || (($includeExitIntentPopup ?? true) === true)): ?>
     <!-- reCAPTCHA v3 -->
     <script src="https://www.google.com/recaptcha/api.js?render=<?= $config['recaptcha']['site_key'] ?>"></script>
   <?php endif; ?>

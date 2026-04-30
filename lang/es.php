@@ -338,6 +338,34 @@ return [
     'wame_message' => 'Quiero%20mas%20información',
   ],
 
+  'contact' => [
+    'title' => 'Contacto',
+    'success' => 'Gracias. Tu mensaje fue enviado correctamente.',
+    'error' => 'No pudimos enviar tu mensaje en este momento. Intenta nuevamente.',
+    'form' => [
+      'name' => 'Nombre',
+      'email' => 'Correo electronico',
+      'phone' => 'Telefono',
+      'message' => 'Mensaje',
+      'submit' => 'Enviar mensaje',
+    ],
+    'validation' => [
+      'name_required' => 'El nombre es obligatorio.',
+      'email_required' => 'El correo electronico es obligatorio.',
+      'email_invalid' => 'Ingresa un correo electronico valido.',
+      'message_required' => 'El mensaje es obligatorio.',
+      'recaptcha_failed' => 'La verificacion de reCAPTCHA fallo. Intenta nuevamente.',
+    ],
+  ],
+
+  'exit_popup' => [
+    'title' => 'Antes de salir',
+    'text' => 'Dejanos tus datos y nuestro equipo te ayudara a explorar la mejor opcion para tu software MLM.',
+    'submit' => 'Obtener informacion',
+    'success' => 'Gracias. Recibimos tu informacion.',
+    'error' => 'No pudimos guardar tu informacion en este momento. Intenta nuevamente.',
+  ],
+
   // Common titles
   'common_titles' => [
     'benefits' => 'Beneficios',

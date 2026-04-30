@@ -34,4 +34,31 @@ class HomeController extends BaseController
       'metaDescription' => $pageContent['seoDescription'] ?? null
     ]);
   }
+
+  public function alter(Request $request): Response
+  {
+    // Load page content
+    $pageContent = $this->loadPageContent('home');
+
+    // Get all services for displaying in home page if needed
+    $services = Service::getAll($this->language);
+    $ecosystem = Service::getByCategory('ecosystem', $this->language);
+    $subcatServices = getServiceSubcategoryName($this->language);
+    $disrIps = Service::getByCategory('ips', $this->language);
+
+    return $this->view('home-alt', [
+      'content' => $pageContent,
+      'services' => $services,
+      'ecosystem' => $ecosystem,
+      'subcategories' => $subcatServices,
+      'ips' => $disrIps,
+      'includeTracking' => true,
+      'includeSwiper' => true,
+      'includeAnimations' => true,
+      'includeDemoEmbed' => true,
+      'hasSnapScroll' => true,
+      'hasTextTexture' => true,
+      'metaDescription' => $pageContent['seoDescription'] ?? null
+    ]);
+  }
 }

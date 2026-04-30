@@ -5,6 +5,7 @@ use App\Router;
 return function(Router $router) {
   // Home
   $router->get('/', 'App\\Controllers\\HomeController', 'index');
+  $router->get('/alter', 'App\\Controllers\\HomeController', 'alter');
   $router->get('/zoom-demo-redirect', 'App\\Controllers\\RedirectController', 'zoomDemoRedirect');
   $router->get('/calendar-demo-redirect', 'App\\Controllers\\RedirectController', 'calendarDemoRedirect');
 
@@ -13,6 +14,7 @@ return function(Router $router) {
   // $router->get('/contact', 'App\\Controllers\\ContactController', 'index');
   // $router->post('/contacto', 'App\\Controllers\\ContactController', 'submit');
   // $router->post('/contact', 'App\\Controllers\\ContactController', 'submit');
+  $router->post('/exit-intent-submit', 'App\\Controllers\\ExitIntentController', 'submit');
 
   $router->get('/privacy-policy', 'App\\Controllers\\LegalController', 'privacy');
   $router->get('/politica-de-privacidad', 'App\\Controllers\\LegalController', 'privacy');
