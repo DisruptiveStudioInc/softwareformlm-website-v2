@@ -250,6 +250,7 @@ return [
   'bo_link' => 'https://my.softwareformlm.com/',
   'login_link' => 'https://store.softwareformlm.com/my-account/',
   'shop_link' => 'https://store.softwareformlm.com/',
+  'shop_link_category' => 'https://store.softwareformlm.com/product-category/software/',
 
   'videos' => [
     'es' => '1159033854',

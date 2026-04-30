@@ -128,7 +128,7 @@
       <!-- Desktop Navigation -->
       <?php include(__DIR__.'/../components/navDesktop.php') ?>
 
-      <a href="<?= $constants['shop_link'] ?>" target="_blank" rel="noopener noreferrer" class="button self-center shrink-0 rounded-lg font-bold hidden lg:flex lg:es:text-sm xl:es:text-base">
+      <a href="<?= $constants['shop_link_category'] ?>?ref=<?= $GLOBALS['user_replica'] ?>" target="_blank" rel="noopener noreferrer" class="button self-center shrink-0 rounded-lg font-bold hidden lg:flex lg:es:text-sm xl:es:text-base">
         <?= $trans('common.subscribe') ?>
       </a>
       <?php if(false): ?>
@@ -186,10 +186,10 @@
 
         </ul>
 
+        <a href="<?= $constants['shop_link_category'] ?>?ref=<?= $GLOBALS['user_replica'] ?>" target="_blank" rel="noopener noreferrer" class="button w-full rounded-lg font-bold">
+          <?= $trans('common.subscribe') ?>
+        </a>
         <?php if(false): ?>
-          <a href="<?= $constants['shop_link'] ?>" target="_blank" rel="noopener noreferrer" class="button w-full rounded-lg font-bold">
-            <?= $trans('nav.buy') ?>
-          </a>
           <a href="<?= $constants['login_link'] ?>" target="_blank" rel="noopener noreferrer" class="button w-full rounded-lg font-bold bg-secondary-100 hover:bg-secondary-200 text-white">
             <?= $trans('common.login') ?>
           </a>
