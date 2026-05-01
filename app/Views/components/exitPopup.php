@@ -5,7 +5,7 @@
     </button>
     <div class="p-6 lg:p-8 text-secondary-200">
       <div class="text-center mb-6">
-        <h2 class="font-title text-3xl lg:text-4xl mb-3"><?= $trans('exit_popup.title') ?></h2>
+        <h2 class="font-title text-3xl lg:text-4xl leading-tight text-balance mb-3"><?= $trans('exit_popup.title') ?></h2>
         <p class="text-balance"><?= $trans('exit_popup.text') ?></p>
       </div>
 
@@ -26,7 +26,12 @@
       >
         <input type="hidden" name="language" value="<?= $currentLang ?>">
         <input type="hidden" name="page_path" value="<?= htmlspecialchars(parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?? '/', ENT_QUOTES, 'UTF-8') ?>">
-        <input type="hidden" name="source" value="exit_intent_popup">
+        <input type="hidden" name="source" value="exit_popup">
+        <input type="hidden" name="campaign_medium" value="">
+        <input type="hidden" name="campaign_name" value="">
+        <input type="hidden" name="campaign_source" value="">
+        <input type="hidden" name="ad_id" value="">
+        <input type="hidden" name="campaign_content" value="">
 
         <div>
           <label for="exit-intent-name" class="block text-sm mb-1">

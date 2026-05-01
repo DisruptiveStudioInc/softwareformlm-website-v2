@@ -36,7 +36,10 @@ class ExitIntentController extends BaseController
       ], 400);
     }
 
-    $lead = new ExitIntentLead($request->getPost());
+    $leadData = $request->getPost();
+    $leadData['country'] = $this->resolveCountry($request);
+
+    $lead = new ExitIntentLead($leadData);
 
     if (!$lead->validate()) {
       return $this->json([
@@ -61,5 +64,21 @@ class ExitIntentController extends BaseController
       'success' => true,
       'message' => Language::trans('exit_popup.success'),
     ]);
+  }
+
+  private function resolveCountry(Request $request): string
+  {
+    $countryCode = strtoupper(trim((string) $request->getHeader('CF-IPCountry', '')));
+
+    if ($countryCode !== '' && $countryCode !== 'XX' && $countryCode !== 'T1') {
+      return $countryCode;
+    }
+
+    $appEnv = strtolower((string) ($this->config['app']['env'] ?? 'production'));
+    if (in_array($appEnv, ['local', 'development', 'dev', 'test', 'testing'], true)) {
+      return 'Local';
+    }
+
+    return '';
   }
 }

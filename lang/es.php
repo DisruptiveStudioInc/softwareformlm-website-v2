@@ -344,26 +344,26 @@ return [
     'error' => 'No pudimos enviar tu mensaje en este momento. Intenta nuevamente.',
     'form' => [
       'name' => 'Nombre',
-      'email' => 'Correo electronico',
-      'phone' => 'Telefono',
+      'email' => 'Correo electrónico',
+      'phone' => 'Teléfono',
       'message' => 'Mensaje',
       'submit' => 'Enviar mensaje',
     ],
     'validation' => [
       'name_required' => 'El nombre es obligatorio.',
-      'email_required' => 'El correo electronico es obligatorio.',
-      'email_invalid' => 'Ingresa un correo electronico valido.',
+      'email_required' => 'El correo electrónico es obligatorio.',
+      'email_invalid' => 'Ingresa un correo electrónico válido.',
       'message_required' => 'El mensaje es obligatorio.',
-      'recaptcha_failed' => 'La verificacion de reCAPTCHA fallo. Intenta nuevamente.',
+      'recaptcha_failed' => 'La verificación de reCAPTCHA falló. Intenta nuevamente.',
     ],
   ],
 
   'exit_popup' => [
-    'title' => 'Antes de salir',
-    'text' => 'Dejanos tus datos y nuestro equipo te ayudara a explorar la mejor opcion para tu software MLM.',
-    'submit' => 'Obtener informacion',
-    'success' => 'Gracias. Recibimos tu informacion.',
-    'error' => 'No pudimos guardar tu informacion en este momento. Intenta nuevamente.',
+    'title' => 'Estás a un clic de tener tu propia red',
+    'text' => 'Llena tus datos y te daremos más información',
+    'submit' => 'Obtener información',
+    'success' => 'Gracias. Recibimos tu información.',
+    'error' => 'No pudimos guardar tu información en este momento. Intenta nuevamente.',
   ],
 
   // Common titles

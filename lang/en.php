@@ -359,8 +359,8 @@ return [
   ],
 
   'exit_popup' => [
-    'title' => 'Before you go',
-    'text' => 'Leave your details and our team will help you explore the best option for your MLM software.',
+    'title' => 'You are one click away from having your own network',
+    'text' => 'Fill in your details and we will give you more information',
     'submit' => 'Get information',
     'success' => 'Thanks. We received your information.',
     'error' => 'We could not save your information right now. Please try again.',

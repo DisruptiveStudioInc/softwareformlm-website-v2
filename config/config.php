@@ -31,6 +31,28 @@ return [
     'api_version' => $_ENV['GHL_API_VERSION'] ?? '2021-07-28',
     'api_token' => $_ENV['GHL_API_TOKEN'] ?? '',
     'location_id' => $_ENV['GHL_LOCATION_ID'] ?? '',
+    'exit_intent' => [
+      'source' => $_ENV['GHL_EXIT_INTENT_SOURCE'] ?? 'softwareformlm_exit_popup',
+      'tags' => array_values(array_filter(array_map(
+        static fn (string $tag): string => trim($tag),
+        explode(',', $_ENV['GHL_EXIT_INTENT_TAGS'] ?? 'website,exit_popup')
+      ))),
+      'custom_fields' => [
+        'campaign_medium' => 'FGUsybZUkfrNPerLCYvd',
+        'campaign_name' => 'LQKJSrDEtxJnVItZyL64',
+        'campaign_source' => 'SZcTeXNiSpl2Tqk9hulc',
+        'ad_id' => 'OLpF1SE0sdiBW3r9PsM7',
+        'campaign_content' => 'WT5jyXt1XxQXgYvg56xE',
+        'country' => 'JxlJuPgiwkbLgBxQhGvA',
+      ],
+      'custom_field_values' => [
+        'campaign_medium' => 'sfmlm-website',
+        'campaign_name' => 'sfmlm-prevent-exit',
+        'campaign_source' => 'website',
+        'ad_id' => 'sfmlm_exit_popup',
+        'campaign_content' => 'Website_prevent_user_from_leaving',
+      ],
+    ],
   ],
 
   'languages' => [

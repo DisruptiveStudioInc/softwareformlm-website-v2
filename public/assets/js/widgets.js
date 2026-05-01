@@ -406,6 +406,83 @@ const externalScripts = new Map();
 const exitIntentPopup = document.getElementById("exit-intent-popup");
 const exitIntentForm = document.getElementById("exit-intent-form");
 const exitIntentSubmittedKey = "exit-intent-form-submitted";
+const exitIntentTrackingKey = "exit-intent-first-touch";
+const exitIntentTrackingParamAliases = {
+  campaign_medium: ["utm_medium"],
+  campaign_name: ["utm_campaign"],
+  campaign_source: ["utm_source"],
+  ad_id: ["ad_id", "utm_id"],
+  campaign_content: ["utm_content"],
+};
+
+const readExitIntentTracking = () => {
+  try {
+    const storedValue = localStorage.getItem(exitIntentTrackingKey);
+    if (!storedValue) {
+      return {};
+    }
+
+    const parsed = JSON.parse(storedValue);
+    return parsed && typeof parsed === "object" ? parsed : {};
+  } catch (error) {
+    return {};
+  }
+};
+
+const writeExitIntentTracking = (trackingData) => {
+  try {
+    localStorage.setItem(exitIntentTrackingKey, JSON.stringify(trackingData));
+  } catch (error) {
+    // Ignore storage write issues and keep the form usable.
+  }
+};
+
+const persistExitIntentFirstTouchTracking = () => {
+  if (typeof window === "undefined") {
+    return {};
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  const storedTracking = readExitIntentTracking();
+  let hasChanges = false;
+
+  Object.entries(exitIntentTrackingParamAliases).forEach(([fieldName, queryParams]) => {
+    if (storedTracking[fieldName]) {
+      return;
+    }
+
+    const currentValue = queryParams
+      .map((queryParam) => params.get(queryParam)?.trim() || "")
+      .find((value) => value !== "");
+
+    if (currentValue) {
+      storedTracking[fieldName] = currentValue;
+      hasChanges = true;
+    }
+  });
+
+  if (hasChanges) {
+    writeExitIntentTracking(storedTracking);
+  }
+
+  return storedTracking;
+};
+
+const applyExitIntentTrackingToForm = (trackingData) => {
+  if (!exitIntentForm) {
+    return;
+  }
+
+  Object.keys(exitIntentTrackingParamAliases).forEach((fieldName) => {
+    const input = exitIntentForm.querySelector(`[name="${fieldName}"]`);
+    if (input instanceof HTMLInputElement) {
+      input.value = trackingData[fieldName] || "";
+    }
+  });
+};
+
+const exitIntentTracking = persistExitIntentFirstTouchTracking();
+applyExitIntentTrackingToForm(exitIntentTracking);
 
 const loadExternalScript = (src) => {
   if (!src) {
@@ -674,6 +751,8 @@ if (exitIntentForm) {
       if (typeof window.grecaptcha === "undefined" || recaptchaSiteKey === "") {
         throw new Error("reCAPTCHA is not available");
       }
+
+      applyExitIntentTrackingToForm(persistExitIntentFirstTouchTracking());
 
       const token = await grecaptcha.execute(recaptchaSiteKey, {
         action: "exit_intent",

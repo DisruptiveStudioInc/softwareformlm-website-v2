@@ -45,9 +45,15 @@ class ExitIntentLead
       'name' => $name,
       'email' => $this->sanitize($this->data['email'] ?? ''),
       'phone' => $this->sanitize($this->data['phone'] ?? ''),
-      'source' => $this->sanitize($this->data['source'] ?? 'exit_intent_popup'),
+      'source' => $this->sanitize($this->data['source'] ?? 'exit_popup'),
       'language' => $this->sanitize($this->data['language'] ?? ''),
       'pagePath' => $this->sanitize($this->data['page_path'] ?? ''),
+      'campaignMedium' => $this->sanitize($this->data['campaign_medium'] ?? ''),
+      'campaignName' => $this->sanitize($this->data['campaign_name'] ?? ''),
+      'campaignSource' => $this->sanitize($this->data['campaign_source'] ?? ''),
+      'adId' => $this->sanitize($this->data['ad_id'] ?? ''),
+      'campaignContent' => $this->sanitize($this->data['campaign_content'] ?? ''),
+      'country' => $this->sanitize($this->data['country'] ?? ''),
     ];
   }
 

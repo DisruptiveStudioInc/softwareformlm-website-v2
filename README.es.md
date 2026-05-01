@@ -16,6 +16,7 @@ Un sitio web corporativo multilingüe para Disruptive Studio, mostrando sus serv
 - [Formulario de Contacto y Email](#formulario-de-contacto-y-email)
 - [Desarrollo Frontend](#desarrollo-frontend)
 - [Configuración](#configuración)
+- [Integración GoHighLevel Exit-Intent](#integración-gohighlevel-exit-intent)
 - [Despliegue](#despliegue)
 
 ---
@@ -1395,6 +1396,115 @@ Contiene:
 - Configuración de correo
 - Configuración de reCAPTCHA
 - Configuración de idiomas
+
+## Integración GoHighLevel Exit-Intent
+
+El popup de salida envía leads a GoHighLevel mediante la API de contactos usando `POST /contacts/upsert`.
+Si el contacto todavía no existe, HighLevel crea uno nuevo. Si el email o el teléfono ya existen en la ubicación, HighLevel actualiza el contacto existente.
+
+### Variables `.env` Requeridas
+
+```env
+GHL_BASE_URL=https://services.leadconnectorhq.com
+GHL_API_VERSION=2021-07-28
+GHL_API_TOKEN=your-private-integration-token
+GHL_LOCATION_ID=your-location-id
+GHL_EXIT_INTENT_SOURCE=softwareformlm_exit_popup
+GHL_EXIT_INTENT_TAGS=website,exit_popup
+
+GHL_EXIT_INTENT_CF_CAMPAIGN_MEDIUM=
+GHL_EXIT_INTENT_CF_CAMPAIGN_NAME=
+GHL_EXIT_INTENT_CF_CAMPAIGN_SOURCE=
+GHL_EXIT_INTENT_CF_AD_ID=
+GHL_EXIT_INTENT_CF_CAMPAIGN_CONTENT=
+GHL_EXIT_INTENT_CF_COUNTRY=
+
+GHL_EXIT_INTENT_VALUE_CAMPAIGN_MEDIUM=sfmlm-website
+GHL_EXIT_INTENT_VALUE_CAMPAIGN_NAME=sfmlm-prevent-exit
+GHL_EXIT_INTENT_VALUE_CAMPAIGN_SOURCE=website
+GHL_EXIT_INTENT_VALUE_AD_ID=sfmlm_exit_popup
+GHL_EXIT_INTENT_VALUE_CAMPAIGN_CONTENT=Website_prevent_user_from_leaving
+```
+
+### Qué Hace Cada Variable
+
+- `GHL_BASE_URL`: URL base de la API de HighLevel. Mantén `https://services.leadconnectorhq.com`.
+- `GHL_API_VERSION`: Header de versión de API requerido por esta integración. Mantén `2021-07-28`.
+- `GHL_API_TOKEN`: Token de Private Integration con acceso a contactos.
+- `GHL_LOCATION_ID`: Subcuenta o ubicación donde se creará o actualizará el contacto.
+- `GHL_EXIT_INTENT_SOURCE`: Valor enviado como `source` de nivel superior del contacto en HighLevel.
+- `GHL_EXIT_INTENT_TAGS`: Etiquetas separadas por comas que se aplican al contacto.
+- `GHL_EXIT_INTENT_CF_*`: Mapeo de los custom fields de contacto de destino en HighLevel. Cada valor puede ser un ID real del campo o una key del campo.
+- `GHL_EXIT_INTENT_VALUE_*`: Valores fijos que se escriben en los custom fields relacionados con campaña.
+
+### Mapeo de Custom Fields Usado por Este Proyecto
+
+La integración escribe estos valores en estos custom fields de contacto de HighLevel:
+
+- Campaign medium: `sfmlm-website`
+- Campaign name: `sfmlm-prevent-exit`
+- Campaign source: `website`
+- Ad ID: `sfmlm_exit_popup`
+- Campaign content: `Website_prevent_user_from_leaving`
+- Country: valor dinámico desde Cloudflare en producción, `Local` en desarrollo
+
+El custom field `country` mantiene su comportamiento dinámico:
+
+- Producción: usa el header `CF-IPCountry` de Cloudflare
+- Entornos locales o de desarrollo: usa el fallback `Local`
+
+### Cómo Obtener el Token de HighLevel
+
+1. Abre HighLevel.
+2. Ve a `Settings`.
+3. Abre `Private Integrations`.
+4. Crea una nueva integración.
+5. Habilita los scopes necesarios para contactos.
+6. Copia el token generado y guárdalo en `.env` como `GHL_API_TOKEN`.
+
+### Cómo Obtener el Location ID
+
+Usa cualquiera de estas opciones:
+
+1. Abre la subcuenta objetivo y ve a `Settings > Business Profile`.
+2. Copia el `Location ID`.
+
+O:
+
+1. Abre la subcuenta en el navegador.
+2. Copia el valor después de `/location/` o desde `locationId=...` en la URL.
+
+### Cómo Obtener los IDs o Keys de los Contact Custom Fields
+
+Esta integración usa contact custom fields, no opportunity custom fields.
+
+1. Abre la subcuenta correcta en HighLevel.
+2. Ve a `Settings > Custom Fields`.
+3. Busca los campos de contacto para:
+   `Campaign medium`, `Campaign name`, `Campaign source`, `Ad ID`, `Campaign content` y `Country`.
+4. Copia el ID del campo desde la UI o desde la petición de red, o usa la key del campo si ya la tienes.
+
+Importante:
+
+- No pongas valores de campo como `website`, `sfmlm_exit_popup` o `Local` dentro de `GHL_EXIT_INTENT_CF_*`.
+- Esos valores fijos van en las variables `GHL_EXIT_INTENT_VALUE_*`.
+
+### Archivos Involucrados
+
+- Vista: `app/Views/components/exitPopup.php`
+- Controlador: `app/Controllers/ExitIntentController.php`
+- Modelo: `app/Models/ExitIntentLead.php`
+- Cliente HighLevel: `app/Services/HighLevelClient.php`
+- Configuración de la app: `config/config.php`
+
+### Cómo Probar la Integración de Nuevo
+
+1. Actualiza `.env`.
+2. Reinicia PHP o los contenedores Docker si hace falta.
+3. Limpia estas keys de `localStorage` en el navegador:
+   `exit-intent-first-touch` y `exit-intent-form-submitted`.
+4. Abre el sitio y envía nuevamente el popup de salida.
+5. Verifica el contacto y los custom fields en GoHighLevel.
 
 ### Constantes
 
