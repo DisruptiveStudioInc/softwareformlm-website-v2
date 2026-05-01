@@ -177,7 +177,7 @@ include __DIR__ . '/../components/fixedBackground.php';
   }
 </style>
 
-<?php if (($includeExitIntentPopup ?? false) === true):
+<?php if (($includeExitIntentPopup ?? true) === true):
   require __DIR__ . '/../components/exitPopup.php';
 endif; ?>
 
