@@ -406,6 +406,7 @@ const externalScripts = new Map();
 const exitIntentPopup = document.getElementById("exit-intent-popup");
 const exitIntentForm = document.getElementById("exit-intent-form");
 const exitIntentSubmittedKey = "exit-intent-form-submitted";
+const exitIntentShownSessionKey = "exit-intent-popup-shown-session";
 const exitIntentTrackingKey = "exit-intent-first-touch";
 const exitIntentTrackingParamAliases = {
   campaign_medium: ["utm_medium"],
@@ -432,6 +433,22 @@ const readExitIntentTracking = () => {
 const writeExitIntentTracking = (trackingData) => {
   try {
     localStorage.setItem(exitIntentTrackingKey, JSON.stringify(trackingData));
+  } catch (error) {
+    // Ignore storage write issues and keep the form usable.
+  }
+};
+
+const hasShownExitIntentPopupThisSession = () => {
+  try {
+    return sessionStorage.getItem(exitIntentShownSessionKey) === "true";
+  } catch (error) {
+    return false;
+  }
+};
+
+const markExitIntentPopupAsShownForSession = () => {
+  try {
+    sessionStorage.setItem(exitIntentShownSessionKey, "true");
   } catch (error) {
     // Ignore storage write issues and keep the form usable.
   }
@@ -711,10 +728,15 @@ if (popupDialogs.length > 0) {
         return;
       }
 
-      if (hasOpenPopup() || hasSubmittedExitIntentForm()) {
+      if (
+        hasOpenPopup() ||
+        hasSubmittedExitIntentForm() ||
+        hasShownExitIntentPopupThisSession()
+      ) {
         return;
       }
 
+      markExitIntentPopupAsShownForSession();
       openPopupDialog(exitIntentPopup.id);
     });
   }
