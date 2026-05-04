@@ -235,6 +235,7 @@ return [
     // 'x' => 'https://x.com/softwareformlm',
     'facebook' => 'https://www.facebook.com/profile.php?id=61580591774327',
     'instagram' => 'https://www.instagram.com/softwareformlm_',
+    'youtube' => 'https://www.youtube.com/@SoftwareForMLM',
     // 'linkedin' => 'https://www.linkedin.com/company/90639843/admin/feed/posts/',
     // 'telegram' => 'https://t.me/+vTvws-qeLfYwNTYx',
   ],
