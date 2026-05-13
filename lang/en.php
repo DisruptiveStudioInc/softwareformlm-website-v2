@@ -246,7 +246,7 @@ return [
         'access_24_7' => '24/7/365 access',
         'unilevel' => 'Unilevel tree',
         'binary_tree' => 'Binary tree',
-        'bonuses' => 'Bonuses',
+        'bonuses' => '1 Bonus',
         'compression' => 'Dynamic compression',
         'monthly_membership' => 'Monthly membership',
         'investment_plans' => 'Investment plans',

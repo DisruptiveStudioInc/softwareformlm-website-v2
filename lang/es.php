@@ -246,7 +246,7 @@ return [
         'access_24_7' => 'Acceso 24/7/365',
         'unilevel' => 'Arbol uninivel',
         'binary_tree' => 'Arbol binario',
-        'bonuses' => 'Bonos',
+        'bonuses' => '1 Bono',
         'compression' => 'Compresión dinámica',
         'monthly_membership' => 'Membresía mensual',
         'investment_plans' => 'Planes de inversión',
