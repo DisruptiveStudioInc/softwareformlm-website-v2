@@ -279,7 +279,8 @@ return [
         'module_otc' => 'Módulo OTC (setup requerido)',
         'global_api' => 'Global API',
         'nft_marketplace' => 'NFT Marketplace (setup requerido)',
-        'whatsapp_group' => 'Grupo de WhatsApp dedicado para soporte'
+        'whatsapp_group' => 'Grupo de WhatsApp dedicado para soporte',
+        'elearning' => 'E-learning (LMS)'
       ]
     ],
     'control' => [

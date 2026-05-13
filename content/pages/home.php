@@ -203,7 +203,8 @@ return[
         'token_sale' => true,
         'p2p_token' => true,
         'global_api' => true,
-        'nft_marketplace' => true
+        'nft_marketplace' => true,
+        'elearning' => true
       ]
     ]
   ],
