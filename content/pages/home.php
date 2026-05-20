@@ -128,7 +128,7 @@ return[
       'price' => 197,
       'slug' => "product/starter",
       'items' => [
-        'setup_fee' => 197,
+        'setup_fee' => 300,
         'user_limit' => true,
         'traffic' => true,
         'encrypted_data' => true,
@@ -155,7 +155,7 @@ return[
       'price' => 397,
       'slug' => "product/growth",
       'items' => [
-        'setup_fee' => 297,
+        'setup_fee' => 300,
         'includes' => Language::trans('home.plans.plan1.title'),
         'user_limit' => true,
         'binary_tree' => true,
@@ -178,7 +178,7 @@ return[
       'price' => 597,
       'slug' => "product/scale",
       'items' => [
-        'setup_fee' => 597,
+        'setup_fee' => 600,
         'includes' => Language::trans('home.plans.plan2.title'),
         'user_limit' => true,
         'ecommerce' => true,
@@ -200,7 +200,7 @@ return[
       'price' => 997,
       'slug' => "product/dominate",
       'items' => [
-        'setup_fee' => 897,
+        'setup_fee' => 600,
         'includes' => Language::trans('home.plans.plan3.title'),
         'user_limit' => true,
         'whatsapp_group' => true,
