@@ -239,6 +239,8 @@ return [
       'per_month' => 'month',
       'everything_in' => 'Everything in',
       'non_binding_subscription' => 'Non-binding monthly subscription. Cancel anytime.',
+      'setup_fee' => 'One time setup fee',
+      'elearning_setup' => 'E-learning setup fee',
       'items' => [
         'traffic' => 'Unlimited traffic',
         'encrypted_data' => 'Encrypted data',

@@ -239,6 +239,8 @@ return [
       'per_month' => 'mes',
       'everything_in' => 'Todo lo incluido en',
       'non_binding_subscription' => 'Suscripción mensual no forzosa. Cancela cuando quieras.',
+      'setup_fee' => 'Tarifa de configuración única',
+      'elearning_setup' => 'Tarifa de configuración de E-learning',
       'items' => [
         'traffic' => 'Tráfico ilimitado',
         'encrypted_data' => 'Datos encryptados',

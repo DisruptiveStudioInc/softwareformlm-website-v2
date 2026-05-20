@@ -254,14 +254,18 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
           </div>
           <div class="flex-grow mt-6 relative custom-scrollbar top-bottom-scroll-grad overflow-hidden">
             <ul class="text-sm lg:text-base <?= $recommended ? 'text-white' : 'text-secondary-200' ?> flex flex-col gap-0 h-full overflow-y-auto">
-              <?php foreach($item['items'] as $feature => $available): ?>
+              <?php foreach($item['items'] as $feature => $value): ?>
                 <li class="flex items-center justify-between gap-2 py-2 first:border-t border-b <?= $recommended ? 'border-white/20' : 'border-secondary-100/20' ?>">
                   <span class="text-balance text-left <?= ($feature === 'includes')? 'text-brand-200' : '' ?>">
                     <?php
                       if($feature === 'includes'){
-                        echo $trans('home.plans.everything_in') . ' ' . $available;
+                        echo $trans('home.plans.everything_in') . ' ' . $value;
                       } elseif ($feature === 'user_limit'){
                         echo $trans('home.plans.user_limit'). ': ' . format_number_with_commas($item['users']);
+                      } elseif ($feature === 'setup_fee'){
+                        echo $trans('home.plans.setup_fee') . ': ' . '$' . $value . ' USD';
+                      } elseif ($feature === 'elearning_setup'){
+                        echo $trans('home.plans.elearning_setup') . ': ' . '$' . $value . ' USD';
                       } else {
                         echo $trans('home.plans.items.' . $feature);
                       }

@@ -128,6 +128,7 @@ return[
       'price' => 197,
       'slug' => "product/starter",
       'items' => [
+        'setup_fee' => 197,
         'user_limit' => true,
         'traffic' => true,
         'encrypted_data' => true,
@@ -154,6 +155,7 @@ return[
       'price' => 397,
       'slug' => "product/growth",
       'items' => [
+        'setup_fee' => 297,
         'includes' => Language::trans('home.plans.plan1.title'),
         'user_limit' => true,
         'binary_tree' => true,
@@ -176,6 +178,7 @@ return[
       'price' => 597,
       'slug' => "product/scale",
       'items' => [
+        'setup_fee' => 597,
         'includes' => Language::trans('home.plans.plan2.title'),
         'user_limit' => true,
         'ecommerce' => true,
@@ -184,7 +187,9 @@ return[
         'inventory_management' => true,
         'ipayout' => true,
         'multicountry' => true,
-        'payment_processors' => true
+        'payment_processors' => true,
+        'elearning' => true,
+        'elearning_setup' => 300
       ]
     ],
     [
@@ -195,6 +200,7 @@ return[
       'price' => 997,
       'slug' => "product/dominate",
       'items' => [
+        'setup_fee' => 897,
         'includes' => Language::trans('home.plans.plan3.title'),
         'user_limit' => true,
         'whatsapp_group' => true,
@@ -204,7 +210,8 @@ return[
         'p2p_token' => true,
         'global_api' => true,
         'nft_marketplace' => true,
-        'elearning' => true
+        'elearning' => true,
+        'elearning_setup' => 300
       ]
     ]
   ],
