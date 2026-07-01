@@ -52,7 +52,7 @@
   </div>
   <a
     href="https://wa.me/<?= $constants['contact_info']['wame'] ?>?text=<?= $trans('common.wame_message') ?>" target="_blank" rel="noopener noreferrer"
-    class="fixed bottom-4 right-4 flex-center p-2 rounded-full bg-green-400 hover:bg-green-700 active:bg-green-700 transition-colors z-1"
+    class="fixed bottom-4 right-4 flex-center p-2 rounded-full bg-green-400 hover:bg-green-700 active:bg-green-700 transition-colors z-1 en:bottom-22 en:right-5"
   >
     <span class="h-4/5 w-4/5 rounded-full bg-green-400/70 backdrop-blur-3xl absolute top-1/10 left-1/10 animate-ping -z-1 pointer-events-none"></span>
     <svg class="size-9 text-white"><use href="#whatsapp"/></svg>

@@ -1,3 +1,6 @@
+allowBuilds:
+  '@parcel/watcher': true
+  '@tailwindcss/oxide': true
 onlyBuiltDependencies:
   - '@parcel/watcher'
   - '@tailwindcss/oxide'
