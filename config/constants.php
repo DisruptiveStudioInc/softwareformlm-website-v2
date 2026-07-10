@@ -242,7 +242,7 @@ return [
 
   'contact_info' => [
     'email' => 'sales@softwareformlm.com',
-    'phone' => '(+1) 602 614 9128',
+    'phone' => '(+1) 623 291 8043',
     'address' => '500 N Estrella Pwy. Suite B2-467<br/>Goodyear, Arizona 85338',
     'wame' => '+16232918043',
   ],
