@@ -54,7 +54,8 @@ return [
     'description' => 'Solución integral para empresas y redes multinivel.',
     'hero' => [
       'title' => 'Lanza tu propio negocio MLM en menos de 24 horas',
-      'text' => 'Accede ahora a una demo en vivo y conoce cómo funciona el sistema desde dentro.'
+      'text' => 'Accede ahora a una demo en vivo y conoce cómo funciona el sistema desde dentro.',
+      'cta' => 'Agenda tu cita aquí'
     ],
     'operate' => [
       'title' => "Tu propio sistema MLM, listo para operar",
