@@ -55,7 +55,7 @@ return [
     'hero' => [
       'title' => 'Launch your own MLM business in less than 24 hours',
       'text' => 'Access a live demo now and see how the system works from the inside.',
-      'cta' => 'Start live demo'
+      'cta' => 'Schedule an appointment',
     ],
     'operate' => [
       'title' => "Your own MLM system, ready to operate",
