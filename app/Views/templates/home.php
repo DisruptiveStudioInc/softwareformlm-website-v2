@@ -49,9 +49,9 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
     </ul>
     <div class="stagger-parent flex-center flex-col">
       <div class="relative w-fit slide-up-stagger">
-        <button type="button" data-target="demo-popup" class="button open-popup relative gradient rounded-lg lg:text-xl px-7 lg:px-10 hover:text-white duration-300 z-1">
-          <span class="relative"><?= $trans('common.demo') ?></span>
-        </button>
+        <a href="<?= $currentLang === 'es' ? 'https://app.softwareformlm.com/widget/bookings/agendar_demo' : 'https://disr.vip/booking' ?>" target="_blank" rel="noopener noreferrer" class="button open-popup relative gradient rounded-lg lg:text-2xl px-7 lg:px-10 hover:text-white duration-300 z-1">
+          <span class="relative"><?= $trans('home.hero.cta') ?></span>
+        </a>
         <div class="button-glow"></div>
       </div>
     </div>
@@ -76,9 +76,9 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
 
     <div class="stagger-parent flex-center flex-col mt-6 lg:mt-12">
       <div class="relative w-fit slide-up-stagger">
-        <button type="button" data-target="demo-popup" class="button open-popup relative gradient rounded-lg lg:text-xl px-7 lg:px-10 hover:text-white duration-300 z-1">
-          <span class="relative"><?= $trans('common.demo') ?></span>
-        </button>
+        <a href="<?= $currentLang === 'es' ? 'https://app.softwareformlm.com/widget/bookings/agendar_demo' : 'https://disr.vip/booking' ?>" target="_blank" rel="noopener noreferrer" class="button open-popup relative gradient rounded-lg lg:text-2xl px-7 lg:px-10 hover:text-white duration-300 z-1">
+          <span class="relative"><?= $trans('home.hero.cta') ?></span>
+        </a>
         <div class="button-glow"></div>
       </div>
     </div>
@@ -91,9 +91,9 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
     <div class="tech-title">
       <h2 class="font-title leading-none uppercase text-2xl sm:text-5xl md:text-8xl lg:text-9xl text-center bg-clip-text bg-text-black slide-up-words-black"><?= $trans('home.network.title') ?></h2>
       <div class="relative w-fit mt-4 mx-auto lg:mt-8 slide-up-delay" data-delay="2">
-        <button type="button" data-target="demo-popup" class="button open-popup relative gradient rounded-lg lg:text-2xl px-7 lg:px-10 hover:text-white duration-300 z-1">
-          <span class="relative"><?= $trans('common.demo') ?></span>
-        </button>
+        <a href="<?= $currentLang === 'es' ? 'https://app.softwareformlm.com/widget/bookings/agendar_demo' : 'https://disr.vip/booking' ?>" target="_blank" rel="noopener noreferrer" class="button open-popup relative gradient rounded-lg lg:text-2xl px-7 lg:px-10 hover:text-white duration-300 z-1">
+          <span class="relative"><?= $trans('home.hero.cta') ?></span>
+        </a>
         <div class="button-glow"></div>
       </div>
     </div>
@@ -121,10 +121,10 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
   <div class="block-content min-h-dvh py-16 lg:py-40 flex flex-col items-center justify-center">
     <h2 class="banner-text font-title leading-none uppercase text-[9vw] md:text-10xl lg:text-12xl es:pt-3 bg-clip-text bg-text-white slide-up-words-white"><?= $trans('home.scale.title') ?></h2>
     <div class="relative w-fit mt-4 lg:mt-8 slide-up-delay self-start" data-delay="5">
-      <button type="button" data-target="demo-popup" class="button open-popup relative gradient rounded-lg lg:text-2xl px-7 lg:px-10 hover:text-white duration-300 z-1">
-        <span class="relative"><?= $trans('common.demo') ?></span>
-      </button>
-      <div class="button-glow"></div>
+      <a href="<?= $currentLang === 'es' ? 'https://app.softwareformlm.com/widget/bookings/agendar_demo' : 'https://disr.vip/booking' ?>" target="_blank" rel="noopener noreferrer" class="button open-popup relative gradient rounded-lg lg:text-2xl px-7 lg:px-10 hover:text-white duration-300 z-1">
+          <span class="relative"><?= $trans('home.hero.cta') ?></span>
+        </a>
+        <div class="button-glow"></div>
     </div>
   </div>
 </section>
@@ -145,10 +145,10 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
     <p class="max-w-[64ch] mx-auto my-6 lg:text-2xl text-balance slide-up"><?= $trans('home.scale.text') ?></p>
     <p class="font-title uppercase bg-clip-text bg-text-black text-2xl md:text-4xl lg:text-6xl max-w-[28ch] leading-tight mx-auto slide-up"><?= $trans('home.scale.accent') ?></p>
     <div class="relative w-fit slide-up mt-6 lg:mt-12">
-      <button type="button" data-target="demo-popup" class="button open-popup relative gradient rounded-lg lg:text-xl px-7 lg:px-10 hover:text-white duration-300 z-1">
-        <span class="relative"><?= $trans('common.demo') ?></span>
-      </button>
-      <div class="button-glow"></div>
+      <a href="<?= $currentLang === 'es' ? 'https://app.softwareformlm.com/widget/bookings/agendar_demo' : 'https://disr.vip/booking' ?>" target="_blank" rel="noopener noreferrer" class="button open-popup relative gradient rounded-lg lg:text-2xl px-7 lg:px-10 hover:text-white duration-300 z-1">
+          <span class="relative"><?= $trans('home.hero.cta') ?></span>
+        </a>
+        <div class="button-glow"></div>
     </div>
   </div>
 </section>
@@ -162,9 +162,9 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
       <p class="text-secondary-200 lg:text-xl text-balance"><?= $trans('home.customize.text2') ?></p>
       <div class="stagger-parent flex flex-col items-center lg:items-start mt-6 lg:mt-12">
         <div class="relative w-fit slide-up">
-          <button type="button" data-target="demo-popup" class="button open-popup relative gradient rounded-lg lg:text-xl px-7 lg:px-10 hover:text-white duration-300 z-1 slide-up-stagger">
-            <span class="relative"><?= $trans('common.demo') ?></span>
-          </button>
+          <a href="<?= $currentLang === 'es' ? 'https://app.softwareformlm.com/widget/bookings/agendar_demo' : 'https://disr.vip/booking' ?>" target="_blank" rel="noopener noreferrer" class="button open-popup relative gradient rounded-lg lg:text-2xl px-7 lg:px-10 hover:text-white duration-300 z-1">
+            <span class="relative"><?= $trans('home.hero.cta') ?></span>
+          </a>
           <div class="button-glow"></div>
         </div>
       </div>
@@ -294,9 +294,9 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
       <p class="lg:text-xl text-balance mb-6 slide-up"><?= $trans('home.control.subtitle') ?></p>
       <div class="stagger-parent flex flex-col items-center lg:items-start mt-4 lg:mt-6">
         <div class="relative w-fit slide-up">
-          <button type="button" data-target="demo-popup" class="button open-popup relative gradient rounded-lg lg:text-xl px-7 lg:px-10 hover:text-white duration-300 z-1 slide-up-stagger">
-            <span class="relative"><?= $trans('common.demo') ?></span>
-          </button>
+          <a href="<?= $currentLang === 'es' ? 'https://app.softwareformlm.com/widget/bookings/agendar_demo' : 'https://disr.vip/booking' ?>" target="_blank" rel="noopener noreferrer" class="button open-popup relative gradient rounded-lg lg:text-2xl px-7 lg:px-10 hover:text-white duration-300 z-1">
+            <span class="relative"><?= $trans('home.hero.cta') ?></span>
+          </a>
           <div class="button-glow"></div>
         </div>
       </div>
@@ -337,9 +337,9 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
       <p class="bg-clip-text bg-text-black text-lg sm:text-2xl md:text-3xl lg:text-3xl leading-tight mb-4 uppercase slide-up-stagger"><?= $trans('home.ready.text1') ?></p>
       <p class="font-title bg-clip-text bg-text-black text-lg sm:text-2xl md:text-3xl lg:text-5xl lg:es:pt-1 leading-tight uppercase slide-up-stagger"><?= $trans('home.ready.text2') ?></p>
       <div class="relative w-fit mt-4 mx-auto lg:mt-8 slide-up">
-        <button type="button" data-target="demo-popup" class="button open-popup relative gradient rounded-lg lg:text-2xl px-7 lg:px-10 hover:text-white duration-300 z-1">
-          <span class="relative"><?= $trans('common.demo') ?></span>
-        </button>
+        <a href="<?= $currentLang === 'es' ? 'https://app.softwareformlm.com/widget/bookings/agendar_demo' : 'https://disr.vip/booking' ?>" target="_blank" rel="noopener noreferrer" class="button open-popup relative gradient rounded-lg lg:text-2xl px-7 lg:px-10 hover:text-white duration-300 z-1">
+          <span class="relative"><?= $trans('home.hero.cta') ?></span>
+        </a>
         <div class="button-glow"></div>
       </div>
     </div>
