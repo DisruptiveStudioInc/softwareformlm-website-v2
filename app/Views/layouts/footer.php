@@ -48,7 +48,7 @@
     </ul>
     <small class="block mb-4"><?= $trans('footer.legal_small') ?></small>
     <small class="block mb-4"><a href="https://www.comparasoftware.com/software-for-mlm" target="_blank" rel="noopener noreferrer"><?= $trans('footer.affiliate_brand') ?></a> <?= $trans('footer.affiliate_text') ?> <a href="https://www.comparasoftware.com/mlm" target="_blank" rel="noopener noreferrer"><?= $trans('footer.affiliate_name') ?></a></small>
-    <small>&copy; <?= date("Y") ?> Software for MLM. All rights reserved</small>
+    <small>&copy; <?= date("Y") ?> Software for MLM. All rights reserved.</small>
   </div>
   <a
     href="https://wa.me/<?= $constants['contact_info']['wame'] ?>?text=<?= $trans('common.wame_message') ?>" target="_blank" rel="noopener noreferrer"
