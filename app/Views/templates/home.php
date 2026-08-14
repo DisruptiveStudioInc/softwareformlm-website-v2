@@ -7,7 +7,7 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
 ?>
 
 <!-- Hero -->
-<section data-nav-index="0" class="nav-section relative text-white w-full overflow-x-hidden">
+<section data-nav-index="0" class="nav-section lg:snap-start relative text-white w-full overflow-x-hidden">
   <span class="absolute top-0 left-0 size-0" id="home"></span>
   <div class="absolute -z-1 w-full h-full top-0 left-0">
     <img class="background" src="/public/images/background/black-01.webp" alt="" loading="eager" fetchpriority="high" width="1920" height="1080" decoding="async">
@@ -32,7 +32,7 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
 </section>
 
 <!-- Operate -->
-<section data-nav-index="1" class="nav-section relative bg-surface-100" style="content-visibility:auto;contain-intrinsic-size:1000px;">
+<section data-nav-index="1" class="nav-section lg:snap-start relative bg-surface-100" style="content-visibility:auto;contain-intrinsic-size:1000px;">
   <span class="absolute top-0" id="sfmlm"></span>
   <div class="block-content min-h-dvh flex-center flex-col justify-center py-16 lg:py-32 xl:py-40">
     <h2 class="font-title text-center leading-tight uppercase text-2xl md:text-3xl lg:text-5xl xl:text-[4vw] bg-clip-text bg-text-black slide-up-words-black"><?= $trans('home.operate.title') ?></h2>
@@ -59,7 +59,7 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
 </section>
 
 <!-- Steps -->
-<section data-nav-index="2" class="nav-section relative bg-surface-200" style="content-visibility:auto;contain-intrinsic-size:1000px;">
+<section data-nav-index="2" class="nav-section lg:snap-start relative bg-surface-200" style="content-visibility:auto;contain-intrinsic-size:1000px;">
   <span class="absolute top-0 left-0 size-0"></span>
   <div class="block-content min-h-dvh py-16 lg:py-20 flex flex-col justify-center">
     <div class="flex justify-center flex-wrap gap-6 lg:gap-12 max-w-md md:max-w-3xl lg:max-w-none mx-auto stagger-parent">
@@ -86,7 +86,7 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
 </section>
 
 <!-- Network -->
-<section data-nav-index="3" class="nav-section relative tech-section snap-align-none lg:h-screen w-full lg:overflow-hidden bg-surface-300" style="content-visibility:auto;contain-intrinsic-size:1000px;">
+<section data-nav-index="3" class="nav-section lg:snap-start relative tech-section snap-align-none lg:h-screen w-full lg:overflow-hidden bg-surface-300" style="content-visibility:auto;contain-intrinsic-size:1000px;">
   <div class="block-content h-auto lg:h-screen py-12 lg:py-40 flex-center flex-col lg:overflow-hidden">
     <div class="tech-title">
       <h2 class="font-title leading-none uppercase text-2xl sm:text-5xl md:text-8xl lg:text-9xl text-center bg-clip-text bg-text-black slide-up-words-black"><?= $trans('home.network.title') ?></h2>
@@ -115,7 +115,7 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
 </section>
 
 <!-- Scale Banner -->
-<section data-nav-index="4" class="nav-section relative text-white" style="content-visibility:auto;contain-intrinsic-size:1000px;">
+<section data-nav-index="4" class="nav-section lg:snap-start relative text-white" style="content-visibility:auto;contain-intrinsic-size:1000px;">
   <span class="absolute top-0 left-0 size-0"></span>
   <?php generateBackground('creators',3); ?>
   <div class="block-content min-h-dvh py-16 lg:py-40 flex flex-col items-center justify-center">
@@ -130,7 +130,7 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
 </section>
 
 <!-- Scale Info -->
-<section data-nav-index="5" class="nav-section relative section-about bg-surface-100 text-secondary-200 w-full overflow-hidden" style="content-visibility:auto;contain-intrinsic-size:1000px;">
+<section data-nav-index="5" class="nav-section lg:snap-start relative section-about bg-surface-100 text-secondary-200 w-full overflow-hidden" style="content-visibility:auto;contain-intrinsic-size:1000px;">
   <span class="absolute top-0 left-0 size-0"></span>
   <div class="block-content about-content min-h-dvh flex-center flex-col text-center py-16">
     <ul class="w-full max-w-screen-md lg:max-w-none flex flex-col md:flex-row justify-center gap-6 mb-6 lg:mb-10">
@@ -154,7 +154,7 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
 </section>
 
 <!-- Customize -->
-<section data-nav-index="6" class="nav-section relative bg-surface-200" style="content-visibility:auto;contain-intrinsic-size:1000px;">
+<section data-nav-index="6" class="nav-section lg:snap-start relative bg-surface-200" style="content-visibility:auto;contain-intrinsic-size:1000px;">
   <div class="block-content py-16 lg:py-24 min-h-dvh flex-center gap-7 lg:gap-4 flex-col lg:flex-row-reverse">
     <div class="lg:w-1/2 text-center lg:text-left">
       <h2 class="font-khand uppercase bg-clip-text bg-text-black leading-none text-5xl xs:text-7xl sm:text-8xl md:text-11xl xl:text-10xl text-balance es:pt-2"><?= $trans('home.customize.title') ?></h2>
@@ -176,7 +176,7 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
 </section>
 
 <!-- Clients -->
-<section data-nav-index="7" class="nav-section relative min-h-dvh py-16 flex-center flex-col overflow-x-hidden bg-surface-300">
+<section data-nav-index="7" class="nav-section lg:snap-start relative min-h-dvh py-16 flex-center flex-col overflow-x-hidden bg-surface-300">
   <span class="absolute top-0 left-0 size-0"></span>
   <div class="text-center px-7 pb-20">
     <h2 class="font-title leading-tight uppercase text-2xl sm:text-4xl lg:text-6xl xl:text-7xl bg-clip-text bg-text-black slide-up-words-black"><?= $trans('home.clients') ?></h2>
@@ -220,7 +220,7 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
 </section>
 
 <!-- Pricing -->
-<section data-nav-index="8" class="nav-section relative bg-surface-100" style="content-visibility:auto;contain-intrinsic-size:1000px;">
+<section data-nav-index="8" class="nav-section lg:snap-start relative bg-surface-100" style="content-visibility:auto;contain-intrinsic-size:1000px;">
   <span class="absolute top-0 left-0 size-0" id="plans"></span>
   <div class="block-content min-h-dvh flex-center flex-col py-16 lg:py-32">
     <h2 class="font-title text-center leading-tight uppercase text-2xl sm:text-6xl lg:text-3xl xl:text-5xl mb-4 lg:mb-12 bg-clip-text bg-text-black slide-up-words-black"><?= $trans('home.plans.title') ?></h2>
@@ -284,7 +284,7 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
 </section>
 
 <!-- Control -->
-<section data-nav-index="9" class="nav-section relative w-full overflow-x-hidden bg-surface-200" style="content-visibility:auto;contain-intrinsic-size:1000px;">
+<section data-nav-index="9" class="nav-section lg:snap-start relative w-full overflow-x-hidden bg-surface-200" style="content-visibility:auto;contain-intrinsic-size:1000px;">
   <span class="absolute top-0 left-0 size-0"></span>
   <div class="block-content min-h-dvh py-16 lg:py-40 flex-center flex-col lg:flex-row lg:justify-end gap-4 lg:gap-0">
     <div class="lg:pr-12 w-full lg:w-3/5 text-center lg:text-left max-lg:px-0">
@@ -329,7 +329,7 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
 </section>
 
 <!-- Ready -->
-<section data-nav-index="10" class="nav-section relative w-full bg-gradient-to-b from-surface-200 to-surface-50" style="content-visibility:auto;contain-intrinsic-size:1000px;">
+<section data-nav-index="10" class="nav-section lg:snap-start relative w-full bg-gradient-to-b from-surface-200 to-surface-50" style="content-visibility:auto;contain-intrinsic-size:1000px;">
   <div class="block-content min-h-dvh flex-center flex-col text-secondary-200">
     <div class="stagger-parent flex-center flex-col text-center">
       <p class="uppercase md:text-lg lg:text-5xl mb-6 lg:mb-2 slide-up-stagger"><?= $trans('home.ready.title1') ?></p>
