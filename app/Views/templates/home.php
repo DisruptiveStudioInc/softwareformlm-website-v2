@@ -16,7 +16,7 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
   </div>
   <div class="block-content py-16 lg:py-24 min-h-dvh flex-center gap-4 flex-col lg:flex-row-reverse">
     <div class="lg:w-1/2 text-center lg:text-left">
-      <h2 class="font-khand uppercase bg-clip-text bg-text-white leading-none text-5xl xs:text-7xl sm:text-8xl md:text-9xl xl:text-10xl text-balance es:pt-2"><?= $trans('home.hero.title') ?></h2>
+      <h1 class="font-khand uppercase bg-clip-text bg-text-white leading-none text-5xl xs:text-7xl sm:text-8xl md:text-9xl xl:text-10xl text-balance es:pt-2"><?= $trans('home.hero.title') ?></h1>
       <p class="lg:text-xl text-balance text-white"><?= $trans('home.hero.text') ?></p>
       <div class="relative w-fit mt-4 mx-auto lg:mx-0 lg:mt-8">
         <a href="<?= $currentLang === 'es' ? 'https://app.softwareformlm.com/widget/bookings/agendar_demo' : 'https://disr.vip/booking' ?>" target="_blank" rel="noopener noreferrer" class="button open-popup relative gradient rounded-lg lg:text-2xl px-7 lg:px-10 hover:text-white duration-300 z-1">

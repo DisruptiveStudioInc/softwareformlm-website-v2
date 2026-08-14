@@ -28,7 +28,7 @@ include __DIR__ . '/../components/fixedBackground.php';
       <section class="slide-section swiper-slide group h-screen w-full">
         <div class="block-content py-16 lg:py-24 h-full flex-center gap-4 flex-col lg:flex-row">
           <div class="lg:w-1/2 text-center lg:text-left">
-            <h2 class="font-khand uppercase bg-clip-text bg-text-black leading-none text-5xl xs:text-7xl sm:text-8xl md:text-11xl xl:text-12xl text-balance es:pt-2"><?= $content['hero'] ?></h2>
+            <h1 class="font-khand uppercase bg-clip-text bg-text-black leading-none text-5xl xs:text-7xl sm:text-8xl md:text-11xl xl:text-12xl text-balance es:pt-2"><?= $content['hero'] ?></h1>
             <p class="lg:text-xl text-secondary-200 text-balance"><?= $content['hero_text'] ?></p>
             <button class="button rounded-lg mt-4 mx-auto lg:mx-0 lg:mt-8 px-7 lg:px-10 bg-white border border-brand-100 text-secondary-200 hover:bg-brand-100 active:bg-brand-100 hover:text-white active:text-white" type="button" id="serv-int-button"><?= $trans('common.know_more') ?></button>
           </div>
