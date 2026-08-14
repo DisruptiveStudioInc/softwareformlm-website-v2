@@ -141,61 +141,69 @@
     </div>
 
     <!-- Mobile Navigation -->
-    <div id="mobile-menu" class="lg:hidden fixed top-0 left-0 w-full h-dvh overflow-y-auto bg-white -translate-y-full transition-transform duration-500">
-      <div class="p-7 flex flex-col items-end gap-2">
+    <div id="mobile-menu" class="lg:hidden fixed top-0 left-0 w-full h-dvh bg-white -translate-y-full transition-transform duration-500">
+      <div class="p-7 flex flex-col items-end gap-2 h-full">
         <button id="close-mobile-button" class="p-1.5 rounded-lg bg-surface-100 text-brand-100 active:bg-brand-200 active:text-white" aria-label="Close menu">
           <svg class="size-7" fill="none"><use href="#arrow-up"/></svg>
         </button>
 
-        <ul id="mobile-nav" class="w-full accordion-container">
-          <?php foreach ($navigationMenu as $index => $item): ?>
-            <li class="border-b border-surface-300 last:border-b-0 <?= $item['hasSubmenu'] ? 'relative' : '' ?>">
-              <?php if(isset($item['url'])): ?>
-                <a href="<?= $item['url'] ?>" class="flex items-center py-3 px-2 text-xl text-grey-100 active:text-brand-100 transition-colors">
-                  <?= $item['label'] ?>
-                </a>
-              <?php else: ?>
-                <span data-target="acc-content-<?= $index ?>" class="acc-trigger group flex items-center justify-between px-2 py-3 text-xl [&.open]:text-brand-100 transition-colors">
-                  <?= $item['label'] ?>
-                  <svg class="size-6 group-[.open]:rotate-180 transition-transform"><use href="#chevron-down"/></svg>
-                </span>
-                <div id="acc-content-<?= $index ?>" class="grid grid-rows-[0fr] [&.open]:grid-rows-[1fr] transition-grid-rows duration-500">
-                  <ul class="bg-surface-100/70 flex flex-col overflow-hidden">
-                    <?php foreach($item['submenu'] as $sub): ?>
-                      <li class="<?= $item['isMegamenu'] ? 'px-4 pt-4 pb-1.5 border-b border-surface-300/40 last:border-b-0' : 'first:pt-1.5 last:pb-1.5' ?>">
-                        <?php if($item['isMegamenu']): ?>
-                          <h3 class="text-xl font-bold mb-1 text-secondary-100"><?= $sub['name'] ?></h3>
-                          <ul class="flex flex-col">
-                            <?php foreach($sub['list'] as $subItem): ?>
-                              <a href="<?= $subItem['url'] ?>" class="py-2.5 text-grey-100/70 text-xl active:text-brand-100 transition-colors"><?= $subItem['label'] ?></a>
-                            <?php endforeach; ?>
-                          </ul>
-                        <?php else: ?>
-                          <a href="<?= serviceRoute($sub['meta']['slug'], $currentLang) ?>" class="block py-2.5 px-4 text-grey-100/70 text-xl rounded hover:bg-surface-100/80 hover:text-brand-100 transition-colors">
-                            <?= $sub['meta']['meta_title'] ?>
-                          </a>
-                        <?php endif; ?>
-                      </li>
-                    <?php endforeach; ?>
-                  </ul>
-                </div>
-              <?php endif; ?>
-            </li>
-          <?php endforeach; ?>
+        <div class="overflow-y-auto">
 
-        </ul>
+          <ul id="mobile-nav" class="w-full accordion-container">
+            <?php foreach ($navigationMenu as $index => $item): ?>
+              <li class="border-b border-surface-300 last:border-b-0 <?= $item['hasSubmenu'] ? 'relative' : '' ?>">
+                <?php if(isset($item['url'])): ?>
+                  <a href="<?= $item['url'] ?>" class="flex items-center py-3 px-2 text-xl text-grey-100 active:text-brand-100 transition-colors">
+                    <?= $item['label'] ?>
+                  </a>
+                <?php else: ?>
+                  <span data-target="acc-content-<?= $index ?>" class="acc-trigger group/item flex items-center justify-between px-2 py-3 text-xl [&.open]:text-brand-200 transition-colors">
+                    <?= $item['label'] ?>
+                    <svg class="size-6 group-[.open]/item:rotate-180 transition-transform"><use href="#chevron-down"/></svg>
+                  </span>
+                  <div id="acc-content-<?= $index ?>" class="grid grid-rows-[0fr] [&.open]:grid-rows-[1fr] transition-grid-rows duration-500">
+                    <ul class="bg-surface-100/70 flex flex-col overflow-hidden">
+                      <?php foreach($item['submenu'] as $inner => $sub): ?>
+                        <li class="<?= $item['isMegamenu'] ? 'px-4 pt-4 pb-1.5 border-b border-surface-300/40 last:border-b-0' : 'first:pt-1.5 last:pb-1.5' ?>">
+                          <?php if($item['isMegamenu']): ?>
+                            <h3 data-target="acc-subcontent-<?= $inner ?>" class="acc-trigger group/subitem text-xl font-bold mb-1 text-secondary-100 flex items-center justify-between [&.open]:text-brand-200 transition-colors">
+                              <?= $sub['name'] ?>
+                              <svg class="size-6 inline-block ml-1 group-[.open]/subitem:rotate-180 transition-transform"><use href="#chevron-down"/></svg>
+                            </h3>
+                            <div id="acc-subcontent-<?= $inner ?>" class="grid grid-rows-[0fr] [&.open]:grid-rows-[1fr] transition-grid-rows duration-500">
+                              <ul class="flex flex-col overflow-hidden">
+                                <?php foreach($sub['list'] as $subItem): ?>
+                                  <a href="<?= $subItem['url'] ?>" class="py-2.5 text-grey-100/70 text-xl active:text-brand-100 transition-colors"><?= $subItem['label'] ?></a>
+                                <?php endforeach; ?>
+                              </ul>
+                            </div>
+                          <?php else: ?>
+                            <a href="<?= serviceRoute($sub['meta']['slug'], $currentLang) ?>" class="block py-2.5 px-4 text-grey-100/70 text-xl rounded hover:bg-surface-100/80 hover:text-brand-100 transition-colors">
+                              <?= $sub['meta']['meta_title'] ?>
+                            </a>
+                          <?php endif; ?>
+                        </li>
+                      <?php endforeach; ?>
+                    </ul>
+                  </div>
+                <?php endif; ?>
+              </li>
+            <?php endforeach; ?>
 
-        <a href="<?= $constants['shop_link_category'] ?>?ref=<?= $GLOBALS['user_replica'] ?>" target="_blank" rel="noopener noreferrer" class="button w-full rounded-lg font-bold">
-          <?= $trans('common.subscribe') ?>
-        </a>
-        <?php if(false): ?>
-          <a href="<?= $constants['login_link'] ?>" target="_blank" rel="noopener noreferrer" class="button w-full rounded-lg font-bold bg-secondary-100 hover:bg-secondary-200 text-white">
-            <?= $trans('common.login') ?>
+          </ul>
+
+          <a href="<?= $constants['shop_link_category'] ?>?ref=<?= $GLOBALS['user_replica'] ?>" target="_blank" rel="noopener noreferrer" class="button w-full rounded-lg font-bold">
+            <?= $trans('common.subscribe') ?>
           </a>
-          <a href="<?= $constants['bo_link'] ?>register/<?= $GLOBALS['user_replica'] ?>" target="_blank" rel="noopener noreferrer" class="button w-full rounded-lg font-bold">
-            <?= $trans('common.register') ?>
-          </a>
-        <?php endif; ?>
+          <?php if(false): ?>
+            <a href="<?= $constants['login_link'] ?>" target="_blank" rel="noopener noreferrer" class="button w-full rounded-lg font-bold bg-secondary-100 hover:bg-secondary-200 text-white">
+              <?= $trans('common.login') ?>
+            </a>
+            <a href="<?= $constants['bo_link'] ?>register/<?= $GLOBALS['user_replica'] ?>" target="_blank" rel="noopener noreferrer" class="button w-full rounded-lg font-bold">
+              <?= $trans('common.register') ?>
+            </a>
+          <?php endif; ?>
+        </div>
       </div>
     </div>
   </nav>
