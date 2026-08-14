@@ -98,7 +98,7 @@
 </head>
 
 <body class="text-grey-100 antialiased overflow-x-hidden">
-<header class="bg-white border-b border-surface-300 w-full fixed top-0 left-0 z-50">
+<header id="main-header" class="bg-white border-b border-surface-300 w-full fixed top-0 left-0 z-50">
   <nav class="w-full">
     <div class="flex justify-between items-center lg:items-stretch gap-4 lg:gap-1 xl:gap-2 w-full px-7">
       <div class="flex items-center lg:shrink-0 border-r border-surface-300 gap-2 lg:gap-4 pr-4">

@@ -1,17 +1,30 @@
+const mainHeader = document.getElementById("main-header");
 const mobileMenuButton = document.getElementById("mobile-menu-button");
 const mobileCloseMenuButton = document.getElementById("close-mobile-button");
 const mobileMenu = document.getElementById("mobile-menu");
 const mobileNavMenu = document.getElementById("mobile-nav");
 
-if (mobileMenuButton && mobileCloseMenuButton && mobileMenu && mobileNavMenu) {
+if (
+  mainHeader &&
+  mobileMenuButton &&
+  mobileCloseMenuButton &&
+  mobileMenu &&
+  mobileNavMenu
+) {
   mobileMenuButton.addEventListener("click", () => {
     mobileMenu.classList.remove("-translate-y-full");
     document.body.classList.add("overflow-y-hidden");
+    mainHeader.classList.remove("z-50");
+    mainHeader.classList.add("z-100000000");
   });
 
   mobileCloseMenuButton.addEventListener("click", () => {
     mobileMenu.classList.add("-translate-y-full");
     document.body.classList.remove("overflow-y-hidden");
+    setTimeout(() => {
+      mainHeader.classList.remove("z-100000000");
+      mainHeader.classList.add("z-50");
+    }, 400);
   });
 
   mobileNavMenu.addEventListener("click", (event) => {
@@ -463,20 +476,22 @@ const persistExitIntentFirstTouchTracking = () => {
   const storedTracking = readExitIntentTracking();
   let hasChanges = false;
 
-  Object.entries(exitIntentTrackingParamAliases).forEach(([fieldName, queryParams]) => {
-    if (storedTracking[fieldName]) {
-      return;
-    }
+  Object.entries(exitIntentTrackingParamAliases).forEach(
+    ([fieldName, queryParams]) => {
+      if (storedTracking[fieldName]) {
+        return;
+      }
 
-    const currentValue = queryParams
-      .map((queryParam) => params.get(queryParam)?.trim() || "")
-      .find((value) => value !== "");
+      const currentValue = queryParams
+        .map((queryParam) => params.get(queryParam)?.trim() || "")
+        .find((value) => value !== "");
 
-    if (currentValue) {
-      storedTracking[fieldName] = currentValue;
-      hasChanges = true;
-    }
-  });
+      if (currentValue) {
+        storedTracking[fieldName] = currentValue;
+        hasChanges = true;
+      }
+    },
+  );
 
   if (hasChanges) {
     writeExitIntentTracking(storedTracking);
@@ -747,7 +762,9 @@ if (exitIntentForm) {
     event.preventDefault();
 
     const submitButton = document.getElementById("exit-intent-submit-btn");
-    const successMessage = document.getElementById("exit-intent-success-message");
+    const successMessage = document.getElementById(
+      "exit-intent-success-message",
+    );
     const errorMessage = document.getElementById("exit-intent-error-message");
     const errorText = document.getElementById("exit-intent-error-text");
     const language = exitIntentForm.dataset.language || "es";
@@ -755,8 +772,7 @@ if (exitIntentForm) {
     const submitUrl = exitIntentForm.dataset.submitUrl || "/exit-intent-submit";
     const defaultSubmitText =
       language === "en" ? "Get information" : "Obtener informacion";
-    const submittingText =
-      language === "en" ? "Sending..." : "Enviando...";
+    const submittingText = language === "en" ? "Sending..." : "Enviando...";
 
     successMessage?.classList.add("hidden");
     errorMessage?.classList.add("hidden");
@@ -801,7 +817,10 @@ if (exitIntentForm) {
         exitIntentForm.reset();
 
         window.setTimeout(() => {
-          if (exitIntentPopup instanceof HTMLDialogElement && exitIntentPopup.open) {
+          if (
+            exitIntentPopup instanceof HTMLDialogElement &&
+            exitIntentPopup.open
+          ) {
             exitIntentPopup.close();
           }
         }, 1600);
@@ -811,7 +830,9 @@ if (exitIntentForm) {
 
       if (result.errors) {
         Object.keys(result.errors).forEach((field) => {
-          const errorElement = document.getElementById(`exit-intent-error-${field}`);
+          const errorElement = document.getElementById(
+            `exit-intent-error-${field}`,
+          );
           if (errorElement) {
             errorElement.textContent = result.errors[field];
             errorElement.classList.remove("hidden");
