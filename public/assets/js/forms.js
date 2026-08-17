@@ -1,3 +1,5 @@
+import { loadRecaptcha } from "./recaptcha.js";
+
 // Contact form handling
 const contactForm = document.getElementById("contact-form");
 
@@ -24,7 +26,8 @@ if (contactForm && typeof window.contactConfig !== "undefined") {
 
     try {
       // Get reCAPTCHA token
-      const token = await grecaptcha.execute(
+      const recaptcha = await loadRecaptcha(window.contactConfig.recaptchaSiteKey);
+      const token = await recaptcha.execute(
         window.contactConfig.recaptchaSiteKey,
         { action: "contact" }
       );
@@ -53,7 +56,9 @@ if (contactForm && typeof window.contactConfig !== "undefined") {
         if (result.errors) {
           // Field-specific errors
           Object.keys(result.errors).forEach((field) => {
-            const errorEl = document.getElementById(`error-${field}`);
+            const errorEl = document.getElementById(
+              field === "message" ? "error-message-field" : `error-${field}`,
+            );
             if (errorEl) {
               errorEl.textContent = result.errors[field];
               errorEl.classList.remove("hidden");

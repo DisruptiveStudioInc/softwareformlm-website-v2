@@ -9,9 +9,9 @@
         <?= $item['label'] ?>
       </a>
     <?php else: ?>
-      <span class="flex items-center h-full px-3 text-sm xl:text-base group-hover/submenu:text-brand-100 transition-colors">
+      <button type="button" aria-expanded="false" class="flex items-center h-full px-3 text-sm xl:text-base group-hover/submenu:text-brand-100 transition-colors">
         <?= $item['label'] ?>
-      </span>
+      </button>
       <ul class="absolute top-full bg-white border border-surface-300 pointer-events-none opacity-0 group-hover/submenu:opacity-100 group-hover/submenu:pointer-events-auto left-1/2 -translate-x-1/2 transition-opacity <?= $item['isMegamenu'] ? 'grid grid-cols-4 gap-x-2 gap-y-0 2xl:gap-4 w-full max-w-max p-5 rounded-2xl' : 'flex flex-col p-2 min-w-56 rounded-lg' ?>">
         <?php
           foreach($item['submenu'] as $sub):
@@ -21,7 +21,7 @@
             <h3 class="text-base 2xl:text-2xl font-bold mb-1 2xl:mb-2 text-secondary-100 group-hover/category:text-secondary-100 transition-colors"><?= $sub['name'] ?></h3>
             <ul class="flex flex-col gap-0.5 2xl:gap-2 pl-2 2xl:pl-4">
               <?php foreach($sub['list'] as $subItem): ?>
-                <a href="<?= $subItem['url'] ?>" class="transition-colors group-hover/category:text-secondary-100/80 hover:text-secondary-200 text-sm 2xl:text-base"><?= $subItem['label'] ?></a>
+                <li><a href="<?= $subItem['url'] ?>" class="transition-colors group-hover/category:text-secondary-100/80 hover:text-secondary-200 text-sm 2xl:text-base"><?= $subItem['label'] ?></a></li>
               <?php endforeach; ?>
             </ul>
           </li>

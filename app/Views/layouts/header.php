@@ -50,39 +50,17 @@
   </script>
 
   <!-- CSS -->
-  <?php if (!empty($includeSwiper) || !empty($includeAnimations)): ?>
+  <?php if (!empty($includeAnimations)): ?>
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <?php endif; ?>
   <?php if (!empty($includeTracking)): ?>
     <link rel="preconnect" href="https://www.googletagmanager.com">
   <?php endif; ?>
 
-  <?php if (!empty($includeSwiper)): ?>
-    <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
-        media="print"
-        onload="this.media='all'; this.onload=null;">
-
-    <noscript>
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
-    </noscript>
-  <?php endif; ?>
-
   <link rel="stylesheet" href="<?= asset_url('/public/assets/css/styles.css') ?>">
-
-  <?php if (!empty($hasTextTexture)): ?>
-    <link rel="preload" as="image" href="/public/images/background/light-grad.webp" fetchpriority="high">
-  <?php endif; ?>
-
-  <?php if (!empty($includeRecaptcha) || (($includeExitIntentPopup ?? true) === true)): ?>
-    <!-- reCAPTCHA v3 -->
-    <script src="https://www.google.com/recaptcha/api.js?render=<?= $config['recaptcha']['site_key'] ?>"></script>
-  <?php endif; ?>
+  <link rel="stylesheet" href="<?= asset_url('/public/assets/css/performance.css') ?>">
 
   <script type="module" src="<?= asset_url('/public/assets/js/base.js') ?>"></script>
-  <?php if (!empty($includeSwiper)): ?>
-    <script type="module" src="<?= asset_url('/public/assets/js/home-sliders.js') ?>"></script>
-  <?php endif; ?>
   <?php if (!empty($includeAnimations)): ?>
     <script type="module" src="<?= asset_url('/public/assets/js/home-animations.js') ?>"></script>
   <?php endif; ?>
@@ -103,8 +81,8 @@
     <div class="flex justify-between items-center lg:items-stretch gap-4 lg:gap-1 xl:gap-2 w-full px-7">
       <div class="flex items-center lg:shrink-0 border-r border-surface-300 gap-2 lg:gap-4 pr-4">
         <!-- Logo -->
-        <a href="<?= route('home', $currentLang, $config['languages']['default']) ?>" class="text-2xl font-bold text-gray-800">
-          <svg width="100" height="100" class="h-8 lg:h-10 w-auto"><use href="#disruptive-favicon"/></svg>
+        <a href="<?= route('home', $currentLang, $config['languages']['default']) ?>" class="text-2xl font-bold text-gray-800" aria-label="<?= htmlspecialchars($trans('nav.home')) ?>">
+          <svg width="100" height="100" class="h-8 lg:h-10 w-auto"><use href="/public/assets/icons.svg.php#disruptive-favicon"/></svg>
         </a>
 
         <!-- Language switcher -->
@@ -114,14 +92,14 @@
         include(__DIR__.'/../components/langSwitcherIcon.php');
         ?>
 
-        <a href="https://wa.me/<?= $constants['contact_info']['wame'] ?>?text=<?= $trans('common.wame_message') ?>" target="_blank" rel="noopener noreferrer" class="flex-center p-1.5 rounded-full bg-green-400 hover:bg-green-700 active:bg-green-700 transition-colors">
-          <svg class="size-7 text-white"><use href="#whatsapp"/></svg>
+        <a href="https://wa.me/<?= $constants['contact_info']['wame'] ?>?text=<?= $trans('common.wame_message') ?>" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="flex-center p-1.5 rounded-full bg-green-400 hover:bg-green-700 active:bg-green-700 transition-colors">
+          <svg class="size-7 text-white"><use href="/public/assets/icons.svg.php#whatsapp"/></svg>
         </a>
       </div>
 
       <!-- Mobile menu button -->
       <button id="mobile-menu-button" class="lg:hidden p-1.5 rounded-lg bg-brand-100 text-white active:bg-brand-200" aria-label="Open menu">
-        <svg class="size-7" fill="none"><use href="#bars-menu"/></svg>
+        <svg class="size-7" fill="none"><use href="/public/assets/icons.svg.php#bars-menu"/></svg>
       </button>
 
       <!-- Desktop Navigation -->
@@ -144,7 +122,7 @@
     <div id="mobile-menu" class="lg:hidden fixed top-0 left-0 w-full h-dvh bg-white -translate-y-full transition-transform duration-500">
       <div class="p-7 flex flex-col items-end gap-2 h-full">
         <button id="close-mobile-button" class="p-1.5 rounded-lg bg-surface-100 text-brand-100 active:bg-brand-200 active:text-white" aria-label="Close menu">
-          <svg class="size-7" fill="none"><use href="#arrow-up"/></svg>
+          <svg class="size-7" fill="none"><use href="/public/assets/icons.svg.php#arrow-up"/></svg>
         </button>
 
         <div class="overflow-y-auto">
@@ -157,23 +135,23 @@
                     <?= $item['label'] ?>
                   </a>
                 <?php else: ?>
-                  <span data-target="acc-content-<?= $index ?>" class="acc-trigger group/item flex items-center justify-between px-2 py-3 text-xl [&.open]:text-brand-200 transition-colors">
+                  <button type="button" data-target="acc-content-<?= $index ?>" aria-controls="acc-content-<?= $index ?>" aria-expanded="false" class="acc-trigger group/item flex w-full items-center justify-between px-2 py-3 text-left text-xl [&.open]:text-brand-200 transition-colors">
                     <?= $item['label'] ?>
-                    <svg class="size-6 group-[.open]/item:rotate-180 transition-transform"><use href="#chevron-down"/></svg>
-                  </span>
+                    <svg class="size-6 group-[.open]/item:rotate-180 transition-transform"><use href="/public/assets/icons.svg.php#chevron-down"/></svg>
+                  </button>
                   <div id="acc-content-<?= $index ?>" class="grid grid-rows-[0fr] [&.open]:grid-rows-[1fr] transition-grid-rows duration-500">
                     <ul class="bg-surface-100/70 flex flex-col overflow-hidden">
                       <?php foreach($item['submenu'] as $inner => $sub): ?>
                         <li class="<?= $item['isMegamenu'] ? 'px-4 pt-4 pb-1.5 border-b border-surface-300/40 last:border-b-0' : 'first:pt-1.5 last:pb-1.5' ?>">
                           <?php if($item['isMegamenu']): ?>
-                            <h3 data-target="acc-subcontent-<?= $inner ?>" class="acc-trigger group/subitem text-xl font-bold mb-1 text-secondary-100 flex items-center justify-between [&.open]:text-brand-200 transition-colors">
+                            <button type="button" data-target="acc-subcontent-<?= $inner ?>" aria-controls="acc-subcontent-<?= $inner ?>" aria-expanded="false" class="acc-trigger group/subitem w-full text-xl font-bold mb-1 text-secondary-100 flex items-center justify-between [&.open]:text-brand-200 transition-colors">
                               <?= $sub['name'] ?>
-                              <svg class="size-6 inline-block ml-1 group-[.open]/subitem:rotate-180 transition-transform"><use href="#chevron-down"/></svg>
-                            </h3>
+                              <svg class="size-6 inline-block ml-1 group-[.open]/subitem:rotate-180 transition-transform"><use href="/public/assets/icons.svg.php#chevron-down"/></svg>
+                            </button>
                             <div id="acc-subcontent-<?= $inner ?>" class="grid grid-rows-[0fr] [&.open]:grid-rows-[1fr] transition-grid-rows duration-500">
                               <ul class="flex flex-col overflow-hidden">
                                 <?php foreach($sub['list'] as $subItem): ?>
-                                  <a href="<?= $subItem['url'] ?>" class="py-2.5 text-grey-100/70 text-xl active:text-brand-100 transition-colors"><?= $subItem['label'] ?></a>
+                                  <li><a href="<?= $subItem['url'] ?>" class="block py-2.5 text-grey-100/70 text-xl active:text-brand-100 transition-colors"><?= $subItem['label'] ?></a></li>
                                 <?php endforeach; ?>
                               </ul>
                             </div>

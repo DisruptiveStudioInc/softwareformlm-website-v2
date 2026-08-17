@@ -1,3 +1,5 @@
+import { loadRecaptcha } from "./recaptcha.js";
+
 const mainHeader = document.getElementById("main-header");
 const mobileMenuButton = document.getElementById("mobile-menu-button");
 const mobileCloseMenuButton = document.getElementById("close-mobile-button");
@@ -287,6 +289,10 @@ if (accordionContainers.length > 0) {
 
       content.classList.toggle("open");
       trigger.classList.toggle("open");
+      trigger.setAttribute(
+        "aria-expanded",
+        trigger.classList.contains("open") ? "true" : "false",
+      );
     });
   });
 }
@@ -786,13 +792,12 @@ if (exitIntentForm) {
     }
 
     try {
-      if (typeof window.grecaptcha === "undefined" || recaptchaSiteKey === "") {
-        throw new Error("reCAPTCHA is not available");
-      }
+      if (recaptchaSiteKey === "") throw new Error("reCAPTCHA is not configured");
 
       applyExitIntentTrackingToForm(persistExitIntentFirstTouchTracking());
 
-      const token = await grecaptcha.execute(recaptchaSiteKey, {
+      const recaptcha = await loadRecaptcha(recaptchaSiteKey);
+      const token = await recaptcha.execute(recaptchaSiteKey, {
         action: "exit_intent",
       });
 

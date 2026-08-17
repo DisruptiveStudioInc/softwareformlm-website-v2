@@ -155,7 +155,7 @@
     from {
       background-position: 0% var(--bg-y, 50%);
     }
-    from {
+    to {
       background-position: 100% var(--bg-y, 50%);
     }
   }
@@ -181,12 +181,10 @@
     0% {
       transform: translate(-50%, -50%) scale3d(0.9, 0.9, 1);
       opacity: 0.85;
-      filter: blur(16px);
     }
     100% {
       transform: translate(-50%, -50%) scale3d(1.1, 0.85, 1);
       opacity: 1;
-      filter: blur(12px);
     }
   }
 }
@@ -369,6 +367,7 @@
     opacity: 0.85;
     transform: translate(-50%, -50%) scale3d(0.9, 0.9, 1);
     animation: pulseGlow 2s linear infinite alternate-reverse;
+    will-change: transform, opacity;
     transition-property: opacity, background-color;
     transition-timing-function: var(--default-transition-timing-function);
     transition-duration: var(--default-transition-duration);
@@ -392,31 +391,87 @@
       translateY(calc((var(--radius, 300px) + var(--r-alt, 0px)) * -1))
       rotate(calc(-360deg / var(--total, 6) * (var(--i) - 1)));
   }
-  .linear-swiper .swiper-wrapper {
-    transition-timing-function: linear !important;
+  .client-marquee {
+    overflow: hidden;
+    width: 100%;
+    pointer-events: none;
   }
+  .client-marquee-track {
+    display: flex;
+    width: max-content;
+    gap: 1.25rem;
+    align-items: center;
+    animation: clientMarquee 70s linear infinite;
+    will-change: transform;
+  }
+  .client-marquee-reverse .client-marquee-track { animation-direction: reverse; }
+  .client-marquee li { width: clamp(5rem, 10vw, 9rem); flex: 0 0 auto; }
+  .client-marquee img { width: 100%; height: auto; }
+  @keyframes clientMarquee { to { transform: translate3d(-50%, 0, 0); } }
   .bg-text-white {
     --bg-y: 50%;
     background-image: url(../../images/background/light-grad.webp);
-    background-size: "1440px";
-    background-repeat: none;
+    background-size: 1440px;
+    background-repeat: no-repeat;
     background-position: 0% var(--bg-y);
     color: rgba(255, 255, 255, 0.1);
-    animation: var(--animate-textbg);
+    animation: moveTextBg 4s linear infinite;
   }
   .bg-text-black {
     --bg-y: 60%;
     background-image: url(../../images/background/dark-text.webp);
-    background-size: "1440px";
-    background-repeat: none;
+    background-size: 1440px;
+    background-repeat: no-repeat;
     background-position: 0% var(--bg-y);
     color: rgba(0, 0, 0, 0);
-    animation: var(--animate-textbg);
+    animation: moveTextBg 4s linear infinite;
   }
   .serv-dot {
     background-color: var(--color-white);
     border-radius: calc(infinity * 1px);
     cursor: pointer;
+  }
+  .native-card-scroller,
+  .native-process-scroller {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  .native-card-scroller::-webkit-scrollbar,
+  .native-process-scroller::-webkit-scrollbar { display: none; }
+  .native-card-track,
+  .native-process-track {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+  }
+  .native-card-track > article,
+  .native-process-track > article {
+    flex: 0 0 100%;
+    scroll-snap-align: center;
+  }
+  .service-slider {
+    height: 100dvh;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    scrollbar-width: none;
+  }
+  .service-slider::-webkit-scrollbar { display: none; }
+  .service-slider-track { min-height: 100%; }
+  .service-slider [data-service-slide] {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+  @media (width >= 68rem) {
+    .service-slider { overflow: hidden; scroll-snap-type: none; }
+    .service-slider-track {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 500ms ease;
+      will-change: transform;
+    }
+    .service-slider [data-service-slide] { flex: 0 0 100%; }
   }
   .slide-ff {
     opacity: 0.2;
@@ -575,4 +630,16 @@
 .before\:rom-result::before {
   content: " (" counter(rom, lower-roman) ") ";
   font-weight: 700;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+  .bg-text-white, .bg-text-black {
+    animation: none !important;
+  }
 }

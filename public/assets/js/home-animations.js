@@ -73,18 +73,8 @@ function loadScript(src) {
 }
 
 async function loadAnimationDependencies() {
-  const needsSplitText = document.querySelector(
-    ".slide-up-words, .slide-up-words-black, .slide-up-words-white, .slide-up-words-white-scroll",
-  );
-
   await loadScript("https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js");
   await loadScript(
     "https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js",
   );
-
-  if (isDesktop && !prefersReducedMotion && needsSplitText) {
-    await loadScript(
-      "https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js",
-    );
-  }
 }

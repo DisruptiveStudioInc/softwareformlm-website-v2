@@ -74,14 +74,10 @@ $routeLoader($router);
 // Dispatch request and send response
 try {
   $response = $router->dispatch($request);
-  // ---------------------------------------------------------
-  // ### FIX LCP: HTTP Header Preload (Turbo Boost)
-  // Esto le grita al navegador que descargue la imagen YA,
-  // incluso antes de procesar el HTML.
-  // ---------------------------------------------------------
+  // Preload only the actual homepage LCP candidate, not decorative backgrounds.
   $requestPath = parse_url($request->getUri(), PHP_URL_PATH) ?? '/';
   if (preg_match('#^/(?:[a-z]{2})?$#', $requestPath) === 1) {
-    $lcpImage = '/public/images/background/black-01.webp';
+    $lcpImage = '/public/images/home/bo-computer.webp';
     header("Link: <$lcpImage>; rel=preload; as=image; fetchpriority=high");
   }
 

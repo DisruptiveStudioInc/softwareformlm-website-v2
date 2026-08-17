@@ -191,42 +191,39 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
   <div class="text-center px-7 pb-20">
     <h2 class="font-title leading-tight uppercase text-2xl sm:text-4xl lg:text-6xl xl:text-7xl bg-clip-text bg-text-black slide-up-words-black"><?= $trans('home.clients') ?></h2>
   </div>
-  <ul id="clients1-swiper" class="clients-odd-swiper swiper !overflow-visible w-full linear-swiper mask-x-from-85% mask-x-to-95% pointer-events-none">
-    <div class="swiper-wrapper">
+  <div class="client-marquee mask-x-from-85% mask-x-to-95%" aria-label="<?= htmlspecialchars($trans('home.clients')) ?>">
+    <ul class="client-marquee-track">
       <?php foreach($clients1 as $slide): ?>
-        <li class="swiper-slide">
+        <li>
           <img src="/public/images/clients/<?= $slide['logo'] ?>" alt="<?= $slide['name'] ?>" loading="lazy">
         </li>
       <?php endforeach; ?>
-    </div>
-  </ul>
-  <ul id="clients2-swiper" class="clients-even-swiper swiper !overflow-visible w-full linear-swiper mask-x-from-85% mask-x-to-95% pointer-events-none">
-    <div class="swiper-wrapper">
+    </ul>
+  </div>
+  <div class="client-marquee client-marquee-reverse mask-x-from-85% mask-x-to-95%" aria-hidden="true">
+    <ul class="client-marquee-track">
       <?php foreach($clients2 as $slide): ?>
-        <li class="swiper-slide">
-          <img src="/public/images/clients/<?= $slide['logo'] ?>" alt="<?= $slide['name'] ?>" loading="lazy">
+        <li><img src="/public/images/clients/<?= $slide['logo'] ?>" alt="" loading="lazy">
         </li>
       <?php endforeach; ?>
-    </div>
-  </ul>
-  <ul id="clients3-swiper" class="clients-odd-swiper swiper !overflow-visible w-full linear-swiper mask-x-from-85% mask-x-to-95% pointer-events-none">
-    <div class="swiper-wrapper">
+    </ul>
+  </div>
+  <div class="client-marquee mask-x-from-85% mask-x-to-95%" aria-hidden="true">
+    <ul class="client-marquee-track">
       <?php foreach($clients3 as $slide): ?>
-        <li class="swiper-slide">
-          <img src="/public/images/clients/<?= $slide['logo'] ?>" alt="<?= $slide['name'] ?>" loading="lazy">
+        <li><img src="/public/images/clients/<?= $slide['logo'] ?>" alt="" loading="lazy">
         </li>
       <?php endforeach; ?>
-    </div>
-  </ul>
-  <ul id="clients4-swiper" class="clients-even-swiper swiper !overflow-visible w-full linear-swiper mask-x-from-85% mask-x-to-95% pointer-events-none">
-    <div class="swiper-wrapper">
+    </ul>
+  </div>
+  <div class="client-marquee client-marquee-reverse mask-x-from-85% mask-x-to-95%" aria-hidden="true">
+    <ul class="client-marquee-track">
       <?php foreach($clients4 as $slide): ?>
-        <li class="swiper-slide">
-          <img src="/public/images/clients/<?= $slide['logo'] ?>" alt="<?= $slide['name'] ?>" loading="lazy">
+        <li><img src="/public/images/clients/<?= $slide['logo'] ?>" alt="" loading="lazy">
         </li>
       <?php endforeach; ?>
-    </div>
-  </ul>
+    </ul>
+  </div>
 </section>
 
 <!-- Pricing -->
@@ -241,8 +238,8 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
           $recommended = (isset($item['recommended']) && $item['recommended']);
       ?>
         <article class="<?= $recommended ? 'recommended bg-secondary-200 text-white' : 'bg-white text-secondary-200' ?> relative rounded-lg px-4 pb-4 pt-6 lg:p-6 flex flex-col lg:max-h-[70vh]">
-            <button type="button" class="open-popup absolute top-2 right-2 <?= $recommended ? 'text-surface-300' : 'text-secondary-50/70' ?> hover:text-brand-100 rounded-full cursor-pointer p-1 transition-colors" data-target="product-popup-<?= strtolower($item['title']) ?>">
-              <svg class="size-6 transition-colors"><use href="#info-flat"/></svg>
+            <button type="button" aria-label="More information about <?= htmlspecialchars($item['title']) ?>" class="open-popup absolute top-2 right-2 <?= $recommended ? 'text-surface-300' : 'text-secondary-50/70' ?> hover:text-brand-100 rounded-full cursor-pointer p-1 transition-colors" data-target="product-popup-<?= strtolower($item['title']) ?>">
+              <svg class="size-6 transition-colors"><use href="/public/assets/icons.svg.php#info-flat"/></svg>
             </button>
           <?php if($recommended): ?>
             <div class="absolute w-full top-0 left-0 -translate-y-1/2 text-center pointer-events-none">
@@ -277,7 +274,7 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
                       }
                     ?>
                   </span>
-                  <svg class="shrink-0 size-6 text-green-400"><use href="#check-circle"/></svg>
+                  <svg class="shrink-0 size-6 text-green-400"><use href="/public/assets/icons.svg.php#check-circle"/></svg>
                 </li>
               <?php endforeach; ?>
             </ul>
@@ -307,19 +304,19 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
         </div>
       </div>
       <nav class="flex gap-2 justify-center slide-up lg:max-w-[48ch] mt-2">
-        <button class="subcategories-button-prev rounded-lg cursor-pointer text-gray-100 hover:bg-brand-100 hover:text-secondary-100 [&.swiper-button-disabled]:pointer-events-none [&.swiper-button-disabled]:opacity-30 p-2 transition-op-colors">
-          <svg class="size-10 transition-colors"><use href="#arrow-left"/></svg>
+        <button type="button" aria-label="<?= htmlspecialchars($trans('common.previous')) ?>" class="subcategories-button-prev rounded-lg cursor-pointer text-gray-100 hover:bg-brand-100 hover:text-secondary-100 disabled:pointer-events-none disabled:opacity-30 p-2 transition-op-colors">
+          <svg class="size-10 transition-colors"><use href="/public/assets/icons.svg.php#arrow-left"/></svg>
         </button>
-        <button class="subcategories-button-next rounded-lg cursor-pointer text-gray-100 hover:bg-brand-100 hover:text-secondary-100 [&.swiper-button-disabled]:pointer-events-none [&.swiper-button-disabled]:opacity-30 p-2 transition-op-colors">
-          <svg class="size-10 transition-colors"><use href="#arrow-right"/></svg>
+        <button type="button" aria-label="<?= htmlspecialchars($trans('common.next')) ?>" class="subcategories-button-next rounded-lg cursor-pointer text-gray-100 hover:bg-brand-100 hover:text-secondary-100 disabled:pointer-events-none disabled:opacity-30 p-2 transition-op-colors">
+          <svg class="size-10 transition-colors"><use href="/public/assets/icons.svg.php#arrow-right"/></svg>
         </button>
       </nav>
     </div>
     <div class="w-full lg:w-2/5 px-2 lg:pl-0 h-full max-w-lg lg:max-w-none flex items-end">
-      <div id="subcategories-swiper" data-swiper-autoplay="2000" class="swiper flex w-full items-center">
-        <div class="swiper-wrapper items-center">
+      <div id="subcategories-swiper" class="native-card-scroller flex w-full items-center" aria-label="<?= htmlspecialchars($trans('home.control.title')) ?>">
+        <div class="native-card-track items-center">
           <?php foreach($content['control_list'] as $slide): ?>
-            <article class="swiper-slide group h-fit !grid grid-rows-[repeat(2,auto)] grid-cols-1 gap-0">
+            <article data-native-slide class="swiper-slide group h-fit !grid grid-rows-[repeat(2,auto)] grid-cols-1 gap-0">
               <img class="rounded-2xl h-64 xl:h-80 w-full object-cover z-1 translate-y-32 xl:translate-y-40 opacity-0 group-[&.swiper-slide-active]:translate-y-0 group-[&.swiper-slide-active]:opacity-100 transition-op-trans" src="/public/images/home/<?= $slide['image'] ?>" alt="<?= $slide['title'] ?>" loading="lazy">
               <div class="relative flex flex-col rounded-2xl h-full p-6 xl:p-10 bg-secondary-200 group-[&.swiper-slide-active]:bg-brand-100 text-surface-100 group-[&.swiper-slide-active]:text-secondary-100 group-[&.swiper-slide-active]:rounded-t-none before:absolute before:-top-8 before:left-0 before:w-full before:h-12 before:bg-brand-100 before:-z-1 before:opacity-0 group-[&.swiper-slide-active]:before:opacity-100 before:transition-opacity -translate-y-32 xl:-translate-y-40 group-[&.swiper-slide-active]:translate-y-0 transition-trans-colors duration-300">
                 <h3 class="font-title leading-tight uppercase text-xl sm:text-3xl lg:text-4xl lg:es:text-3xl xl:es:text-5xl mb-4 text-balance"><?= $slide['title'] ?></h3>
@@ -379,8 +376,8 @@ if (!empty($includeDemoEmbed)) {
 <!-- Popup -->
 <dialog id="demo-popup" class="popup bg-transparent m-auto w-full max-w-2xl px-7">
   <div class="relative w-full rounded-xl lg:rounded-2xl max-h-[90vh] overflow-x-hidden overflow-y-auto" style="background-color:#12173800">
-    <button type="button" data-target="demo-popup" class="close-popup absolute top-2 right-2 text-gray-100 bg-surface-200 hover:bg-brand-100 hover:text-secondary-100 rounded-lg cursor-pointer p-1 transition-colors">
-      <svg class="size-6 transition-colors"><use href="#xmark"/></svg>
+    <button type="button" data-target="demo-popup" aria-label="Close dialog" class="close-popup absolute top-2 right-2 text-gray-100 bg-surface-200 hover:bg-brand-100 hover:text-secondary-100 rounded-lg cursor-pointer p-1 transition-colors">
+      <svg class="size-6 transition-colors"><use href="/public/assets/icons.svg.php#xmark"/></svg>
     </button>
     <div
       class="min-h-[70vh] rounded-xl lg:rounded-2xl bg-white overflow-hidden"
@@ -401,8 +398,8 @@ if (!empty($includeDemoEmbed)) {
 <?php foreach($content['plans'] as $k => $product): ?>
   <dialog id="product-popup-<?= strtolower($product['title']) ?>" class="popup bg-transparent m-auto w-full max-w-2xl px-7">
     <div class="relative w-full bg-white rounded-xl lg:rounded-2xl max-h-[90vh] overflow-x-hidden overflow-y-auto">
-      <button type="button" data-target="product-popup-<?= strtolower($product['title']) ?>" class="close-popup absolute top-2 right-2 text-gray-100 bg-surface-200 hover:bg-brand-100 hover:text-secondary-100 rounded-lg cursor-pointer p-1 transition-colors">
-        <svg class="size-6 transition-colors"><use href="#xmark"/></svg>
+      <button type="button" data-target="product-popup-<?= strtolower($product['title']) ?>" aria-label="Close dialog" class="close-popup absolute top-2 right-2 text-gray-100 bg-surface-200 hover:bg-brand-100 hover:text-secondary-100 rounded-lg cursor-pointer p-1 transition-colors">
+        <svg class="size-6 transition-colors"><use href="/public/assets/icons.svg.php#xmark"/></svg>
       </button>
       <div class="p-6 lg:p-10 text-secondary-200">
         <h3 class="font-title text-center text-2xl lg:text-4xl mb-4"><?= $product['title'] ?></h3>
@@ -415,7 +412,7 @@ if (!empty($includeDemoEmbed)) {
         <ul class="space-y-2 mb-6">
           <?php foreach(($product['modal']['features'] ?? []) as $feature): ?>
             <li class="flex gap-1.5 items-start">
-              <svg class="size-6 shrink-0 text-brand-200"><use href="#check-circle"/></svg>
+              <svg class="size-6 shrink-0 text-brand-200"><use href="/public/assets/icons.svg.php#check-circle"/></svg>
               <span><?= $feature ?></span>
             </li>
           <?php endforeach; ?>
@@ -425,7 +422,7 @@ if (!empty($includeDemoEmbed)) {
         <ul class="space-y-2 mb-6">
           <?php foreach(($product['modal']['ideal_for'] ?? []) as $idealItem): ?>
             <li class="flex gap-1.5 items-start">
-              <svg class="size-6 shrink-0 text-brand-200"><use href="#check-circle"/></svg>
+              <svg class="size-6 shrink-0 text-brand-200"><use href="/public/assets/icons.svg.php#check-circle"/></svg>
               <span><?= $idealItem ?></span>
             </li>
           <?php endforeach; ?>

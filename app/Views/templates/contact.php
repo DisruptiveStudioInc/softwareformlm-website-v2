@@ -21,12 +21,12 @@ require __DIR__ . '/../layouts/header.php';
         </h2>
 
         <!-- Success Message -->
-        <div id="success-message" class="hidden bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6">
+        <div id="success-message" role="status" aria-live="polite" class="hidden bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6">
           <?= $trans('contact.success') ?>
         </div>
 
         <!-- Error Message -->
-        <div id="error-message" class="hidden bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6">
+        <div id="error-message" role="alert" class="hidden bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6">
           <span id="error-text"></span>
         </div>
 
@@ -86,7 +86,7 @@ require __DIR__ . '/../layouts/header.php';
               required
               class="w-full px-4 py-3 border border-grey-100/40 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-100"
             ></textarea>
-            <span class="error-message text-red-700 text-sm hidden" id="error-message"></span>
+            <span class="error-message text-red-700 text-sm hidden" id="error-message-field"></span>
           </div>
 
           <!-- Submit Button -->

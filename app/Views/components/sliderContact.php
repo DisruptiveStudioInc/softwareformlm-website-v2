@@ -1,7 +1,7 @@
 <div class="w-full lg:w-1/2 h-112 lg:h-auto">
   <div class="relative rounded-lg lg:rounded-xl h-full bg-grey-100/10 overflow-hidden">
     <div class="absolute top-4 left-4 flex items-center gap-2 text-white font-bold text-xl leading-none z-2">
-      <svg class="size-7 rounded-full"><use href="#flag-mx"/></svg>
+      <svg class="size-7 rounded-full"><use href="/public/assets/icons.svg.php#flag-mx"/></svg>
       <span class="pt-1.5">MEX</span>
     </div>
 

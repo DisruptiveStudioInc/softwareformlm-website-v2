@@ -1,238 +1,66 @@
-const { gsap, ScrollTrigger, SplitText } = window;
+const { gsap, ScrollTrigger } = window;
 
 if (!gsap || !ScrollTrigger) {
   window.sfmlmAnimations = {};
 } else {
-  const prefersReducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)",
-  ).matches;
-  const isDesktop = window.matchMedia("(min-width: 1088px)").matches;
-  const canRunRevealAnimations = isDesktop && !prefersReducedMotion;
+  gsap.registerPlugin(ScrollTrigger);
+  const desktop = window.matchMedia('(min-width: 1088px)').matches;
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  if (SplitText) {
-    gsap.registerPlugin(ScrollTrigger, SplitText);
-  } else {
-    gsap.registerPlugin(ScrollTrigger);
-  }
+  if (desktop && !reducedMotion) {
+    const reveal = (selector, vars = {}) => {
+      const elements = gsap.utils.toArray(selector);
+      if (!elements.length) return;
+      gsap.set(elements, { willChange: 'transform,opacity' });
+      ScrollTrigger.batch(elements, {
+        start: 'top 82%',
+        once: true,
+        onEnter: (batch) => gsap.fromTo(batch,
+          { autoAlpha: 0, y: 28 },
+          { autoAlpha: 1, y: 0, duration: 0.55, ease: 'power2.out', stagger: 0.08, clearProps: 'willChange', ...vars },
+        ),
+      });
+    };
 
-  const playReverse = "play none none reverse";
+    reveal('.slide-up, .slide-up-delay, .slide-up-words, .slide-up-words-black, .slide-up-words-white, .slide-up-words-white-scroll');
 
-  const revealElements = (selector, getOptions = () => ({})) => {
-    if (!canRunRevealAnimations) {
-      return;
+    gsap.utils.toArray('.stagger-parent').forEach((container) => {
+      const elements = container.querySelectorAll('.slide-up-stagger, .opacity-stagger');
+      if (!elements.length) return;
+      gsap.set(elements, { willChange: 'transform,opacity' });
+      ScrollTrigger.create({
+        trigger: container,
+        start: 'top 82%',
+        once: true,
+        onEnter: () => gsap.fromTo(elements,
+          { autoAlpha: 0, y: 24 },
+          { autoAlpha: 1, y: 0, duration: 0.5, ease: 'power2.out', stagger: 0.1, clearProps: 'willChange' },
+        ),
+      });
+    });
+
+    const techSection = document.querySelector('.tech-section');
+    const techCards = gsap.utils.toArray('.tech-card');
+    if (techSection && techCards.length) {
+      gsap.set(techCards, { y: '70vh', autoAlpha: 0 });
+      const timeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: techSection,
+          start: 'top top',
+          end: `+=${techCards.length * 90}%`,
+          pin: true,
+          scrub: 1,
+          anticipatePin: true,
+        },
+      });
+      techCards.forEach((card, index) => {
+        const position = index * 0.8;
+        timeline.to(card, { autoAlpha: 1, duration: 0.12 }, position)
+          .to(card, { y: '-140vh', autoAlpha: 0, duration: 2.6, ease: 'none' }, position);
+      });
     }
 
-    gsap.utils.toArray(selector).forEach((element) => {
-      gsap.from(element, {
-        scrollTrigger: {
-          trigger: element,
-          start: "top 80%",
-          toggleActions: playReverse,
-        },
-        opacity: 0,
-        y: 30,
-        ...getOptions(element),
-      });
-    });
-  };
-
-  revealElements(".slide-up");
-  revealElements(".slide-up-delay", (element) => ({
-    delay: Number(element.dataset.delay || 0),
-  }));
-
-  if (canRunRevealAnimations) {
-    gsap.utils.toArray(".stagger-parent").forEach((container) => {
-      const slideElements = container.querySelectorAll(".slide-up-stagger");
-      if (slideElements.length > 0) {
-        gsap.from(slideElements, {
-          scrollTrigger: {
-            trigger: container,
-            start: "top 80%",
-            toggleActions: playReverse,
-          },
-          opacity: 0,
-          y: 30,
-          stagger: 0.2,
-        });
-      }
-
-      const opacityElements = container.querySelectorAll(".opacity-stagger");
-      if (opacityElements.length > 0) {
-        gsap.from(opacityElements, {
-          scrollTrigger: {
-            trigger: container,
-            start: "top 80%",
-            toggleActions: playReverse,
-          },
-          opacity: 0,
-          stagger: 0.2,
-        });
-      }
-    });
-  }
-
-  const textAnimationConfigs = [
-    {
-      selector: ".slide-up-words",
-      wordsClass: "",
-      createTween: (element, words) =>
-        gsap.from(words, {
-          yPercent: 20,
-          autoAlpha: 0,
-          stagger: 0.3,
-          scrollTrigger: {
-            trigger: element,
-            start: "top 80%",
-            toggleActions: playReverse,
-          },
-        }),
-    },
-    {
-      selector: ".slide-up-words-black",
-      wordsClass: "bg-clip-text bg-text-black pt-2",
-      createTween: (element, words) =>
-        gsap.from(words, {
-          yPercent: 20,
-          autoAlpha: 0,
-          stagger: 0.2,
-          scrollTrigger: {
-            trigger: element,
-            start: "top 80%",
-            toggleActions: playReverse,
-          },
-        }),
-    },
-    {
-      selector: ".slide-up-words-white",
-      wordsClass: "bg-clip-text bg-text-white pt-2 word++",
-      createTween: (element, words) =>
-        gsap.from(words, {
-          yPercent: 20,
-          autoAlpha: 0,
-          stagger: 0.2,
-          scrollTrigger: {
-            trigger: element,
-            start: "top 80%",
-            toggleActions: playReverse,
-          },
-        }),
-    },
-    {
-      selector: ".slide-up-words-white-scroll",
-      wordsClass: "bg-clip-text bg-text-white pt-2 word++",
-      createTween: (element, words) =>
-        gsap.from(words, {
-          yPercent: 20,
-          autoAlpha: 0,
-          stagger: 0.3,
-          scrollTrigger: {
-            trigger: element,
-            start: "top 80%",
-            end: "top 50%",
-            scrub: true,
-            toggleActions: playReverse,
-          },
-        }),
-    },
-  ];
-
-  if (canRunRevealAnimations && SplitText && document.fonts?.ready) {
-    document.fonts.ready.then(() => {
-      textAnimationConfigs.forEach((config) => {
-        if (!document.querySelector(config.selector)) {
-          return;
-        }
-
-        gsap.utils.toArray(config.selector).forEach((element) => {
-          SplitText.create(element, {
-            type: "words",
-            autoSplit: true,
-            smartWrap: true,
-            wordsClass: config.wordsClass,
-            onSplit: (self) => config.createTween(element, self.words),
-          });
-        });
-      });
-    });
-  }
-
-  const techSection = document.querySelector(".tech-section");
-  const techTitle = document.querySelector(".tech-title");
-  const techCards = document.querySelectorAll(".tech-card");
-
-  if (canRunRevealAnimations && techSection && techTitle && techCards.length > 0) {
-    const techTimeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: techSection,
-        start: "top top",
-        end: `+=${techCards.length * 100}%`,
-        pin: true,
-        scrub: 1,
-        anticipatePin: true,
-      },
-    });
-
-    techCards.forEach((card, index) => {
-      gsap.set(card, {
-        y: "70vh",
-        opacity: 0,
-      });
-
-      techTimeline.to(
-        card,
-        {
-          y: "-140vh",
-          duration: 3,
-          ease: "none",
-          onStart: () => {
-            gsap.to(card, { opacity: 1, duration: 0.3 });
-          },
-          onUpdate() {
-            const progress = this.progress();
-            if (progress > 0.7) {
-              gsap.set(card, { opacity: 1 - (progress - 0.7) / 0.3 });
-            }
-          },
-        },
-        index * 0.8,
-      );
-    });
-  }
-
-  const ipBenefits = document.querySelectorAll(".ip-benefit");
-  if (canRunRevealAnimations && ipBenefits.length > 0) {
-    ipBenefits.forEach((element) => {
-      gsap.fromTo(
-        element,
-        { opacity: 0 },
-        {
-          opacity: 1,
-          immediateRender: false,
-          scrollTrigger: {
-            trigger: element,
-            start: "top 60%",
-            end: "top 40%",
-            scrub: true,
-          },
-        },
-      );
-
-      gsap.fromTo(
-        element,
-        { opacity: 1 },
-        {
-          opacity: 0,
-          immediateRender: false,
-          scrollTrigger: {
-            trigger: element,
-            start: "top 20%",
-            end: "top 0%",
-            scrub: true,
-          },
-        },
-      );
-    });
+    reveal('.ip-benefit');
   }
 
   window.sfmlmAnimations = {};

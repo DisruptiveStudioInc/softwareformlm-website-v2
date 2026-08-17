@@ -1,4 +1,4 @@
-<svg style="position:absolute;width:0;height:0;visibility:hidden" aria-hidden="true">
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
   <defs>
     <!-- Masks -->
     <mask id="circle-mask" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="40" height="40">

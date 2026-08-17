@@ -51,8 +51,10 @@ export default class DepthSlider {
     const pagination = document.getElementById("pagination-depth");
     this.slides.forEach((_, i) => {
       const dot = document.createElement("button");
+      dot.type = "button";
       dot.className = "pagination-dot";
       dot.dataset.index = i;
+      dot.setAttribute("aria-label", `Go to question ${i + 1}`);
       dot.addEventListener("click", () => this.goToSlide(i));
       pagination.appendChild(dot);
     });
@@ -66,14 +68,19 @@ export default class DepthSlider {
 
       if (i === this.currentIndex) {
         slide.classList.add("active");
+        slide.setAttribute("aria-hidden", "false");
       } else if (i === (this.currentIndex - 1 + total) % total) {
         slide.classList.add("prev");
+        slide.setAttribute("aria-hidden", "true");
       } else if (i === (this.currentIndex + 1) % total) {
         slide.classList.add("next");
+        slide.setAttribute("aria-hidden", "true");
       } else if (i === (this.currentIndex + 2) % total) {
         slide.classList.add("next-2");
+        slide.setAttribute("aria-hidden", "true");
       } else {
         slide.classList.add("hide");
+        slide.setAttribute("aria-hidden", "true");
       }
     });
 
@@ -84,6 +91,7 @@ export default class DepthSlider {
     const dots = document.querySelectorAll(".pagination-dot");
     dots.forEach((dot, i) => {
       dot.classList.toggle("active", i === this.currentIndex);
+      dot.setAttribute("aria-current", i === this.currentIndex ? "true" : "false");
     });
   }
 
