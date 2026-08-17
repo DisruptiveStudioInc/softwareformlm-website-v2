@@ -57,22 +57,64 @@ if (config) {
     window.setTimeout(loadMarketing, 30000);
   };
 
-  window.addEventListener('load', () => {
-    loadGtm();
-    beginMarketingAfterIntent();
-  }, { once: true });
+  const loadChat = () => {
+    const language = document.documentElement.lang.toLowerCase().split('-')[0];
 
-  document.querySelectorAll('[data-chat-launcher]').forEach((launcher) => {
-    launcher.addEventListener('click', () => {
-      if (loaded.has('chat')) return;
+    if (language !== 'en' || !config.chatWidgetId || loaded.has('chat')) {
+      return Promise.resolve();
+    }
+
+    const existingScript = document.querySelector(
+      'script[src="https://widgets.leadconnectorhq.com/loader.js"]',
+    );
+
+    if (existingScript) {
       loaded.add('chat');
+      return Promise.resolve();
+    }
+
+    loaded.add('chat');
+
+    return new Promise((resolve, reject) => {
       const script = document.createElement('script');
       script.async = true;
       script.src = 'https://widgets.leadconnectorhq.com/loader.js';
-      script.dataset.resourcesUrl = 'https://widgets.leadconnectorhq.com/chat-widget/loader.js';
+      script.dataset.resourcesUrl =
+        'https://widgets.leadconnectorhq.com/chat-widget/loader.js';
       script.dataset.widgetId = config.chatWidgetId;
+      script.onload = resolve;
+      script.onerror = () => {
+        loaded.delete('chat');
+        reject(new Error('LeadConnector chat failed to load'));
+      };
       document.head.appendChild(script);
-      launcher.setAttribute('aria-busy', 'true');
     });
-  });
+  };
+
+  const scheduleChat = () => {
+    const initializeChat = () => {
+      loadChat().catch(() => {});
+    };
+
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(initializeChat, { timeout: 4000 });
+      return;
+    }
+
+    window.setTimeout(initializeChat, 2000);
+  };
+
+  const initializeAfterLoad = () => {
+    if (loaded.has('post-load')) return;
+    loaded.add('post-load');
+    loadGtm();
+    beginMarketingAfterIntent();
+    scheduleChat();
+  };
+
+  if (document.readyState === 'complete') {
+    initializeAfterLoad();
+  } else {
+    window.addEventListener('load', initializeAfterLoad, { once: true });
+  }
 }

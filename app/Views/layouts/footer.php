@@ -50,15 +50,10 @@
     <small class="block mb-4"><a href="https://www.comparasoftware.com/software-for-mlm" target="_blank" rel="noopener noreferrer"><?= $trans('footer.affiliate_brand') ?></a> <?= $trans('footer.affiliate_text') ?> <a href="https://www.comparasoftware.com/mlm" target="_blank" rel="noopener noreferrer"><?= $trans('footer.affiliate_name') ?></a></small>
     <small>&copy; <?= date("Y") ?> Software for MLM. All rights reserved.</small>
   </div>
-  <?php if ($currentLang === 'en'): ?>
-    <button type="button" data-chat-launcher aria-label="Open chat" class="fixed bottom-20 right-4 flex-center p-2 rounded-full bg-brand-100 text-secondary-100 hover:bg-brand-200 transition-colors z-1">
-      <svg class="size-7"><use href="/public/assets/icons.svg.php#disruptive-favicon"/></svg>
-    </button>
-  <?php endif; ?>
   <a
     href="https://wa.me/<?= $constants['contact_info']['wame'] ?>?text=<?= $trans('common.wame_message') ?>" target="_blank" rel="noopener noreferrer"
     aria-label="WhatsApp"
-    class="fixed bottom-4 right-4 flex-center p-2 rounded-full bg-green-400 hover:bg-green-700 active:bg-green-700 transition-colors z-1 en:bottom-4 en:right-5"
+    class="fixed bottom-4 right-4 flex-center p-2 rounded-full bg-green-400 hover:bg-green-700 active:bg-green-700 transition-colors z-1 en:bottom-22 en:right-5"
   >
     <span class="h-4/5 w-4/5 rounded-full bg-green-400/70 backdrop-blur-3xl absolute top-1/10 left-1/10 animate-ping -z-1 pointer-events-none"></span>
     <svg class="size-9 text-white"><use href="/public/assets/icons.svg.php#whatsapp"/></svg>
