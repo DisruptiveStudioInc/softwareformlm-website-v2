@@ -412,14 +412,10 @@
     width: calc((100cqw - 1.25rem) / 2);
     aspect-ratio: 5 / 3;
     flex: 0 0 auto;
-  }
-  @media (width >= 48rem) {
-    .client-marquee li {
+    @media (width >= 48rem) {
       width: calc((100cqw - 3.75rem) / 5);
     }
-  }
-  @media (width >= 68rem) {
-    .client-marquee li {
+    @media (width >= 68rem) {
       width: clamp(5rem, 10vw, 9rem);
     }
   }
@@ -522,6 +518,14 @@
     }
     .service-slider [data-service-slide] {
       flex: 0 0 100%;
+    }
+  }
+  .slide-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media (width >= 68rem) {
+      display: block;
     }
   }
   .slide-ff {

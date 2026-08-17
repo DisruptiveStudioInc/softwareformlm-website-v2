@@ -30,6 +30,7 @@ if (slider) {
     next.disabled = activeIndex === slides.length - 1;
 
     if (desktopQuery.matches) {
+      slider.scrollTo({ left: 0, top: 0, behavior: 'auto' });
       wrapper.style.transform = `translate3d(-${activeIndex * 100}%, 0, 0)`;
     } else if (shouldFocus) {
       slides[activeIndex].scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -72,15 +73,76 @@ if (slider) {
   if (processSlider) {
     const processSlides = [...processSlider.querySelectorAll('[data-process-slide]')];
     const pagination = document.getElementById('my-swiper-pagination');
+    const processButtons = [];
+    let processActiveIndex = 0;
+    let processScrollTimer;
+
+    const setProcessActive = (index) => {
+      processActiveIndex = Math.max(0, Math.min(index, processSlides.length - 1));
+
+      processSlides.forEach((slide, slideIndex) => {
+        const active = slideIndex === processActiveIndex;
+        slide.classList.toggle('swiper-slide-active', active);
+        slide.classList.toggle('swiper-slide-prev', slideIndex === processActiveIndex - 1);
+        slide.classList.toggle('swiper-slide-next', slideIndex === processActiveIndex + 1);
+        slide.setAttribute('aria-hidden', active ? 'false' : 'true');
+      });
+
+      processButtons.forEach((button, buttonIndex) => {
+        const active = buttonIndex === processActiveIndex;
+        button.classList.toggle('active', active);
+        button.setAttribute('aria-current', active ? 'true' : 'false');
+      });
+    };
+
+    const getProcessSlideOffset = (slide) => (
+      slide.offsetLeft - processSlides[0].offsetLeft
+    );
+
+    const scrollToProcessSlide = (index) => {
+      const boundedIndex = Math.max(0, Math.min(index, processSlides.length - 1));
+      const target = processSlides[boundedIndex];
+      if (!target) return;
+
+      setProcessActive(boundedIndex);
+      processSlider.scrollTo({
+        left: getProcessSlideOffset(target),
+        top: 0,
+        behavior: 'smooth',
+      });
+    };
+
     processSlides.forEach((slide, index) => {
       const button = document.createElement('button');
       button.type = 'button';
-      button.className = 'flex-center size-9 lg:size-12 text-lg lg:text-xl font-bold text-secondary-100 leading-none rounded-full bg-brand-100 hover:bg-brand-200 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-200';
+      button.className = 'flex-center size-9 lg:size-12 text-lg lg:text-xl font-bold text-secondary-100 leading-none rounded-full bg-brand-100 hover:bg-brand-200 [&.active]:bg-secondary-200 [&.active]:text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-200';
       button.textContent = String(index + 1);
       button.setAttribute('aria-label', `Go to process ${index + 1}`);
-      button.addEventListener('click', () => slide.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' }));
+      button.addEventListener('click', (event) => {
+        event.stopPropagation();
+        scrollToProcessSlide(index);
+      });
+      processButtons.push(button);
       pagination?.appendChild(button);
     });
+
+    processSlider.addEventListener('scroll', () => {
+      window.clearTimeout(processScrollTimer);
+      processScrollTimer = window.setTimeout(() => {
+        const closestIndex = processSlides.reduce((closest, slide, index) => {
+          const closestDistance = Math.abs(
+            getProcessSlideOffset(processSlides[closest]) - processSlider.scrollLeft,
+          );
+          const currentDistance = Math.abs(
+            getProcessSlideOffset(slide) - processSlider.scrollLeft,
+          );
+          return currentDistance < closestDistance ? index : closest;
+        }, 0);
+        setProcessActive(closestIndex);
+      }, 80);
+    }, { passive: true });
+
+    setProcessActive(0);
   }
 
   if (document.getElementById('faq-slider')) {

@@ -6,9 +6,9 @@ require __DIR__ . '/../layouts/header.php';
 include __DIR__ . '/../components/fixedBackground.php';
 ?>
 
-<div class="fixed left-2 right-2 bottom-5 md:left-7 md:right-7 md:bottom-7 flex flex-col md:flex-row justify-between items-center z-10 gap-0">
-  <div id="serv-dots" role="group" aria-label="Service sections" class="flex gap-2 xs:gap-4 !transform-none"></div>
-  <nav class="absolute top-1/2 md:static flex gap-4 w-full md:w-auto justify-between">
+<div class="fixed left-2 right-2 bottom-5 md:left-7 md:right-7 md:bottom-7 flex flex-col md:flex-row justify-between items-center en:items-start en:md:items-center z-10 gap-0 en:mr-14">
+  <div id="serv-dots" role="group" aria-label="Service sections" class="flex gap-2 xs:gap-4 !transform-none en:ml-22 en:md:ml-0"></div>
+  <nav class="absolute top-1/2 md:static flex gap-4 en:gap-1.5 en:lg:gap-4 w-full en:w-auto md:w-auto justify-between">
     <button type="button" id="serv-prev" aria-label="<?= htmlspecialchars($trans('common.previous')) ?>" class="button rounded-lg leading-none gap-2 cursor-pointer -translate-y-1/2 md:translate-none disabled:opacity-0 disabled:pointer-events-none max-md:p-2">
       <svg class="size-5"><use href="/public/assets/icons.svg.php#arrow-left"/></svg>
       <span class="hidden md:inline"><?= $trans('common.previous') ?></span>
@@ -100,10 +100,10 @@ include __DIR__ . '/../components/fixedBackground.php';
               <div data-process-slider class="native-process-scroller">
                 <div class="native-process-track">
                   <?php foreach($content['processes'] as $item): ?>
-                    <article data-process-slide class="swiper-slide slide-ff">
+                    <article data-process-slide class="swiper-slide slide-ff transition-opacity duration-300">
                       <div class="flex-center flex-col text-center lg:text-left h-full bg-secondary-200 text-white rounded-xl">
                         <img src="/public/images/services/solutions/<?= $item['image'] ?>" alt="<?= $item['title'] ?>" class="rounded-xl w-full pointer-events-none" loading="lazy">
-                        <div class="p-4 md:p-7 lg:p-12">
+                        <div class="p-4 md:p-7 lg:p-12 grow">
                           <h3 class="font-title text-lg md:text-2xl lg:text-3xl xl:text-5xl leading-tight font-bold mb-2 md:mb-0"><?= $item['title'] ?></h3>
                           <p class="text-sm md:text-base"><?= $item['text'] ?></p>
                         </div>
@@ -119,7 +119,7 @@ include __DIR__ . '/../components/fixedBackground.php';
 
       <!-- FAQ section -->
       <section data-service-slide class="slide-section swiper-slide min-h-dvh lg:h-screen w-full">
-        <div class="block-content py-16 lg:py-24 h-full flex-center gap-7 lg:gap-4 flex-col">
+        <div class="block-content py-16 lg:py-24 w-full h-full flex-center gap-7 lg:gap-4 flex-col">
           <h2 class="font-khand uppercase bg-clip-text bg-text-black leading-none text-center text-5xl xs:text-7xl sm:text-8xl md:text-11xl xl:text-12xl es:pt-2"><?= $trans('common_titles.faqs') ?></h2>
           <div class="block w-full md:w-9/10 mx-auto mt-6 lg:mt-10">
             <div id="faq-slider" class="relative text-center perspective-distant transition-[height]">
