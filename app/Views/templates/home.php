@@ -185,7 +185,7 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
     <ul class="client-marquee-track">
       <?php foreach($clients1 as $slide): ?>
         <li>
-          <img src="/public/images/clients/<?= $slide['logo'] ?>" alt="<?= $slide['name'] ?>" loading="lazy">
+          <img src="/public/images/clients/<?= $slide['logo'] ?>" alt="<?= $slide['name'] ?>" width="300" height="180" loading="lazy" decoding="async">
         </li>
       <?php endforeach; ?>
     </ul>
@@ -193,7 +193,7 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
   <div class="client-marquee client-marquee-reverse mask-x-from-85% mask-x-to-95%" aria-hidden="true">
     <ul class="client-marquee-track">
       <?php foreach($clients2 as $slide): ?>
-        <li><img src="/public/images/clients/<?= $slide['logo'] ?>" alt="" loading="lazy">
+        <li><img src="/public/images/clients/<?= $slide['logo'] ?>" alt="" width="300" height="180" loading="lazy" decoding="async">
         </li>
       <?php endforeach; ?>
     </ul>
@@ -201,7 +201,7 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
   <div class="client-marquee mask-x-from-85% mask-x-to-95%" aria-hidden="true">
     <ul class="client-marquee-track">
       <?php foreach($clients3 as $slide): ?>
-        <li><img src="/public/images/clients/<?= $slide['logo'] ?>" alt="" loading="lazy">
+        <li><img src="/public/images/clients/<?= $slide['logo'] ?>" alt="" width="300" height="180" loading="lazy" decoding="async">
         </li>
       <?php endforeach; ?>
     </ul>
@@ -209,7 +209,7 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
   <div class="client-marquee client-marquee-reverse mask-x-from-85% mask-x-to-95%" aria-hidden="true">
     <ul class="client-marquee-track">
       <?php foreach($clients4 as $slide): ?>
-        <li><img src="/public/images/clients/<?= $slide['logo'] ?>" alt="" loading="lazy">
+        <li><img src="/public/images/clients/<?= $slide['logo'] ?>" alt="" width="300" height="180" loading="lazy" decoding="async">
         </li>
       <?php endforeach; ?>
     </ul>

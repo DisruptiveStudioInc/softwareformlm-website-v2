@@ -366,7 +366,7 @@
     filter: blur(16px);
     opacity: 0.85;
     transform: translate(-50%, -50%) scale3d(0.9, 0.9, 1);
-    animation: pulseGlow 2s linear infinite alternate-reverse;
+    animation: button-glow-pulse 2s linear infinite alternate-reverse;
     will-change: transform, opacity;
     transition-property: opacity, background-color;
     transition-timing-function: var(--default-transition-timing-function);
@@ -394,6 +394,7 @@
   .client-marquee {
     overflow: hidden;
     width: 100%;
+    container-type: inline-size;
     pointer-events: none;
   }
   .client-marquee-track {
@@ -401,13 +402,52 @@
     width: max-content;
     gap: 1.25rem;
     align-items: center;
-    animation: clientMarquee 70s linear infinite;
+    animation: clientMarquee 280s linear infinite alternate;
     will-change: transform;
   }
-  .client-marquee-reverse .client-marquee-track { animation-direction: reverse; }
-  .client-marquee li { width: clamp(5rem, 10vw, 9rem); flex: 0 0 auto; }
-  .client-marquee img { width: 100%; height: auto; }
-  @keyframes clientMarquee { to { transform: translate3d(-50%, 0, 0); } }
+  .client-marquee-reverse .client-marquee-track {
+    animation-direction: alternate-reverse;
+  }
+  .client-marquee li {
+    width: calc((100cqw - 1.25rem) / 2);
+    aspect-ratio: 5 / 3;
+    flex: 0 0 auto;
+  }
+  @media (width >= 48rem) {
+    .client-marquee li {
+      width: calc((100cqw - 3.75rem) / 5);
+    }
+  }
+  @media (width >= 68rem) {
+    .client-marquee li {
+      width: clamp(5rem, 10vw, 9rem);
+    }
+  }
+  .client-marquee img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  @keyframes clientMarquee {
+    to {
+      transform: translate3d(calc(-100% + 100vw), 0, 0);
+    }
+  }
+  .group\/submenu:focus-within > ul {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  @keyframes button-glow-pulse {
+    from {
+      transform: translate(-50%, -50%) scale3d(0.9, 0.9, 1);
+      opacity: 0.85;
+    }
+    to {
+      transform: translate(-50%, -50%) scale3d(1.1, 0.85, 1);
+      opacity: 1;
+    }
+  }
   .bg-text-white {
     --bg-y: 50%;
     background-image: url(../../images/background/light-grad.webp);
@@ -438,7 +478,9 @@
     scrollbar-width: none;
   }
   .native-card-scroller::-webkit-scrollbar,
-  .native-process-scroller::-webkit-scrollbar { display: none; }
+  .native-process-scroller::-webkit-scrollbar {
+    display: none;
+  }
   .native-card-track,
   .native-process-track {
     display: flex;
@@ -456,14 +498,21 @@
     scroll-snap-type: y mandatory;
     scrollbar-width: none;
   }
-  .service-slider::-webkit-scrollbar { display: none; }
-  .service-slider-track { min-height: 100%; }
+  .service-slider::-webkit-scrollbar {
+    display: none;
+  }
+  .service-slider-track {
+    min-height: 100%;
+  }
   .service-slider [data-service-slide] {
     scroll-snap-align: start;
     scroll-snap-stop: always;
   }
   @media (width >= 68rem) {
-    .service-slider { overflow: hidden; scroll-snap-type: none; }
+    .service-slider {
+      overflow: hidden;
+      scroll-snap-type: none;
+    }
     .service-slider-track {
       display: flex;
       width: 100%;
@@ -471,7 +520,9 @@
       transition: transform 500ms ease;
       will-change: transform;
     }
-    .service-slider [data-service-slide] { flex: 0 0 100%; }
+    .service-slider [data-service-slide] {
+      flex: 0 0 100%;
+    }
   }
   .slide-ff {
     opacity: 0.2;
@@ -633,13 +684,16 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
   }
-  .bg-text-white, .bg-text-black {
+  .bg-text-white,
+  .bg-text-black {
     animation: none !important;
   }
 }

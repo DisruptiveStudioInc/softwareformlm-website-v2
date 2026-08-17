@@ -58,7 +58,6 @@
   <?php endif; ?>
 
   <link rel="stylesheet" href="<?= asset_url('/public/assets/css/styles.css') ?>">
-  <link rel="stylesheet" href="<?= asset_url('/public/assets/css/performance.css') ?>">
 
   <script type="module" src="<?= asset_url('/public/assets/js/base.js') ?>"></script>
   <?php if (!empty($includeAnimations)): ?>
