@@ -1,43 +1,130 @@
-const { gsap, ScrollTrigger } = window;
+const { gsap, ScrollTrigger, SplitText } = window;
 
 if (!gsap || !ScrollTrigger) {
   window.sfmlmAnimations = {};
 } else {
-  gsap.registerPlugin(ScrollTrigger);
+  if (SplitText) {
+    gsap.registerPlugin(ScrollTrigger, SplitText);
+  } else {
+    gsap.registerPlugin(ScrollTrigger);
+  }
+
   const desktop = window.matchMedia('(min-width: 1088px)').matches;
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   if (desktop && !reducedMotion) {
-    const reveal = (selector, vars = {}) => {
-      const elements = gsap.utils.toArray(selector);
-      if (!elements.length) return;
-      gsap.set(elements, { willChange: 'transform,opacity' });
-      ScrollTrigger.batch(elements, {
-        start: 'top 82%',
-        once: true,
-        onEnter: (batch) => gsap.fromTo(batch,
-          { autoAlpha: 0, y: 28 },
-          { autoAlpha: 1, y: 0, duration: 0.55, ease: 'power2.out', stagger: 0.08, clearProps: 'willChange', ...vars },
-        ),
+    const playReverse = 'play none none reverse';
+
+    const revealElements = (selector, getOptions = () => ({})) => {
+      gsap.utils.toArray(selector).forEach((element) => {
+        gsap.from(element, {
+          scrollTrigger: {
+            trigger: element,
+            start: 'top 80%',
+            toggleActions: playReverse,
+          },
+          autoAlpha: 0,
+          y: 30,
+          duration: 0.8,
+          ease: 'power2.out',
+          ...getOptions(element),
+        });
       });
     };
 
-    reveal('.slide-up, .slide-up-delay, .slide-up-words, .slide-up-words-black, .slide-up-words-white, .slide-up-words-white-scroll');
+    revealElements('.slide-up');
+    revealElements('.slide-up-delay', (element) => ({
+      delay: Number(element.dataset.delay || 0),
+    }));
 
     gsap.utils.toArray('.stagger-parent').forEach((container) => {
-      const elements = container.querySelectorAll('.slide-up-stagger, .opacity-stagger');
-      if (!elements.length) return;
-      gsap.set(elements, { willChange: 'transform,opacity' });
-      ScrollTrigger.create({
-        trigger: container,
-        start: 'top 82%',
-        once: true,
-        onEnter: () => gsap.fromTo(elements,
-          { autoAlpha: 0, y: 24 },
-          { autoAlpha: 1, y: 0, duration: 0.5, ease: 'power2.out', stagger: 0.1, clearProps: 'willChange' },
-        ),
-      });
+      const slideElements = container.querySelectorAll('.slide-up-stagger');
+      const opacityElements = container.querySelectorAll('.opacity-stagger');
+
+      if (slideElements.length) {
+        gsap.from(slideElements, {
+          scrollTrigger: {
+            trigger: container,
+            start: 'top 80%',
+            toggleActions: playReverse,
+          },
+          autoAlpha: 0,
+          y: 30,
+          duration: 0.8,
+          ease: 'power2.out',
+          stagger: 0.2,
+        });
+      }
+
+      if (opacityElements.length) {
+        gsap.from(opacityElements, {
+          scrollTrigger: {
+            trigger: container,
+            start: 'top 80%',
+            toggleActions: playReverse,
+          },
+          autoAlpha: 0,
+          duration: 0.8,
+          ease: 'power2.out',
+          stagger: 0.2,
+        });
+      }
     });
+
+    const textAnimationConfigs = [
+      {
+        selector: '.slide-up-words',
+        wordsClass: '',
+        stagger: 0.3,
+      },
+      {
+        selector: '.slide-up-words-black',
+        wordsClass: 'bg-clip-text bg-text-black pt-2',
+        stagger: 0.2,
+      },
+      {
+        selector: '.slide-up-words-white',
+        wordsClass: 'bg-clip-text bg-text-white pt-2 word++',
+        stagger: 0.2,
+      },
+      {
+        selector: '.slide-up-words-white-scroll',
+        wordsClass: 'bg-clip-text bg-text-white pt-2 word++',
+        stagger: 0.3,
+        scrub: true,
+      },
+    ];
+
+    if (SplitText) {
+      const fontsReady = document.fonts?.ready ?? Promise.resolve();
+      fontsReady.then(() => {
+        textAnimationConfigs.forEach((config) => {
+          gsap.utils.toArray(config.selector).forEach((element) => {
+            SplitText.create(element, {
+              type: 'words',
+              autoSplit: true,
+              smartWrap: true,
+              wordsClass: config.wordsClass,
+              onSplit: (self) => gsap.from(self.words, {
+                yPercent: 20,
+                autoAlpha: 0,
+                duration: 0.8,
+                ease: 'power2.out',
+                stagger: config.stagger,
+                scrollTrigger: {
+                  trigger: element,
+                  start: 'top 80%',
+                  ...(config.scrub ? { end: 'top 50%', scrub: true } : { toggleActions: playReverse }),
+                },
+              }),
+            });
+          });
+        });
+        ScrollTrigger.refresh();
+      });
+    } else {
+      revealElements(textAnimationConfigs.map(({ selector }) => selector).join(', '));
+    }
 
     const techSection = document.querySelector('.tech-section');
     const techCards = gsap.utils.toArray('.tech-card');
@@ -60,7 +147,7 @@ if (!gsap || !ScrollTrigger) {
       });
     }
 
-    reveal('.ip-benefit');
+    revealElements('.ip-benefit');
   }
 
   window.sfmlmAnimations = {};
