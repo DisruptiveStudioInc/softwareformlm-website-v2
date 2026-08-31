@@ -1,0 +1,15 @@
+parameters:
+  level: 9
+  bootstrapFiles:
+    - src/helpers.php
+  paths:
+    - app/Models/BlogPost.php
+    - app/Services/BlogRepository.php
+    - app/Services/BlogService.php
+    - app/Services/MarkdownRenderer.php
+    - app/Controllers/BlogController.php
+    - src/Router.php
+  excludePaths:
+    analyse:
+      - sunnycasitas-webiste
+  reportUnmatchedIgnoredErrors: false

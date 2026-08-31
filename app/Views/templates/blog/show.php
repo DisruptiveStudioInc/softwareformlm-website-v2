@@ -50,7 +50,7 @@ require __DIR__ . '/../../layouts/header.php';
       <div class="flex flex-wrap gap-2">
         <?php foreach ($post['categories'] as $category): ?>
           <a
-            href="/blog?category=<?= urlencode($category['slug']) ?>"
+            href="<?= htmlspecialchars(route('blog', $currentLang) . '?' . http_build_query(['category' => $category['slug']])) ?>"
             class="text-xs font-semibold px-3 py-1 bg-brand-100 text-secondary-100 rounded-full hover:bg-brand-200 transition-colors"
           >
             <?= htmlspecialchars($category['name']) ?>
@@ -89,7 +89,7 @@ require __DIR__ . '/../../layouts/header.php';
               <?php $relatedBackupImage = $k%3 ?>
               <a href="<?= htmlspecialchars($related['url']) ?>" class="block aspect-video rounded-lg overflow-hidden">
                 <img
-                  src="<?= isset($related['featuredImage']['url']) ?  $related['featuredImage']['url'] : "/public/images/background/blog-cover-{$relatedBackupImage}.webp" ?>"
+                  src="<?= htmlspecialchars(isset($related['featuredImage']['url']) ? $related['featuredImage']['url'] : "/public/images/background/blog-cover-{$relatedBackupImage}.webp") ?>"
                   alt="<?= htmlspecialchars(isset($related['featuredImage']['alt']) ?  $related['featuredImage']['alt'] : $related['title']) ?>"
                   class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                   loading="lazy"
