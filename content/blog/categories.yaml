@@ -1,0 +1,8 @@
+categories:
+  multilevel:
+    labels:
+      en: Multilevel
+      es: Multinivel
+    slugs:
+      en: multilevel
+      es: multinivel

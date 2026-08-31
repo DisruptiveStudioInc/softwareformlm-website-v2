@@ -12,7 +12,7 @@ Un sitio web corporativo multilingüe para Disruptive Studio, mostrando sus serv
 - [Sistema de Rutas](#sistema-de-rutas)
 - [Gestión de Servicios](#gestión-de-servicios)
 - [Páginas Estáticas](#páginas-estáticas)
-- [Blog e Integración con WordPress](#blog-e-integración-con-wordpress)
+- [Blog en Markdown](#blog-en-markdown)
 - [Formulario de Contacto y Email](#formulario-de-contacto-y-email)
 - [Desarrollo Frontend](#desarrollo-frontend)
 - [Configuración](#configuración)
@@ -27,7 +27,7 @@ Este es un sitio web corporativo profesional para Disruptive Studio que cuenta c
 
 - **Soporte multilingüe** (Español e Inglés)
 - **Páginas de servicios dinámicas** con diferentes plantillas
-- **Blog headless con WordPress** e integración GraphQL
+- **Blog bilingüe en Markdown** gestionado en Git
 - **Formulario de contacto** con validación reCAPTCHA v3
 - **Diseño responsive** usando Tailwind CSS 4
 - **Animaciones suaves** con GSAP
@@ -43,7 +43,7 @@ Este es un sitio web corporativo profesional para Disruptive Studio que cuenta c
 - **Composer** para gestión de dependencias
 - **PHPMailer** para funcionalidad de email
 - **phpdotenv** para configuración de entorno
-- **Guzzle HTTP Client** para comunicación con la API de WordPress
+- **Guzzle HTTP Client** para comunicación con APIs externas
 
 ### Frontend
 
@@ -102,13 +102,6 @@ RECAPTCHA_SITE_KEY=your-site-key
 RECAPTCHA_SECRET_KEY=your-secret-key
 RECAPTCHA_SCORE_THRESHOLD=0.5
 
-# WordPress Headless CMS
-WP_API_URL=http://localhost:10008/graphql
-WP_APP_USER=tu-usuario-wordpress
-WP_APP_PASSWORD="xxxx xxxx xxxx xxxx xxxx xxxx"
-
-# Token para limpiar caché (para webhook)
-CACHE_CLEAR_TOKEN=tu-token-secreto-aqui
 ```
 
 3. **Instalar dependencias PHP**
@@ -811,327 +804,66 @@ $router->get('/new-page', 'App\\Controllers\\NewPageController', 'index');
 
 ---
 
-## Blog e Integración con WordPress
+## Blog en Markdown
 
-El sitio web cuenta con una integración de blog headless con WordPress usando WPGraphQL. Las publicaciones del blog se obtienen desde un backend de WordPress a través de la API GraphQL y se cachean localmente para un rendimiento óptimo.
+El blog bilingüe se almacena en Git y no requiere WordPress ni otro CMS durante la ejecución.
 
-### Arquitectura
+### Estructura del contenido
 
-**Configuración de WordPress Headless:**
+- `content/blog/en/{slug}.md` contiene los artículos en inglés.
+- `content/blog/es/{slug}.md` contiene los artículos en español.
+- `content/blog/categories.yaml` define categorías canónicas, etiquetas traducidas y slugs localizados.
+- `public/images/blog/` contiene las portadas versionadas.
+- `content/blog/README.md` contiene la guía breve de publicación.
 
-- Instancia de WordPress ejecutándose con el plugin WPGraphQL
-- Endpoint GraphQL expuesto para consultar publicaciones, categorías y metadatos
-- Autenticación por Contraseña de Aplicación para acceso seguro a la API
-- Sistema de caché basado en archivos para minimizar llamadas a la API
+Cada artículo utiliza front matter YAML seguido de Markdown:
 
-**Componentes:**
-
-- **Controlador**: `app/Controllers/BlogController.php` - Maneja todas las rutas del blog
-- **Servicio**: `app/Services/WordPressClient.php` - Cliente de API de WordPress con caché
-- **Vistas**:
-  - `app/Views/templates/blog/index.php` - Página de listado del blog
-  - `app/Views/templates/blog/show.php` - Vista de publicación individual
-- **Caché**: `cache/wordpress/` - Respuestas de API cacheadas
-
-### Cómo Funciona
-
-1. **Flujo de Peticiones:**
-   - El usuario solicita una página del blog
-   - `BlogController` verifica si hay datos en caché
-   - Si no hay caché, `WordPressClient` consulta la API GraphQL de WordPress
-   - La respuesta se cachea y se devuelve
-   - La plantilla de vista renderiza los datos
-
-2. **Estrategia de Caché:**
-   - Caché persistente basado en archivos (sin expiración automática)
-   - Claves de caché separadas para diferentes consultas (lista de posts, post individual, categorías)
-   - Invalidación de caché vía webhook de WordPress cuando se actualiza el contenido
-   - Limpieza manual de caché disponible para desarrollo/pruebas
-
-3. **Paginación:**
-   - Paginación basada en cursores usando conexiones de WordPress
-   - Cursores de página pre-calculados para acceso directo a páginas
-   - Consultas ligeras para obtener solo datos necesarios
-
-### Configuración de WordPress
-
-#### Plugins Requeridos de WordPress
-
-1. **WPGraphQL** (requerido)
-   - Instalar y activar el plugin WPGraphQL
-   - Configurar el endpoint en `/graphql`
-
-2. **WPGraphQL for Polylang** (opcional, para soporte multilingüe)
-   - Habilita filtrado de idioma en consultas GraphQL
-   - Agrega campos de idioma a las publicaciones
-
-#### Pasos de Configuración de WordPress
-
-1. **Instalar WordPress** (versión 5.9 o superior recomendada)
-
-2. **Instalar Plugin WPGraphQL:**
-
-   ```bash
-   # Vía administrador de WordPress
-   Plugins > Añadir Nuevo > Buscar "WPGraphQL" > Instalar y Activar
-
-   # O vía WP-CLI
-   wp plugin install wp-graphql --activate
-   ```
-
-3. **Configurar Ajustes de WPGraphQL:**
-   - Ir a `GraphQL > Settings`
-   - Habilitar "Public Introspection" para desarrollo
-   - Para producción, habilitar "Restrict Endpoint to Authenticated Users"
-
-4. **Crear Contraseña de Aplicación:**
-   - Ir a `Usuarios > Tu Perfil`
-   - Desplazarse a "Contraseñas de Aplicación"
-   - Ingresar un nombre (ej., "Sitio Web Disruptive Studio")
-   - Clic en "Añadir Nueva Contraseña de Aplicación"
-   - Copiar la contraseña generada (formato: `xxxx xxxx xxxx xxxx`)
-
-5. **Configurar Estructura de Publicaciones:**
-   - Crear categorías para organizar publicaciones
-   - Agregar imágenes destacadas a las publicaciones
-   - Usar extractos apropiados para mejores tarjetas de vista previa
-
-6. **Opcional - Configuración de Polylang:**
-   - Instalar y activar el plugin Polylang
-   - Instalar el plugin WPGraphQL for Polylang
-   - Configurar idiomas (ES, EN)
-   - Asignar idioma a cada publicación
-
-### Configuración de Entorno
-
-Agrega estas variables a tu archivo `.env`:
-
-```env
-# WordPress Headless CMS
-WP_API_URL=https://tu-sitio-wordpress.com/graphql
-WP_APP_USER=tu-usuario-wordpress
-WP_APP_PASSWORD=xxxx xxxx xxxx xxxx xxxx xxxx
-
-# Token para limpiar caché (para webhook)
-CACHE_CLEAR_TOKEN=tu-token-aleatorio-secreto-aqui
+```yaml
+---
+name: Título del artículo
+cover: portada.webp
+cover_alt: Texto alternativo descriptivo
+url: slug-del-articulo
+seo_description: Descripción para buscadores y redes sociales.
+language: es
+translation: translated-article-slug
+date: 2026-08-31
+updated: 2026-08-31
+published: false
+categories:
+  - multilevel
+author: Disruptive Studio
+---
 ```
 
-**Notas de Configuración:**
+Los campos obligatorios son `name`, `cover`, `cover_alt`, `url`, `seo_description`, `language`, `date`, `published` y `categories`. El nombre del archivo debe coincidir con `url`, el idioma debe coincidir con su directorio y cada categoría y portada debe existir. Usa `published: true` para publicar; los borradores y fechas futuras permanecen ocultos.
 
-- `WP_API_URL`: URL completa a tu endpoint GraphQL de WordPress
-- `WP_APP_USER`: Nombre de usuario administrador de WordPress
-- `WP_APP_PASSWORD`: Contraseña de Aplicación (¡no la contraseña regular!)
-- `CACHE_CLEAR_TOKEN`: Token secreto para webhook de invalidación de caché
+El HTML crudo se elimina y los esquemas de URL inseguros se rechazan. Usa Markdown estándar para encabezados, énfasis, enlaces, listas, citas, código y tablas.
 
-### Rutas del Blog
+### Rutas y paginación
 
-```php
-// Índice del blog - muestra todas las publicaciones con paginación
+```text
 GET /blog
 GET /blog?page=2
-GET /blog?category=tecnologia
-
-// Publicación individual - muestra contenido completo de la publicación
-GET /blog/{slug}
-
-// Gestión de caché (endpoint webhook)
-POST /blog/cache/clear
+GET /blog?category=multinivel
+GET /blog/{slug-en-espanol}
+GET /en/blog
+GET /en/blog?page=2
+GET /en/blog?category=multilevel
+GET /en/blog/{slug-en-ingles}
 ```
 
-### Funcionalidades
+Los listados muestran ocho artículos por página. Las páginas inválidas se ajustan al rango disponible, los parámetros de cursor `after` obsoletos se ignoran y el selector de idioma utiliza el slug de `translation` cuando existe el artículo publicado correspondiente.
 
-#### Página de Índice del Blog (`/blog`)
-
-- **Listado de Publicaciones**: Muestra publicaciones en un diseño de cuadrícula con imágenes destacadas
-- **Paginación**: Paginación numerada con acceso directo a páginas
-- **Filtrado por Categoría**: Barra lateral con lista de categorías y conteo de publicaciones
-- **Diseño Responsive**: Se adapta a móvil, tablet y escritorio
-- **Multilingüe**: Filtra automáticamente publicaciones por idioma actual
-
-**Parámetros de Consulta:**
-
-- `page`: Número de página (ej., `?page=2`)
-- `category`: Slug de categoría (ej., `?category=tecnologia`)
-
-#### Página de Publicación Individual (`/blog/{slug}`)
-
-- **Contenido Completo**: Contenido completo de la publicación con soporte de medios enriquecidos
-- **Hero con Imagen Destacada**: Imagen destacada grande con superposición de degradado
-- **Metadatos de Publicación**: Fecha de publicación, tiempo de lectura, categorías
-- **Visualización de Etiquetas**: Lista visual de etiquetas al final
-- **Publicaciones Relacionadas**: Muestra 3 publicaciones relacionadas de la misma categoría
-- **Optimización SEO**: Datos estructurados (JSON-LD) para motores de búsqueda
-
-### Gestión de Caché
-
-#### Limpieza Manual de Caché
-
-Limpiar todo el caché del blog:
+### Validación
 
 ```bash
-# Vía URL (requiere CACHE_CLEAR_TOKEN)
-curl -X POST https://tu-sitio.com/blog/cache/clear \
-  -H "Authorization: Bearer tu-token-secreto"
+composer validate
+vendor/bin/phpunit
+vendor/bin/phpstan analyse --level=9
 ```
 
-#### Webhook de WordPress (Automático)
-
-Configura un webhook en WordPress para limpiar automáticamente el caché cuando se publican/actualizan publicaciones:
-
-1. **Instalar Plugin de Webhook** (ej., WP Webhooks)
-
-2. **Configurar Webhook:**
-   - Disparador: `post_updated`, `post_published`
-   - URL: `https://tu-sitio.com/blog/cache/clear`
-   - Método: `POST`
-   - Encabezados: `Authorization: Bearer tu-token-secreto`
-
-3. **Probar el Webhook:**
-   - Publicar o actualizar una publicación
-   - Verificar que el directorio de caché de tu sitio se limpie
-
-#### Estructura de Archivos de Caché
-
-```
-cache/wordpress/
-├── posts_EN_first_10.cache          # Publicaciones en inglés, página 1
-├── posts_ES_first_10.cache          # Publicaciones en español, página 1
-├── post_{slug}_EN.cache             # Caché de publicación individual
-├── categories_EN.cache              # Lista de categorías
-├── page_cursors_EN_10.cache         # Cursores de paginación
-└── total_pages_EN_10.cache          # Conteo total de páginas
-```
-
-### Personalización
-
-#### Personalizar Consultas GraphQL
-
-El `WordPressClient` usa consultas GraphQL optimizadas. Para agregar/quitar campos:
-
-```php
-// Ejemplo: Agregar información de autor a las publicaciones
-$query = '
-  query GetPosts($lang: LanguageCodeFilterEnum!, $after: String, $first: Int!) {
-    posts(where: {language: $lang}, after: $after, first: $first) {
-      edges {
-        node {
-          id
-          title
-          slug
-          excerpt
-          author {
-            node {
-              name
-              avatar {
-                url
-              }
-            }
-          }
-          ...
-        }
-      }
-    }
-  }
-';
-```
-
-#### Personalizar Plantillas del Blog
-
-**Plantilla de Índice** (`app/Views/templates/blog/index.php`):
-
-- Modificar diseño de cuadrícula
-- Cambiar diseño de tarjetas de publicación
-- Personalizar barra lateral
-- Ajustar estilo de paginación
-
-**Plantilla de Publicación Individual** (`app/Views/templates/blog/show.php`):
-
-- Modificar diseño de contenido
-- Personalizar visualización de imagen destacada
-- Cambiar sección de publicaciones relacionadas
-- Agregar botones de compartir en redes sociales
-
-### Solución de Problemas
-
-#### Problemas Comunes
-
-**1. Error "WordPress API URL not configured"**
-
-- Verificar que el archivo `.env` tenga `WP_API_URL` configurado
-- Verificar que la URL sea correcta y accesible
-- Probar endpoint GraphQL: `https://tu-sitio-wp.com/graphql`
-
-**2. Errores de Autenticación**
-
-- Verificar que la Contraseña de Aplicación sea correcta (no la contraseña regular)
-- Verificar que el nombre de usuario coincida con el usuario de WordPress
-- Asegurar que WPGraphQL tenga autenticación habilitada
-
-**3. Página de Blog Vacía**
-
-- Verificar que WordPress tenga publicaciones publicadas
-- Verificar que las publicaciones tengan el idioma correcto asignado (si usas Polylang)
-- Limpiar caché: `rm -rf cache/wordpress/*`
-- Revisar logs de error de PHP
-
-**4. Imágenes No Se Muestran**
-
-- Verificar que las publicaciones de WordPress tengan imágenes destacadas
-- Verificar que las URLs de imágenes sean accesibles
-- Asegurar que la configuración CORS de WordPress permita peticiones externas
-
-**5. Rendimiento Lento**
-
-- Optimizar consultas GraphQL (eliminar campos innecesarios)
-- Habilitar caché de objetos de WordPress (Redis/Memcached)
-- Usar CDN para archivos multimedia de WordPress
-- Considerar agregar un caché de proxy reverso (Varnish, Nginx)
-
-#### Modo de Depuración
-
-Habilitar modo de depuración en `WordPressClient`:
-
-```php
-// Agregar al constructor
-private bool $debug = true;
-
-// Agregar registro
-if ($this->debug) {
-    error_log("Consulta GraphQL: " . $query);
-    error_log("Respuesta GraphQL: " . print_r($result, true));
-}
-```
-
-### Mejores Prácticas
-
-1. **Gestión de Caché:**
-   - Configurar webhook de limpieza automática de caché (recomendado)
-   - El caché es persistente hasta que sea limpiado por webhook o manualmente
-   - Monitorear tamaños de archivos de caché regularmente
-   - Limpiar caché después de actualizaciones masivas de contenido
-
-2. **Rendimiento:**
-   - Usar consultas GraphQL optimizadas
-   - Implementar carga diferida para imágenes
-   - Considerar CDN para archivos multimedia
-
-3. **Seguridad:**
-   - Mantener la Contraseña de Aplicación segura
-   - Usar CACHE_CLEAR_TOKEN fuerte
-   - Restringir endpoint GraphQL en producción
-   - Habilitar HTTPS para comunicación API
-
-4. **Contenido:**
-   - Siempre agregar imágenes destacadas a publicaciones
-   - Escribir extractos significativos
-   - Usar categorías para organización
-   - Optimizar imágenes antes de subir
-
-5. **Monitoreo:**
-   - Monitorear tiempos de respuesta de API
-   - Rastrear logs de errores para fallos de API
-   - Configurar monitoreo de tiempo de actividad para WordPress
-   - Verificar que el webhook esté funcionando correctamente
+Los archivos inválidos se omiten y su error de validación se escribe en el registro de PHP.
 
 ---
 

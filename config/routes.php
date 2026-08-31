@@ -44,9 +44,6 @@ return function(Router $router) {
   $router->get('/blog', 'App\\Controllers\\BlogController', 'index');
   $router->get('/blog/{slug}', 'App\\Controllers\\BlogController', 'show');
 
-  // Blog cache clear (optional - for webhook)
-  $router->post('/blog/cache/clear', 'App\\Controllers\\BlogController', 'clearCache');
-
   // Services - dynamic route with slug (keep this last as it's a catch-all)
   $router->get('/{slug}', 'App\\Controllers\\ServiceController', 'show');
 };

@@ -1,22 +1,30 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App;
 
-use App\Services\WordPressClient;
+use App\Services\BlogRepository;
+use App\Services\BlogService;
+use App\Services\MarkdownRenderer;
 
 class Router
 {
   private const LANGUAGE_COOKIE_NAME = 'site_language';
   private const LANGUAGE_COOKIE_TTL = 31536000;
 
+  /** @var list<array{method: string, path: string, controller: string, action: string}> */
   private array $routes = [];
   private string $currentLanguage;
+  /** @var list<string> */
   private array $availableLanguages;
   private string $defaultLanguage;
+  /** @var array<string, array<string, string>>|null */
   private ?array $routeTranslations = null;
-  private ?WordPressClient $wordPressClient = null;
-  private bool $wordPressClientInitialized = false;
+  private ?BlogService $blogService = null;
+  private bool $blogServiceInitialized = false;
 
+  /** @param array{available: list<string>, default: string} $languages */
   public function __construct(array $languages)
   {
     $this->availableLanguages = $languages['available'];
@@ -75,9 +83,11 @@ class Router
     return $this->callController('App\\Controllers\\ErrorController', 'notFound', $request);
   }
 
+  /** @return array{current_language: string, persist_language: ?string, redirect_url: ?string} */
   private function resolveLanguageDecision(Request $request, string $uri, string $contentLanguage): array
   {
-    $queryParams = $request->getQuery();
+    $rawQueryParams = $request->getQuery();
+    $queryParams = is_array($rawQueryParams) ? $rawQueryParams : [];
     $requestedUrl = $this->buildCurrentUrl($uri, $queryParams, false);
     $cleanRequestedUrl = $this->buildCurrentUrl($uri, $queryParams, true);
     $manualLanguage = $this->normalizeLanguage($request->getQuery('set_lang'));
@@ -121,7 +131,8 @@ class Router
       return $uriLanguage;
     }
 
-    return $this->detectBrowserLanguage((string) $request->getHeader('Accept-Language', ''));
+    $header = $request->getHeader('Accept-Language', '');
+    return $this->detectBrowserLanguage(is_string($header) ? $header : '');
   }
 
   private function detectBrowserLanguage(string $acceptLanguageHeader): string
@@ -130,6 +141,7 @@ class Router
       return 'en';
     }
 
+    /** @var list<array{code: string, quality: float, index: int}> $languages */
     $languages = [];
 
     foreach (explode(',', $acceptLanguageHeader) as $index => $languagePart) {
@@ -207,6 +219,7 @@ class Router
     return $uriLanguage;
   }
 
+  /** @param array<string, mixed> $queryParams */
   private function buildEquivalentLanguageUrl(string $uri, string $targetLanguage, array $queryParams = [], bool $stripSetLang = true): ?string
   {
     $filteredQueryParams = $queryParams;
@@ -259,38 +272,43 @@ class Router
 
   private function translateBlogSlug(string $slug, string $targetLanguage): ?string
   {
-    $wordPressClient = $this->getWordPressClient();
+    $blogService = $this->getBlogService();
 
-    if ($wordPressClient === null) {
+    if ($blogService === null) {
       return null;
     }
 
     try {
-      return $wordPressClient->getTranslatedPostSlug($slug, $targetLanguage);
+      return $blogService->translatedSlug($slug, $targetLanguage);
     } catch (\Throwable $throwable) {
       error_log('Blog slug translation failed: ' . $throwable->getMessage());
       return null;
     }
   }
 
-  private function getWordPressClient(): ?WordPressClient
+  private function getBlogService(): ?BlogService
   {
-    if ($this->wordPressClientInitialized) {
-      return $this->wordPressClient;
+    if ($this->blogServiceInitialized) {
+      return $this->blogService;
     }
 
-    $this->wordPressClientInitialized = true;
+    $this->blogServiceInitialized = true;
 
     try {
-      $this->wordPressClient = new WordPressClient();
+      $root = dirname(__DIR__);
+      $this->blogService = new BlogService(
+        new BlogRepository($root . '/content/blog', $root . '/public/images/blog'),
+        new MarkdownRenderer(),
+      );
     } catch (\Throwable $throwable) {
-      error_log('WordPress client unavailable for language routing: ' . $throwable->getMessage());
-      $this->wordPressClient = null;
+      error_log('Local blog unavailable for language routing: ' . $throwable->getMessage());
+      $this->blogService = null;
     }
 
-    return $this->wordPressClient;
+    return $this->blogService;
   }
 
+  /** @param array<string, mixed> $queryParams */
   private function buildCurrentUrl(string $uri, array $queryParams, bool $stripSetLang): string
   {
     if ($stripSetLang) {
@@ -355,15 +373,33 @@ class Router
     return $trimmedUri === '' ? '/' : $trimmedUri;
   }
 
+  /** @return array<string, array<string, string>> */
   private function getRouteTranslations(): array
   {
     if ($this->routeTranslations === null) {
-      $this->routeTranslations = require __DIR__ . '/../config/route-translations.php';
+      $translations = require __DIR__ . '/../config/route-translations.php';
+      if (!is_array($translations)) {
+        throw new \RuntimeException('Route translations must return an array.');
+      }
+      $validated = [];
+      foreach ($translations as $routeName => $paths) {
+        if (!is_string($routeName) || !is_array($paths)) {
+          throw new \RuntimeException('Every route translation must be a named language map.');
+        }
+        foreach ($paths as $language => $translatedPath) {
+          if (!is_string($language) || !is_string($translatedPath)) {
+            throw new \RuntimeException('Route translation languages and paths must be strings.');
+          }
+          $validated[$routeName][$language] = $translatedPath;
+        }
+      }
+      $this->routeTranslations = $validated;
     }
 
     return $this->routeTranslations;
   }
 
+  /** @param array<string, string> $params */
   private function matchPath(string $routePath, string $uri, array &$params = []): bool
   {
     if ($routePath === $uri) {
