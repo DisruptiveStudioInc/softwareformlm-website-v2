@@ -10,9 +10,8 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
 <section data-nav-index="0" class="nav-section lg:snap-start relative text-white w-full overflow-x-hidden">
   <span class="absolute top-0 left-0 size-0" id="home"></span>
   <div class="absolute -z-1 w-full h-full top-0 left-0">
-    <img class="background" src="/public/images/background/black-01.webp" alt="" loading="eager" fetchpriority="high" width="1920" height="1080" decoding="async">
-    <img class="background opacity-0 animate-cycle" src="/public/images/background/black-02.webp" alt="" loading="lazy" style="animation-duration:36s;animation-delay:12s">
-    <img class="background opacity-0 animate-cycle" src="/public/images/background/black-03.webp" alt="" loading="lazy" style="animation-duration:36s;animation-delay:24s">
+    <img class="background" src="/public/images/background/glowing-bg.svg" alt="" loading="eager" fetchpriority="high" width="1920" height="1080" decoding="async">
+    <div class="absolute w-full h-full top-0 left-0" style="background-image:url('/public/images/background/light_toast.png');background-repeat:repeat;mix-blend-mode:overlay;opacity:0.5"></div>
   </div>
   <div class="block-content py-16 lg:py-24 min-h-dvh flex-center gap-4 flex-col lg:flex-row-reverse">
     <div class="lg:w-1/2 text-center lg:text-left">
