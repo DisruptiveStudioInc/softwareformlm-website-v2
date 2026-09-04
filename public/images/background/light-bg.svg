@@ -1,7 +1,9 @@
 <svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
   <style>
     .glow {
-      transform-box: view-box;
+      transform-box: fill-box;
+      transform-origin: center;
+      will-change: transform, opacity;
       animation-duration: 40s, 40s;
       animation-timing-function: ease-in-out, ease-in-out;
       animation-iteration-count: infinite, infinite;
@@ -24,28 +26,28 @@
     .track-d.source-3 { animation-name: track-d, fade-3; }
 
     @keyframes track-a {
-      0%, 100% { cx: 1552px; cy: 273px; rx: 819px; ry: 819px; transform: rotate(0deg); transform-origin: 1552px 273px; }
-      25% { cx: 1629px; cy: 1117.5px; rx: 750px; ry: 527.5px; transform: rotate(0deg); transform-origin: 1629px 1117.5px; }
-      50% { cx: 403px; cy: 195px; rx: 1395px; ry: 919px; transform: rotate(0deg); transform-origin: 403px 195px; }
-      75% { cx: 381.5px; cy: 618.5px; rx: 1608.5px; ry: 1572.5px; transform: rotate(0deg); transform-origin: 381.5px 618.5px; }
+      0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+      25% { transform: translate3d(77px, 844.5px, 0) scale(.916, .644); }
+      50% { transform: translate3d(-1149px, -78px, 0) scale(1.703, 1.122); }
+      75% { transform: translate3d(-1170.5px, 345.5px, 0) scale(1.964, 1.92); }
     }
     @keyframes track-b {
-      0%, 100% { cx: 960px; cy: 0px; rx: 836px; ry: 836px; transform: rotate(0deg); transform-origin: 960px 0px; }
-      25% { cx: 1350.5px; cy: 27.5px; rx: 1182.5px; ry: 817.5px; transform: rotate(0deg); transform-origin: 1350.5px 27.5px; }
-      50% { cx: 1797.5px; cy: 1290.5px; rx: 837.5px; ry: 547.5px; transform: rotate(0deg); transform-origin: 1797.5px 1290.5px; }
-      75% { cx: 1420.5px; cy: 510.5px; rx: 1190.5px; ry: 1155.5px; transform: rotate(0deg); transform-origin: 1420.5px 510.5px; }
+      0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+      25% { transform: translate3d(390.5px, 27.5px, 0) scale(1.414, .978); }
+      50% { transform: translate3d(837.5px, 1290.5px, 0) scale(1.002, .655); }
+      75% { transform: translate3d(460.5px, 510.5px, 0) scale(1.424, 1.382); }
     }
     @keyframes track-c {
-      0%, 100% { cx: 508px; cy: 1169px; rx: 1044px; ry: 1044px; transform: rotate(0deg); transform-origin: 508px 1169px; }
-      25% { cx: 354px; cy: 882px; rx: 725px; ry: 725px; transform: rotate(0deg); transform-origin: 354px 882px; }
-      50% { cx: 1401.53px; cy: 466.799px; rx: 1559.09px; ry: 343.114px; transform: rotate(29.4247deg); transform-origin: 1401.53px 466.799px; }
-      75% { cx: 2230px; cy: 571px; rx: 866px; ry: 704px; transform: rotate(0deg); transform-origin: 2230px 571px; }
+      0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+      25% { transform: translate3d(-154px, -287px, 0) scale(.694); }
+      50% { transform: translate3d(893.53px, -702.2px, 0) rotate(29.425deg) scale(1.493, .329); }
+      75% { transform: translate3d(1722px, -598px, 0) scale(.83, .674); }
     }
     @keyframes track-d {
-      0%, 100% { cx: 140.5px; cy: 202px; rx: 819.5px; ry: 748px; transform: rotate(0deg); transform-origin: 140.5px 202px; }
-      25% { cx: -0.5px; cy: 157px; rx: 455.5px; ry: 614px; transform: rotate(0deg); transform-origin: -0.5px 157px; }
-      50% { cx: 403.381px; cy: 434.617px; rx: 466.323px; ry: 1339px; transform: rotate(-60.3532deg); transform-origin: 403.381px 434.617px; }
-      75% { cx: 381.5px; cy: 618.5px; rx: 0px; ry: 0px; transform: rotate(0deg); transform-origin: 381.5px 618.5px; }
+      0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+      25% { transform: translate3d(-141px, -45px, 0) scale(.556, .821); }
+      50% { transform: translate3d(262.9px, 232.6px, 0) rotate(-60.353deg) scale(.569, 1.79); }
+      75% { transform: translate3d(241px, 416px, 0) scale(0); }
     }
 
     @keyframes fade-1 { 0%, 100% { opacity: 1; } 25%, 50%, 75% { opacity: 0; } }
@@ -57,7 +59,7 @@
     @keyframes fade-3-a { 0%, 25%, 75%, 100% { opacity: 0; } 50% { opacity: .8; } }
     @keyframes fade-4-a { 0%, 25%, 50%, 100% { opacity: 0; } 75% { opacity: .8; } }
 
-    @media (prefers-reduced-motion: reduce) {
+    @media (max-width: 1079px), (prefers-reduced-motion: reduce) {
       .glow { animation-play-state: paused; }
     }
   </style>

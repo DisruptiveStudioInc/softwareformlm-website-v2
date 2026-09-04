@@ -1,7 +1,7 @@
 <dialog id="exit-intent-popup" class="popup bg-transparent m-auto w-full max-w-2xl px-7" data-exit-intent-popup>
   <div class="relative w-full bg-white rounded-xl lg:rounded-2xl max-h-[90vh] overflow-x-hidden overflow-y-auto">
     <button type="button" data-target="exit-intent-popup" aria-label="Close dialog" class="close-popup absolute top-2 right-2 text-gray-100 bg-surface-200 hover:bg-brand-100 hover:text-secondary-100 rounded-lg cursor-pointer p-1 transition-colors">
-      <svg class="size-6 transition-colors"><use href="/public/assets/icons.svg.php#xmark"/></svg>
+      <svg class="size-6 transition-colors"><use href="<?= asset_url('/public/assets/icons.svg') ?>#xmark"/></svg>
     </button>
     <div class="p-6 lg:p-8 text-secondary-200">
       <div class="text-center mb-6">

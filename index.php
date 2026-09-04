@@ -77,8 +77,8 @@ try {
   // Preload only the actual homepage LCP candidate, not decorative backgrounds.
   $requestPath = parse_url($request->getUri(), PHP_URL_PATH) ?? '/';
   if (preg_match('#^/(?:[a-z]{2})?$#', $requestPath) === 1) {
-    $lcpImage = '/public/images/home/bo-computer.webp';
-    header("Link: <$lcpImage>; rel=preload; as=image; fetchpriority=high");
+    $lcpImage = asset_url('/public/images/home/bo-computer-w640.avif');
+    header("Link: <$lcpImage>; rel=preload; as=image; type=image/avif; fetchpriority=high");
   }
 
   $method = $request->getMethod();

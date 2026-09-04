@@ -9,12 +9,11 @@ require __DIR__ . '/../../layouts/header.php';
 
   <!-- Featured Image Hero -->
   <header class="relative w-full h-96 lg:h-[600px] overflow-hidden bg-secondary-50">
-    <img
-      src="<?= htmlspecialchars(isset($post['featuredImage']['alt']) ? $post['featuredImage']['url'] : "/public/images/background/blog-cover-{$backupImage}.webp") ?>"
-      alt="<?= htmlspecialchars(isset($post['featuredImage']['alt']) ? $post['featuredImage']['alt'] : $post['title']) ?>"
-      class="w-full h-full object-cover opacity-90"
-      loading="eager"
-    >
+    <?php
+      $featuredPath = $post['featuredImage']['url'] ?? "/public/images/background/blog-cover-{$backupImage}.webp";
+      $featuredAlt = $post['featuredImage']['alt'] ?? $post['title'];
+    ?>
+    <?= responsive_image($featuredPath, $featuredAlt, 'w-full h-full object-cover opacity-90', '100vw', ['loading' => 'eager', 'fetchpriority' => 'high']) ?>
     <div class="absolute inset-0 bg-gradient-to-t from-black/70 from-15% to-transparent"></div>
 
     <!-- Title Overlay -->
@@ -86,14 +85,13 @@ require __DIR__ . '/../../layouts/header.php';
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <?php foreach ($relatedPosts as $k => $related): ?>
             <article class="bg-white rounded-2xl p-2">
-              <?php $relatedBackupImage = $k%3 ?>
+              <?php
+                $relatedBackupImage = $k % 3;
+                $relatedPath = $related['featuredImage']['url'] ?? "/public/images/background/blog-cover-{$relatedBackupImage}.webp";
+                $relatedAlt = $related['featuredImage']['alt'] ?? $related['title'];
+              ?>
               <a href="<?= htmlspecialchars($related['url']) ?>" class="block aspect-video rounded-lg overflow-hidden">
-                <img
-                  src="<?= htmlspecialchars(isset($related['featuredImage']['url']) ? $related['featuredImage']['url'] : "/public/images/background/blog-cover-{$relatedBackupImage}.webp") ?>"
-                  alt="<?= htmlspecialchars(isset($related['featuredImage']['alt']) ?  $related['featuredImage']['alt'] : $related['title']) ?>"
-                  class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                  loading="lazy"
-                >
+                <?= responsive_image($relatedPath, $relatedAlt, 'w-full h-full object-cover hover:scale-105 transition-transform duration-300', '(min-width: 768px) 33vw, 100vw', ['loading' => 'lazy']) ?>
               </a>
               <h3 class="text-lg font-bold line-clamp-2 p-2 mt-2">
                 <a href="<?= htmlspecialchars($related['url']) ?>" class="hover:text-brand-100 transition-colors">

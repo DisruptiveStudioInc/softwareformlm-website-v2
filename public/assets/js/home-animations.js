@@ -73,14 +73,8 @@ function loadScript(src) {
 }
 
 async function loadAnimationDependencies() {
-  const needsSplitText = document.querySelector(
-    ".slide-up-words, .slide-up-words-black, .slide-up-words-white, .slide-up-words-white-scroll",
-  );
-
-  await loadScript("/public/assets/vendor/gsap/gsap.min.js");
-  await loadScript("/public/assets/vendor/gsap/ScrollTrigger.min.js");
-
-  if (needsSplitText) {
-    await loadScript("/public/assets/vendor/gsap/SplitText.min.js");
-  }
+  await Promise.all([
+    loadScript("/public/assets/vendor/gsap/gsap.min.js"),
+    loadScript("/public/assets/vendor/gsap/ScrollTrigger.min.js"),
+  ]);
 }

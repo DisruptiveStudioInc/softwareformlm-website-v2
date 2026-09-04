@@ -60,7 +60,6 @@
   --color-brand-50: #88f5d5; /*#9671FF*/
   --color-brand-100: #67debb;
   --color-brand-200: #39d3a5; /*#5B2CE9*/
-
   --color-secondary-50: oklch(0.372 0.045 259.1); /*#2F3A5E*/
   --color-secondary-100: oklch(0.312 0.045 259.2); /*#23274E*/
   --color-secondary-200: oklch(0.267 0.041 258.4); /*#1D203D*/
@@ -461,6 +460,9 @@
     background-position: 0% var(--bg-y);
     color: rgba(0, 0, 0, 0);
     animation: moveTextBg 4s linear infinite;
+  }
+  .animated-word {
+    display: inline-block;
   }
   .serv-dot {
     background-color: var(--color-white);

@@ -11,5 +11,5 @@ parameters:
     - src/Router.php
   excludePaths:
     analyse:
-      - sunnycasitas-webiste
+      - sunnycasitas-webiste (?)
   reportUnmatchedIgnoredErrors: false

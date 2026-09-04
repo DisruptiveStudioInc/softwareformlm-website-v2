@@ -33,21 +33,30 @@ if (config) {
     if (loaded.has('marketing')) return;
     loaded.add('marketing');
 
-    window.fbq = window.fbq || function fbq() {
-      (window.fbq.queue = window.fbq.queue || []).push(arguments);
-    };
-    window.fbq('init', config.metaPixelId);
-    window.fbq('track', 'PageView');
-    loadScript('https://connect.facebook.net/en_US/fbevents.js');
+    const hasScriptFrom = (origin) =>
+      Boolean(document.querySelector(`script[src*="${origin}"]`));
 
-    window.clarity = window.clarity || function clarity() {
-      (window.clarity.q = window.clarity.q || []).push(arguments);
-    };
-    loadScript(`https://www.clarity.ms/tag/${config.clarityId}`);
+    if (!hasScriptFrom('connect.facebook.net')) {
+      window.fbq = window.fbq || function fbq() {
+        (window.fbq.queue = window.fbq.queue || []).push(arguments);
+      };
+      window.fbq('init', config.metaPixelId);
+      window.fbq('track', 'PageView');
+      loadScript('https://connect.facebook.net/en_US/fbevents.js');
+    }
 
-    loadScript('https://tracker.metricool.com/resources/be.js')
-      .then(() => window.beTracker?.t({ hash: config.metricoolId }))
-      .catch(() => {});
+    if (!hasScriptFrom('clarity.ms')) {
+      window.clarity = window.clarity || function clarity() {
+        (window.clarity.q = window.clarity.q || []).push(arguments);
+      };
+      loadScript(`https://www.clarity.ms/tag/${config.clarityId}`);
+    }
+
+    if (!hasScriptFrom('tracker.metricool.com')) {
+      loadScript('https://tracker.metricool.com/resources/be.js')
+        .then(() => window.beTracker?.t({ hash: config.metricoolId }))
+        .catch(() => {});
+    }
   };
 
   const beginMarketingAfterIntent = () => {
@@ -92,16 +101,20 @@ if (config) {
   };
 
   const scheduleChat = () => {
+    let started = false;
     const initializeChat = () => {
+      if (started) return;
+      started = true;
+      window.clearTimeout(hardDeadline);
       loadChat().catch(() => {});
     };
 
+    // Chat is a sales-critical feature. Begin during the first idle slot, but
+    // never postpone the request beyond one second after this module executes.
+    const hardDeadline = window.setTimeout(initializeChat, 1000);
     if ('requestIdleCallback' in window) {
-      window.requestIdleCallback(initializeChat, { timeout: 4000 });
-      return;
+      window.requestIdleCallback(initializeChat, { timeout: 750 });
     }
-
-    window.setTimeout(initializeChat, 2000);
   };
 
   const initializeAfterLoad = () => {
@@ -109,8 +122,10 @@ if (config) {
     loaded.add('post-load');
     loadGtm();
     beginMarketingAfterIntent();
-    scheduleChat();
   };
+
+  // Do not couple chat availability to the marketing timeout or window load.
+  scheduleChat();
 
   if (document.readyState === 'complete') {
     initializeAfterLoad();

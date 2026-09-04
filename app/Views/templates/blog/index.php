@@ -36,14 +36,13 @@ require __DIR__ . '/../../layouts/header.php';
               <article class="bg-white rounded-2xl p-2 overflow-hidden grid grid-cols-1 lg:grid-cols-2 gap-4">
 
                 <!-- Featured Image -->
-                <?php $backupImage = $k%3 ?>
+                <?php
+                  $backupImage = $k % 3;
+                  $featuredPath = $post['featuredImage']['url'] ?? "/public/images/background/blog-cover-{$backupImage}.webp";
+                  $featuredAlt = $post['featuredImage']['alt'] ?? $post['title'];
+                ?>
                 <a href="<?= htmlspecialchars($post['url']) ?>" class="block aspect-video lg:aspect-square rounded-lg overflow-hidden">
-                  <img
-                    src="<?= htmlspecialchars(isset($post['featuredImage']['url']) ?  $post['featuredImage']['url'] : "/public/images/background/blog-cover-{$backupImage}.webp") ?>"
-                    alt="<?= htmlspecialchars(isset($post['featuredImage']['alt']) ?  $post['featuredImage']['alt'] : $post['title']) ?>"
-                    class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                    loading="lazy"
-                  >
+                  <?= responsive_image($featuredPath, $featuredAlt, 'w-full h-full object-cover hover:scale-105 transition-transform duration-300', '(min-width: 1088px) 50vw, 100vw', ['loading' => 'lazy']) ?>
                 </a>
 
                 <div class="flex flex-col justify-between p-4">

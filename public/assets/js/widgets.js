@@ -88,31 +88,12 @@ const mainFooter = document.getElementById("main-footer");
 
 if (lateralUp && lateralDown && navSections.length > 0) {
   let currentSectionIndex = 0;
-
-  const isFullyInsideFooter = (element, footerRect) => {
-    const elementRect = element.getBoundingClientRect();
-
-    return (
-      elementRect.top >= footerRect.top &&
-      elementRect.bottom <= footerRect.bottom &&
-      elementRect.left >= footerRect.left &&
-      elementRect.right <= footerRect.right
-    );
-  };
+  let footerVisible = false;
 
   const updateLateralNavigationState = () => {
     const isFirst = currentSectionIndex === 0;
     const isLast = currentSectionIndex === navSections.length - 1;
-    const buttonsInsideFooter = mainFooter
-      ? (() => {
-          const footerRect = mainFooter.getBoundingClientRect();
-
-          return (
-            isFullyInsideFooter(lateralUp, footerRect) &&
-            isFullyInsideFooter(lateralDown, footerRect)
-          );
-        })()
-      : false;
+    const buttonsInsideFooter = footerVisible;
 
     lateralUp.classList.toggle("!opacity-0", isFirst || buttonsInsideFooter);
     lateralDown.classList.toggle("!opacity-0", isLast || buttonsInsideFooter);
@@ -160,6 +141,14 @@ if (lateralUp && lateralDown && navSections.length > 0) {
     navObserver.observe(section);
   });
 
+  if (mainFooter) {
+    const footerObserver = new IntersectionObserver(([entry]) => {
+      footerVisible = entry.isIntersecting;
+      updateLateralNavigationState();
+    });
+    footerObserver.observe(mainFooter);
+  }
+
   const navigateToSection = (direction) => {
     const targetIndex = currentSectionIndex + direction;
 
@@ -170,11 +159,34 @@ if (lateralUp && lateralDown && navSections.length > 0) {
 
   lateralUp.addEventListener("click", () => navigateToSection(-1));
   lateralDown.addEventListener("click", () => navigateToSection(1));
-  window.addEventListener("scroll", updateLateralNavigationState, {
-    passive: true,
-  });
   window.addEventListener("resize", updateLateralNavigationState);
   updateLateralNavigationState();
+}
+
+const deferredClientLogos = document.querySelectorAll("img[data-client-src]");
+
+if (deferredClientLogos.length > 0) {
+  const loadClientLogos = () => {
+    deferredClientLogos.forEach((image) => {
+      image.src = image.dataset.clientSrc;
+      image.removeAttribute("data-client-src");
+    });
+  };
+  const clientsSection = deferredClientLogos[0].closest("section");
+
+  if ("IntersectionObserver" in window && clientsSection) {
+    const clientsObserver = new IntersectionObserver(
+      ([entry], observer) => {
+        if (!entry.isIntersecting) return;
+        loadClientLogos();
+        observer.disconnect();
+      },
+      { rootMargin: "600px 0px" },
+    );
+    clientsObserver.observe(clientsSection);
+  } else {
+    loadClientLogos();
+  }
 }
 
 const scrollGradientContainers = document.querySelectorAll(

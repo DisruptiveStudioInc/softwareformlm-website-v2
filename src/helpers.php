@@ -36,6 +36,129 @@ function asset_url(string $path): string
 }
 
 /**
+ * Render animation-ready words without measuring or rewriting text in the browser.
+ * Whitespace is kept outside the spans so assistive technology reads natural text.
+ */
+function animated_words(string $text, string $wordClasses = ''): string
+{
+  $parts = preg_split('/(\s+)/u', trim($text), -1, PREG_SPLIT_DELIM_CAPTURE);
+  if ($parts === false) {
+    return e($text);
+  }
+
+  $wordIndex = 0;
+  $html = '';
+  foreach ($parts as $part) {
+    if (preg_match('/^\s+$/u', $part) === 1) {
+      $html .= $part;
+      continue;
+    }
+
+    $wordIndex++;
+    $classes = trim('animated-word word' . $wordIndex . ' ' . $wordClasses);
+    $html .= sprintf('<span class="%s">%s</span>', e($classes), e($part));
+  }
+
+  return $html;
+}
+
+/**
+ * Return intrinsic dimensions for a local public image, cached per request.
+ */
+function image_dimensions(string $path): string
+{
+  static $dimensions = [];
+  $normalizedPath = '/' . ltrim($path, '/');
+
+  if (array_key_exists($normalizedPath, $dimensions)) {
+    return $dimensions[$normalizedPath];
+  }
+
+  $fullPath = __DIR__ . '/..' . $normalizedPath;
+  $size = is_file($fullPath) ? @getimagesize($fullPath) : false;
+  $dimensions[$normalizedPath] = $size === false
+    ? ''
+    : sprintf('width="%d" height="%d"', $size[0], $size[1]);
+
+  return $dimensions[$normalizedPath];
+}
+
+/**
+ * Build a responsive picture using generated AVIF/WebP variants when present.
+ *
+ * @param array<string, string> $attributes
+ */
+function responsive_image(
+  string $path,
+  string $alt,
+  string $classes,
+  string $sizes,
+  array $attributes = []
+): string {
+  $isRemote = preg_match('#^https?://#i', $path) === 1;
+  $normalizedPath = $isRemote ? $path : '/' . ltrim($path, '/');
+  $fullPath = $isRemote ? null : __DIR__ . '/..' . $normalizedPath;
+  $extension = strtolower(pathinfo(parse_url($normalizedPath, PHP_URL_PATH) ?? '', PATHINFO_EXTENSION));
+  $basePath = $extension === '' ? $normalizedPath : substr($normalizedPath, 0, -(strlen($extension) + 1));
+  $metadata = $fullPath !== null && is_file($fullPath) ? @getimagesize($fullPath) : false;
+  $width = $metadata[0] ?? null;
+  $height = $metadata[1] ?? null;
+  $candidateWidths = [384, 480, 640, 768, 850, 960];
+  $sources = ['avif' => [], 'webp' => []];
+
+  if (!$isRemote) {
+    foreach ($candidateWidths as $candidateWidth) {
+      foreach (array_keys($sources) as $format) {
+        $candidatePath = sprintf('%s-w%d.%s', $basePath, $candidateWidth, $format);
+        if (is_file(__DIR__ . '/..' . $candidatePath)) {
+          $sources[$format][] = asset_url($candidatePath) . ' ' . $candidateWidth . 'w';
+        }
+      }
+    }
+
+    $hasOriginalWidth = $width !== null && array_filter(
+      $sources['webp'],
+      static fn (string $source): bool => str_ends_with($source, ' ' . $width . 'w'),
+    ) !== [];
+    if ($extension === 'webp' && $width !== null && !$hasOriginalWidth) {
+      $sources['webp'][] = asset_url($normalizedPath) . ' ' . $width . 'w';
+    }
+  }
+
+  $imgAttributes = array_merge([
+    'src' => $isRemote ? $normalizedPath : asset_url($normalizedPath),
+    'alt' => $alt,
+    'class' => $classes,
+    'sizes' => $sizes,
+    'decoding' => 'async',
+  ], $attributes);
+  if ($width !== null && $height !== null) {
+    $imgAttributes['width'] = (string) $width;
+    $imgAttributes['height'] = (string) $height;
+  }
+
+  $serializeAttributes = static function (array $values): string {
+    $result = [];
+    foreach ($values as $name => $value) {
+      $result[] = sprintf('%s="%s"', e((string) $name), e((string) $value));
+    }
+    return implode(' ', $result);
+  };
+
+  $html = '<picture style="display:contents">';
+  if ($sources['avif'] !== []) {
+    $html .= sprintf('<source type="image/avif" srcset="%s" sizes="%s">', e(implode(', ', $sources['avif'])), e($sizes));
+  }
+  if (count($sources['webp']) > 1) {
+    $html .= sprintf('<source type="image/webp" srcset="%s" sizes="%s">', e(implode(', ', $sources['webp'])), e($sizes));
+  }
+  $html .= '<img ' . $serializeAttributes($imgAttributes) . '>';
+  $html .= '</picture>';
+
+  return $html;
+}
+
+/**
  * Format numeric values with comma thousands separators.
  */
 function format_number_with_commas(mixed $value): string

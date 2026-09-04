@@ -1,6 +1,6 @@
 <svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
   <style>
-    .glow { animation-duration: 36s; animation-timing-function: ease-in-out; animation-iteration-count: infinite; }
+    .glow { transform-box: fill-box; transform-origin: center; will-change: transform, opacity; animation-duration: 36s; animation-timing-function: ease-in-out; animation-iteration-count: infinite; }
     .top-glow-magenta { animation-name: top-glow-magenta; }
     .top-glow-purple { animation-name: top-glow-purple; }
     .main-glow { animation-name: main-glow; }
@@ -8,29 +8,30 @@
     .accent-glow { animation-name: accent-glow; }
 
     @keyframes top-glow-magenta {
-      0%, 100% { cx: 1552px; cy: 125px; r: 819px; opacity: .5; }
-      33.333% { cx: 1762px; cy: -161px; r: 1023px; opacity: 0; }
-      66.667% { cx: 1115px; cy: -341px; r: 1023px; opacity: .7; }
+      0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: .5; }
+      33.333% { transform: translate3d(210px, -286px, 0) scale(1.249); opacity: 0; }
+      66.667% { transform: translate3d(-437px, -466px, 0) scale(1.249); opacity: .7; }
     }
     @keyframes top-glow-purple {
-      0%, 100% { cx: 1552px; cy: 125px; r: 819px; opacity: 0; }
-      33.333% { cx: 1762px; cy: -161px; r: 1023px; opacity: .8; }
-      66.667% { cx: 1115px; cy: -341px; r: 1023px; opacity: 0; }
+      0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0; }
+      33.333% { transform: translate3d(210px, -286px, 0) scale(1.249); opacity: .8; }
+      66.667% { transform: translate3d(-437px, -466px, 0) scale(1.249); opacity: 0; }
     }
     @keyframes main-glow {
-      0%, 100% { cx: -111px; cy: -139px; r: 1404px; opacity: 1; }
-      33.333% { cx: 665px; cy: 0px; r: 961px; opacity: 1; }
-      66.667% { cx: 609px; cy: 839px; r: 961px; opacity: 1; }
+      0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: 1; }
+      33.333% { transform: translate3d(776px, 139px, 0) scale(.684); opacity: 1; }
+      66.667% { transform: translate3d(720px, 978px, 0) scale(.684); opacity: 1; }
     }
     @keyframes bottom-glow {
-      0%, 100% { cx: 653px; cy: 1024px; r: 899px; opacity: .3; }
-      33.333% { cx: 653px; cy: 1024px; r: 899px; opacity: .3; }
-      66.667% { cx: 653px; cy: 1024px; r: 899px; opacity: 0; }
+      0%, 33.333%, 100% { opacity: .3; }
+      66.667% { opacity: 0; }
     }
     @keyframes accent-glow {
-      0%, 100% { cx: 345px; cy: 1030px; r: 770px; opacity: 0; }
-      33.333% { cx: 345px; cy: 1030px; r: 770px; opacity: .9; }
-      66.667% { cx: 345px; cy: 1030px; r: 770px; opacity: 0; }
+      0%, 66.667%, 100% { opacity: 0; }
+      33.333% { opacity: .9; }
+    }
+    @media (max-width: 1079px), (prefers-reduced-motion: reduce) {
+      .glow { animation-play-state: paused; }
     }
   </style>
   <defs>
