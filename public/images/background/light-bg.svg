@@ -1,0 +1,109 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <style>
+    .glow {
+      transform-box: view-box;
+      animation-duration: 40s, 40s;
+      animation-timing-function: ease-in-out, ease-in-out;
+      animation-iteration-count: infinite, infinite;
+    }
+
+    .track-a.source-1 { animation-name: track-a, fade-1-a; }
+    .track-a.source-2 { animation-name: track-a, fade-2-a; }
+    .track-a.source-3 { animation-name: track-a, fade-3-a; }
+    .track-a.source-4 { animation-name: track-a, fade-4-a; }
+    .track-b.source-1 { animation-name: track-b, fade-1; }
+    .track-b.source-2 { animation-name: track-b, fade-2; }
+    .track-b.source-3 { animation-name: track-b, fade-3; }
+    .track-b.source-4 { animation-name: track-b, fade-4; }
+    .track-c.source-1 { animation-name: track-c, fade-1; }
+    .track-c.source-2 { animation-name: track-c, fade-2; }
+    .track-c.source-3 { animation-name: track-c, fade-3; }
+    .track-c.source-4 { animation-name: track-c, fade-4; }
+    .track-d.source-1 { animation-name: track-d, fade-1; }
+    .track-d.source-2 { animation-name: track-d, fade-2; }
+    .track-d.source-3 { animation-name: track-d, fade-3; }
+
+    @keyframes track-a {
+      0%, 100% { cx: 1552px; cy: 273px; rx: 819px; ry: 819px; transform: rotate(0deg); transform-origin: 1552px 273px; }
+      25% { cx: 1629px; cy: 1117.5px; rx: 750px; ry: 527.5px; transform: rotate(0deg); transform-origin: 1629px 1117.5px; }
+      50% { cx: 403px; cy: 195px; rx: 1395px; ry: 919px; transform: rotate(0deg); transform-origin: 403px 195px; }
+      75% { cx: 381.5px; cy: 618.5px; rx: 1608.5px; ry: 1572.5px; transform: rotate(0deg); transform-origin: 381.5px 618.5px; }
+    }
+    @keyframes track-b {
+      0%, 100% { cx: 960px; cy: 0px; rx: 836px; ry: 836px; transform: rotate(0deg); transform-origin: 960px 0px; }
+      25% { cx: 1350.5px; cy: 27.5px; rx: 1182.5px; ry: 817.5px; transform: rotate(0deg); transform-origin: 1350.5px 27.5px; }
+      50% { cx: 1797.5px; cy: 1290.5px; rx: 837.5px; ry: 547.5px; transform: rotate(0deg); transform-origin: 1797.5px 1290.5px; }
+      75% { cx: 1420.5px; cy: 510.5px; rx: 1190.5px; ry: 1155.5px; transform: rotate(0deg); transform-origin: 1420.5px 510.5px; }
+    }
+    @keyframes track-c {
+      0%, 100% { cx: 508px; cy: 1169px; rx: 1044px; ry: 1044px; transform: rotate(0deg); transform-origin: 508px 1169px; }
+      25% { cx: 354px; cy: 882px; rx: 725px; ry: 725px; transform: rotate(0deg); transform-origin: 354px 882px; }
+      50% { cx: 1401.53px; cy: 466.799px; rx: 1559.09px; ry: 343.114px; transform: rotate(29.4247deg); transform-origin: 1401.53px 466.799px; }
+      75% { cx: 2230px; cy: 571px; rx: 866px; ry: 704px; transform: rotate(0deg); transform-origin: 2230px 571px; }
+    }
+    @keyframes track-d {
+      0%, 100% { cx: 140.5px; cy: 202px; rx: 819.5px; ry: 748px; transform: rotate(0deg); transform-origin: 140.5px 202px; }
+      25% { cx: -0.5px; cy: 157px; rx: 455.5px; ry: 614px; transform: rotate(0deg); transform-origin: -0.5px 157px; }
+      50% { cx: 403.381px; cy: 434.617px; rx: 466.323px; ry: 1339px; transform: rotate(-60.3532deg); transform-origin: 403.381px 434.617px; }
+      75% { cx: 381.5px; cy: 618.5px; rx: 0px; ry: 0px; transform: rotate(0deg); transform-origin: 381.5px 618.5px; }
+    }
+
+    @keyframes fade-1 { 0%, 100% { opacity: 1; } 25%, 50%, 75% { opacity: 0; } }
+    @keyframes fade-2 { 0%, 50%, 75%, 100% { opacity: 0; } 25% { opacity: 1; } }
+    @keyframes fade-3 { 0%, 25%, 75%, 100% { opacity: 0; } 50% { opacity: 1; } }
+    @keyframes fade-4 { 0%, 25%, 50%, 100% { opacity: 0; } 75% { opacity: 1; } }
+    @keyframes fade-1-a { 0%, 100% { opacity: 1; } 25%, 50%, 75% { opacity: 0; } }
+    @keyframes fade-2-a { 0%, 50%, 75%, 100% { opacity: 0; } 25% { opacity: 1; } }
+    @keyframes fade-3-a { 0%, 25%, 75%, 100% { opacity: 0; } 50% { opacity: .8; } }
+    @keyframes fade-4-a { 0%, 25%, 50%, 100% { opacity: 0; } 75% { opacity: .8; } }
+
+    @media (prefers-reduced-motion: reduce) {
+      .glow { animation-play-state: paused; }
+    }
+  </style>
+
+  <defs>
+    <radialGradient id="a1"><stop offset="41.8269%" stop-color="#A9ABE5"/><stop offset="100%" stop-color="#A9ABE5" stop-opacity="0"/></radialGradient>
+    <radialGradient id="a2"><stop offset="46.6346%" stop-color="#ADB8F4"/><stop offset="82.6923%" stop-color="#A4A5E7" stop-opacity=".8"/><stop offset="100%" stop-color="#A9ABE5" stop-opacity="0"/></radialGradient>
+    <radialGradient id="a3"><stop offset="39.9038%" stop-color="#B79FE9"/><stop offset="100%" stop-color="#B79FE9" stop-opacity="0"/></radialGradient>
+    <radialGradient id="a4"><stop offset="39.9038%" stop-color="#ADA3E2"/><stop offset="100%" stop-color="#ADA3E2" stop-opacity="0"/></radialGradient>
+
+    <radialGradient id="b1"><stop offset="51.4423%" stop-color="#A99DE8"/><stop offset="99.0385%" stop-color="#A99DE8" stop-opacity="0"/></radialGradient>
+    <radialGradient id="b2"><stop offset="49.5192%" stop-color="#B5CBF9"/><stop offset="82.6923%" stop-color="#A4A5E7"/><stop offset="100%" stop-color="#A99DE8" stop-opacity="0"/></radialGradient>
+    <radialGradient id="b3"><stop offset="25.4808%" stop-color="#F7B8F6"/><stop offset="100%" stop-color="#F7B8F6" stop-opacity="0"/></radialGradient>
+    <radialGradient id="b4"><stop offset="37.5%" stop-color="#F2EBFF"/><stop offset="100%" stop-color="#F2EBFF" stop-opacity="0"/></radialGradient>
+
+    <radialGradient id="c1"><stop offset="40.3846%" stop-color="#E7C9EB"/><stop offset="100%" stop-color="#E7C9EB" stop-opacity="0"/></radialGradient>
+    <radialGradient id="c2"><stop offset="40.3846%" stop-color="#B79FE9"/><stop offset="100%" stop-color="#B79FE9" stop-opacity="0"/></radialGradient>
+    <radialGradient id="c3"><stop offset="3.84615%" stop-color="#B9B0EA"/><stop offset="54.8077%" stop-color="#A58DF6" stop-opacity=".34"/><stop offset="100%" stop-color="#9977FF" stop-opacity="0"/></radialGradient>
+    <radialGradient id="c4"><stop offset="1.44231%" stop-color="#B5CBF9"/><stop offset="59.988%" stop-color="#B5CBF9" stop-opacity="0"/></radialGradient>
+
+    <radialGradient id="d1"><stop offset="12.9808%" stop-color="#B4ABE8"/><stop offset="100%" stop-color="#B4ABE8" stop-opacity="0"/></radialGradient>
+    <radialGradient id="d2"><stop offset="32.6923%" stop-color="#BDA4EF"/><stop offset="100%" stop-color="#BDA4EF" stop-opacity="0"/></radialGradient>
+    <radialGradient id="d3" gradientTransform="rotate(2)"><stop offset="15.8654%" stop-color="#CCDAFA"/><stop offset="59.3384%" stop-color="#ABB5EA"/><stop offset="100%" stop-color="#83ABFF" stop-opacity="0"/></radialGradient>
+    <clipPath id="frame"><rect width="1920" height="1080"/></clipPath>
+  </defs>
+
+  <g clip-path="url(#frame)">
+    <rect width="1920" height="1080" fill="#9A9AAA"/>
+
+    <ellipse class="glow track-a source-1" cx="1552" cy="273" rx="819" ry="819" fill="url(#a1)"/>
+    <ellipse class="glow track-a source-2" cx="1552" cy="273" rx="819" ry="819" fill="url(#a2)"/>
+    <ellipse class="glow track-a source-3" cx="1552" cy="273" rx="819" ry="819" fill="url(#a3)"/>
+    <ellipse class="glow track-a source-4" cx="1552" cy="273" rx="819" ry="819" fill="url(#a4)"/>
+
+    <ellipse class="glow track-b source-1" cx="960" cy="0" rx="836" ry="836" fill="url(#b1)"/>
+    <ellipse class="glow track-b source-2" cx="960" cy="0" rx="836" ry="836" fill="url(#b2)"/>
+    <ellipse class="glow track-b source-3" cx="960" cy="0" rx="836" ry="836" fill="url(#b3)"/>
+    <ellipse class="glow track-b source-4" cx="960" cy="0" rx="836" ry="836" fill="url(#b4)"/>
+
+    <ellipse class="glow track-c source-1" cx="508" cy="1169" rx="1044" ry="1044" fill="url(#c1)"/>
+    <ellipse class="glow track-c source-2" cx="508" cy="1169" rx="1044" ry="1044" fill="url(#c2)"/>
+    <ellipse class="glow track-c source-3" cx="508" cy="1169" rx="1044" ry="1044" fill="url(#c3)"/>
+    <ellipse class="glow track-c source-4" cx="508" cy="1169" rx="1044" ry="1044" fill="url(#c4)"/>
+
+    <ellipse class="glow track-d source-1" cx="140.5" cy="202" rx="819.5" ry="748" fill="url(#d1)"/>
+    <ellipse class="glow track-d source-2" cx="140.5" cy="202" rx="819.5" ry="748" fill="url(#d2)"/>
+    <ellipse class="glow track-d source-3" cx="140.5" cy="202" rx="819.5" ry="748" fill="url(#d3)"/>
+  </g>
+</svg>
