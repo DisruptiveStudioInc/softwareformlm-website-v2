@@ -9,16 +9,18 @@ Create one SFMLM-branded blog cover from the user's scene description. The descr
 
 ## Generate the cover
 
+Resolve every bundled resource relative to the directory containing this loaded `SKILL.md`, never relative to the session working directory. Canonicalize the resulting path before passing it to a tool.
+
 1. Read [references/brand-image-prompt.md](references/brand-image-prompt.md) completely.
 2. Replace `<insert_scene_here>` with the user's scene description verbatim. Do not retain the placeholder or substitute a generic scene.
-3. Generate one new image with the built-in image-generation tool. Pass [assets/favicon.png](assets/favicon.png) as the sole reference image and label it as the SFMLM favicon/brand element, not as an edit target. Do not substitute `logo.png`, `public/favicon.svg`, or another asset.
-   - Prefer passing its resolved local path. If the image tool cannot read the hidden `.agents` path, load the exact bundled PNG into the conversation and include that most-recent image as the sole reference. Do not continue without a reference image.
-4. Inspect the result before accepting it. It must:
+3. Resolve [assets/favicon.png](assets/favicon.png) from this skill directory to an absolute local path and verify that it is a readable file. If it is missing or unreadable, stop and report the resolved path; do not generate an unbranded image or ask the user to locate the bundled asset.
+4. Generate one new image with the built-in image-generation tool. Pass the verified absolute favicon path through `referenced_image_paths` as the sole reference image and label it as the SFMLM favicon/brand element, not as an edit target. Do not substitute `logo.png`, `public/favicon.svg`, another asset, or a prior conversation image.
+5. Inspect the result before accepting it. It must:
    - depict the requested scene clearly;
    - use the dark navy, teal/cyan, futuristic corporate-technology aesthetic from the template;
    - include the referenced favicon as an important, naturally integrated element without visible deformation or redesign;
    - contain no text except text already present in the favicon, and no random letters or numbers.
-5. If any acceptance check fails, make one targeted retry that restates only the failed requirement and all logo/text invariants. Inspect the retry. If it still fails, do not store or index it; report the failed checks.
+6. If any acceptance check fails, make one targeted retry that restates only the failed requirement and all logo/text invariants. Inspect the retry. If it still fails, do not store or index it; report the failed checks.
 
 ## Store the finished cover
 
