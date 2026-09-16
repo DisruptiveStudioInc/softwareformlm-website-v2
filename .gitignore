@@ -9,3 +9,10 @@ performance/
 performance/*
 !performance/recomendaciones-devops-rendimiento-ronda-2.md
 .phpunit.cache/
+
+# Reproducible performance evidence; raw browser captures stay local.
+!performance/*.py
+!performance/corrected-analysis.md
+!performance/recovery-validation.md
+!performance/normalized-results.json
+!performance/normalized-results.csv

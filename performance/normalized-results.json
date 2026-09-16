@@ -1,0 +1,3119 @@
+[
+  {
+    "file": "PageSpeed-home-report.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "mobile",
+    "timestamp": "2026-08-14T22:48:16.521Z",
+    "timestamp_precision": "millisecond",
+    "version": "13.4.1",
+    "settings": {
+      "formFactor": "mobile",
+      "locale": "en-US",
+      "onlyCategories": [
+        "performance",
+        "accessibility",
+        "best-practices",
+        "seo",
+        "agentic-browsing"
+      ],
+      "channel": "lr",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 1.2
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "mobile": true
+      },
+      "ignoreStatusCode": true,
+      "output": "json",
+      "maxWaitForFcp": 15000,
+      "maxWaitForLoad": 35000,
+      "pauseAfterFcpMs": 1000,
+      "pauseAfterLoadMs": 1000,
+      "networkQuietThresholdMs": 1000,
+      "cpuQuietThresholdMs": 1000,
+      "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+      "disableStorageReset": true,
+      "blankPage": "about:blank",
+      "skipAudits": [
+        "modern-http-insight",
+        "bf-cache"
+      ],
+      "clearStorageTypes": [
+        "file_systems",
+        "shader_cache",
+        "service_workers",
+        "cache_storage"
+      ]
+    },
+    "source": "embedded-json",
+    "conflicts": [],
+    "first-contentful-paint": 2740.0952430512298,
+    "largest-contentful-paint": 3752.0042499197916,
+    "total-blocking-time": 559,
+    "cumulative-layout-shift": 0.01539897140519987,
+    "duplicate_of": null
+  },
+  {
+    "file": "PageSpeed-home-report.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "desktop",
+    "timestamp": "2026-08-14T22:48:17.020Z",
+    "timestamp_precision": "millisecond",
+    "version": "13.4.1",
+    "settings": {
+      "formFactor": "desktop",
+      "locale": "en-US",
+      "onlyCategories": [
+        "performance",
+        "accessibility",
+        "best-practices",
+        "seo",
+        "agentic-browsing"
+      ],
+      "channel": "lr",
+      "throttling": {
+        "rttMs": 40,
+        "throughputKbps": 10240,
+        "cpuSlowdownMultiplier": 1
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "width": 1350,
+        "height": 940,
+        "deviceScaleFactor": 1
+      },
+      "ignoreStatusCode": true,
+      "output": "json",
+      "maxWaitForFcp": 15000,
+      "maxWaitForLoad": 35000,
+      "pauseAfterFcpMs": 1000,
+      "pauseAfterLoadMs": 1000,
+      "networkQuietThresholdMs": 1000,
+      "cpuQuietThresholdMs": 1000,
+      "emulatedUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "disableStorageReset": true,
+      "blankPage": "about:blank",
+      "skipAudits": [
+        "modern-http-insight",
+        "bf-cache"
+      ],
+      "clearStorageTypes": [
+        "file_systems",
+        "shader_cache",
+        "service_workers",
+        "cache_storage"
+      ]
+    },
+    "source": "embedded-json",
+    "conflicts": [],
+    "first-contentful-paint": 721.0066126898345,
+    "largest-contentful-paint": 1054.0099190347516,
+    "total-blocking-time": 849.9999999999989,
+    "cumulative-layout-shift": 0.01740954574174106,
+    "duplicate_of": null
+  },
+  {
+    "file": "PageSpeed-mlm-page-report.html",
+    "url": "https://softwareformlm.com/en/mlm-software",
+    "device": "desktop",
+    "timestamp": "2026-08-14T22:57:45.707Z",
+    "timestamp_precision": "millisecond",
+    "version": "13.4.1",
+    "settings": {
+      "formFactor": "desktop",
+      "locale": "en-US",
+      "onlyCategories": [
+        "performance",
+        "accessibility",
+        "best-practices",
+        "seo",
+        "agentic-browsing"
+      ],
+      "channel": "lr",
+      "throttling": {
+        "rttMs": 40,
+        "throughputKbps": 10240,
+        "cpuSlowdownMultiplier": 1
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "width": 1350,
+        "height": 940,
+        "deviceScaleFactor": 1
+      },
+      "ignoreStatusCode": true,
+      "output": "json",
+      "maxWaitForFcp": 15000,
+      "maxWaitForLoad": 35000,
+      "pauseAfterFcpMs": 1000,
+      "pauseAfterLoadMs": 1000,
+      "networkQuietThresholdMs": 1000,
+      "cpuQuietThresholdMs": 1000,
+      "emulatedUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "disableStorageReset": true,
+      "blankPage": "about:blank",
+      "skipAudits": [
+        "modern-http-insight",
+        "bf-cache"
+      ],
+      "clearStorageTypes": [
+        "file_systems",
+        "shader_cache",
+        "service_workers",
+        "cache_storage"
+      ]
+    },
+    "source": "embedded-json",
+    "conflicts": [],
+    "first-contentful-paint": 626.5732149145089,
+    "largest-contentful-paint": 2034.0011674964762,
+    "total-blocking-time": 333,
+    "cumulative-layout-shift": 0.0010861735509149813,
+    "duplicate_of": null
+  },
+  {
+    "file": "PageSpeed-mlm-page-report.html",
+    "url": "https://softwareformlm.com/en/mlm-software",
+    "device": "mobile",
+    "timestamp": "2026-08-14T22:57:46.115Z",
+    "timestamp_precision": "millisecond",
+    "version": "13.4.1",
+    "settings": {
+      "formFactor": "mobile",
+      "locale": "en-US",
+      "onlyCategories": [
+        "performance",
+        "accessibility",
+        "best-practices",
+        "seo",
+        "agentic-browsing"
+      ],
+      "channel": "lr",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 1.2
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "mobile": true
+      },
+      "ignoreStatusCode": true,
+      "output": "json",
+      "maxWaitForFcp": 15000,
+      "maxWaitForLoad": 35000,
+      "pauseAfterFcpMs": 1000,
+      "pauseAfterLoadMs": 1000,
+      "networkQuietThresholdMs": 1000,
+      "cpuQuietThresholdMs": 1000,
+      "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+      "disableStorageReset": true,
+      "blankPage": "about:blank",
+      "skipAudits": [
+        "modern-http-insight",
+        "bf-cache"
+      ],
+      "clearStorageTypes": [
+        "file_systems",
+        "shader_cache",
+        "service_workers",
+        "cache_storage"
+      ]
+    },
+    "source": "embedded-json",
+    "conflicts": [],
+    "first-contentful-paint": 2742.9954038796027,
+    "largest-contentful-paint": 11073.400731486596,
+    "total-blocking-time": 842,
+    "cumulative-layout-shift": 0.000221372106572752,
+    "duplicate_of": null
+  },
+  {
+    "file": "result/result-home-brave-ago_21.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "mobile",
+    "timestamp": "2026-08-21T22:29:58.057Z",
+    "timestamp_precision": "millisecond",
+    "version": "13.4.1",
+    "settings": {
+      "formFactor": "mobile",
+      "locale": "en-US",
+      "onlyCategories": [
+        "performance",
+        "accessibility",
+        "best-practices",
+        "seo",
+        "agentic-browsing"
+      ],
+      "channel": "lr",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 1.2
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "mobile": true
+      },
+      "ignoreStatusCode": true,
+      "output": "json",
+      "maxWaitForFcp": 15000,
+      "maxWaitForLoad": 35000,
+      "pauseAfterFcpMs": 1000,
+      "pauseAfterLoadMs": 1000,
+      "networkQuietThresholdMs": 1000,
+      "cpuQuietThresholdMs": 1000,
+      "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+      "disableStorageReset": true,
+      "blankPage": "about:blank",
+      "skipAudits": [
+        "modern-http-insight",
+        "bf-cache"
+      ],
+      "clearStorageTypes": [
+        "file_systems",
+        "shader_cache",
+        "service_workers",
+        "cache_storage"
+      ]
+    },
+    "source": "embedded-json",
+    "conflicts": [],
+    "first-contentful-paint": 2101.154704131315,
+    "largest-contentful-paint": 3001.2320561969727,
+    "total-blocking-time": 107.5,
+    "cumulative-layout-shift": 0.01539897140519987,
+    "duplicate_of": null
+  },
+  {
+    "file": "result/result-home-brave-ago_21.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "desktop",
+    "timestamp": "2026-08-21T22:29:57.373Z",
+    "timestamp_precision": "millisecond",
+    "version": "13.4.1",
+    "settings": {
+      "formFactor": "desktop",
+      "locale": "en-US",
+      "onlyCategories": [
+        "performance",
+        "accessibility",
+        "best-practices",
+        "seo",
+        "agentic-browsing"
+      ],
+      "channel": "lr",
+      "throttling": {
+        "rttMs": 40,
+        "throughputKbps": 10240,
+        "cpuSlowdownMultiplier": 1
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "width": 1350,
+        "height": 940,
+        "deviceScaleFactor": 1
+      },
+      "ignoreStatusCode": true,
+      "output": "json",
+      "maxWaitForFcp": 15000,
+      "maxWaitForLoad": 35000,
+      "pauseAfterFcpMs": 1000,
+      "pauseAfterLoadMs": 1000,
+      "networkQuietThresholdMs": 1000,
+      "cpuQuietThresholdMs": 1000,
+      "emulatedUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "disableStorageReset": true,
+      "blankPage": "about:blank",
+      "skipAudits": [
+        "modern-http-insight",
+        "bf-cache"
+      ],
+      "clearStorageTypes": [
+        "file_systems",
+        "shader_cache",
+        "service_workers",
+        "cache_storage"
+      ]
+    },
+    "source": "embedded-json",
+    "conflicts": [],
+    "first-contentful-paint": 445.8628881951754,
+    "largest-contentful-paint": 804.6016632728051,
+    "total-blocking-time": 48,
+    "cumulative-layout-shift": 0.015702413300162987,
+    "duplicate_of": null
+  },
+  {
+    "file": "result/result-home-brave-ago_24.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "desktop",
+    "timestamp": "2026-08-24T23:32:51.691Z",
+    "timestamp_precision": "millisecond",
+    "version": "13.4.1",
+    "settings": {
+      "formFactor": "desktop",
+      "locale": "en-US",
+      "onlyCategories": [
+        "performance",
+        "accessibility",
+        "best-practices",
+        "seo",
+        "agentic-browsing"
+      ],
+      "channel": "lr",
+      "throttling": {
+        "rttMs": 40,
+        "throughputKbps": 10240,
+        "cpuSlowdownMultiplier": 1
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "width": 1350,
+        "height": 940,
+        "deviceScaleFactor": 1
+      },
+      "ignoreStatusCode": true,
+      "output": "json",
+      "maxWaitForFcp": 15000,
+      "maxWaitForLoad": 35000,
+      "pauseAfterFcpMs": 1000,
+      "pauseAfterLoadMs": 1000,
+      "networkQuietThresholdMs": 1000,
+      "cpuQuietThresholdMs": 1000,
+      "emulatedUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "disableStorageReset": true,
+      "blankPage": "about:blank",
+      "skipAudits": [
+        "modern-http-insight",
+        "bf-cache"
+      ],
+      "clearStorageTypes": [
+        "file_systems",
+        "shader_cache",
+        "service_workers",
+        "cache_storage"
+      ]
+    },
+    "source": "embedded-json",
+    "conflicts": [],
+    "first-contentful-paint": 522.0922631445877,
+    "largest-contentful-paint": 788.142588496181,
+    "total-blocking-time": 105.5,
+    "cumulative-layout-shift": 0.01740954574174106,
+    "duplicate_of": null
+  },
+  {
+    "file": "result/result-home-brave-ago_24.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "mobile",
+    "timestamp": "2026-08-24T23:32:50.359Z",
+    "timestamp_precision": "millisecond",
+    "version": "13.4.1",
+    "settings": {
+      "formFactor": "mobile",
+      "locale": "en-US",
+      "onlyCategories": [
+        "performance",
+        "accessibility",
+        "best-practices",
+        "seo",
+        "agentic-browsing"
+      ],
+      "channel": "lr",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 1.2
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "mobile": true
+      },
+      "ignoreStatusCode": true,
+      "output": "json",
+      "maxWaitForFcp": 15000,
+      "maxWaitForLoad": 35000,
+      "pauseAfterFcpMs": 1000,
+      "pauseAfterLoadMs": 1000,
+      "networkQuietThresholdMs": 1000,
+      "cpuQuietThresholdMs": 1000,
+      "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+      "disableStorageReset": true,
+      "blankPage": "about:blank",
+      "skipAudits": [
+        "modern-http-insight",
+        "bf-cache"
+      ],
+      "clearStorageTypes": [
+        "file_systems",
+        "shader_cache",
+        "service_workers",
+        "cache_storage"
+      ]
+    },
+    "source": "embedded-json",
+    "conflicts": [],
+    "first-contentful-paint": 1698.4219484187515,
+    "largest-contentful-paint": 2117.0682059115725,
+    "total-blocking-time": 36.5,
+    "cumulative-layout-shift": 0.1107983124806036,
+    "duplicate_of": null
+  },
+  {
+    "file": "result/result-home-brave-ago_25.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "desktop",
+    "timestamp": "2026-08-26T00:00:00.649Z",
+    "timestamp_precision": "millisecond",
+    "version": "13.4.1",
+    "settings": {
+      "formFactor": "desktop",
+      "locale": "en-US",
+      "onlyCategories": [
+        "performance",
+        "accessibility",
+        "best-practices",
+        "seo",
+        "agentic-browsing"
+      ],
+      "channel": "lr",
+      "throttling": {
+        "rttMs": 40,
+        "throughputKbps": 10240,
+        "cpuSlowdownMultiplier": 1
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "width": 1350,
+        "height": 940,
+        "deviceScaleFactor": 1
+      },
+      "ignoreStatusCode": true,
+      "output": "json",
+      "maxWaitForFcp": 15000,
+      "maxWaitForLoad": 35000,
+      "pauseAfterFcpMs": 1000,
+      "pauseAfterLoadMs": 1000,
+      "networkQuietThresholdMs": 1000,
+      "cpuQuietThresholdMs": 1000,
+      "emulatedUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "disableStorageReset": true,
+      "blankPage": "about:blank",
+      "skipAudits": [
+        "modern-http-insight",
+        "bf-cache"
+      ],
+      "clearStorageTypes": [
+        "file_systems",
+        "shader_cache",
+        "service_workers",
+        "cache_storage"
+      ]
+    },
+    "source": "embedded-json",
+    "conflicts": [],
+    "first-contentful-paint": 521.6563897218198,
+    "largest-contentful-paint": 801.7559104538868,
+    "total-blocking-time": 1302.7294567066533,
+    "cumulative-layout-shift": 0.01740954574174106,
+    "duplicate_of": null
+  },
+  {
+    "file": "result/result-home-brave-ago_25.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "mobile",
+    "timestamp": "2026-08-25T23:59:59.448Z",
+    "timestamp_precision": "millisecond",
+    "version": "13.4.1",
+    "settings": {
+      "formFactor": "mobile",
+      "locale": "en-US",
+      "onlyCategories": [
+        "performance",
+        "accessibility",
+        "best-practices",
+        "seo",
+        "agentic-browsing"
+      ],
+      "channel": "lr",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 1.2
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "mobile": true
+      },
+      "ignoreStatusCode": true,
+      "output": "json",
+      "maxWaitForFcp": 15000,
+      "maxWaitForLoad": 35000,
+      "pauseAfterFcpMs": 1000,
+      "pauseAfterLoadMs": 1000,
+      "networkQuietThresholdMs": 1000,
+      "cpuQuietThresholdMs": 1000,
+      "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+      "disableStorageReset": true,
+      "blankPage": "about:blank",
+      "skipAudits": [
+        "modern-http-insight",
+        "bf-cache"
+      ],
+      "clearStorageTypes": [
+        "file_systems",
+        "shader_cache",
+        "service_workers",
+        "cache_storage"
+      ]
+    },
+    "source": "embedded-json",
+    "conflicts": [],
+    "first-contentful-paint": 1676.8130303650855,
+    "largest-contentful-paint": 2402.092555506353,
+    "total-blocking-time": 56.5,
+    "cumulative-layout-shift": 0.0176899792907283,
+    "duplicate_of": null
+  },
+  {
+    "file": "result/result-home-brave-ago_26.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "desktop",
+    "timestamp": "2026-08-26T22:58:12.801Z",
+    "timestamp_precision": "millisecond",
+    "version": "13.4.1",
+    "settings": {
+      "formFactor": "desktop",
+      "locale": "en-US",
+      "onlyCategories": [
+        "performance",
+        "accessibility",
+        "best-practices",
+        "seo",
+        "agentic-browsing"
+      ],
+      "channel": "lr",
+      "throttling": {
+        "rttMs": 40,
+        "throughputKbps": 10240,
+        "cpuSlowdownMultiplier": 1
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "width": 1350,
+        "height": 940,
+        "deviceScaleFactor": 1
+      },
+      "ignoreStatusCode": true,
+      "output": "json",
+      "maxWaitForFcp": 15000,
+      "maxWaitForLoad": 35000,
+      "pauseAfterFcpMs": 1000,
+      "pauseAfterLoadMs": 1000,
+      "networkQuietThresholdMs": 1000,
+      "cpuQuietThresholdMs": 1000,
+      "emulatedUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "disableStorageReset": true,
+      "blankPage": "about:blank",
+      "skipAudits": [
+        "modern-http-insight",
+        "bf-cache"
+      ],
+      "clearStorageTypes": [
+        "file_systems",
+        "shader_cache",
+        "service_workers",
+        "cache_storage"
+      ]
+    },
+    "source": "embedded-json",
+    "conflicts": [],
+    "first-contentful-paint": 458.8243937699825,
+    "largest-contentful-paint": 682.0833703961108,
+    "total-blocking-time": 107.00000000000023,
+    "cumulative-layout-shift": 0.01643811414685145,
+    "duplicate_of": null
+  },
+  {
+    "file": "result/result-home-brave-ago_26.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "mobile",
+    "timestamp": "2026-08-26T22:58:13.110Z",
+    "timestamp_precision": "millisecond",
+    "version": "13.4.1",
+    "settings": {
+      "formFactor": "mobile",
+      "locale": "en-US",
+      "onlyCategories": [
+        "performance",
+        "accessibility",
+        "best-practices",
+        "seo",
+        "agentic-browsing"
+      ],
+      "channel": "lr",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 1.2
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "mobile": true
+      },
+      "ignoreStatusCode": true,
+      "output": "json",
+      "maxWaitForFcp": 15000,
+      "maxWaitForLoad": 35000,
+      "pauseAfterFcpMs": 1000,
+      "pauseAfterLoadMs": 1000,
+      "networkQuietThresholdMs": 1000,
+      "cpuQuietThresholdMs": 1000,
+      "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+      "disableStorageReset": true,
+      "blankPage": "about:blank",
+      "skipAudits": [
+        "modern-http-insight",
+        "bf-cache"
+      ],
+      "clearStorageTypes": [
+        "file_systems",
+        "shader_cache",
+        "service_workers",
+        "cache_storage"
+      ]
+    },
+    "source": "embedded-json",
+    "conflicts": [],
+    "first-contentful-paint": 2101.0859239052406,
+    "largest-contentful-paint": 3151.136046183298,
+    "total-blocking-time": 72.5,
+    "cumulative-layout-shift": 0.01539897140519987,
+    "duplicate_of": null
+  },
+  {
+    "file": "result/result-home-brave-ago_27.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "mobile",
+    "timestamp": "2026-08-27T23:43:32.993Z",
+    "timestamp_precision": "millisecond",
+    "version": "13.4.1",
+    "settings": {
+      "formFactor": "mobile",
+      "locale": "en-US",
+      "onlyCategories": [
+        "performance",
+        "accessibility",
+        "best-practices",
+        "seo",
+        "agentic-browsing"
+      ],
+      "channel": "lr",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 1.2
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "mobile": true
+      },
+      "ignoreStatusCode": true,
+      "output": "json",
+      "maxWaitForFcp": 15000,
+      "maxWaitForLoad": 35000,
+      "pauseAfterFcpMs": 1000,
+      "pauseAfterLoadMs": 1000,
+      "networkQuietThresholdMs": 1000,
+      "cpuQuietThresholdMs": 1000,
+      "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+      "disableStorageReset": true,
+      "blankPage": "about:blank",
+      "skipAudits": [
+        "modern-http-insight",
+        "bf-cache"
+      ],
+      "clearStorageTypes": [
+        "file_systems",
+        "shader_cache",
+        "service_workers",
+        "cache_storage"
+      ]
+    },
+    "source": "embedded-json",
+    "conflicts": [],
+    "first-contentful-paint": 1954.0603683069155,
+    "largest-contentful-paint": 3794.126224641733,
+    "total-blocking-time": 145,
+    "cumulative-layout-shift": 0.10850730459507517,
+    "duplicate_of": null
+  },
+  {
+    "file": "result/result-home-brave-ago_27.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "desktop",
+    "timestamp": "2026-08-27T23:43:32.709Z",
+    "timestamp_precision": "millisecond",
+    "version": "13.4.1",
+    "settings": {
+      "formFactor": "desktop",
+      "locale": "en-US",
+      "onlyCategories": [
+        "performance",
+        "accessibility",
+        "best-practices",
+        "seo",
+        "agentic-browsing"
+      ],
+      "channel": "lr",
+      "throttling": {
+        "rttMs": 40,
+        "throughputKbps": 10240,
+        "cpuSlowdownMultiplier": 1
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "width": 1350,
+        "height": 940,
+        "deviceScaleFactor": 1
+      },
+      "ignoreStatusCode": true,
+      "output": "json",
+      "maxWaitForFcp": 15000,
+      "maxWaitForLoad": 35000,
+      "pauseAfterFcpMs": 1000,
+      "pauseAfterLoadMs": 1000,
+      "networkQuietThresholdMs": 1000,
+      "cpuQuietThresholdMs": 1000,
+      "emulatedUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "disableStorageReset": true,
+      "blankPage": "about:blank",
+      "skipAudits": [
+        "modern-http-insight",
+        "bf-cache"
+      ],
+      "clearStorageTypes": [
+        "file_systems",
+        "shader_cache",
+        "service_workers",
+        "cache_storage"
+      ]
+    },
+    "source": "embedded-json",
+    "conflicts": [],
+    "first-contentful-paint": 448.4390584121205,
+    "largest-contentful-paint": 604.0724945407756,
+    "total-blocking-time": 58,
+    "cumulative-layout-shift": 0.0164289900630726,
+    "duplicate_of": null
+  },
+  {
+    "file": "result/result-home-brave2-ago_21.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "desktop",
+    "timestamp": "2026-08-21T22:38:50.910Z",
+    "timestamp_precision": "millisecond",
+    "version": "13.4.1",
+    "settings": {
+      "formFactor": "desktop",
+      "locale": "en-US",
+      "onlyCategories": [
+        "performance",
+        "accessibility",
+        "best-practices",
+        "seo",
+        "agentic-browsing"
+      ],
+      "channel": "lr",
+      "throttling": {
+        "rttMs": 40,
+        "throughputKbps": 10240,
+        "cpuSlowdownMultiplier": 1
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "width": 1350,
+        "height": 940,
+        "deviceScaleFactor": 1
+      },
+      "ignoreStatusCode": true,
+      "output": "json",
+      "maxWaitForFcp": 15000,
+      "maxWaitForLoad": 35000,
+      "pauseAfterFcpMs": 1000,
+      "pauseAfterLoadMs": 1000,
+      "networkQuietThresholdMs": 1000,
+      "cpuQuietThresholdMs": 1000,
+      "emulatedUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "disableStorageReset": true,
+      "blankPage": "about:blank",
+      "skipAudits": [
+        "modern-http-insight",
+        "bf-cache"
+      ],
+      "clearStorageTypes": [
+        "file_systems",
+        "shader_cache",
+        "service_workers",
+        "cache_storage"
+      ]
+    },
+    "source": "embedded-json",
+    "conflicts": [],
+    "first-contentful-paint": 465.79633120280505,
+    "largest-contentful-paint": 745.7508374192073,
+    "total-blocking-time": 142.5,
+    "cumulative-layout-shift": 0.015990241418433748,
+    "duplicate_of": null
+  },
+  {
+    "file": "result/result-home-brave2-ago_21.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "mobile",
+    "timestamp": "2026-08-21T22:38:50.605Z",
+    "timestamp_precision": "millisecond",
+    "version": "13.4.1",
+    "settings": {
+      "formFactor": "mobile",
+      "locale": "en-US",
+      "onlyCategories": [
+        "performance",
+        "accessibility",
+        "best-practices",
+        "seo",
+        "agentic-browsing"
+      ],
+      "channel": "lr",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 1.2
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "mobile": true
+      },
+      "ignoreStatusCode": true,
+      "output": "json",
+      "maxWaitForFcp": 15000,
+      "maxWaitForLoad": 35000,
+      "pauseAfterFcpMs": 1000,
+      "pauseAfterLoadMs": 1000,
+      "networkQuietThresholdMs": 1000,
+      "cpuQuietThresholdMs": 1000,
+      "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+      "disableStorageReset": true,
+      "blankPage": "about:blank",
+      "skipAudits": [
+        "modern-http-insight",
+        "bf-cache"
+      ],
+      "clearStorageTypes": [
+        "file_systems",
+        "shader_cache",
+        "service_workers",
+        "cache_storage"
+      ]
+    },
+    "source": "embedded-json",
+    "conflicts": [],
+    "first-contentful-paint": 1657.6905294422836,
+    "largest-contentful-paint": 2552.0963284808618,
+    "total-blocking-time": 50.5,
+    "cumulative-layout-shift": 0.1107983124806036,
+    "duplicate_of": null
+  },
+  {
+    "file": "result/result-home-brave2-ago_24.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "desktop",
+    "timestamp": "2026-08-24T23:35:26.748Z",
+    "timestamp_precision": "millisecond",
+    "version": "13.4.1",
+    "settings": {
+      "formFactor": "desktop",
+      "locale": "en-US",
+      "onlyCategories": [
+        "performance",
+        "accessibility",
+        "best-practices",
+        "seo",
+        "agentic-browsing"
+      ],
+      "channel": "lr",
+      "throttling": {
+        "rttMs": 40,
+        "throughputKbps": 10240,
+        "cpuSlowdownMultiplier": 1
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "width": 1350,
+        "height": 940,
+        "deviceScaleFactor": 1
+      },
+      "ignoreStatusCode": true,
+      "output": "json",
+      "maxWaitForFcp": 15000,
+      "maxWaitForLoad": 35000,
+      "pauseAfterFcpMs": 1000,
+      "pauseAfterLoadMs": 1000,
+      "networkQuietThresholdMs": 1000,
+      "cpuQuietThresholdMs": 1000,
+      "emulatedUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "disableStorageReset": true,
+      "blankPage": "about:blank",
+      "skipAudits": [
+        "modern-http-insight",
+        "bf-cache"
+      ],
+      "clearStorageTypes": [
+        "file_systems",
+        "shader_cache",
+        "service_workers",
+        "cache_storage"
+      ]
+    },
+    "source": "embedded-json",
+    "conflicts": [],
+    "first-contentful-paint": 467.00847658335334,
+    "largest-contentful-paint": 681.3561885435329,
+    "total-blocking-time": 235.99999999999977,
+    "cumulative-layout-shift": 0.016443953391842545,
+    "duplicate_of": null
+  },
+  {
+    "file": "result/result-home-brave2-ago_24.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "mobile",
+    "timestamp": "2026-08-24T23:35:25.930Z",
+    "timestamp_precision": "millisecond",
+    "version": "13.4.1",
+    "settings": {
+      "formFactor": "mobile",
+      "locale": "en-US",
+      "onlyCategories": [
+        "performance",
+        "accessibility",
+        "best-practices",
+        "seo",
+        "agentic-browsing"
+      ],
+      "channel": "lr",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 1.2
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "mobile": true
+      },
+      "ignoreStatusCode": true,
+      "output": "json",
+      "maxWaitForFcp": 15000,
+      "maxWaitForLoad": 35000,
+      "pauseAfterFcpMs": 1000,
+      "pauseAfterLoadMs": 1000,
+      "networkQuietThresholdMs": 1000,
+      "cpuQuietThresholdMs": 1000,
+      "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+      "disableStorageReset": true,
+      "blankPage": "about:blank",
+      "skipAudits": [
+        "modern-http-insight",
+        "bf-cache"
+      ],
+      "clearStorageTypes": [
+        "file_systems",
+        "shader_cache",
+        "service_workers",
+        "cache_storage"
+      ]
+    },
+    "source": "embedded-json",
+    "conflicts": [],
+    "first-contentful-paint": 1952.0604528569465,
+    "largest-contentful-paint": 2852.093427142554,
+    "total-blocking-time": 47,
+    "cumulative-layout-shift": 0.01539897140519987,
+    "duplicate_of": null
+  },
+  {
+    "file": "result/result-home-brave2-ago_25.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "mobile",
+    "timestamp": "2026-08-26T00:02:19.053Z",
+    "timestamp_precision": "millisecond",
+    "version": "13.4.1",
+    "settings": {
+      "formFactor": "mobile",
+      "locale": "en-US",
+      "onlyCategories": [
+        "performance",
+        "accessibility",
+        "best-practices",
+        "seo",
+        "agentic-browsing"
+      ],
+      "channel": "lr",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 1.2
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "mobile": true
+      },
+      "ignoreStatusCode": true,
+      "output": "json",
+      "maxWaitForFcp": 15000,
+      "maxWaitForLoad": 35000,
+      "pauseAfterFcpMs": 1000,
+      "pauseAfterLoadMs": 1000,
+      "networkQuietThresholdMs": 1000,
+      "cpuQuietThresholdMs": 1000,
+      "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+      "disableStorageReset": true,
+      "blankPage": "about:blank",
+      "skipAudits": [
+        "modern-http-insight",
+        "bf-cache"
+      ],
+      "clearStorageTypes": [
+        "file_systems",
+        "shader_cache",
+        "service_workers",
+        "cache_storage"
+      ]
+    },
+    "source": "embedded-json",
+    "conflicts": [],
+    "first-contentful-paint": 1668.9348012850226,
+    "largest-contentful-paint": 2416.0912718922073,
+    "total-blocking-time": 69,
+    "cumulative-layout-shift": 0.0176899792907283,
+    "duplicate_of": null
+  },
+  {
+    "file": "result/result-home-brave2-ago_25.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "desktop",
+    "timestamp": "2026-08-26T00:02:18.801Z",
+    "timestamp_precision": "millisecond",
+    "version": "13.4.1",
+    "settings": {
+      "formFactor": "desktop",
+      "locale": "en-US",
+      "onlyCategories": [
+        "performance",
+        "accessibility",
+        "best-practices",
+        "seo",
+        "agentic-browsing"
+      ],
+      "channel": "lr",
+      "throttling": {
+        "rttMs": 40,
+        "throughputKbps": 10240,
+        "cpuSlowdownMultiplier": 1
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "width": 1350,
+        "height": 940,
+        "deviceScaleFactor": 1
+      },
+      "ignoreStatusCode": true,
+      "output": "json",
+      "maxWaitForFcp": 15000,
+      "maxWaitForLoad": 35000,
+      "pauseAfterFcpMs": 1000,
+      "pauseAfterLoadMs": 1000,
+      "networkQuietThresholdMs": 1000,
+      "cpuQuietThresholdMs": 1000,
+      "emulatedUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "disableStorageReset": true,
+      "blankPage": "about:blank",
+      "skipAudits": [
+        "modern-http-insight",
+        "bf-cache"
+      ],
+      "clearStorageTypes": [
+        "file_systems",
+        "shader_cache",
+        "service_workers",
+        "cache_storage"
+      ]
+    },
+    "source": "embedded-json",
+    "conflicts": [],
+    "first-contentful-paint": 529.0612943465624,
+    "largest-contentful-paint": 809.1002998398292,
+    "total-blocking-time": 155,
+    "cumulative-layout-shift": 0.016721263974806767,
+    "duplicate_of": null
+  },
+  {
+    "file": "result/result-home-brave2-ago_26.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "mobile",
+    "timestamp": "2026-08-26T23:08:30.334Z",
+    "timestamp_precision": "millisecond",
+    "version": "13.4.1",
+    "settings": {
+      "formFactor": "mobile",
+      "locale": "en-US",
+      "onlyCategories": [
+        "performance",
+        "accessibility",
+        "best-practices",
+        "seo",
+        "agentic-browsing"
+      ],
+      "channel": "lr",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 1.2
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "mobile": true
+      },
+      "ignoreStatusCode": true,
+      "output": "json",
+      "maxWaitForFcp": 15000,
+      "maxWaitForLoad": 35000,
+      "pauseAfterFcpMs": 1000,
+      "pauseAfterLoadMs": 1000,
+      "networkQuietThresholdMs": 1000,
+      "cpuQuietThresholdMs": 1000,
+      "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+      "disableStorageReset": true,
+      "blankPage": "about:blank",
+      "skipAudits": [
+        "modern-http-insight",
+        "bf-cache"
+      ],
+      "clearStorageTypes": [
+        "file_systems",
+        "shader_cache",
+        "service_workers",
+        "cache_storage"
+      ]
+    },
+    "source": "embedded-json",
+    "conflicts": [],
+    "first-contentful-paint": 1670.9930408156101,
+    "largest-contentful-paint": 2265.088067353464,
+    "total-blocking-time": 32.5,
+    "cumulative-layout-shift": 0.0176899792907283,
+    "duplicate_of": null
+  },
+  {
+    "file": "result/result-home-brave2-ago_26.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "desktop",
+    "timestamp": "2026-08-26T23:08:30.357Z",
+    "timestamp_precision": "millisecond",
+    "version": "13.4.1",
+    "settings": {
+      "formFactor": "desktop",
+      "locale": "en-US",
+      "onlyCategories": [
+        "performance",
+        "accessibility",
+        "best-practices",
+        "seo",
+        "agentic-browsing"
+      ],
+      "channel": "lr",
+      "throttling": {
+        "rttMs": 40,
+        "throughputKbps": 10240,
+        "cpuSlowdownMultiplier": 1
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "width": 1350,
+        "height": 940,
+        "deviceScaleFactor": 1
+      },
+      "ignoreStatusCode": true,
+      "output": "json",
+      "maxWaitForFcp": 15000,
+      "maxWaitForLoad": 35000,
+      "pauseAfterFcpMs": 1000,
+      "pauseAfterLoadMs": 1000,
+      "networkQuietThresholdMs": 1000,
+      "cpuQuietThresholdMs": 1000,
+      "emulatedUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "disableStorageReset": true,
+      "blankPage": "about:blank",
+      "skipAudits": [
+        "modern-http-insight",
+        "bf-cache"
+      ],
+      "clearStorageTypes": [
+        "file_systems",
+        "shader_cache",
+        "service_workers",
+        "cache_storage"
+      ]
+    },
+    "source": "embedded-json",
+    "conflicts": [],
+    "first-contentful-paint": 450.25969029819515,
+    "largest-contentful-paint": 603.0844898762595,
+    "total-blocking-time": 65.00000000000011,
+    "cumulative-layout-shift": 0.018190640031898925,
+    "duplicate_of": null
+  },
+  {
+    "file": "result/result-home-brave2-ago_27.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "mobile",
+    "timestamp": "2026-08-27T23:49:18.123Z",
+    "timestamp_precision": "millisecond",
+    "version": "13.4.1",
+    "settings": {
+      "formFactor": "mobile",
+      "locale": "en-US",
+      "onlyCategories": [
+        "performance",
+        "accessibility",
+        "best-practices",
+        "seo",
+        "agentic-browsing"
+      ],
+      "channel": "lr",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 1.2
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "mobile": true
+      },
+      "ignoreStatusCode": true,
+      "output": "json",
+      "maxWaitForFcp": 15000,
+      "maxWaitForLoad": 35000,
+      "pauseAfterFcpMs": 1000,
+      "pauseAfterLoadMs": 1000,
+      "networkQuietThresholdMs": 1000,
+      "cpuQuietThresholdMs": 1000,
+      "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+      "disableStorageReset": true,
+      "blankPage": "about:blank",
+      "skipAudits": [
+        "modern-http-insight",
+        "bf-cache"
+      ],
+      "clearStorageTypes": [
+        "file_systems",
+        "shader_cache",
+        "service_workers",
+        "cache_storage"
+      ]
+    },
+    "source": "embedded-json",
+    "conflicts": [],
+    "first-contentful-paint": 1668.9567210742766,
+    "largest-contentful-paint": 3751.19083369769,
+    "total-blocking-time": 123,
+    "cumulative-layout-shift": 0.10850730459507517,
+    "duplicate_of": null
+  },
+  {
+    "file": "result/result-home-brave2-ago_27.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "desktop",
+    "timestamp": "2026-08-27T23:49:17.727Z",
+    "timestamp_precision": "millisecond",
+    "version": "13.4.1",
+    "settings": {
+      "formFactor": "desktop",
+      "locale": "en-US",
+      "onlyCategories": [
+        "performance",
+        "accessibility",
+        "best-practices",
+        "seo",
+        "agentic-browsing"
+      ],
+      "channel": "lr",
+      "throttling": {
+        "rttMs": 40,
+        "throughputKbps": 10240,
+        "cpuSlowdownMultiplier": 1
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "width": 1350,
+        "height": 940,
+        "deviceScaleFactor": 1
+      },
+      "ignoreStatusCode": true,
+      "output": "json",
+      "maxWaitForFcp": 15000,
+      "maxWaitForLoad": 35000,
+      "pauseAfterFcpMs": 1000,
+      "pauseAfterLoadMs": 1000,
+      "networkQuietThresholdMs": 1000,
+      "cpuQuietThresholdMs": 1000,
+      "emulatedUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "disableStorageReset": true,
+      "blankPage": "about:blank",
+      "skipAudits": [
+        "modern-http-insight",
+        "bf-cache"
+      ],
+      "clearStorageTypes": [
+        "file_systems",
+        "shader_cache",
+        "service_workers",
+        "cache_storage"
+      ]
+    },
+    "source": "embedded-json",
+    "conflicts": [],
+    "first-contentful-paint": 462.30577008922296,
+    "largest-contentful-paint": 462.305770089223,
+    "total-blocking-time": 161.49999999999955,
+    "cumulative-layout-shift": 0.016955178789034624,
+    "duplicate_of": null
+  },
+  {
+    "file": "result/result-home-edge-ago_21.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "mobile",
+    "timestamp": "Aug 21, 2026, 5:29 PM GMT-5",
+    "timestamp_precision": "minute",
+    "version": "13.4.1",
+    "settings": "Captured at Aug 21, 2026, 5:29 PM GMT-5 Emulated Moto G Power with Lighthouse 13.4.1 Unthrottled CPU/Memory Power: 782 CPU throttling: 1.2x slowdown (Simulated) Screen emulation: 412x823, DPR 1.75 Axe version: 4.12.1 Single page session This data is taken from a single page session, as opposed to field data summarizing many sessions. Initial page load Slow 4G throttling Network throttling: 150 ms TCP RTT, 1,638.4 kb/s throughput (Simulated) Browser location: North America Using HeadlessChromium 151.0.7922.71 with lr User agent (network): \"Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Mobile Safari/537.36\"",
+    "source": "visible-rounded",
+    "conflicts": [],
+    "first-contentful-paint": 2100.0,
+    "largest-contentful-paint": 3000.0,
+    "total-blocking-time": 110.0,
+    "cumulative-layout-shift": 0.015,
+    "duplicate_of": null
+  },
+  {
+    "file": "result/result-home-edge-ago_21.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "desktop",
+    "timestamp": "Aug 21, 2026, 5:30 PM GMT-5",
+    "timestamp_precision": "minute",
+    "version": "13.4.1",
+    "settings": "Captured at Aug 21, 2026, 5:30 PM GMT-5 Emulated Desktop with Lighthouse 13.4.1 Unthrottled CPU/Memory Power: 523 CPU throttling: 1x slowdown (Simulated) Screen emulation: 1350x940, DPR 1 Axe version: 4.12.1 Single page session This data is taken from a single page session, as opposed to field data summarizing many sessions. Initial page load Custom throttling Network throttling: 40 ms TCP RTT, 10,240 kb/s throughput (Simulated) Browser location: North America Using HeadlessChromium 151.0.7922.71 with lr User agent (network): \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36\"",
+    "source": "visible-rounded",
+    "conflicts": [],
+    "first-contentful-paint": 500.0,
+    "largest-contentful-paint": 800.0,
+    "total-blocking-time": 560.0,
+    "cumulative-layout-shift": 0.017,
+    "duplicate_of": null
+  },
+  {
+    "file": "result/result-home-edge-ago_24.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "desktop",
+    "timestamp": "2026-08-24T23:33:46.908Z",
+    "timestamp_precision": "millisecond",
+    "version": "13.4.1",
+    "settings": {
+      "formFactor": "desktop",
+      "locale": "en-US",
+      "onlyCategories": [
+        "performance",
+        "accessibility",
+        "best-practices",
+        "seo",
+        "agentic-browsing"
+      ],
+      "channel": "lr",
+      "throttling": {
+        "rttMs": 40,
+        "throughputKbps": 10240,
+        "cpuSlowdownMultiplier": 1
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "width": 1350,
+        "height": 940,
+        "deviceScaleFactor": 1
+      },
+      "ignoreStatusCode": true,
+      "output": "json",
+      "maxWaitForFcp": 15000,
+      "maxWaitForLoad": 35000,
+      "pauseAfterFcpMs": 1000,
+      "pauseAfterLoadMs": 1000,
+      "networkQuietThresholdMs": 1000,
+      "cpuQuietThresholdMs": 1000,
+      "emulatedUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "disableStorageReset": true,
+      "blankPage": "about:blank",
+      "skipAudits": [
+        "modern-http-insight",
+        "bf-cache"
+      ],
+      "clearStorageTypes": [
+        "file_systems",
+        "shader_cache",
+        "service_workers",
+        "cache_storage"
+      ]
+    },
+    "source": "embedded-json",
+    "conflicts": [],
+    "first-contentful-paint": 467.7441732883727,
+    "largest-contentful-paint": 494.16528064526335,
+    "total-blocking-time": 169,
+    "cumulative-layout-shift": 0.01740101707672963,
+    "duplicate_of": null
+  },
+  {
+    "file": "result/result-home-edge-ago_24.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "mobile",
+    "timestamp": "2026-08-24T23:32:50.359Z",
+    "timestamp_precision": "millisecond",
+    "version": "13.4.1",
+    "settings": {
+      "formFactor": "mobile",
+      "locale": "en-US",
+      "onlyCategories": [
+        "performance",
+        "accessibility",
+        "best-practices",
+        "seo",
+        "agentic-browsing"
+      ],
+      "channel": "lr",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 1.2
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "mobile": true
+      },
+      "ignoreStatusCode": true,
+      "output": "json",
+      "maxWaitForFcp": 15000,
+      "maxWaitForLoad": 35000,
+      "pauseAfterFcpMs": 1000,
+      "pauseAfterLoadMs": 1000,
+      "networkQuietThresholdMs": 1000,
+      "cpuQuietThresholdMs": 1000,
+      "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+      "disableStorageReset": true,
+      "blankPage": "about:blank",
+      "skipAudits": [
+        "modern-http-insight",
+        "bf-cache"
+      ],
+      "clearStorageTypes": [
+        "file_systems",
+        "shader_cache",
+        "service_workers",
+        "cache_storage"
+      ]
+    },
+    "source": "embedded-json",
+    "conflicts": [],
+    "first-contentful-paint": 1698.4219484187515,
+    "largest-contentful-paint": 2117.0682059115725,
+    "total-blocking-time": 36.5,
+    "cumulative-layout-shift": 0.1107983124806036,
+    "duplicate_of": "result/result-home-brave-ago_24.html"
+  },
+  {
+    "file": "result/result-home-edge-ago_25.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "desktop",
+    "timestamp": "2026-08-26T00:00:00.649Z",
+    "timestamp_precision": "millisecond",
+    "version": "13.4.1",
+    "settings": {
+      "formFactor": "desktop",
+      "locale": "en-US",
+      "onlyCategories": [
+        "performance",
+        "accessibility",
+        "best-practices",
+        "seo",
+        "agentic-browsing"
+      ],
+      "channel": "lr",
+      "throttling": {
+        "rttMs": 40,
+        "throughputKbps": 10240,
+        "cpuSlowdownMultiplier": 1
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "width": 1350,
+        "height": 940,
+        "deviceScaleFactor": 1
+      },
+      "ignoreStatusCode": true,
+      "output": "json",
+      "maxWaitForFcp": 15000,
+      "maxWaitForLoad": 35000,
+      "pauseAfterFcpMs": 1000,
+      "pauseAfterLoadMs": 1000,
+      "networkQuietThresholdMs": 1000,
+      "cpuQuietThresholdMs": 1000,
+      "emulatedUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "disableStorageReset": true,
+      "blankPage": "about:blank",
+      "skipAudits": [
+        "modern-http-insight",
+        "bf-cache"
+      ],
+      "clearStorageTypes": [
+        "file_systems",
+        "shader_cache",
+        "service_workers",
+        "cache_storage"
+      ]
+    },
+    "source": "embedded-json",
+    "conflicts": [],
+    "first-contentful-paint": 521.6563897218198,
+    "largest-contentful-paint": 801.7559104538868,
+    "total-blocking-time": 1302.7294567066533,
+    "cumulative-layout-shift": 0.01740954574174106,
+    "duplicate_of": "result/result-home-brave-ago_25.html"
+  },
+  {
+    "file": "result/result-home-edge-ago_25.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "mobile",
+    "timestamp": "2026-08-26T00:00:44.587Z",
+    "timestamp_precision": "millisecond",
+    "version": "13.4.1",
+    "settings": {
+      "formFactor": "mobile",
+      "locale": "en-US",
+      "onlyCategories": [
+        "performance",
+        "accessibility",
+        "best-practices",
+        "seo",
+        "agentic-browsing"
+      ],
+      "channel": "lr",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 1.2
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "mobile": true
+      },
+      "ignoreStatusCode": true,
+      "output": "json",
+      "maxWaitForFcp": 15000,
+      "maxWaitForLoad": 35000,
+      "pauseAfterFcpMs": 1000,
+      "pauseAfterLoadMs": 1000,
+      "networkQuietThresholdMs": 1000,
+      "cpuQuietThresholdMs": 1000,
+      "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+      "disableStorageReset": true,
+      "blankPage": "about:blank",
+      "skipAudits": [
+        "modern-http-insight",
+        "bf-cache"
+      ],
+      "clearStorageTypes": [
+        "file_systems",
+        "shader_cache",
+        "service_workers",
+        "cache_storage"
+      ]
+    },
+    "source": "embedded-json",
+    "conflicts": [],
+    "first-contentful-paint": 1951.110691912258,
+    "largest-contentful-paint": 2851.171069318945,
+    "total-blocking-time": 84,
+    "cumulative-layout-shift": 0.0176899792907283,
+    "duplicate_of": null
+  },
+  {
+    "file": "result/result-home-edge-ago_26.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "desktop",
+    "timestamp": "2026-08-26T23:06:21.914Z",
+    "timestamp_precision": "millisecond",
+    "version": "13.4.1",
+    "settings": {
+      "formFactor": "desktop",
+      "locale": "en-US",
+      "onlyCategories": [
+        "performance",
+        "accessibility",
+        "best-practices",
+        "seo",
+        "agentic-browsing"
+      ],
+      "channel": "lr",
+      "throttling": {
+        "rttMs": 40,
+        "throughputKbps": 10240,
+        "cpuSlowdownMultiplier": 1
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "width": 1350,
+        "height": 940,
+        "deviceScaleFactor": 1
+      },
+      "ignoreStatusCode": true,
+      "output": "json",
+      "maxWaitForFcp": 15000,
+      "maxWaitForLoad": 35000,
+      "pauseAfterFcpMs": 1000,
+      "pauseAfterLoadMs": 1000,
+      "networkQuietThresholdMs": 1000,
+      "cpuQuietThresholdMs": 1000,
+      "emulatedUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "disableStorageReset": true,
+      "blankPage": "about:blank",
+      "skipAudits": [
+        "modern-http-insight",
+        "bf-cache"
+      ],
+      "clearStorageTypes": [
+        "file_systems",
+        "shader_cache",
+        "service_workers",
+        "cache_storage"
+      ]
+    },
+    "source": "embedded-json",
+    "conflicts": [],
+    "first-contentful-paint": 521.5642308576518,
+    "largest-contentful-paint": 1101.6488988063745,
+    "total-blocking-time": 6600.45912581786,
+    "cumulative-layout-shift": 0.01740954574174106,
+    "duplicate_of": null
+  },
+  {
+    "file": "result/result-home-edge-ago_26.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "mobile",
+    "timestamp": "2026-08-26T23:06:18.964Z",
+    "timestamp_precision": "millisecond",
+    "version": "13.4.1",
+    "settings": {
+      "formFactor": "mobile",
+      "locale": "en-US",
+      "onlyCategories": [
+        "performance",
+        "accessibility",
+        "best-practices",
+        "seo",
+        "agentic-browsing"
+      ],
+      "channel": "lr",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 1.2
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "mobile": true
+      },
+      "ignoreStatusCode": true,
+      "output": "json",
+      "maxWaitForFcp": 15000,
+      "maxWaitForLoad": 35000,
+      "pauseAfterFcpMs": 1000,
+      "pauseAfterLoadMs": 1000,
+      "networkQuietThresholdMs": 1000,
+      "cpuQuietThresholdMs": 1000,
+      "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+      "disableStorageReset": true,
+      "blankPage": "about:blank",
+      "skipAudits": [
+        "modern-http-insight",
+        "bf-cache"
+      ],
+      "clearStorageTypes": [
+        "file_systems",
+        "shader_cache",
+        "service_workers",
+        "cache_storage"
+      ]
+    },
+    "source": "embedded-json",
+    "conflicts": [],
+    "first-contentful-paint": 1739.6637318641506,
+    "largest-contentful-paint": 2716.133988632067,
+    "total-blocking-time": 157,
+    "cumulative-layout-shift": 0.01539897140519987,
+    "duplicate_of": null
+  },
+  {
+    "file": "result/result-home-edge-ago_27.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "mobile",
+    "timestamp": "2026-08-27T23:44:57.965Z",
+    "timestamp_precision": "millisecond",
+    "version": "13.4.1",
+    "settings": {
+      "formFactor": "mobile",
+      "locale": "en-US",
+      "onlyCategories": [
+        "performance",
+        "accessibility",
+        "best-practices",
+        "seo",
+        "agentic-browsing"
+      ],
+      "channel": "lr",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 1.2
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "mobile": true
+      },
+      "ignoreStatusCode": true,
+      "output": "json",
+      "maxWaitForFcp": 15000,
+      "maxWaitForLoad": 35000,
+      "pauseAfterFcpMs": 1000,
+      "pauseAfterLoadMs": 1000,
+      "networkQuietThresholdMs": 1000,
+      "cpuQuietThresholdMs": 1000,
+      "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+      "disableStorageReset": true,
+      "blankPage": "about:blank",
+      "skipAudits": [
+        "modern-http-insight",
+        "bf-cache"
+      ],
+      "clearStorageTypes": [
+        "file_systems",
+        "shader_cache",
+        "service_workers",
+        "cache_storage"
+      ]
+    },
+    "source": "embedded-json",
+    "conflicts": [],
+    "first-contentful-paint": 2103.0859516640085,
+    "largest-contentful-paint": 3016.1289274960122,
+    "total-blocking-time": 176.5,
+    "cumulative-layout-shift": 0.01539897140519987,
+    "duplicate_of": null
+  },
+  {
+    "file": "result/result-home-edge-ago_27.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "desktop",
+    "timestamp": "2026-08-27T23:44:57.637Z",
+    "timestamp_precision": "millisecond",
+    "version": "13.4.1",
+    "settings": {
+      "formFactor": "desktop",
+      "locale": "en-US",
+      "onlyCategories": [
+        "performance",
+        "accessibility",
+        "best-practices",
+        "seo",
+        "agentic-browsing"
+      ],
+      "channel": "lr",
+      "throttling": {
+        "rttMs": 40,
+        "throughputKbps": 10240,
+        "cpuSlowdownMultiplier": 1
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "width": 1350,
+        "height": 940,
+        "deviceScaleFactor": 1
+      },
+      "ignoreStatusCode": true,
+      "output": "json",
+      "maxWaitForFcp": 15000,
+      "maxWaitForLoad": 35000,
+      "pauseAfterFcpMs": 1000,
+      "pauseAfterLoadMs": 1000,
+      "networkQuietThresholdMs": 1000,
+      "cpuQuietThresholdMs": 1000,
+      "emulatedUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "disableStorageReset": true,
+      "blankPage": "about:blank",
+      "skipAudits": [
+        "modern-http-insight",
+        "bf-cache"
+      ],
+      "clearStorageTypes": [
+        "file_systems",
+        "shader_cache",
+        "service_workers",
+        "cache_storage"
+      ]
+    },
+    "source": "embedded-json",
+    "conflicts": [],
+    "first-contentful-paint": 465.7891157211257,
+    "largest-contentful-paint": 913.1521133440253,
+    "total-blocking-time": 334.4999999999998,
+    "cumulative-layout-shift": 0.01740101707672963,
+    "duplicate_of": null
+  },
+  {
+    "file": "result/result-home-firefox-ago_21.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "mobile",
+    "timestamp": "Aug 21, 2026, 5:31 PM GMT-5",
+    "timestamp_precision": "minute",
+    "version": "13.4.1",
+    "settings": "Captured at Aug 21, 2026, 5:31 PM GMT-5 Emulated Moto G Power with Lighthouse 13.4.1 Unthrottled CPU/Memory Power: 544 CPU throttling: 1.2x slowdown (Simulated) Screen emulation: 412x823, DPR 1.75 Axe version: 4.12.1 Single page session This data is taken from a single page session, as opposed to field data summarizing many sessions. Initial page load Slow 4G throttling Network throttling: 150 ms TCP RTT, 1,638.4 kb/s throughput (Simulated) Browser location: North America Using HeadlessChromium 151.0.7922.71 with lr User agent (network): \"Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Mobile Safari/537.36\"",
+    "source": "visible-rounded",
+    "conflicts": [],
+    "first-contentful-paint": 1700.0,
+    "largest-contentful-paint": 2700.0,
+    "total-blocking-time": 140.0,
+    "cumulative-layout-shift": 0.015,
+    "duplicate_of": null
+  },
+  {
+    "file": "result/result-home-firefox-ago_21.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "desktop",
+    "timestamp": "Aug 21, 2026, 5:30 PM GMT-5",
+    "timestamp_precision": "minute",
+    "version": "13.4.1",
+    "settings": "Captured at Aug 21, 2026, 5:30 PM GMT-5 Emulated Desktop with Lighthouse 13.4.1 Unthrottled CPU/Memory Power: 523 CPU throttling: 1x slowdown (Simulated) Screen emulation: 1350x940, DPR 1 Axe version: 4.12.1 Single page session This data is taken from a single page session, as opposed to field data summarizing many sessions. Initial page load Custom throttling Network throttling: 40 ms TCP RTT, 10,240 kb/s throughput (Simulated) Browser location: North America Using HeadlessChromium 151.0.7922.71 with lr User agent (network): \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36\"",
+    "source": "visible-rounded",
+    "conflicts": [],
+    "first-contentful-paint": 500.0,
+    "largest-contentful-paint": 800.0,
+    "total-blocking-time": 560.0,
+    "cumulative-layout-shift": 0.017,
+    "duplicate_of": null
+  },
+  {
+    "file": "result/result-home-firefox-ago_24.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "mobile",
+    "timestamp": "Aug 24, 2026, 6:34 PM GMT-5",
+    "timestamp_precision": "minute",
+    "version": "13.4.1",
+    "settings": "Captured at Aug 24, 2026, 6:34 PM GMT-5 Emulated Moto G Power with Lighthouse 13.4.1 Unthrottled CPU/Memory Power: 689 CPU throttling: 1.2x slowdown (Simulated) Screen emulation: 412x823, DPR 1.75 Axe version: 4.12.1 Single page session This data is taken from a single page session, as opposed to field data summarizing many sessions. Initial page load Slow 4G throttling Network throttling: 150 ms TCP RTT, 1,638.4 kb/s throughput (Simulated) Browser location: North America Using HeadlessChromium 151.0.7922.71 with lr User agent (network): \"Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Mobile Safari/537.36\"",
+    "source": "visible-rounded",
+    "conflicts": [],
+    "first-contentful-paint": 2100.0,
+    "largest-contentful-paint": 6400.0,
+    "total-blocking-time": 190.0,
+    "cumulative-layout-shift": 0.098,
+    "duplicate_of": null
+  },
+  {
+    "file": "result/result-home-firefox-ago_24.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "desktop",
+    "timestamp": "Aug 24, 2026, 6:33 PM GMT-5",
+    "timestamp_precision": "minute",
+    "version": "13.4.1",
+    "settings": "Captured at Aug 24, 2026, 6:33 PM GMT-5 Emulated Desktop with Lighthouse 13.4.1 Unthrottled CPU/Memory Power: 549 CPU throttling: 1x slowdown (Simulated) Screen emulation: 1350x940, DPR 1 Axe version: 4.12.1 Single page session This data is taken from a single page session, as opposed to field data summarizing many sessions. Initial page load Custom throttling Network throttling: 40 ms TCP RTT, 10,240 kb/s throughput (Simulated) Browser location: North America Using HeadlessChromium 151.0.7922.71 with lr User agent (network): \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36\"",
+    "source": "visible-rounded",
+    "conflicts": [],
+    "first-contentful-paint": 500.0,
+    "largest-contentful-paint": 500.0,
+    "total-blocking-time": 170.0,
+    "cumulative-layout-shift": 0.017,
+    "duplicate_of": null
+  },
+  {
+    "file": "result/result-home-firefox-ago_25.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "mobile",
+    "timestamp": "Aug 25, 2026, 7:03 PM GMT-5",
+    "timestamp_precision": "minute",
+    "version": "13.4.1",
+    "settings": "Captured at Aug 25, 2026, 7:03 PM GMT-5 Emulated Moto G Power with Lighthouse 13.4.1 Unthrottled CPU/Memory Power: 982 CPU throttling: 1.2x slowdown (Simulated) Screen emulation: 412x823, DPR 1.75 Axe version: 4.12.1 Single page session This data is taken from a single page session, as opposed to field data summarizing many sessions. Initial page load Slow 4G throttling Network throttling: 150 ms TCP RTT, 1,638.4 kb/s throughput (Simulated) Browser location: North America Using HeadlessChromium 151.0.7922.71 with lr User agent (network): \"Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Mobile Safari/537.36\"",
+    "source": "visible-rounded",
+    "conflicts": [],
+    "first-contentful-paint": 2100.0,
+    "largest-contentful-paint": 4700.0,
+    "total-blocking-time": 30.0,
+    "cumulative-layout-shift": 0.02,
+    "duplicate_of": null
+  },
+  {
+    "file": "result/result-home-firefox-ago_25.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "desktop",
+    "timestamp": "Aug 25, 2026, 7:03 PM GMT-5",
+    "timestamp_precision": "minute",
+    "version": "13.4.1",
+    "settings": "Captured at Aug 25, 2026, 7:03 PM GMT-5 Emulated Desktop with Lighthouse 13.4.1 Unthrottled CPU/Memory Power: 620 CPU throttling: 1x slowdown (Simulated) Screen emulation: 1350x940, DPR 1 Axe version: 4.12.1 Single page session This data is taken from a single page session, as opposed to field data summarizing many sessions. Initial page load Custom throttling Network throttling: 40 ms TCP RTT, 10,240 kb/s throughput (Simulated) Browser location: North America Using HeadlessChromium 151.0.7922.71 with lr User agent (network): \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36\"",
+    "source": "visible-rounded",
+    "conflicts": [],
+    "first-contentful-paint": 500.0,
+    "largest-contentful-paint": 600.0,
+    "total-blocking-time": 300.0,
+    "cumulative-layout-shift": 0.017,
+    "duplicate_of": null
+  },
+  {
+    "file": "result/result-home-firefox-ago_26.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "mobile",
+    "timestamp": "Aug 26, 2026, 6:07 PM GMT-5",
+    "timestamp_precision": "minute",
+    "version": "13.4.1",
+    "settings": "Captured at Aug 26, 2026, 6:07 PM GMT-5 Emulated Moto G Power with Lighthouse 13.4.1 Unthrottled CPU/Memory Power: 460 CPU throttling: 1.2x slowdown (Simulated) Screen emulation: 412x823, DPR 1.75 Axe version: 4.12.1 Single page session This data is taken from a single page session, as opposed to field data summarizing many sessions. Initial page load Slow 4G throttling Network throttling: 150 ms TCP RTT, 1,638.4 kb/s throughput (Simulated) Browser location: North America Using HeadlessChromium 151.0.7922.71 with lr User agent (network): \"Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Mobile Safari/537.36\"",
+    "source": "visible-rounded",
+    "conflicts": [],
+    "first-contentful-paint": 2100.0,
+    "largest-contentful-paint": 2900.0,
+    "total-blocking-time": 190.0,
+    "cumulative-layout-shift": 0.015,
+    "duplicate_of": null
+  },
+  {
+    "file": "result/result-home-firefox-ago_26.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "desktop",
+    "timestamp": "Aug 26, 2026, 6:07 PM GMT-5",
+    "timestamp_precision": "minute",
+    "version": "13.4.1",
+    "settings": "Captured at Aug 26, 2026, 6:07 PM GMT-5 Emulated Desktop with Lighthouse 13.4.1 Unthrottled CPU/Memory Power: 815 CPU throttling: 1x slowdown (Simulated) Screen emulation: 1350x940, DPR 1 Axe version: 4.12.1 Single page session This data is taken from a single page session, as opposed to field data summarizing many sessions. Initial page load Custom throttling Network throttling: 40 ms TCP RTT, 10,240 kb/s throughput (Simulated) Browser location: North America Using HeadlessChromium 151.0.7922.71 with lr User agent (network): \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36\"",
+    "source": "visible-rounded",
+    "conflicts": [],
+    "first-contentful-paint": 500.0,
+    "largest-contentful-paint": 600.0,
+    "total-blocking-time": 120.0,
+    "cumulative-layout-shift": 0.016,
+    "duplicate_of": null
+  },
+  {
+    "file": "result/result-home-firefox-ago_27.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "mobile",
+    "timestamp": "Aug 27, 2026, 6:47 PM GMT-5",
+    "timestamp_precision": "minute",
+    "version": "13.4.1",
+    "settings": "Captured at Aug 27, 2026, 6:47 PM GMT-5 Emulated Moto G Power with Lighthouse 13.4.1 Unthrottled CPU/Memory Power: 1089 CPU throttling: 1.2x slowdown (Simulated) Screen emulation: 412x823, DPR 1.75 Axe version: 4.12.1 Single page session This data is taken from a single page session, as opposed to field data summarizing many sessions. Initial page load Slow 4G throttling Network throttling: 150 ms TCP RTT, 1,638.4 kb/s throughput (Simulated) Browser location: North America Using HeadlessChromium 151.0.7922.71 with lr User agent (network): \"Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Mobile Safari/537.36\"",
+    "source": "visible-rounded",
+    "conflicts": [],
+    "first-contentful-paint": 2000.0,
+    "largest-contentful-paint": 3800.0,
+    "total-blocking-time": 50.0,
+    "cumulative-layout-shift": 0.098,
+    "duplicate_of": null
+  },
+  {
+    "file": "result/result-home-firefox-ago_27.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "desktop",
+    "timestamp": "Aug 27, 2026, 6:47 PM GMT-5",
+    "timestamp_precision": "minute",
+    "version": "13.4.1",
+    "settings": "Captured at Aug 27, 2026, 6:47 PM GMT-5 Emulated Desktop with Lighthouse 13.4.1 Unthrottled CPU/Memory Power: 661 CPU throttling: 1x slowdown (Simulated) Screen emulation: 1350x940, DPR 1 Axe version: 4.12.1 Single page session This data is taken from a single page session, as opposed to field data summarizing many sessions. Initial page load Custom throttling Network throttling: 40 ms TCP RTT, 10,240 kb/s throughput (Simulated) Browser location: North America Using HeadlessChromium 151.0.7922.71 with lr User agent (network): \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36\"",
+    "source": "visible-rounded",
+    "conflicts": [],
+    "first-contentful-paint": 500.0,
+    "largest-contentful-paint": 800.0,
+    "total-blocking-time": 180.0,
+    "cumulative-layout-shift": 0.017,
+    "duplicate_of": null
+  },
+  {
+    "file": "result/result-home-firefox2-ago_21.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "mobile",
+    "timestamp": "Aug 21, 2026, 5:39 PM GMT-5",
+    "timestamp_precision": "minute",
+    "version": "13.4.1",
+    "settings": "Captured at Aug 21, 2026, 5:39 PM GMT-5 Emulated Moto G Power with Lighthouse 13.4.1 Unthrottled CPU/Memory Power: 674 CPU throttling: 1.2x slowdown (Simulated) Screen emulation: 412x823, DPR 1.75 Axe version: 4.12.1 Single page session This data is taken from a single page session, as opposed to field data summarizing many sessions. Initial page load Slow 4G throttling Network throttling: 150 ms TCP RTT, 1,638.4 kb/s throughput (Simulated) Browser location: North America Using HeadlessChromium 151.0.7922.71 with lr User agent (network): \"Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Mobile Safari/537.36\"",
+    "source": "visible-rounded",
+    "conflicts": [],
+    "first-contentful-paint": 2100.0,
+    "largest-contentful-paint": 4700.0,
+    "total-blocking-time": 110.0,
+    "cumulative-layout-shift": 0.005,
+    "duplicate_of": null
+  },
+  {
+    "file": "result/result-home-firefox2-ago_21.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "desktop",
+    "timestamp": "Aug 21, 2026, 5:39 PM GMT-5",
+    "timestamp_precision": "minute",
+    "version": "13.4.1",
+    "settings": "Captured at Aug 21, 2026, 5:39 PM GMT-5 Emulated Desktop with Lighthouse 13.4.1 Unthrottled CPU/Memory Power: 898 CPU throttling: 1x slowdown (Simulated) Screen emulation: 1350x940, DPR 1 Axe version: 4.12.1 Single page session This data is taken from a single page session, as opposed to field data summarizing many sessions. Initial page load Custom throttling Network throttling: 40 ms TCP RTT, 10,240 kb/s throughput (Simulated) Browser location: North America Using HeadlessChromium 151.0.7922.71 with lr User agent (network): \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36\"",
+    "source": "visible-rounded",
+    "conflicts": [],
+    "first-contentful-paint": 500.0,
+    "largest-contentful-paint": 600.0,
+    "total-blocking-time": 110.0,
+    "cumulative-layout-shift": 0.016,
+    "duplicate_of": null
+  },
+  {
+    "file": "result/result-home-firefox2-ago_24.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "mobile",
+    "timestamp": "Aug 24, 2026, 6:36 PM GMT-5",
+    "timestamp_precision": "minute",
+    "version": "13.4.1",
+    "settings": "Captured at Aug 24, 2026, 6:36 PM GMT-5 Emulated Moto G Power with Lighthouse 13.4.1 Unthrottled CPU/Memory Power: 967 CPU throttling: 1.2x slowdown (Simulated) Screen emulation: 412x823, DPR 1.75 Axe version: 4.12.1 Single page session This data is taken from a single page session, as opposed to field data summarizing many sessions. Initial page load Slow 4G throttling Network throttling: 150 ms TCP RTT, 1,638.4 kb/s throughput (Simulated) Browser location: North America Using HeadlessChromium 151.0.7922.71 with lr User agent (network): \"Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Mobile Safari/537.36\"",
+    "source": "visible-rounded",
+    "conflicts": [],
+    "first-contentful-paint": 2100.0,
+    "largest-contentful-paint": 3000.0,
+    "total-blocking-time": 140.0,
+    "cumulative-layout-shift": 0.015,
+    "duplicate_of": null
+  },
+  {
+    "file": "result/result-home-firefox2-ago_24.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "desktop",
+    "timestamp": "Aug 24, 2026, 6:36 PM GMT-5",
+    "timestamp_precision": "minute",
+    "version": "13.4.1",
+    "settings": "Captured at Aug 24, 2026, 6:36 PM GMT-5 Emulated Desktop with Lighthouse 13.4.1 Unthrottled CPU/Memory Power: 597 CPU throttling: 1x slowdown (Simulated) Screen emulation: 1350x940, DPR 1 Axe version: 4.12.1 Single page session This data is taken from a single page session, as opposed to field data summarizing many sessions. Initial page load Custom throttling Network throttling: 40 ms TCP RTT, 10,240 kb/s throughput (Simulated) Browser location: North America Using HeadlessChromium 151.0.7922.71 with lr User agent (network): \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36\"",
+    "source": "visible-rounded",
+    "conflicts": [],
+    "first-contentful-paint": 500.0,
+    "largest-contentful-paint": 800.0,
+    "total-blocking-time": 230.0,
+    "cumulative-layout-shift": 0.018,
+    "duplicate_of": null
+  },
+  {
+    "file": "result/result-home-firefox2-ago_25.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "mobile",
+    "timestamp": "Aug 25, 2026, 7:00 PM GMT-5",
+    "timestamp_precision": "minute",
+    "version": "13.4.1",
+    "settings": "Captured at Aug 25, 2026, 7:00 PM GMT-5 Emulated Moto G Power with Lighthouse 13.4.1 Unthrottled CPU/Memory Power: 448 CPU throttling: 1.2x slowdown (Simulated) Screen emulation: 412x823, DPR 1.75 Axe version: 4.12.1 Single page session This data is taken from a single page session, as opposed to field data summarizing many sessions. Initial page load Slow 4G throttling Network throttling: 150 ms TCP RTT, 1,638.4 kb/s throughput (Simulated) Browser location: North America Using HeadlessChromium 151.0.7922.71 with lr User agent (network): \"Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Mobile Safari/537.36\"",
+    "source": "visible-rounded",
+    "conflicts": [
+      "https://intergrowcapital.io/",
+      "https://intergrowcapital.io/"
+    ],
+    "first-contentful-paint": 2000.0,
+    "largest-contentful-paint": 2900.0,
+    "total-blocking-time": 80.0,
+    "cumulative-layout-shift": 0.018,
+    "duplicate_of": null
+  },
+  {
+    "file": "result/result-home-firefox2-ago_25.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "desktop",
+    "timestamp": "Aug 25, 2026, 7:01 PM GMT-5",
+    "timestamp_precision": "minute",
+    "version": "13.4.1",
+    "settings": "Captured at Aug 25, 2026, 7:01 PM GMT-5 Emulated Desktop with Lighthouse 13.4.1 Unthrottled CPU/Memory Power: 1187 CPU throttling: 1x slowdown (Simulated) Screen emulation: 1350x940, DPR 1 Axe version: 4.12.1 Single page session This data is taken from a single page session, as opposed to field data summarizing many sessions. Initial page load Custom throttling Network throttling: 40 ms TCP RTT, 10,240 kb/s throughput (Simulated) Browser location: North America Using HeadlessChromium 151.0.7922.71 with lr User agent (network): \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36\"",
+    "source": "visible-rounded",
+    "conflicts": [
+      "https://intergrowcapital.io/",
+      "https://intergrowcapital.io/"
+    ],
+    "first-contentful-paint": 500.0,
+    "largest-contentful-paint": 600.0,
+    "total-blocking-time": 30.0,
+    "cumulative-layout-shift": 0.02,
+    "duplicate_of": null
+  },
+  {
+    "file": "result/result-home-firefox2-ago_26.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "mobile",
+    "timestamp": "Aug 26, 2026, 6:10 PM GMT-5",
+    "timestamp_precision": "minute",
+    "version": "13.4.1",
+    "settings": "Captured at Aug 26, 2026, 6:10 PM GMT-5 Emulated Moto G Power with Lighthouse 13.4.1 Unthrottled CPU/Memory Power: 758 CPU throttling: 1.2x slowdown (Simulated) Screen emulation: 412x823, DPR 1.75 Axe version: 4.12.1 Single page session This data is taken from a single page session, as opposed to field data summarizing many sessions. Initial page load Slow 4G throttling Network throttling: 150 ms TCP RTT, 1,638.4 kb/s throughput (Simulated) Browser location: North America Using HeadlessChromium 151.0.7922.71 with lr User agent (network): \"Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Mobile Safari/537.36\"",
+    "source": "visible-rounded",
+    "conflicts": [],
+    "first-contentful-paint": 2100.0,
+    "largest-contentful-paint": 3000.0,
+    "total-blocking-time": 60.0,
+    "cumulative-layout-shift": 0.015,
+    "duplicate_of": null
+  },
+  {
+    "file": "result/result-home-firefox2-ago_26.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "desktop",
+    "timestamp": "Aug 26, 2026, 6:10 PM GMT-5",
+    "timestamp_precision": "minute",
+    "version": "13.4.1",
+    "settings": "Captured at Aug 26, 2026, 6:10 PM GMT-5 Emulated Desktop with Lighthouse 13.4.1 Unthrottled CPU/Memory Power: 936 CPU throttling: 1x slowdown (Simulated) Screen emulation: 1350x940, DPR 1 Axe version: 4.12.1 Single page session This data is taken from a single page session, as opposed to field data summarizing many sessions. Initial page load Custom throttling Network throttling: 40 ms TCP RTT, 10,240 kb/s throughput (Simulated) Browser location: North America Using HeadlessChromium 151.0.7922.71 with lr User agent (network): \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36\"",
+    "source": "visible-rounded",
+    "conflicts": [],
+    "first-contentful-paint": 500.0,
+    "largest-contentful-paint": 700.0,
+    "total-blocking-time": 120.0,
+    "cumulative-layout-shift": 0.018,
+    "duplicate_of": null
+  },
+  {
+    "file": "result/result-home-firefox2-ago_27.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "mobile",
+    "timestamp": "Aug 27, 2026, 6:50 PM GMT-5",
+    "timestamp_precision": "minute",
+    "version": "13.4.1",
+    "settings": "Captured at Aug 27, 2026, 6:50 PM GMT-5 Emulated Moto G Power with Lighthouse 13.4.1 Unthrottled CPU/Memory Power: 370 CPU throttling: 1.2x slowdown (Simulated) Screen emulation: 412x823, DPR 1.75 Axe version: 4.12.1 Single page session This data is taken from a single page session, as opposed to field data summarizing many sessions. Initial page load Slow 4G throttling Network throttling: 150 ms TCP RTT, 1,638.4 kb/s throughput (Simulated) Browser location: North America Using HeadlessChromium 151.0.7922.71 with lr User agent (network): \"Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Mobile Safari/537.36\"",
+    "source": "visible-rounded",
+    "conflicts": [],
+    "first-contentful-paint": 2100.0,
+    "largest-contentful-paint": 2700.0,
+    "total-blocking-time": 90.0,
+    "cumulative-layout-shift": 0.018,
+    "duplicate_of": null
+  },
+  {
+    "file": "result/result-home-firefox2-ago_27.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "desktop",
+    "timestamp": "Aug 27, 2026, 6:49 PM GMT-5",
+    "timestamp_precision": "minute",
+    "version": "13.4.1",
+    "settings": "Captured at Aug 27, 2026, 6:49 PM GMT-5 Emulated Desktop with Lighthouse 13.4.1 Unthrottled CPU/Memory Power: 548 CPU throttling: 1x slowdown (Simulated) Screen emulation: 1350x940, DPR 1 Axe version: 4.12.1 Single page session This data is taken from a single page session, as opposed to field data summarizing many sessions. Initial page load Custom throttling Network throttling: 40 ms TCP RTT, 10,240 kb/s throughput (Simulated) Browser location: North America Using HeadlessChromium 151.0.7922.71 with lr User agent (network): \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36\"",
+    "source": "visible-rounded",
+    "conflicts": [],
+    "first-contentful-paint": 500.0,
+    "largest-contentful-paint": 500.0,
+    "total-blocking-time": 160.0,
+    "cumulative-layout-shift": 0.017,
+    "duplicate_of": null
+  },
+  {
+    "file": "results_round2/sample-1.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "desktop",
+    "timestamp": "2026-09-16T16:14:30.636Z",
+    "timestamp_precision": "millisecond",
+    "version": "13.4.1",
+    "settings": {
+      "formFactor": "desktop",
+      "locale": "en-US",
+      "onlyCategories": [
+        "performance",
+        "accessibility",
+        "best-practices",
+        "seo",
+        "agentic-browsing"
+      ],
+      "channel": "lr",
+      "throttling": {
+        "rttMs": 40,
+        "throughputKbps": 10240,
+        "cpuSlowdownMultiplier": 1
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "width": 1350,
+        "height": 940,
+        "deviceScaleFactor": 1
+      },
+      "ignoreStatusCode": true,
+      "output": "json",
+      "maxWaitForFcp": 15000,
+      "maxWaitForLoad": 35000,
+      "pauseAfterFcpMs": 1000,
+      "pauseAfterLoadMs": 1000,
+      "networkQuietThresholdMs": 1000,
+      "cpuQuietThresholdMs": 1000,
+      "emulatedUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "disableStorageReset": true,
+      "blankPage": "about:blank",
+      "skipAudits": [
+        "modern-http-insight",
+        "bf-cache"
+      ],
+      "clearStorageTypes": [
+        "file_systems",
+        "shader_cache",
+        "service_workers",
+        "cache_storage"
+      ]
+    },
+    "source": "embedded-json",
+    "conflicts": [],
+    "first-contentful-paint": 543.0790079728456,
+    "largest-contentful-paint": 963.1511456871831,
+    "total-blocking-time": 559.9725189659673,
+    "cumulative-layout-shift": 0.01740954574174106,
+    "duplicate_of": null
+  },
+  {
+    "file": "results_round2/sample-1.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "mobile",
+    "timestamp": "2026-09-16T16:14:29.329Z",
+    "timestamp_precision": "millisecond",
+    "version": "13.4.1",
+    "settings": {
+      "formFactor": "mobile",
+      "locale": "en-US",
+      "onlyCategories": [
+        "performance",
+        "accessibility",
+        "best-practices",
+        "seo",
+        "agentic-browsing"
+      ],
+      "channel": "lr",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 1.2
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "mobile": true
+      },
+      "ignoreStatusCode": true,
+      "output": "json",
+      "maxWaitForFcp": 15000,
+      "maxWaitForLoad": 35000,
+      "pauseAfterFcpMs": 1000,
+      "pauseAfterLoadMs": 1000,
+      "networkQuietThresholdMs": 1000,
+      "cpuQuietThresholdMs": 1000,
+      "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+      "disableStorageReset": true,
+      "blankPage": "about:blank",
+      "skipAudits": [
+        "modern-http-insight",
+        "bf-cache"
+      ],
+      "clearStorageTypes": [
+        "file_systems",
+        "shader_cache",
+        "service_workers",
+        "cache_storage"
+      ]
+    },
+    "source": "embedded-json",
+    "conflicts": [],
+    "first-contentful-paint": 7702.709180752734,
+    "largest-contentful-paint": 10992.542859882298,
+    "total-blocking-time": 98,
+    "cumulative-layout-shift": 0,
+    "duplicate_of": null
+  },
+  {
+    "file": "results_round2/sample-10.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "mobile",
+    "timestamp": "2026-09-16T16:17:45.585Z",
+    "timestamp_precision": "millisecond",
+    "version": "13.4.1",
+    "settings": {
+      "formFactor": "mobile",
+      "locale": "en-US",
+      "onlyCategories": [
+        "performance",
+        "accessibility",
+        "best-practices",
+        "seo",
+        "agentic-browsing"
+      ],
+      "channel": "lr",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 1.2
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "mobile": true
+      },
+      "ignoreStatusCode": true,
+      "output": "json",
+      "maxWaitForFcp": 15000,
+      "maxWaitForLoad": 35000,
+      "pauseAfterFcpMs": 1000,
+      "pauseAfterLoadMs": 1000,
+      "networkQuietThresholdMs": 1000,
+      "cpuQuietThresholdMs": 1000,
+      "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+      "disableStorageReset": true,
+      "blankPage": "about:blank",
+      "skipAudits": [
+        "modern-http-insight",
+        "bf-cache"
+      ],
+      "clearStorageTypes": [
+        "file_systems",
+        "shader_cache",
+        "service_workers",
+        "cache_storage"
+      ]
+    },
+    "source": "embedded-json",
+    "conflicts": [],
+    "first-contentful-paint": 1953.100287069668,
+    "largest-contentful-paint": 4503.255276177337,
+    "total-blocking-time": 3661.9361809556653,
+    "cumulative-layout-shift": 0.01539897140519987,
+    "duplicate_of": null
+  },
+  {
+    "file": "results_round2/sample-2.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "desktop",
+    "timestamp": "2026-09-16T16:22:25.946Z",
+    "timestamp_precision": "millisecond",
+    "version": "13.4.1",
+    "settings": {
+      "formFactor": "desktop",
+      "locale": "en-US",
+      "onlyCategories": [
+        "performance",
+        "accessibility",
+        "best-practices",
+        "seo",
+        "agentic-browsing"
+      ],
+      "channel": "lr",
+      "throttling": {
+        "rttMs": 40,
+        "throughputKbps": 10240,
+        "cpuSlowdownMultiplier": 1
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "width": 1350,
+        "height": 940,
+        "deviceScaleFactor": 1
+      },
+      "ignoreStatusCode": true,
+      "output": "json",
+      "maxWaitForFcp": 15000,
+      "maxWaitForLoad": 35000,
+      "pauseAfterFcpMs": 1000,
+      "pauseAfterLoadMs": 1000,
+      "networkQuietThresholdMs": 1000,
+      "cpuQuietThresholdMs": 1000,
+      "emulatedUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "disableStorageReset": true,
+      "blankPage": "about:blank",
+      "skipAudits": [
+        "modern-http-insight",
+        "bf-cache"
+      ],
+      "clearStorageTypes": [
+        "file_systems",
+        "shader_cache",
+        "service_workers",
+        "cache_storage"
+      ]
+    },
+    "source": "embedded-json",
+    "conflicts": [],
+    "first-contentful-paint": 505.30499227693485,
+    "largest-contentful-paint": 921.1323223146165,
+    "total-blocking-time": 108.5,
+    "cumulative-layout-shift": 0.018026961874993093,
+    "duplicate_of": null
+  },
+  {
+    "file": "results_round2/sample-2.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "mobile",
+    "timestamp": "2026-09-16T16:22:27.972Z",
+    "timestamp_precision": "millisecond",
+    "version": "13.4.1",
+    "settings": {
+      "formFactor": "mobile",
+      "locale": "en-US",
+      "onlyCategories": [
+        "performance",
+        "accessibility",
+        "best-practices",
+        "seo",
+        "agentic-browsing"
+      ],
+      "channel": "lr",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 1.2
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "mobile": true
+      },
+      "ignoreStatusCode": true,
+      "output": "json",
+      "maxWaitForFcp": 15000,
+      "maxWaitForLoad": 35000,
+      "pauseAfterFcpMs": 1000,
+      "pauseAfterLoadMs": 1000,
+      "networkQuietThresholdMs": 1000,
+      "cpuQuietThresholdMs": 1000,
+      "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+      "disableStorageReset": true,
+      "blankPage": "about:blank",
+      "skipAudits": [
+        "modern-http-insight",
+        "bf-cache"
+      ],
+      "clearStorageTypes": [
+        "file_systems",
+        "shader_cache",
+        "service_workers",
+        "cache_storage"
+      ]
+    },
+    "source": "embedded-json",
+    "conflicts": [],
+    "first-contentful-paint": 2026.1381132208435,
+    "largest-contentful-paint": 4651.348285513432,
+    "total-blocking-time": 3350.9579655414823,
+    "cumulative-layout-shift": 0.01539897140519987,
+    "duplicate_of": null
+  },
+  {
+    "file": "results_round2/sample-3.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "mobile",
+    "timestamp": "2026-09-16T17:49:00.292Z",
+    "timestamp_precision": "millisecond",
+    "version": "13.4.1",
+    "settings": {
+      "formFactor": "mobile",
+      "locale": "en-US",
+      "onlyCategories": [
+        "performance",
+        "accessibility",
+        "best-practices",
+        "seo",
+        "agentic-browsing"
+      ],
+      "channel": "lr",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 1.2
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "mobile": true
+      },
+      "ignoreStatusCode": true,
+      "output": "json",
+      "maxWaitForFcp": 15000,
+      "maxWaitForLoad": 35000,
+      "pauseAfterFcpMs": 1000,
+      "pauseAfterLoadMs": 1000,
+      "networkQuietThresholdMs": 1000,
+      "cpuQuietThresholdMs": 1000,
+      "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+      "disableStorageReset": true,
+      "blankPage": "about:blank",
+      "skipAudits": [
+        "modern-http-insight",
+        "bf-cache"
+      ],
+      "clearStorageTypes": [
+        "file_systems",
+        "shader_cache",
+        "service_workers",
+        "cache_storage"
+      ]
+    },
+    "source": "embedded-json",
+    "conflicts": [],
+    "first-contentful-paint": 3913.6930534859143,
+    "largest-contentful-paint": 9498.711225074343,
+    "total-blocking-time": 240.5,
+    "cumulative-layout-shift": 0.004504328947024597,
+    "duplicate_of": null
+  },
+  {
+    "file": "results_round2/sample-3.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "desktop",
+    "timestamp": "2026-09-16T17:49:00.301Z",
+    "timestamp_precision": "millisecond",
+    "version": "13.4.1",
+    "settings": {
+      "formFactor": "desktop",
+      "locale": "en-US",
+      "onlyCategories": [
+        "performance",
+        "accessibility",
+        "best-practices",
+        "seo",
+        "agentic-browsing"
+      ],
+      "channel": "lr",
+      "throttling": {
+        "rttMs": 40,
+        "throughputKbps": 10240,
+        "cpuSlowdownMultiplier": 1
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "width": 1350,
+        "height": 940,
+        "deviceScaleFactor": 1
+      },
+      "ignoreStatusCode": true,
+      "output": "json",
+      "maxWaitForFcp": 15000,
+      "maxWaitForLoad": 35000,
+      "pauseAfterFcpMs": 1000,
+      "pauseAfterLoadMs": 1000,
+      "networkQuietThresholdMs": 1000,
+      "cpuQuietThresholdMs": 1000,
+      "emulatedUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "disableStorageReset": true,
+      "blankPage": "about:blank",
+      "skipAudits": [
+        "modern-http-insight",
+        "bf-cache"
+      ],
+      "clearStorageTypes": [
+        "file_systems",
+        "shader_cache",
+        "service_workers",
+        "cache_storage"
+      ]
+    },
+    "source": "embedded-json",
+    "conflicts": [],
+    "first-contentful-paint": 521.0664633578176,
+    "largest-contentful-paint": 921.1268845921973,
+    "total-blocking-time": 272,
+    "cumulative-layout-shift": 0.01740954574174106,
+    "duplicate_of": null
+  },
+  {
+    "file": "results_round2/sample-4.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "mobile",
+    "timestamp": "2026-09-16T17:51:39.608Z",
+    "timestamp_precision": "millisecond",
+    "version": "13.4.1",
+    "settings": {
+      "formFactor": "mobile",
+      "locale": "en-US",
+      "onlyCategories": [
+        "performance",
+        "accessibility",
+        "best-practices",
+        "seo",
+        "agentic-browsing"
+      ],
+      "channel": "lr",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 1.2
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "mobile": true
+      },
+      "ignoreStatusCode": true,
+      "output": "json",
+      "maxWaitForFcp": 15000,
+      "maxWaitForLoad": 35000,
+      "pauseAfterFcpMs": 1000,
+      "pauseAfterLoadMs": 1000,
+      "networkQuietThresholdMs": 1000,
+      "cpuQuietThresholdMs": 1000,
+      "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+      "disableStorageReset": true,
+      "blankPage": "about:blank",
+      "skipAudits": [
+        "modern-http-insight",
+        "bf-cache"
+      ],
+      "clearStorageTypes": [
+        "file_systems",
+        "shader_cache",
+        "service_workers",
+        "cache_storage"
+      ]
+    },
+    "source": "embedded-json",
+    "conflicts": [],
+    "first-contentful-paint": 4798.453673978187,
+    "largest-contentful-paint": 10780.279530531669,
+    "total-blocking-time": 315.5,
+    "cumulative-layout-shift": 0.004504328947024597,
+    "duplicate_of": null
+  },
+  {
+    "file": "results_round2/sample-4.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "desktop",
+    "timestamp": "2026-09-16T17:51:38.297Z",
+    "timestamp_precision": "millisecond",
+    "version": "13.4.1",
+    "settings": {
+      "formFactor": "desktop",
+      "locale": "en-US",
+      "onlyCategories": [
+        "performance",
+        "accessibility",
+        "best-practices",
+        "seo",
+        "agentic-browsing"
+      ],
+      "channel": "lr",
+      "throttling": {
+        "rttMs": 40,
+        "throughputKbps": 10240,
+        "cpuSlowdownMultiplier": 1
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "width": 1350,
+        "height": 940,
+        "deviceScaleFactor": 1
+      },
+      "ignoreStatusCode": true,
+      "output": "json",
+      "maxWaitForFcp": 15000,
+      "maxWaitForLoad": 35000,
+      "pauseAfterFcpMs": 1000,
+      "pauseAfterLoadMs": 1000,
+      "networkQuietThresholdMs": 1000,
+      "cpuQuietThresholdMs": 1000,
+      "emulatedUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "disableStorageReset": true,
+      "blankPage": "about:blank",
+      "skipAudits": [
+        "modern-http-insight",
+        "bf-cache"
+      ],
+      "clearStorageTypes": [
+        "file_systems",
+        "shader_cache",
+        "service_workers",
+        "cache_storage"
+      ]
+    },
+    "source": "embedded-json",
+    "conflicts": [],
+    "first-contentful-paint": 486.6958252992802,
+    "largest-contentful-paint": 652.0765723763914,
+    "total-blocking-time": 320,
+    "cumulative-layout-shift": 0.017080838375739385,
+    "duplicate_of": null
+  },
+  {
+    "file": "results_round2/sample-5.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "mobile",
+    "timestamp": "Sep 16, 2026, 11:54 AM GMT-5",
+    "timestamp_precision": "minute",
+    "version": "13.4.1",
+    "settings": "Captured at Sep 16, 2026, 11:54 AM GMT-5 Emulated Moto G Power with Lighthouse 13.4.1 Unthrottled CPU/Memory Power: 780 CPU throttling: 1.2x slowdown (Simulated) Screen emulation: 412x823, DPR 1.75 Axe version: 4.12.1 Single page session This data is taken from a single page session, as opposed to field data summarizing many sessions. Initial page load Slow 4G throttling Network throttling: 150 ms TCP RTT, 1,638.4 kb/s throughput (Simulated) Browser location: Europe Using HeadlessChromium 151.0.7922.173 with lr User agent (network): \"Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Mobile Safari/537.36\"",
+    "source": "visible-rounded",
+    "conflicts": [],
+    "first-contentful-paint": 2100.0,
+    "largest-contentful-paint": 4700.0,
+    "total-blocking-time": 110.0,
+    "cumulative-layout-shift": 0.015,
+    "duplicate_of": null
+  },
+  {
+    "file": "results_round2/sample-5.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "desktop",
+    "timestamp": "Sep 16, 2026, 11:54 AM GMT-5",
+    "timestamp_precision": "minute",
+    "version": "13.4.1",
+    "settings": "Captured at Sep 16, 2026, 11:54 AM GMT-5 Emulated Desktop with Lighthouse 13.4.1 Unthrottled CPU/Memory Power: 833 CPU throttling: 1x slowdown (Simulated) Screen emulation: 1350x940, DPR 1 Axe version: 4.12.1 Single page session This data is taken from a single page session, as opposed to field data summarizing many sessions. Initial page load Custom throttling Network throttling: 40 ms TCP RTT, 10,240 kb/s throughput (Simulated) Browser location: Europe Using HeadlessChromium 151.0.7922.173 with lr User agent (network): \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36\"",
+    "source": "visible-rounded",
+    "conflicts": [],
+    "first-contentful-paint": 500.0,
+    "largest-contentful-paint": 900.0,
+    "total-blocking-time": 160.0,
+    "cumulative-layout-shift": 0.019,
+    "duplicate_of": null
+  },
+  {
+    "file": "results_round2/sample-6.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "mobile",
+    "timestamp": "Sep 16, 2026, 12:03 PM GMT-5",
+    "timestamp_precision": "minute",
+    "version": "13.4.1",
+    "settings": "Captured at Sep 16, 2026, 12:03 PM GMT-5 Emulated Moto G Power with Lighthouse 13.4.1 Unthrottled CPU/Memory Power: 957 CPU throttling: 1.2x slowdown (Simulated) Screen emulation: 412x823, DPR 1.75 Axe version: 4.12.1 Single page session This data is taken from a single page session, as opposed to field data summarizing many sessions. Initial page load Slow 4G throttling Network throttling: 150 ms TCP RTT, 1,638.4 kb/s throughput (Simulated) Browser location: North America Using HeadlessChromium 151.0.7922.173 with lr User agent (network): \"Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Mobile Safari/537.36\"",
+    "source": "visible-rounded",
+    "conflicts": [],
+    "first-contentful-paint": 2100.0,
+    "largest-contentful-paint": 9100.0,
+    "total-blocking-time": 140.0,
+    "cumulative-layout-shift": 0.005,
+    "duplicate_of": null
+  },
+  {
+    "file": "results_round2/sample-6.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "desktop",
+    "timestamp": "Sep 16, 2026, 12:03 PM GMT-5",
+    "timestamp_precision": "minute",
+    "version": "13.4.1",
+    "settings": "Captured at Sep 16, 2026, 12:03 PM GMT-5 Emulated Desktop with Lighthouse 13.4.1 Unthrottled CPU/Memory Power: 741 CPU throttling: 1x slowdown (Simulated) Screen emulation: 1350x940, DPR 1 Axe version: 4.12.1 Single page session This data is taken from a single page session, as opposed to field data summarizing many sessions. Initial page load Custom throttling Network throttling: 40 ms TCP RTT, 10,240 kb/s throughput (Simulated) Browser location: North America Using HeadlessChromium 151.0.7922.173 with lr User agent (network): \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36\"",
+    "source": "visible-rounded",
+    "conflicts": [],
+    "first-contentful-paint": 500.0,
+    "largest-contentful-paint": 900.0,
+    "total-blocking-time": 160.0,
+    "cumulative-layout-shift": 0.019,
+    "duplicate_of": null
+  },
+  {
+    "file": "results_round2/sample-7.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "mobile",
+    "timestamp": "Sep 16, 2026, 12:53 PM GMT-5",
+    "timestamp_precision": "minute",
+    "version": "13.4.1",
+    "settings": "Captured at Sep 16, 2026, 12:53 PM GMT-5 Emulated Moto G Power with Lighthouse 13.4.1 Unthrottled CPU/Memory Power: 515 CPU throttling: 1.2x slowdown (Simulated) Screen emulation: 412x823, DPR 1.75 Axe version: 4.12.1 Single page session This data is taken from a single page session, as opposed to field data summarizing many sessions. Initial page load Slow 4G throttling Network throttling: 150 ms TCP RTT, 1,638.4 kb/s throughput (Simulated) Browser location: North America Using HeadlessChromium 151.0.7922.173 with lr User agent (network): \"Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Mobile Safari/537.36\"",
+    "source": "visible-rounded",
+    "conflicts": [],
+    "first-contentful-paint": 1700.0,
+    "largest-contentful-paint": 4400.0,
+    "total-blocking-time": 220.0,
+    "cumulative-layout-shift": 0.018,
+    "duplicate_of": null
+  },
+  {
+    "file": "results_round2/sample-7.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "desktop",
+    "timestamp": "Sep 16, 2026, 12:53 PM GMT-5",
+    "timestamp_precision": "minute",
+    "version": "13.4.1",
+    "settings": "Captured at Sep 16, 2026, 12:53 PM GMT-5 Emulated Desktop with Lighthouse 13.4.1 Unthrottled CPU/Memory Power: 444 CPU throttling: 1x slowdown (Simulated) Screen emulation: 1350x940, DPR 1 Axe version: 4.12.1 Single page session This data is taken from a single page session, as opposed to field data summarizing many sessions. Initial page load Custom throttling Network throttling: 40 ms TCP RTT, 10,240 kb/s throughput (Simulated) Browser location: North America Using HeadlessChromium 151.0.7922.173 with lr User agent (network): \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36\"",
+    "source": "visible-rounded",
+    "conflicts": [],
+    "first-contentful-paint": 500.0,
+    "largest-contentful-paint": 700.0,
+    "total-blocking-time": 450.0,
+    "cumulative-layout-shift": 0.017,
+    "duplicate_of": null
+  },
+  {
+    "file": "results_round2/sample-8.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "mobile",
+    "timestamp": "Sep 16, 2026, 1:01 PM GMT-5",
+    "timestamp_precision": "minute",
+    "version": "13.4.1",
+    "settings": "Captured at Sep 16, 2026, 1:01 PM GMT-5 Emulated Moto G Power with Lighthouse 13.4.1 Unthrottled CPU/Memory Power: 340 CPU throttling: 1.2x slowdown (Simulated) Screen emulation: 412x823, DPR 1.75 Axe version: 4.12.1 Single page session This data is taken from a single page session, as opposed to field data summarizing many sessions. Initial page load Slow 4G throttling Network throttling: 150 ms TCP RTT, 1,638.4 kb/s throughput (Simulated) Browser location: North America Using HeadlessChromium 151.0.7922.173 with lr User agent (network): \"Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Mobile Safari/537.36\"",
+    "source": "visible-rounded",
+    "conflicts": [
+      "https://disruptivestudio.com/",
+      "https://disruptivestudio.com/"
+    ],
+    "first-contentful-paint": 2100.0,
+    "largest-contentful-paint": 4700.0,
+    "total-blocking-time": 380.0,
+    "cumulative-layout-shift": 0.015,
+    "duplicate_of": null
+  },
+  {
+    "file": "results_round2/sample-8.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "desktop",
+    "timestamp": "Sep 16, 2026, 1:01 PM GMT-5",
+    "timestamp_precision": "minute",
+    "version": "13.4.1",
+    "settings": "Captured at Sep 16, 2026, 1:01 PM GMT-5 Emulated Desktop with Lighthouse 13.4.1 Unthrottled CPU/Memory Power: 784 CPU throttling: 1x slowdown (Simulated) Screen emulation: 1350x940, DPR 1 Axe version: 4.12.1 Single page session This data is taken from a single page session, as opposed to field data summarizing many sessions. Initial page load Custom throttling Network throttling: 40 ms TCP RTT, 10,240 kb/s throughput (Simulated) Browser location: North America Using HeadlessChromium 151.0.7922.173 with lr User agent (network): \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36\"",
+    "source": "visible-rounded",
+    "conflicts": [
+      "https://disruptivestudio.com/",
+      "https://disruptivestudio.com/"
+    ],
+    "first-contentful-paint": 500.0,
+    "largest-contentful-paint": 900.0,
+    "total-blocking-time": 670.0,
+    "cumulative-layout-shift": 0.017,
+    "duplicate_of": null
+  },
+  {
+    "file": "results_round2/sample-9.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "mobile",
+    "timestamp": "2026-09-16T17:54:36.417Z",
+    "timestamp_precision": "millisecond",
+    "version": "13.4.1",
+    "settings": {
+      "formFactor": "mobile",
+      "locale": "en-US",
+      "onlyCategories": [
+        "performance",
+        "accessibility",
+        "best-practices",
+        "seo",
+        "agentic-browsing"
+      ],
+      "channel": "lr",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 1.2
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "mobile": true
+      },
+      "ignoreStatusCode": true,
+      "output": "json",
+      "maxWaitForFcp": 15000,
+      "maxWaitForLoad": 35000,
+      "pauseAfterFcpMs": 1000,
+      "pauseAfterLoadMs": 1000,
+      "networkQuietThresholdMs": 1000,
+      "cpuQuietThresholdMs": 1000,
+      "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+      "disableStorageReset": true,
+      "blankPage": "about:blank",
+      "skipAudits": [
+        "modern-http-insight",
+        "bf-cache"
+      ],
+      "clearStorageTypes": [
+        "file_systems",
+        "shader_cache",
+        "service_workers",
+        "cache_storage"
+      ]
+    },
+    "source": "embedded-json",
+    "conflicts": [],
+    "first-contentful-paint": 2102.079035887656,
+    "largest-contentful-paint": 4802.19758971914,
+    "total-blocking-time": 1307.9872472354436,
+    "cumulative-layout-shift": 0.01539897140519987,
+    "duplicate_of": null
+  },
+  {
+    "file": "results_round2/sample-9.html",
+    "url": "https://softwareformlm.com/en",
+    "device": "desktop",
+    "timestamp": "2026-09-16T17:54:34.812Z",
+    "timestamp_precision": "millisecond",
+    "version": "13.4.1",
+    "settings": {
+      "formFactor": "desktop",
+      "locale": "en-US",
+      "onlyCategories": [
+        "performance",
+        "accessibility",
+        "best-practices",
+        "seo",
+        "agentic-browsing"
+      ],
+      "channel": "lr",
+      "throttling": {
+        "rttMs": 40,
+        "throughputKbps": 10240,
+        "cpuSlowdownMultiplier": 1
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "width": 1350,
+        "height": 940,
+        "deviceScaleFactor": 1
+      },
+      "ignoreStatusCode": true,
+      "output": "json",
+      "maxWaitForFcp": 15000,
+      "maxWaitForLoad": 35000,
+      "pauseAfterFcpMs": 1000,
+      "pauseAfterLoadMs": 1000,
+      "networkQuietThresholdMs": 1000,
+      "cpuQuietThresholdMs": 1000,
+      "emulatedUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "disableStorageReset": true,
+      "blankPage": "about:blank",
+      "skipAudits": [
+        "modern-http-insight",
+        "bf-cache"
+      ],
+      "clearStorageTypes": [
+        "file_systems",
+        "shader_cache",
+        "service_workers",
+        "cache_storage"
+      ]
+    },
+    "source": "embedded-json",
+    "conflicts": [],
+    "first-contentful-paint": 486.7528232864141,
+    "largest-contentful-paint": 921.1624471200149,
+    "total-blocking-time": 106.00000000000011,
+    "cumulative-layout-shift": 0.018780712490930676,
+    "duplicate_of": null
+  }
+]
