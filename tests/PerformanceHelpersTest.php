@@ -12,6 +12,16 @@ require_once dirname(__DIR__) . '/src/helpers.php';
 final class PerformanceHelpersTest extends TestCase
 {
     #[Test]
+    public function animated_and_still_backgrounds_are_valid_svg_documents(): void
+    {
+        foreach (['glowing-bg', 'light-bg', 'glowing-bg-still', 'light-bg-still'] as $name) {
+            $document = new \DOMDocument();
+            self::assertTrue($document->load(dirname(__DIR__) . '/public/images/background/' . $name . '.svg', LIBXML_NONET));
+            self::assertSame('svg', $document->documentElement->localName);
+        }
+    }
+
+    #[Test]
     public function preload_matches_picture_candidates_and_sizes(): void
     {
         $path = '/public/images/home/bo-computer.webp';

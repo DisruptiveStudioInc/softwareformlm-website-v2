@@ -14,7 +14,7 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
   <span class="absolute top-0 left-0 size-0" id="home"></span>
   <div class="absolute -z-1 w-full h-full top-0 left-0">
     <picture>
-      <source media="(width < 1088px), (prefers-reduced-motion: reduce)" srcset="<?= asset_url('/public/images/background/glowing-bg-still.svg') ?>">
+      <source media="(max-width: 1087.98px), (prefers-reduced-motion: reduce)" srcset="<?= asset_url('/public/images/background/glowing-bg-still.svg') ?>">
       <img class="background" src="<?= asset_url('/public/images/background/glowing-bg.svg') ?>" alt="" loading="eager" fetchpriority="low" width="1920" height="1080" decoding="async">
     </picture>
     <div class="absolute w-full h-full top-0 left-0" style="background-image:url('/public/images/background/light_toast.png');background-repeat:repeat;mix-blend-mode:overlay;opacity:0.5"></div>
