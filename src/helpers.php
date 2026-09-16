@@ -84,17 +84,11 @@ function image_dimensions(string $path): string
 }
 
 /**
- * Build a responsive picture using generated AVIF/WebP variants when present.
- *
- * @param array<string, string> $attributes
+ * Shared candidates for picture markup and its responsive preload.
+ * @return array{remote: bool, path: string, width: int|null, height: int|null, sources: array<string, list<string>>}
  */
-function responsive_image(
-  string $path,
-  string $alt,
-  string $classes,
-  string $sizes,
-  array $attributes = []
-): string {
+function responsive_image_data(string $path): array
+{
   $isRemote = preg_match('#^https?://#i', $path) === 1;
   $normalizedPath = $isRemote ? $path : '/' . ltrim($path, '/');
   $fullPath = $isRemote ? null : __DIR__ . '/..' . $normalizedPath;
@@ -124,6 +118,50 @@ function responsive_image(
       $sources['webp'][] = asset_url($normalizedPath) . ' ' . $width . 'w';
     }
   }
+
+  return ['remote' => $isRemote, 'path' => $normalizedPath, 'width' => $width,
+    'height' => $height, 'sources' => $sources];
+}
+
+function responsive_image_preload(string $path, string $sizes): string
+{
+  $image = responsive_image_data($path);
+  foreach ($image['sources'] as $format => $candidates) {
+    if ($candidates !== []) {
+      // No href fallback: browsers without responsive preload support use the picture.
+      return sprintf('<link rel="preload" as="image" type="image/%s" imagesrcset="%s" imagesizes="%s" fetchpriority="high">',
+        e($format), e(implode(', ', $candidates)), e($sizes));
+    }
+  }
+  return '';
+}
+
+/** Version every local module, including relative static and dynamic imports. */
+function javascript_import_map(): string
+{
+  $imports = [];
+  foreach (glob(__DIR__ . '/../public/assets/js/*.js') ?: [] as $file) {
+    $path = '/public/assets/js/' . basename($file);
+    $imports[$path] = asset_url($path);
+  }
+  return json_encode(['imports' => $imports], JSON_HEX_TAG | JSON_HEX_AMP | JSON_THROW_ON_ERROR);
+}
+
+/**
+ * Build a responsive picture using generated AVIF/WebP variants when present.
+ *
+ * @param array<string, string> $attributes
+ */
+function responsive_image(
+  string $path,
+  string $alt,
+  string $classes,
+  string $sizes,
+  array $attributes = []
+): string {
+  $image = responsive_image_data($path);
+  ['remote' => $isRemote, 'path' => $normalizedPath, 'width' => $width,
+    'height' => $height, 'sources' => $sources] = $image;
 
   $imgAttributes = array_merge([
     'src' => $isRemote ? $normalizedPath : asset_url($normalizedPath),

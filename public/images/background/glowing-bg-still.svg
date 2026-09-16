@@ -1,0 +1,65 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <style>
+    .glow { transform-box: fill-box; transform-origin: center; will-change: transform, opacity; animation-duration: 36s; animation-timing-function: ease-in-out; animation-iteration-count: infinite; }
+    .top-glow-magenta { animation-name: top-glow-magenta; }
+    .top-glow-purple { animation-name: top-glow-purple; }
+    .main-glow { animation-name: main-glow; }
+    .bottom-glow { animation-name: bottom-glow; }
+    .accent-glow { animation-name: accent-glow; }
+
+    @keyframes top-glow-magenta {
+      0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: .5; }
+      33.333% { transform: translate3d(210px, -286px, 0) scale(1.249); opacity: 0; }
+      66.667% { transform: translate3d(-437px, -466px, 0) scale(1.249); opacity: .7; }
+    }
+    @keyframes top-glow-purple {
+      0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0; }
+      33.333% { transform: translate3d(210px, -286px, 0) scale(1.249); opacity: .8; }
+      66.667% { transform: translate3d(-437px, -466px, 0) scale(1.249); opacity: 0; }
+    }
+    @keyframes main-glow {
+      0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: 1; }
+      33.333% { transform: translate3d(776px, 139px, 0) scale(.684); opacity: 1; }
+      66.667% { transform: translate3d(720px, 978px, 0) scale(.684); opacity: 1; }
+    }
+    @keyframes bottom-glow {
+      0%, 33.333%, 100% { opacity: .3; }
+      66.667% { opacity: 0; }
+    }
+    @keyframes accent-glow {
+      0%, 66.667%, 100% { opacity: 0; }
+      33.333% { opacity: .9; }
+    }
+    @media (width < 1088px), (prefers-reduced-motion: reduce) {
+      .glow { animation-play-state: paused; will-change: auto; }
+    }
+  .glow { animation-play-state: paused !important; will-change: auto !important; }
+  </style>
+  <defs>
+    <radialGradient id="magenta" cx="50%" cy="50%" r="50%">
+      <stop offset="41.8269%" stop-color="#BD25F9"/>
+      <stop offset="100%" stop-color="#BD25F9" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="purple" cx="50%" cy="50%" r="50%">
+      <stop offset="41.8269%" stop-color="#8E38FF"/>
+      <stop offset="100%" stop-color="#8E38FF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="violet" cx="50%" cy="50%" r="50%">
+      <stop offset="25%" stop-color="#6334EA"/>
+      <stop offset="100%" stop-color="#6334EA" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="blue" cx="50%" cy="50%" r="50%">
+      <stop offset="40.8654%" stop-color="#3069ED"/>
+      <stop offset="100%" stop-color="#3069ED" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="frame"><rect width="1920" height="1080"/></clipPath>
+  </defs>
+  <g clip-path="url(#frame)">
+    <rect width="1920" height="1080" fill="#231C39"/>
+    <circle class="glow top-glow-magenta" cx="1552" cy="125" r="819" fill="url(#magenta)" style="mix-blend-mode:exclusion"/>
+    <circle class="glow top-glow-purple" cx="1552" cy="125" r="819" fill="url(#purple)"/>
+    <circle class="glow main-glow" cx="-111" cy="-139" r="1404" fill="url(#violet)"/>
+    <circle class="glow bottom-glow" cx="653" cy="1024" r="899" fill="url(#blue)" style="mix-blend-mode:soft-light"/>
+    <circle class="glow accent-glow" cx="345" cy="1030" r="770" fill="url(#blue)"/>
+  </g>
+</svg>

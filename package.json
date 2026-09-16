@@ -5,9 +5,10 @@
   "packageManager": "pnpm@11.20.0",
   "scripts": {
     "dev": "tailwindcss -i ./public/assets/css/tailwind-config.css -o ./public/assets/css/styles.css --watch",
-    "build": "php ./scripts/build-icons.php && node ./scripts/build-responsive-images.mjs && tailwindcss -i ./public/assets/css/tailwind-config.css -o ./public/assets/css/styles.css --minify",
+    "build": "php ./scripts/build-icons.php && node ./scripts/build-svg-backgrounds.mjs && node ./scripts/build-responsive-images.mjs && tailwindcss -i ./public/assets/css/tailwind-config.css -o ./public/assets/css/styles.css --minify",
     "build:icons": "php ./scripts/build-icons.php",
-    "build:images": "node ./scripts/build-responsive-images.mjs"
+    "build:images": "node ./scripts/build-responsive-images.mjs",
+    "test:tracking": "node --test tests/third-parties.test.cjs"
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.1.14",

@@ -2,6 +2,9 @@
 $pageTitle = $trans('home.title');
 list($clients1, $clients2, $clients3, $clients4) = split_array_in_quarters($constants['clients']);
 // $clients = $constants['clients'];
+// Match the square hero's 40vh cap and desktop container width.
+$heroImage = '/public/images/home/bo-computer.webp';
+$heroSizes = '(min-width: 1088px) calc((min(100vw, 1440px) - 72px) * 0.45), min(40vh, calc(100vw - 56px))';
 require __DIR__ . '/../layouts/header.php';
 include __DIR__ . '/../components/sideDotsNavigation.php';
 ?>
@@ -10,7 +13,10 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
 <section data-nav-index="0" class="nav-section lg:snap-start relative text-white w-full overflow-x-hidden">
   <span class="absolute top-0 left-0 size-0" id="home"></span>
   <div class="absolute -z-1 w-full h-full top-0 left-0">
-    <img class="background" src="/public/images/background/glowing-bg.svg" alt="" loading="eager" fetchpriority="low" width="1920" height="1080" decoding="async">
+    <picture>
+      <source media="(width < 1088px), (prefers-reduced-motion: reduce)" srcset="<?= asset_url('/public/images/background/glowing-bg-still.svg') ?>">
+      <img class="background" src="<?= asset_url('/public/images/background/glowing-bg.svg') ?>" alt="" loading="eager" fetchpriority="low" width="1920" height="1080" decoding="async">
+    </picture>
     <div class="absolute w-full h-full top-0 left-0" style="background-image:url('/public/images/background/light_toast.png');background-repeat:repeat;mix-blend-mode:overlay;opacity:0.5"></div>
   </div>
   <div class="block-content py-16 lg:py-24 min-h-dvh flex-center gap-4 flex-col lg:flex-row-reverse">
@@ -25,7 +31,7 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
       </div>
     </div>
     <div class="relative lg:w-1/2">
-      <?= responsive_image('/public/images/home/bo-computer.webp', '', 'max-h-[40vh] w-auto mx-auto lg:max-h-none lg:w-9/10 lg:ml-0 lg:mr-auto', '(min-width: 1088px) 45vw, min(80vw, 576px)', ['loading' => 'eager', 'fetchpriority' => 'high']) ?>
+      <?= responsive_image($heroImage, '', 'max-h-[40vh] w-auto mx-auto lg:max-h-none lg:w-9/10 lg:ml-0 lg:mr-auto', $heroSizes, ['loading' => 'eager', 'fetchpriority' => 'high']) ?>
     </div>
   </div>
 </section>

@@ -2,6 +2,9 @@
 $pageTitle = $trans('home.title');
 list($clients1, $clients2, $clients3, $clients4) = split_array_in_quarters($constants['clients']);
 // $clients = $constants['clients'];
+// Match the square hero's 40vh cap and desktop container width.
+$heroImage = $currentLang === 'en' ? '/public/images/home/bo-computer.webp' : null;
+$heroSizes = '(min-width: 1088px) calc((min(100vw, 1440px) - 72px) * 0.45), min(40vh, calc(100vw - 56px))';
 require __DIR__ . '/../layouts/header.php';
 include __DIR__ . '/../components/sideDotsNavigation.php';
 ?>
@@ -35,7 +38,7 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
           data-hero-autoplay
         ></video>
       <?php else: ?>
-        <?= responsive_image('/public/images/home/bo-computer.webp', '', 'max-h-[40vh] w-auto mx-auto lg:max-h-none lg:w-9/10 lg:ml-0 lg:mr-auto', '(min-width: 1088px) 45vw, min(80vw, 576px)', ['loading' => 'eager', 'fetchpriority' => 'high']) ?>
+        <?= responsive_image($heroImage, '', 'max-h-[40vh] w-auto mx-auto lg:max-h-none lg:w-9/10 lg:ml-0 lg:mr-auto', $heroSizes, ['loading' => 'eager', 'fetchpriority' => 'high']) ?>
       <?php endif; ?>
     </div>
   </div>

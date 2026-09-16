@@ -30,8 +30,8 @@
       0%, 66.667%, 100% { opacity: 0; }
       33.333% { opacity: .9; }
     }
-    @media (max-width: 1079px), (prefers-reduced-motion: reduce) {
-      .glow { animation-play-state: paused; }
+    @media (width < 1088px), (prefers-reduced-motion: reduce) {
+      .glow { animation-play-state: paused; will-change: auto; }
     }
   </style>
   <defs>

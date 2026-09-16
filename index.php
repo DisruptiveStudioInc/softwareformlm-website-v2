@@ -74,13 +74,6 @@ $routeLoader($router);
 // Dispatch request and send response
 try {
   $response = $router->dispatch($request);
-  // Preload only the actual homepage LCP candidate, not decorative backgrounds.
-  $requestPath = parse_url($request->getUri(), PHP_URL_PATH) ?? '/';
-  if (preg_match('#^/(?:[a-z]{2})?$#', $requestPath) === 1) {
-    $lcpImage = asset_url('/public/images/home/bo-computer-w640.avif');
-    header("Link: <$lcpImage>; rel=preload; as=image; type=image/avif; fetchpriority=high");
-  }
-
   $method = $request->getMethod();
   $hasRef = !empty($_GET['ref']);
   $hasSessionCookie = !empty($_COOKIE[session_name()]);

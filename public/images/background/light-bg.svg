@@ -59,8 +59,8 @@
     @keyframes fade-3-a { 0%, 25%, 75%, 100% { opacity: 0; } 50% { opacity: .8; } }
     @keyframes fade-4-a { 0%, 25%, 50%, 100% { opacity: 0; } 75% { opacity: .8; } }
 
-    @media (max-width: 1079px), (prefers-reduced-motion: reduce) {
-      .glow { animation-play-state: paused; }
+    @media (width < 1088px), (prefers-reduced-motion: reduce) {
+      .glow { animation-play-state: paused; will-change: auto; }
     }
   </style>
 

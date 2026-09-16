@@ -58,11 +58,12 @@
     <?php endif; ?>
   <?php endif; ?>
 
-  <link rel="preload" href="<?= asset_url('/public/assets/fonts/Axiforma-regular.woff2') ?>" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="<?= asset_url('/public/assets/fonts/Helvetica-Neue-LT-Pro-93-Black-Extended.woff') ?>" as="font" type="font/woff" crossorigin>
-  <link rel="preload" href="<?= asset_url('/public/assets/fonts/khand-bold.woff2') ?>" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="<?= asset_url('/public/assets/css/styles.css') ?>">
 
+  <?php if (isset($heroImage, $heroSizes)): ?>
+    <?= responsive_image_preload($heroImage, $heroSizes) ?>
+  <?php endif; ?>
+  <script type="importmap"><?= javascript_import_map() ?></script>
   <script type="module" src="<?= asset_url('/public/assets/js/base.js') ?>"></script>
   <?php if (!empty($includeAnimations)): ?>
     <script type="module" src="<?= asset_url('/public/assets/js/home-animations.js') ?>"></script>

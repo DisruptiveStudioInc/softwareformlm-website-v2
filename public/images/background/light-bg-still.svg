@@ -1,0 +1,112 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <style>
+    .glow {
+      transform-box: fill-box;
+      transform-origin: center;
+      will-change: transform, opacity;
+      animation-duration: 40s, 40s;
+      animation-timing-function: ease-in-out, ease-in-out;
+      animation-iteration-count: infinite, infinite;
+    }
+
+    .track-a.source-1 { animation-name: track-a, fade-1-a; }
+    .track-a.source-2 { animation-name: track-a, fade-2-a; }
+    .track-a.source-3 { animation-name: track-a, fade-3-a; }
+    .track-a.source-4 { animation-name: track-a, fade-4-a; }
+    .track-b.source-1 { animation-name: track-b, fade-1; }
+    .track-b.source-2 { animation-name: track-b, fade-2; }
+    .track-b.source-3 { animation-name: track-b, fade-3; }
+    .track-b.source-4 { animation-name: track-b, fade-4; }
+    .track-c.source-1 { animation-name: track-c, fade-1; }
+    .track-c.source-2 { animation-name: track-c, fade-2; }
+    .track-c.source-3 { animation-name: track-c, fade-3; }
+    .track-c.source-4 { animation-name: track-c, fade-4; }
+    .track-d.source-1 { animation-name: track-d, fade-1; }
+    .track-d.source-2 { animation-name: track-d, fade-2; }
+    .track-d.source-3 { animation-name: track-d, fade-3; }
+
+    @keyframes track-a {
+      0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+      25% { transform: translate3d(77px, 844.5px, 0) scale(.916, .644); }
+      50% { transform: translate3d(-1149px, -78px, 0) scale(1.703, 1.122); }
+      75% { transform: translate3d(-1170.5px, 345.5px, 0) scale(1.964, 1.92); }
+    }
+    @keyframes track-b {
+      0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+      25% { transform: translate3d(390.5px, 27.5px, 0) scale(1.414, .978); }
+      50% { transform: translate3d(837.5px, 1290.5px, 0) scale(1.002, .655); }
+      75% { transform: translate3d(460.5px, 510.5px, 0) scale(1.424, 1.382); }
+    }
+    @keyframes track-c {
+      0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+      25% { transform: translate3d(-154px, -287px, 0) scale(.694); }
+      50% { transform: translate3d(893.53px, -702.2px, 0) rotate(29.425deg) scale(1.493, .329); }
+      75% { transform: translate3d(1722px, -598px, 0) scale(.83, .674); }
+    }
+    @keyframes track-d {
+      0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+      25% { transform: translate3d(-141px, -45px, 0) scale(.556, .821); }
+      50% { transform: translate3d(262.9px, 232.6px, 0) rotate(-60.353deg) scale(.569, 1.79); }
+      75% { transform: translate3d(241px, 416px, 0) scale(0); }
+    }
+
+    @keyframes fade-1 { 0%, 100% { opacity: 1; } 25%, 50%, 75% { opacity: 0; } }
+    @keyframes fade-2 { 0%, 50%, 75%, 100% { opacity: 0; } 25% { opacity: 1; } }
+    @keyframes fade-3 { 0%, 25%, 75%, 100% { opacity: 0; } 50% { opacity: 1; } }
+    @keyframes fade-4 { 0%, 25%, 50%, 100% { opacity: 0; } 75% { opacity: 1; } }
+    @keyframes fade-1-a { 0%, 100% { opacity: 1; } 25%, 50%, 75% { opacity: 0; } }
+    @keyframes fade-2-a { 0%, 50%, 75%, 100% { opacity: 0; } 25% { opacity: 1; } }
+    @keyframes fade-3-a { 0%, 25%, 75%, 100% { opacity: 0; } 50% { opacity: .8; } }
+    @keyframes fade-4-a { 0%, 25%, 50%, 100% { opacity: 0; } 75% { opacity: .8; } }
+
+    @media (width < 1088px), (prefers-reduced-motion: reduce) {
+      .glow { animation-play-state: paused; will-change: auto; }
+    }
+  .glow { animation-play-state: paused !important; will-change: auto !important; }
+  </style>
+
+  <defs>
+    <radialGradient id="a1"><stop offset="41.8269%" stop-color="#A9ABE5"/><stop offset="100%" stop-color="#A9ABE5" stop-opacity="0"/></radialGradient>
+    <radialGradient id="a2"><stop offset="46.6346%" stop-color="#ADB8F4"/><stop offset="82.6923%" stop-color="#A4A5E7" stop-opacity=".8"/><stop offset="100%" stop-color="#A9ABE5" stop-opacity="0"/></radialGradient>
+    <radialGradient id="a3"><stop offset="39.9038%" stop-color="#B79FE9"/><stop offset="100%" stop-color="#B79FE9" stop-opacity="0"/></radialGradient>
+    <radialGradient id="a4"><stop offset="39.9038%" stop-color="#ADA3E2"/><stop offset="100%" stop-color="#ADA3E2" stop-opacity="0"/></radialGradient>
+
+    <radialGradient id="b1"><stop offset="51.4423%" stop-color="#A99DE8"/><stop offset="99.0385%" stop-color="#A99DE8" stop-opacity="0"/></radialGradient>
+    <radialGradient id="b2"><stop offset="49.5192%" stop-color="#B5CBF9"/><stop offset="82.6923%" stop-color="#A4A5E7"/><stop offset="100%" stop-color="#A99DE8" stop-opacity="0"/></radialGradient>
+    <radialGradient id="b3"><stop offset="25.4808%" stop-color="#F7B8F6"/><stop offset="100%" stop-color="#F7B8F6" stop-opacity="0"/></radialGradient>
+    <radialGradient id="b4"><stop offset="37.5%" stop-color="#F2EBFF"/><stop offset="100%" stop-color="#F2EBFF" stop-opacity="0"/></radialGradient>
+
+    <radialGradient id="c1"><stop offset="40.3846%" stop-color="#E7C9EB"/><stop offset="100%" stop-color="#E7C9EB" stop-opacity="0"/></radialGradient>
+    <radialGradient id="c2"><stop offset="40.3846%" stop-color="#B79FE9"/><stop offset="100%" stop-color="#B79FE9" stop-opacity="0"/></radialGradient>
+    <radialGradient id="c3"><stop offset="3.84615%" stop-color="#B9B0EA"/><stop offset="54.8077%" stop-color="#A58DF6" stop-opacity=".34"/><stop offset="100%" stop-color="#9977FF" stop-opacity="0"/></radialGradient>
+    <radialGradient id="c4"><stop offset="1.44231%" stop-color="#B5CBF9"/><stop offset="59.988%" stop-color="#B5CBF9" stop-opacity="0"/></radialGradient>
+
+    <radialGradient id="d1"><stop offset="12.9808%" stop-color="#B4ABE8"/><stop offset="100%" stop-color="#B4ABE8" stop-opacity="0"/></radialGradient>
+    <radialGradient id="d2"><stop offset="32.6923%" stop-color="#BDA4EF"/><stop offset="100%" stop-color="#BDA4EF" stop-opacity="0"/></radialGradient>
+    <radialGradient id="d3" gradientTransform="rotate(2)"><stop offset="15.8654%" stop-color="#CCDAFA"/><stop offset="59.3384%" stop-color="#ABB5EA"/><stop offset="100%" stop-color="#83ABFF" stop-opacity="0"/></radialGradient>
+    <clipPath id="frame"><rect width="1920" height="1080"/></clipPath>
+  </defs>
+
+  <g clip-path="url(#frame)">
+    <rect width="1920" height="1080" fill="#9A9AAA"/>
+
+    <ellipse class="glow track-a source-1" cx="1552" cy="273" rx="819" ry="819" fill="url(#a1)"/>
+    <ellipse class="glow track-a source-2" cx="1552" cy="273" rx="819" ry="819" fill="url(#a2)"/>
+    <ellipse class="glow track-a source-3" cx="1552" cy="273" rx="819" ry="819" fill="url(#a3)"/>
+    <ellipse class="glow track-a source-4" cx="1552" cy="273" rx="819" ry="819" fill="url(#a4)"/>
+
+    <ellipse class="glow track-b source-1" cx="960" cy="0" rx="836" ry="836" fill="url(#b1)"/>
+    <ellipse class="glow track-b source-2" cx="960" cy="0" rx="836" ry="836" fill="url(#b2)"/>
+    <ellipse class="glow track-b source-3" cx="960" cy="0" rx="836" ry="836" fill="url(#b3)"/>
+    <ellipse class="glow track-b source-4" cx="960" cy="0" rx="836" ry="836" fill="url(#b4)"/>
+
+    <ellipse class="glow track-c source-1" cx="508" cy="1169" rx="1044" ry="1044" fill="url(#c1)"/>
+    <ellipse class="glow track-c source-2" cx="508" cy="1169" rx="1044" ry="1044" fill="url(#c2)"/>
+    <ellipse class="glow track-c source-3" cx="508" cy="1169" rx="1044" ry="1044" fill="url(#c3)"/>
+    <ellipse class="glow track-c source-4" cx="508" cy="1169" rx="1044" ry="1044" fill="url(#c4)"/>
+
+    <ellipse class="glow track-d source-1" cx="140.5" cy="202" rx="819.5" ry="748" fill="url(#d1)"/>
+    <ellipse class="glow track-d source-2" cx="140.5" cy="202" rx="819.5" ry="748" fill="url(#d2)"/>
+    <ellipse class="glow track-d source-3" cx="140.5" cy="202" rx="819.5" ry="748" fill="url(#d3)"/>
+  </g>
+</svg>
