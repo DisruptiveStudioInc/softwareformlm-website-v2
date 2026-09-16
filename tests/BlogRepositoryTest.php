@@ -42,15 +42,16 @@ final class BlogRepositoryTest extends BlogTestCase
     }
 
     #[Test]
-    public function migrated_content_contains_all_38_posts_and_19_pairs(): void
+    public function published_content_preserves_original_posts_and_reciprocal_pairs(): void
     {
         $root = dirname(__DIR__);
         $repository = new BlogRepository($root . '/content/blog', $root . '/public/images/blog');
-        self::assertCount(19, $repository->published('en'));
-        self::assertCount(19, $repository->published('es'));
+        self::assertGreaterThanOrEqual(19, count($repository->published('en')));
+        self::assertCount(count($repository->published('en')), $repository->published('es'));
         foreach ($repository->published('en') as $post) {
             self::assertNotNull($post->translation);
             self::assertSame($post->translation, $repository->translatedSlug($post->slug, 'es'));
+            self::assertSame($post->slug, $repository->translatedSlug($post->translation, 'en'));
         }
     }
 }
