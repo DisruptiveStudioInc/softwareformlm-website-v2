@@ -26,7 +26,8 @@ if (config) {
     if (loaded.has('gtm')) return;
     loaded.add('gtm');
     window.dataLayer.push({ 'gtm.start': Date.now(), event: 'gtm.js' });
-    loadScript(`https://www.googletagmanager.com/gtm.js?id=${encodeURIComponent(config.gtmId)}`);
+    loadScript(`https://www.googletagmanager.com/gtm.js?id=${encodeURIComponent(config.gtmId)}`)
+      .catch(() => {});
   };
 
   const loadMarketing = () => {
@@ -42,15 +43,11 @@ if (config) {
       };
       window.fbq('init', config.metaPixelId);
       window.fbq('track', 'PageView');
-      loadScript('https://connect.facebook.net/en_US/fbevents.js');
+      loadScript('https://connect.facebook.net/en_US/fbevents.js').catch(() => {});
     }
 
-    if (!hasScriptFrom('clarity.ms')) {
-      window.clarity = window.clarity || function clarity() {
-        (window.clarity.q = window.clarity.q || []).push(arguments);
-      };
-      loadScript(`https://www.clarity.ms/tag/${config.clarityId}`);
-    }
+    // Clarity is already published by GTM-WNG6M4TX (verified in PSI traces).
+    // One owner avoids racing a second loader against asynchronous GTM tags.
 
     if (!hasScriptFrom('tracker.metricool.com')) {
       loadScript('https://tracker.metricool.com/resources/be.js')
@@ -120,9 +117,19 @@ if (config) {
   const initializeAfterLoad = () => {
     if (loaded.has('post-load')) return;
     loaded.add('post-load');
-    loadGtm();
     beginMarketingAfterIntent();
   };
+
+  // Preserve the queue above from navigation onward. The first intent or the
+  // five-second navigation deadline starts GTM, independently of window.load.
+  const intentEvents = ['pointerdown', 'keydown', 'touchstart'];
+  const startGtm = () => {
+    window.clearTimeout(gtmDeadline);
+    intentEvents.forEach((event) => window.removeEventListener(event, startGtm));
+    loadGtm();
+  };
+  const gtmDeadline = window.setTimeout(startGtm, Math.max(0, 5000 - performance.now()));
+  intentEvents.forEach((event) => window.addEventListener(event, startGtm, { once: true, passive: true }));
 
   // Do not couple chat availability to the marketing timeout or window load.
   scheduleChat();
