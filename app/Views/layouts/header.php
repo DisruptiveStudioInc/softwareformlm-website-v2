@@ -59,6 +59,28 @@
     <?php endif; ?>
   <?php endif; ?>
 
+  <?php if (!empty($includeAnimations)): ?>
+    <script>
+      // Hide entrance targets only while desktop motion initializes. No-JS,
+      // reduced-motion and failed/slow loads keep the static presentation.
+      if (matchMedia('(min-width: 1088px) and (prefers-reduced-motion: no-preference)').matches) {
+        const root = document.documentElement;
+        const finish = (state) => {
+          clearTimeout(window.sfmlmAnimationBoot.timer);
+          window.sfmlmAnimationBoot.state = state;
+          root.classList.remove('animations-pending');
+        };
+        window.sfmlmAnimationBoot = {
+          state: 'pending',
+          ready: () => finish('ready'),
+          fail: () => finish('failed'),
+          timer: setTimeout(() => finish('failed'), 4000),
+        };
+        root.classList.add('animations-pending');
+      }
+    </script>
+  <?php endif; ?>
+
   <link rel="stylesheet" href="<?= asset_url('/public/assets/css/styles.css') ?>">
 
   <?php if (isset($heroImage, $heroSizes)): ?>

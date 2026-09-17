@@ -1,8 +1,14 @@
 const { gsap, ScrollTrigger } = window;
 
-if (!gsap || !ScrollTrigger) {
+const boot = window.sfmlmAnimationBoot;
+
+if (!gsap || !ScrollTrigger || boot?.state === 'failed') {
+  boot?.fail();
   window.sfmlmAnimations = {};
 } else {
+  // Reveal CSS defaults synchronously before from() captures its end values.
+  // The same task installs hidden GSAP start states before the next paint.
+  boot?.ready();
   gsap.registerPlugin(ScrollTrigger);
 
   const desktop = window.matchMedia('(min-width: 1088px)').matches;

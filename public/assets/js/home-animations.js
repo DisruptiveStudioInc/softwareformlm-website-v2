@@ -20,13 +20,19 @@ const prefersReducedMotion = window.matchMedia(
 ).matches;
 
 if (!hasAnimationMarkup) {
-  // No-op
+  window.sfmlmAnimationBoot?.ready();
 } else if (!isDesktop || prefersReducedMotion) {
+  window.sfmlmAnimationBoot?.ready();
   restoreStaticMobilePresentation();
 } else {
   loadAnimationDependencies()
-    .then(() => import("./animations.js"))
+    .then(() => {
+      if (window.sfmlmAnimationBoot?.state !== "failed") {
+        return import("./animations.js");
+      }
+    })
     .catch((error) => {
+      window.sfmlmAnimationBoot?.fail();
       console.error("Animation initialization failed", error);
     });
 }

@@ -112,3 +112,9 @@ Production validation remains required: repeat five interleaved measurements per
 Release targets remain mobile median LCP ≤3 seconds and TBT ≤200 ms; desktop median LCP ≤1 second and TBT ≤200 ms; every run CLS ≤0.1. The longer-term mobile p75 LCP target is ≤2.5 seconds. Compare matching environments and record p75 separately from field data.
 
 If a feature change repeatedly worsens median LCP or TBT by more than 10%, or breaks functionality, reverse that feature's recovery commit and rerun the same checks. Do not reset to an old tree or discard new blog content. A broader selective round-two reversal against `29ab203` is only warranted if controlled production comparisons still show regression after these targeted fixes.
+
+## Desktop entrance follow-up
+
+A delayed-library browser test reproduced a visible heading becoming hidden when GSAP initialized. Desktop motion now opts into a temporary pre-paint visibility guard for entrance targets. The hero remains visible. GSAP removes the guard and establishes its initial states synchronously, preserving existing easing, timing, and stagger sequences. A four-second startup timeout or loading failure restores static content and prevents late imports from hiding it again. Mobile, reduced motion, and JavaScript-disabled pages do not opt in.
+
+`tests/browser-entrances.cjs` checks all eight reported groups before their triggers and samples opacity through their entrances, plus delayed, failed and timed-out dependency loading, mobile, reduced motion, and no JavaScript. The browser checks and all 14 PHPUnit tests passed. The earlier Lighthouse table predates this follow-up; it has not been remeasured for this change.

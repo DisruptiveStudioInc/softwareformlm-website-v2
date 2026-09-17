@@ -703,3 +703,16 @@
     animation: none !important;
   }
 }
+
+/* JS opts in before first paint. Removing this class and creating the GSAP
+   starting states happen in the same task, so no final-state frame leaks. */
+@media (min-width: 1088px) and (prefers-reduced-motion: no-preference) {
+  .animations-pending :is(
+    .slide-up, .slide-up-delay, .slide-up-stagger, .opacity-stagger,
+    .slide-up-words, .slide-up-words-black, .slide-up-words-white,
+    .slide-up-words-white-scroll, .tech-card, .ip-benefit,
+    [data-title-cta-action], [data-reveal-description], [data-reveal-action]
+  ) {
+    visibility: hidden;
+  }
+}
