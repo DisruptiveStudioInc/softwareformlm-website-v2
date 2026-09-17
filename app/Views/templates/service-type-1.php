@@ -2,6 +2,7 @@
 $pageTitle = $meta['meta_title'] ?? $content['hero']['title'];
 $encodedTitle = urlencode($pageTitle);
 $metaDescription = $meta['meta_description'] ?? '';
+$iconSprite = '/public/assets/icons.svg';
 require __DIR__ . '/../layouts/header.php';
 include __DIR__ . '/../components/fixedBackground.php';
 ?>
@@ -10,12 +11,12 @@ include __DIR__ . '/../components/fixedBackground.php';
   <div id="serv-dots" role="group" aria-label="Service sections" class="flex gap-2 xs:gap-4 !transform-none en:ml-22 en:md:ml-0"></div>
   <nav class="absolute top-1/2 md:static flex gap-4 en:gap-1.5 en:lg:gap-4 w-full en:w-auto md:w-auto justify-between">
     <button type="button" id="serv-prev" aria-label="<?= htmlspecialchars($trans('common.previous')) ?>" class="button rounded-lg leading-none gap-2 cursor-pointer -translate-y-1/2 md:translate-none disabled:opacity-0 disabled:pointer-events-none max-md:p-2">
-      <svg class="size-5"><use href="<?= asset_url('/public/assets/icons.svg') ?>#arrow-left"/></svg>
+      <svg class="size-5"><use href="<?= asset_url($iconSprite ?? '/public/assets/icons.svg') ?>#arrow-left"/></svg>
       <span class="hidden md:inline"><?= $trans('common.previous') ?></span>
     </button>
     <button type="button" id="serv-next" aria-label="<?= htmlspecialchars($trans('common.next')) ?>" class="button rounded-lg leading-none gap-2 cursor-pointer -translate-y-1/2 md:translate-none disabled:opacity-0 disabled:pointer-events-none max-md:p-2">
       <span class="hidden md:inline"><?= $trans('common.next') ?></span>
-      <svg class="size-5"><use href="<?= asset_url('/public/assets/icons.svg') ?>#arrow-right"/></svg>
+      <svg class="size-5"><use href="<?= asset_url($iconSprite ?? '/public/assets/icons.svg') ?>#arrow-right"/></svg>
     </button>
   </nav>
 </div>
@@ -76,7 +77,7 @@ include __DIR__ . '/../components/fixedBackground.php';
               <li class="flex items-start gap-2 sm:flex-col opacity-0 group-[&.swiper-slide-fully-visible]:opacity-100 translate-y-12 group-[&.swiper-slide-fully-visible]:translate-y-0 transition-op-trans duration-300"
               style="transition-delay: calc(200ms + (100ms * <?= $k ?>));">
                 <div class="p-2 rounded-lg bg-brand-100 text-secondary-100 mb-0 lg:mb-4 flex-center shadow-md lg:shadow-xl">
-                  <svg class="size-6 lg:size-10"><use href="<?= asset_url('/public/assets/icons.svg') ?>#<?= $benefit['image'] ?>"/></svg>
+                  <svg class="size-6 lg:size-10"><use href="<?= asset_url($iconSprite ?? '/public/assets/icons.svg') ?>#<?= $benefit['image'] ?>"/></svg>
                 </div>
                 <div>
                   <h3 class="font-bold sm:text-lg lg:text-xl w-full"><?= $benefit['title'] ?></h3>
@@ -133,11 +134,11 @@ include __DIR__ . '/../components/fixedBackground.php';
 
             <div class="mt-4 lg:mt-12 flex-center gap-2">
               <button type="button" aria-label="<?= htmlspecialchars($trans('common.previous')) ?>" class="lg:hidden flex-center bg-surface-100 text-secondary-50 hover:bg-brand-100 active:bg-brand-100 hover:text-white active:text-white p-1 rounded-full cursor-pointer" id="prevBtn">
-                <svg class="size-7"><use href="<?= asset_url('/public/assets/icons.svg') ?>#chevron-left"/></svg>
+                <svg class="size-7"><use href="<?= asset_url($iconSprite ?? '/public/assets/icons.svg') ?>#chevron-left"/></svg>
               </button>
               <div class="pagination flex gap-1 p-0.5 rounded-full w-fit bg-white" id="pagination-depth"></div>
               <button type="button" aria-label="<?= htmlspecialchars($trans('common.next')) ?>" class="lg:hidden flex-center bg-surface-100 text-secondary-50 hover:bg-brand-100 active:bg-brand-100 hover:text-white active:text-white p-1 rounded-full cursor-pointer" id="nextBtn">
-                <svg class="size-7"><use href="<?= asset_url('/public/assets/icons.svg') ?>#chevron-right"/></svg>
+                <svg class="size-7"><use href="<?= asset_url($iconSprite ?? '/public/assets/icons.svg') ?>#chevron-right"/></svg>
               </button>
             </div>
           </div>
@@ -152,7 +153,7 @@ include __DIR__ . '/../components/fixedBackground.php';
             <p class="text-secondary-200 lg:text-xl text-balance"><?= $content['sales']['text'] ?></p>
             <div class="relative w-fit mt-4 mx-auto lg:mt-8 lg:mx-0">
               <a href="https://wa.me/<?= $constants['contact_info']['wame'] ?>?text=<?= $trans('common.wame_message') ?>%20<?= $encodedTitle ?>" target="_blank" rel="noopener noreferrer" class="button leading-none relative gradient gap-2 rounded-lg w-fit px-7 md:text-xl font-semibold hover:text-white z-1">
-                <svg class="relative size-7 md:size-8"><use href="<?= asset_url('/public/assets/icons.svg') ?>#whatsapp" /></svg>
+                <svg class="relative size-7 md:size-8"><use href="<?= asset_url($iconSprite ?? '/public/assets/icons.svg') ?>#whatsapp" /></svg>
                 <span class="relative pt-0.5"><?= $trans('common.sales') ?></span>
               </a>
               <div class="button-glow"></div>

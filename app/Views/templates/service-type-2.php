@@ -1,6 +1,7 @@
 <?php
 $pageTitle = $meta['meta_title'] ?? $content['hero']['title'];
 $metaDescription = $meta['meta_description'] ?? '';
+$iconSprite = '/public/assets/icons.svg';
 require __DIR__ . '/../layouts/header.php';
 ?>
 
@@ -23,16 +24,16 @@ require __DIR__ . '/../layouts/header.php';
       <div class="flex items-center gap-4 mb-6 lg:mb-12 w-fit mx-auto lg:mx-0">
         <ul class="flex gap-0 -space-x-2 sm:-space-x-4 shrink-0">
           <?php foreach($content['hero_tag']['images'] as $k => $img): ?>
-            <li class="opacity-0 animate-fadein" style="animation-delay:calc(100ms + (50ms * <?= $k ?>))">
+            <li>
               <img src="/public/images/services/ips/<?= $img ?>" <?= image_dimensions('/public/images/services/ips/' . $img) ?> alt="client" class="size-7 sm:size-12 rounded-full shadow-md shadow-secondary-50/40 bg-surface-100 object-cover">
             </li>
           <?php endforeach; ?>
         </ul>
-        <p class="text-xs md:text-sm lg:text-base max-w-[36ch] lg:max-w-none opacity-0 animate-fadein" style="animation-delay:300ms"><?= $content['hero_tag']['text'] ?></p>
+        <p class="text-xs md:text-sm lg:text-base max-w-[36ch] lg:max-w-none"><?= $content['hero_tag']['text'] ?></p>
       </div>
-      <h1 class="font-title font-bold bg-clip-text bg-text-black uppercase text-lg md:text-2xl lg:text-4xl xl:text-6xl text-balance leading-tight text-center lg:text-left sm:mb-4 opacity-0 animate-slideup" style="animation-delay:400ms"><?= $content['hero'] ?></h1>
-      <p class="lg:text-xl mb-6 lg:mb-12 text-center lg:text-left opacity-0 animate-slideup" style="animation-delay:500ms"><?= $content['hero_text'] ?></p>
-      <div class="flex flex-col sm:flex-row gap-2 sm:gap-4 justify-center lg:justify-start opacity-0 animate-slideup" style="animation-delay:600ms">
+      <h1 class="font-title font-bold bg-clip-text bg-text-black uppercase text-lg md:text-2xl lg:text-4xl xl:text-6xl text-balance leading-tight text-center lg:text-left sm:mb-4"><?= $content['hero'] ?></h1>
+      <p class="lg:text-xl mb-6 lg:mb-12 text-center lg:text-left"><?= $content['hero_text'] ?></p>
+      <div class="flex flex-col sm:flex-row gap-2 sm:gap-4 justify-center lg:justify-start">
         <a href="<?= $content['hero_cta_main']['link'].$constants['contact_info']['wame'] ?>" target="_blank" rel="noopener noreferrer" class="button rounded-full sm:px-7 bg-white text-secondary-200 border-2 border-brand-100 hover:bg-brand-100 active:bg-brand-100 hover:text-white active:text-white text-center">
           <?= $content['hero_cta_main']['text'] ?>
         </a>
@@ -42,7 +43,7 @@ require __DIR__ . '/../layouts/header.php';
       </div>
     </div>
     <div class="lg:w-1/2">
-      <?= responsive_image('/public/images/services/ips/' . $content['hero_image'], '', 'rounded-xl lg:rounded-2xl w-4/5 max-w-xl lg:w-full lg:max-w-none mx-auto mb-8 lg:mb-0 opacity-0 animate-fadein', '(min-width: 1088px) 50vw, 80vw', ['loading' => 'eager', 'fetchpriority' => 'high', 'style' => 'animation-delay:100ms']) ?>
+      <?= responsive_image('/public/images/services/ips/' . $content['hero_image'], '', 'rounded-xl lg:rounded-2xl w-4/5 max-w-xl lg:w-full lg:max-w-none mx-auto mb-8 lg:mb-0', '(min-width: 1088px) 50vw, 80vw', ['loading' => 'eager', 'fetchpriority' => 'high']) ?>
     </div>
   </div>
 </section>
@@ -56,7 +57,7 @@ require __DIR__ . '/../layouts/header.php';
     <p class="text-center lg:text-xl max-w-[64ch] mb-8 mx-auto lg:mb-20 slide-up"><?= $content['benefits_text'] ?></p>
     <div class="flex flex-col gap-20 max-w-screen-xl mx-auto snap-y snap-proximity">
       <?php foreach($content['benefits'] as $k => $item): ?>
-        <article class="ip-benefit opacity-0 flex-center flex-col lg:flex-row gap-4 lg:gap-12 xl:gap-32 max-w-xl lg:max-w-none mx-auto lg:mx-0 snap-center">
+        <article class="ip-benefit flex-center flex-col lg:flex-row gap-4 lg:gap-12 xl:gap-32 max-w-xl lg:max-w-none mx-auto lg:mx-0 snap-center">
           <img src="/public/images/services/ips/<?= $item['image'] ?>" <?= image_dimensions('/public/images/services/ips/' . $item['image']) ?> alt="<?= $item['title'] ?>" class="rounded-xl lg:rounded-2xl w-full lg:w-1/2">
           <div class="w-full lg:w-1/2">
             <p class="text-base lg:text-2xl"><?= sprintf("%02d", $k + 1) ?></p>

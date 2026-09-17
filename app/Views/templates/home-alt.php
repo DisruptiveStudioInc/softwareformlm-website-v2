@@ -242,7 +242,7 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
       ?>
         <article class="<?= $recommended ? 'recommended bg-secondary-200 text-white' : 'bg-white text-secondary-200' ?> relative rounded-lg px-4 pb-4 pt-6 lg:p-6 flex flex-col lg:max-h-[70vh]">
             <button type="button" aria-label="More information about <?= htmlspecialchars($item['title']) ?>" class="open-popup absolute top-2 right-2 <?= $recommended ? 'text-surface-300' : 'text-secondary-50/70' ?> hover:text-brand-100 rounded-full cursor-pointer p-1 transition-colors" data-target="product-popup-<?= strtolower($item['title']) ?>">
-              <svg class="size-6 transition-colors"><use href="<?= asset_url('/public/assets/icons.svg') ?>#info-flat"/></svg>
+              <svg class="size-6 transition-colors"><use href="<?= asset_url($iconSprite ?? '/public/assets/icons.svg') ?>#info-flat"/></svg>
             </button>
           <?php if($recommended): ?>
             <div class="absolute w-full top-0 left-0 -translate-y-1/2 text-center pointer-events-none">
@@ -277,7 +277,7 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
                       }
                     ?>
                   </span>
-                  <svg class="shrink-0 size-6 text-green-400"><use href="<?= asset_url('/public/assets/icons.svg') ?>#check-circle"/></svg>
+                  <svg class="shrink-0 size-6 text-green-400"><use href="<?= asset_url($iconSprite ?? '/public/assets/icons.svg') ?>#check-circle"/></svg>
                 </li>
               <?php endforeach; ?>
             </ul>
@@ -307,10 +307,10 @@ include __DIR__ . '/../components/sideDotsNavigation.php';
         </div>
         <nav class="flex gap-2 justify-center slide-up-stagger lg:max-w-[48ch] mt-2" data-reveal-action>
           <button type="button" aria-label="<?= htmlspecialchars($trans('common.previous')) ?>" class="subcategories-button-prev rounded-lg cursor-pointer text-gray-100 hover:bg-brand-100 hover:text-secondary-100 disabled:pointer-events-none disabled:opacity-30 p-2 transition-op-colors">
-            <svg class="size-10 transition-colors"><use href="<?= asset_url('/public/assets/icons.svg') ?>#arrow-left"/></svg>
+            <svg class="size-10 transition-colors"><use href="<?= asset_url($iconSprite ?? '/public/assets/icons.svg') ?>#arrow-left"/></svg>
           </button>
           <button type="button" aria-label="<?= htmlspecialchars($trans('common.next')) ?>" class="subcategories-button-next rounded-lg cursor-pointer text-gray-100 hover:bg-brand-100 hover:text-secondary-100 disabled:pointer-events-none disabled:opacity-30 p-2 transition-op-colors">
-            <svg class="size-10 transition-colors"><use href="<?= asset_url('/public/assets/icons.svg') ?>#arrow-right"/></svg>
+            <svg class="size-10 transition-colors"><use href="<?= asset_url($iconSprite ?? '/public/assets/icons.svg') ?>#arrow-right"/></svg>
           </button>
         </nav>
       </div>
@@ -380,7 +380,7 @@ if (!empty($includeDemoEmbed)) {
 <dialog id="demo-popup" class="popup bg-transparent m-auto w-full max-w-2xl px-7">
   <div class="relative w-full rounded-xl lg:rounded-2xl max-h-[90vh] overflow-x-hidden overflow-y-auto" style="background-color:#12173800">
     <button type="button" data-target="demo-popup" aria-label="Close dialog" class="close-popup absolute top-2 right-2 text-gray-100 bg-surface-200 hover:bg-brand-100 hover:text-secondary-100 rounded-lg cursor-pointer p-1 transition-colors">
-      <svg class="size-6 transition-colors"><use href="<?= asset_url('/public/assets/icons.svg') ?>#xmark"/></svg>
+      <svg class="size-6 transition-colors"><use href="<?= asset_url($iconSprite ?? '/public/assets/icons.svg') ?>#xmark"/></svg>
     </button>
     <div
       class="min-h-[70vh] rounded-xl lg:rounded-2xl bg-white overflow-hidden"
@@ -402,7 +402,7 @@ if (!empty($includeDemoEmbed)) {
   <dialog id="product-popup-<?= strtolower($product['title']) ?>" class="popup bg-transparent m-auto w-full max-w-2xl px-7">
     <div class="relative w-full bg-white rounded-xl lg:rounded-2xl max-h-[90vh] overflow-x-hidden overflow-y-auto">
       <button type="button" data-target="product-popup-<?= strtolower($product['title']) ?>" aria-label="Close dialog" class="close-popup absolute top-2 right-2 text-gray-100 bg-surface-200 hover:bg-brand-100 hover:text-secondary-100 rounded-lg cursor-pointer p-1 transition-colors">
-        <svg class="size-6 transition-colors"><use href="<?= asset_url('/public/assets/icons.svg') ?>#xmark"/></svg>
+        <svg class="size-6 transition-colors"><use href="<?= asset_url($iconSprite ?? '/public/assets/icons.svg') ?>#xmark"/></svg>
       </button>
       <div class="p-6 lg:p-10 text-secondary-200">
         <h3 class="font-title text-center text-2xl lg:text-4xl mb-4"><?= $product['title'] ?></h3>
@@ -415,7 +415,7 @@ if (!empty($includeDemoEmbed)) {
         <ul class="space-y-2 mb-6">
           <?php foreach(($product['modal']['features'] ?? []) as $feature): ?>
             <li class="flex gap-1.5 items-start">
-              <svg class="size-6 shrink-0 text-brand-200"><use href="<?= asset_url('/public/assets/icons.svg') ?>#check-circle"/></svg>
+              <svg class="size-6 shrink-0 text-brand-200"><use href="<?= asset_url($iconSprite ?? '/public/assets/icons.svg') ?>#check-circle"/></svg>
               <span><?= $feature ?></span>
             </li>
           <?php endforeach; ?>
@@ -425,7 +425,7 @@ if (!empty($includeDemoEmbed)) {
         <ul class="space-y-2 mb-6">
           <?php foreach(($product['modal']['ideal_for'] ?? []) as $idealItem): ?>
             <li class="flex gap-1.5 items-start">
-              <svg class="size-6 shrink-0 text-brand-200"><use href="<?= asset_url('/public/assets/icons.svg') ?>#check-circle"/></svg>
+              <svg class="size-6 shrink-0 text-brand-200"><use href="<?= asset_url($iconSprite ?? '/public/assets/icons.svg') ?>#check-circle"/></svg>
               <span><?= $idealItem ?></span>
             </li>
           <?php endforeach; ?>

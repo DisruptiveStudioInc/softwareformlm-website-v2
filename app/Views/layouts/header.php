@@ -1,3 +1,4 @@
+<?php $iconSprite ??= '/public/assets/icons-ui.svg'; ?>
 <!DOCTYPE html>
 <html lang="<?= $currentLang ?>" class="scroll-smooth <?= isset($hasSnapScroll) ? 'lg:snap-y lg:snap-proximity' : '' ?>">
 <head>
@@ -86,7 +87,7 @@
       <div class="flex items-center lg:shrink-0 border-r border-surface-300 gap-2 lg:gap-4 pr-4">
         <!-- Logo -->
         <a href="<?= route('home', $currentLang, $config['languages']['default']) ?>" class="text-2xl font-bold text-gray-800" aria-label="<?= htmlspecialchars($trans('nav.home')) ?>">
-          <svg width="100" height="100" class="h-8 lg:h-10 w-auto"><use href="<?= asset_url('/public/assets/icons.svg') ?>#disruptive-favicon"/></svg>
+          <svg width="100" height="100" class="h-8 lg:h-10 w-auto"><use href="<?= asset_url($iconSprite ?? '/public/assets/icons.svg') ?>#disruptive-favicon"/></svg>
         </a>
 
         <!-- Language switcher -->
@@ -97,13 +98,13 @@
         ?>
 
         <a href="https://wa.me/<?= $constants['contact_info']['wame'] ?>?text=<?= $trans('common.wame_message') ?>" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="flex-center p-1.5 rounded-full bg-green-400 hover:bg-green-700 active:bg-green-700 transition-colors">
-          <svg class="size-7 text-white"><use href="<?= asset_url('/public/assets/icons.svg') ?>#whatsapp"/></svg>
+          <svg class="size-7 text-white"><use href="<?= asset_url($iconSprite ?? '/public/assets/icons.svg') ?>#whatsapp"/></svg>
         </a>
       </div>
 
       <!-- Mobile menu button -->
       <button id="mobile-menu-button" class="lg:hidden p-1.5 rounded-lg bg-brand-100 text-white active:bg-brand-200" aria-label="Open menu">
-        <svg class="size-7" fill="none"><use href="<?= asset_url('/public/assets/icons.svg') ?>#bars-menu"/></svg>
+        <svg class="size-7" fill="none"><use href="<?= asset_url($iconSprite ?? '/public/assets/icons.svg') ?>#bars-menu"/></svg>
       </button>
 
       <!-- Desktop Navigation -->
@@ -126,7 +127,7 @@
     <div id="mobile-menu" class="lg:hidden fixed top-0 left-0 w-full h-dvh bg-white -translate-y-full transition-transform duration-500">
       <div class="p-7 flex flex-col items-end gap-2 h-full">
         <button id="close-mobile-button" class="p-1.5 rounded-lg bg-surface-100 text-brand-100 active:bg-brand-200 active:text-white" aria-label="Close menu">
-          <svg class="size-7" fill="none"><use href="<?= asset_url('/public/assets/icons.svg') ?>#arrow-up"/></svg>
+          <svg class="size-7" fill="none"><use href="<?= asset_url($iconSprite ?? '/public/assets/icons.svg') ?>#arrow-up"/></svg>
         </button>
 
         <div class="overflow-y-auto">
@@ -141,7 +142,7 @@
                 <?php else: ?>
                   <button type="button" data-target="acc-content-<?= $index ?>" aria-controls="acc-content-<?= $index ?>" aria-expanded="false" class="acc-trigger group/item flex w-full items-center justify-between px-2 py-3 text-left text-xl [&.open]:text-brand-200 transition-colors">
                     <?= $item['label'] ?>
-                    <svg class="size-6 group-[.open]/item:rotate-180 transition-transform"><use href="<?= asset_url('/public/assets/icons.svg') ?>#chevron-down"/></svg>
+                    <svg class="size-6 group-[.open]/item:rotate-180 transition-transform"><use href="<?= asset_url($iconSprite ?? '/public/assets/icons.svg') ?>#chevron-down"/></svg>
                   </button>
                   <div id="acc-content-<?= $index ?>" class="grid grid-rows-[0fr] [&.open]:grid-rows-[1fr] transition-grid-rows duration-500">
                     <ul class="bg-surface-100/70 flex flex-col overflow-hidden">
@@ -150,7 +151,7 @@
                           <?php if($item['isMegamenu']): ?>
                             <button type="button" data-target="acc-subcontent-<?= $inner ?>" aria-controls="acc-subcontent-<?= $inner ?>" aria-expanded="false" class="acc-trigger group/subitem w-full text-xl font-bold mb-1 text-secondary-100 flex items-center justify-between [&.open]:text-brand-200 transition-colors">
                               <?= $sub['name'] ?>
-                              <svg class="size-6 inline-block ml-1 group-[.open]/subitem:rotate-180 transition-transform"><use href="<?= asset_url('/public/assets/icons.svg') ?>#chevron-down"/></svg>
+                              <svg class="size-6 inline-block ml-1 group-[.open]/subitem:rotate-180 transition-transform"><use href="<?= asset_url($iconSprite ?? '/public/assets/icons.svg') ?>#chevron-down"/></svg>
                             </button>
                             <div id="acc-subcontent-<?= $inner ?>" class="grid grid-rows-[0fr] [&.open]:grid-rows-[1fr] transition-grid-rows duration-500">
                               <ul class="flex flex-col overflow-hidden">

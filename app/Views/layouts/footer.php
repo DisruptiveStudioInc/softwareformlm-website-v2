@@ -3,12 +3,12 @@
 <footer id="main-footer" class="bg-secondary-200 <?= (isset($hasSnapScroll) && $hasSnapScroll) ? 'snap-start' : '' ?>">
   <div class="block-content flex flex-col items-center gap-6 lg:gap-12 py-12 lg:py-16">
     <div class="flex flex-col items-center lg:items-start">
-      <svg width="250" height="60" class="h-12 w-auto"><use href="<?= asset_url('/public/assets/icons.svg') ?>#disruptive-studio-logo"/></svg>
+      <svg width="250" height="60" class="h-12 w-auto"><use href="<?= asset_url($iconSprite ?? '/public/assets/icons.svg') ?>#disruptive-studio-logo"/></svg>
       <ul class="flex flex-wrap items-center gap-6 mt-4 lg:mt-2 mx-auto">
         <?php foreach($constants['social_media'] as $key => $url): ?>
           <li>
             <a href="<?= $url ?>" target="_blank" rel="noopener noreferrer" aria-label="<?= htmlspecialchars(ucfirst($key)) ?>" class="block text-white hover:text-brand-200 active:text-brand-200 p-2 transition-colors">
-              <svg class="size-6"><use href="<?= asset_url('/public/assets/icons.svg') ?>#<?= $key ?>"/></svg>
+              <svg class="size-6"><use href="<?= asset_url($iconSprite ?? '/public/assets/icons.svg') ?>#<?= $key ?>"/></svg>
             </a>
           </li>
         <?php endforeach; ?>
@@ -40,11 +40,11 @@
   </div>
   <div class="p-7 border-t border-grey-100 text-center text-surface-100">
     <ul class="flex justify-center gap-4 sm:gap-6 mb-4">
-      <li class=""><svg width="180" height="120" class="h-5 sm:h-7 lg:h-9 w-auto aspect-[3/2]"><use href="<?= asset_url('/public/assets/icons.svg') ?>#card-americanexpress"/></svg></li>
-      <li class=""><svg width="180" height="120" class="h-5 sm:h-7 lg:h-9 w-auto aspect-[3/2]"><use href="<?= asset_url('/public/assets/icons.svg') ?>#card-dinnersclub"/></svg></li>
-      <li class=""><svg width="180" height="120" class="h-5 sm:h-7 lg:h-9 w-auto aspect-[3/2]"><use href="<?= asset_url('/public/assets/icons.svg') ?>#card-mastercard"/></svg></li>
-      <li class=""><svg width="180" height="120" class="h-5 sm:h-7 lg:h-9 w-auto aspect-[3/2]"><use href="<?= asset_url('/public/assets/icons.svg') ?>#card-visa"/></svg></li>
-      <li class=""><svg width="180" height="120" class="h-5 sm:h-7 lg:h-9 w-auto aspect-[3/2]"><use href="<?= asset_url('/public/assets/icons.svg') ?>#card-usdt"/></svg></li>
+      <li class=""><svg width="180" height="120" class="h-5 sm:h-7 lg:h-9 w-auto aspect-[3/2]"><use href="<?= asset_url($iconSprite ?? '/public/assets/icons.svg') ?>#card-americanexpress"/></svg></li>
+      <li class=""><svg width="180" height="120" class="h-5 sm:h-7 lg:h-9 w-auto aspect-[3/2]"><use href="<?= asset_url($iconSprite ?? '/public/assets/icons.svg') ?>#card-dinnersclub"/></svg></li>
+      <li class=""><svg width="180" height="120" class="h-5 sm:h-7 lg:h-9 w-auto aspect-[3/2]"><use href="<?= asset_url($iconSprite ?? '/public/assets/icons.svg') ?>#card-mastercard"/></svg></li>
+      <li class=""><svg width="180" height="120" class="h-5 sm:h-7 lg:h-9 w-auto aspect-[3/2]"><use href="<?= asset_url($iconSprite ?? '/public/assets/icons.svg') ?>#card-visa"/></svg></li>
+      <li class=""><svg width="180" height="120" class="h-5 sm:h-7 lg:h-9 w-auto aspect-[3/2]"><use href="<?= asset_url($iconSprite ?? '/public/assets/icons.svg') ?>#card-usdt"/></svg></li>
     </ul>
     <small class="block mb-4"><?= $trans('footer.legal_small') ?></small>
     <small class="block mb-4"><a href="https://www.comparasoftware.com/software-for-mlm" target="_blank" rel="noopener noreferrer"><?= $trans('footer.affiliate_brand') ?></a> <?= $trans('footer.affiliate_text') ?> <a href="https://www.comparasoftware.com/mlm" target="_blank" rel="noopener noreferrer"><?= $trans('footer.affiliate_name') ?></a></small>
@@ -56,7 +56,7 @@
     class="fixed bottom-4 right-4 flex-center p-2 rounded-full bg-green-400 hover:bg-green-700 active:bg-green-700 transition-colors z-1 en:bottom-22 en:right-5"
   >
     <span class="h-4/5 w-4/5 rounded-full bg-green-400/70 backdrop-blur-3xl absolute top-1/10 left-1/10 animate-ping -z-1 pointer-events-none"></span>
-    <svg class="size-9 text-white"><use href="<?= asset_url('/public/assets/icons.svg') ?>#whatsapp"/></svg>
+    <svg class="size-9 text-white"><use href="<?= asset_url($iconSprite ?? '/public/assets/icons.svg') ?>#whatsapp"/></svg>
   </a>
 </footer>
 

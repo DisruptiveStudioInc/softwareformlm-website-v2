@@ -45,8 +45,8 @@ if ($hasPostTranslations) {
 
 <div class="language-switcher relative group">
   <button type="button" class="lang-trigger flex items-center pl-3 lg:es:pl-1.5 py-4 lg:py-5 gap-1" aria-label="Choose language" aria-expanded="false">
-    <svg class="size-7 text-secondary-50/80 group-hover:text-brand-100"><use href="<?= asset_url('/public/assets/icons.svg') ?>#world"/></svg>
-    <svg class="size-5 text-brand-100 lg:group-hover:rotate-180 [&.open]:rotate-180 transition-transform"><use href="<?= asset_url('/public/assets/icons.svg') ?>#chevron-down"/></svg>
+    <svg class="size-7 text-secondary-50/80 group-hover:text-brand-100"><use href="<?= asset_url($iconSprite ?? '/public/assets/icons.svg') ?>#world"/></svg>
+    <svg class="size-5 text-brand-100 lg:group-hover:rotate-180 [&.open]:rotate-180 transition-transform"><use href="<?= asset_url($iconSprite ?? '/public/assets/icons.svg') ?>#chevron-down"/></svg>
   </button>
   <ul class="lang-options absolute top-full left-0 min-w-max w-full space-y-1 p-2 rounded-lg bg-white border border-surface-300 opacity-0 pointer-events-none lg:group-hover:opacity-100 [&.open]:opacity-100 lg:group-hover:pointer-events-auto [&.open]:pointer-events-auto transition-opacity">
     <?php foreach ($languageOptions as $langCode => $langData): ?>
