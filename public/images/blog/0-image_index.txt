@@ -2,3 +2,4 @@
 003-mlm-automation.webp
 004-connected-ecosystem.webp
 005-rank-progression.webp
+006-distributor-onboarding.webp
