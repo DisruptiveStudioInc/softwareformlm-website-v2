@@ -3,3 +3,4 @@
 004-connected-ecosystem.webp
 005-rank-progression.webp
 006-distributor-onboarding.webp
+007-business-rules.webp
