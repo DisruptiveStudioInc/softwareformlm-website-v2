@@ -1313,6 +1313,38 @@ Para producción, considera:
 - Configurar registro apropiado
 - Configurar monitoreo
 
+
+### Actualizaciones de seguridad de PHP (Docker)
+
+PHP proviene del contenedor, no de Composer ni de la instalación del servidor.
+Compose construye `Dockerfile` desde `trafex/php-nginx:latest`, actualiza los
+paquetes de Alpine y comprueba la versión instalada. La construcción exige PHP
+8.3.36+, 8.4.27+ o 8.5.12+ dentro de esas ramas para corregir CVE-2026-109618 y
+CVE-2026-109619. Una nueva rama requiere revisar `scripts/check-php-version.php`.
+
+En cada servidor Docker, incluido producción, ejecutar desde el repositorio:
+
+```bash
+docker compose build --pull --no-cache sfmlm-website
+docker compose run --rm --no-deps sfmlm-website php /usr/local/lib/check-php-version.php
+docker compose up -d --force-recreate sfmlm-website
+docker compose exec -T sfmlm-website php /usr/local/lib/check-php-version.php
+```
+
+Después de recrear el contenedor, verificar el inicio, el blog en ambos idiomas y
+los formularios. Recrear el único contenedor interrumpe brevemente las solicitudes.
+Si los paquetes corregidos aún no están disponibles, obtener una imagen o
+repositorio actualizado y reconstruir; no omitir la comprobación de versión.
+
+Un Git pull o reinicio del contenedor no reemplaza PHP. El pipeline actual de
+Azure solo descarga cambios; también se deben ejecutar los comandos anteriores
+en el servidor de despliegue. Si producción utiliza otra configuración Docker,
+debe construir este Dockerfile (o desplegar una imagen construida desde él) y
+recrear sus contenedores. Actualizar PHP en el anfitrión no actualiza contenedores.
+
+Aviso: [PHP, 21 de octubre de 2026](https://www.php.net/archive/2026.php#2026-10-21-5).
+
+
 ---
 
 ## Guías de Desarrollo

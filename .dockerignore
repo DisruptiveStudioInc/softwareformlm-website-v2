@@ -1,0 +1,5 @@
+# Application files are mounted by Compose; only send the runtime check to Docker.
+**
+!Dockerfile
+!scripts/
+!scripts/check-php-version.php

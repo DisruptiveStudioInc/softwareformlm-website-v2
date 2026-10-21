@@ -1314,6 +1314,38 @@ For production, consider:
 - Configuring proper logging
 - Setting up monitoring
 
+### PHP security updates (Docker)
+
+PHP is supplied by the container, not by Composer or the host's PHP installation.
+Compose builds `Dockerfile` from `trafex/php-nginx:latest`, refreshes the Alpine
+packages, and checks the installed PHP version. The build fails unless PHP is
+8.3.36+, 8.4.27+, or 8.5.12+ within those branches, which contain the fixes for
+CVE-2026-109618 and CVE-2026-109619. A new PHP branch requires reviewing and
+updating `scripts/check-php-version.php`.
+
+On each Docker host, including production, run from the repository directory:
+
+```bash
+docker compose build --pull --no-cache sfmlm-website
+docker compose run --rm --no-deps sfmlm-website php /usr/local/lib/check-php-version.php
+docker compose up -d --force-recreate sfmlm-website
+docker compose exec -T sfmlm-website php /usr/local/lib/check-php-version.php
+```
+
+After recreation, verify the home page, blog pages in both languages, and form
+handling. Recreating the single container briefly interrupts requests. If the
+build fails because patched packages are unavailable, obtain an updated upstream
+image/package repository and rebuild; do not bypass the version check.
+
+A Git pull or container restart alone does not replace the PHP runtime. The
+current Azure pipeline only pulls repository changes; the commands above must
+also run on the deployment host. If production uses a separately managed Docker
+configuration, it must build this Dockerfile (or deploy an image built from it)
+and recreate its containers. Updating the host's PHP does not update containers.
+
+Security advisory: [PHP, 21 October 2026](https://www.php.net/archive/2026.php#2026-10-21-5).
+
+
 ---
 
 ## Development Guidelines
